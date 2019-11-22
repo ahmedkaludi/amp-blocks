@@ -34,7 +34,7 @@ class AMPBLOCKS_Gutenberg {
          */
     public function register_frontend_assets() {
         if(!is_admin()){
-
+            
             global $post;
 
             wp_enqueue_style(
@@ -71,9 +71,9 @@ class AMPBLOCKS_Gutenberg {
         
         global $post;
 
-        $global_css  =  AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/global.css';
+        $global_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/global.css';
         
-        $cta_css  =  AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/amp/ab-cta.css';
+        $cta_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-cta.css';
 
         echo file_get_contents($global_css);       
 
@@ -85,7 +85,7 @@ class AMPBLOCKS_Gutenberg {
 
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/cta'){
 
-                    echo file_get_contents($cta_css);
+                    echo @file_get_contents($cta_css);
 
                 }
 
@@ -155,7 +155,7 @@ class AMPBLOCKS_Gutenberg {
     
     $categories[] = array(
             'slug'  => 'amp-blocks',
-            'title' => 'AMP Blocks'
+            'title' => esc_html__('AMP Blocks','amp-blocks')
     );
         
         return $categories;

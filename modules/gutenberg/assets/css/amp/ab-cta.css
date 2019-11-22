@@ -1,6 +1,6 @@
 /** CTA Design CSS **/
 .ab-cta-w{
-    width:750px;
+    max-width:750px;
     margin:20px auto !important;
     display: inherit;
     /* box-shadow: 0 5px 5px 0 rgba(18,63,82,.035), 0 0 0 1px rgba(176,181,193,.2); */
@@ -36,7 +36,7 @@ a.ab-cta-b{
 
 @media(max-width:800px){
     .ab-cta-w{
-        width:100%;
+        max-width:100%;
         padding:15px 20px 25px 20px;
     }
 }

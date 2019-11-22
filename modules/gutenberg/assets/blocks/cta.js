@@ -139,9 +139,8 @@
                   initialOpen: true,
                   title:'Layout Settings'   
                   },
-                    el('span',{className:"cntrl-lbl"},'Max Width'),
+                    el('span',{className:"cntrl-lbl"},__('Max Width', 'amp-blocks')),
                     el(TextControl, {
-                      //label: 'Max Width',
                       value: attributes.widthcntrl,
                       onChange: function(event){
                         props.setAttributes({ widthcntrl: event })
@@ -149,19 +148,18 @@
                     }),
 
                     // Display alignment toolbar within block controls.
-                    el('span',{className:"cntrl-lbl"},'Alignment'),
+                    el('span',{className:"cntrl-lbl"},__('Alignment', 'amp-blocks')),
                     el(AlignmentToolbar, {
-                      label: 'Alignment',
                       value: alignment,
                       onChange: function(event){
                         props.setAttributes({ alignment: event })
                       }
                     }),
 
-                    el('span',{className:"cntrl-lbl"},'Button Link'),
+                    el('span',{className:"cntrl-lbl"},__('Button Link', 'amp-blocks')),
                     el(TextControl,{
                       className:'button-link',
-                      placeholder: i18n.__('Paste your link here'),
+                      placeholder: i18n.__('Paste your link here', 'amp-blocks'),
                       keepPlaceholderOnFocus: true,
                       onChange:function(event){
                         props.setAttributes( { buttonurl:event } );
@@ -176,10 +174,8 @@
                 title:'Color Settings',
               },
                   el('div',{className:"sub-hd-clr", },
-                      el('span',{},'Sub Heading Text Color'),
+                      el('span',{},__('Sub Heading Text Color', 'amp-blocks')),
                       el('div',{},el(ColorPalette,{
-                        label: 'Sub Heading Text Color',
-                        label: 'Text color',
                         className:"ampb-cta-subh-color",
                         colors: colors,
                         onChange: function(event){
@@ -189,9 +185,8 @@
                   ),
                   
                   el('div',{className:"sub-hd-clr", },
-                      el('span',{},'Heading Text Color'),
+                      el('span',{},__('Heading Text Color', 'amp-blocks')),
                       el('div',{},el(ColorPalette,{
-                        label: 'Heading Text Color',
                         className:"ampb-cta-hdng-color",
                         colors: colors,
                         onChange: function(event){
@@ -201,9 +196,8 @@
                   ),
                   
                   el('div',{className:"sub-hd-clr", },
-                      el('span',{},'Button Text Color'),
+                      el('span',{},__('Button Text Color', 'amp-blocks')),
                       el('div',{},el(ColorPalette,{
-                        label: 'Button Text Color',
                         className:"ampb-cta-btn-color",
                         colors: colors,
                         onChange:function(event){
@@ -213,9 +207,8 @@
                   ),
 
                   el('div',{className:"sub-hd-clr", },
-                      el('span',{},'Button Background Color'),
+                      el('span',{},__('Button Background Color', 'amp-blocks')),
                       el('div',{},el(ColorPalette,{
-                        label: 'Button Background Color',
                         className:"ampb-cta-btnbg-color",
                         colors: colors,
                         onChange:function(event){
@@ -246,14 +239,13 @@
           var button = el( 'a', {
             className: 'ab-cta-b',
             href: props.attributes.buttonurl,
-            //target: '_blank',
              style: { color: props.attributes.button_text_color,
                       background: props.attributes.button_bg_color },
           }, props.attributes.button_text);
 
           
           var ctawrapper = el( 'div',{className: 'ab-cta-w', 
-                                       style: { textAlign: props.attributes.alignment,  width: props.attributes.widthcntrl } 
+                                       style: { textAlign: props.attributes.alignment, width: props.attributes.widthcntrl } 
                               }, sub_title, title,  button);
 
           return ctawrapper;

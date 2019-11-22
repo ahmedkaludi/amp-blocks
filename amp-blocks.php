@@ -17,6 +17,7 @@ define('AMP_BLOCKS_VERSION', '1.0');
 define('AMP_BLOCKS_DIR_NAME_FILE', __FILE__ );
 define('AMP_BLOCKS_DIR_NAME', dirname( __FILE__ ));
 define('AMP_BLOCKS_DIR_URI', plugin_dir_url(__FILE__));
+define('AMP_BLOCKS_DIR_PATH', plugin_dir_path(__FILE__));
 // the name of the settings page for the license input to be displayed
 if(! defined('AMP_BLOCKS_ITEM_FOLDER_NAME')){
     $folderName = basename(__DIR__);
