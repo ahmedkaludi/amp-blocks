@@ -32,7 +32,7 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 
 = Will you include features to my request? =
 
-Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](hhttps://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
+Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
 
