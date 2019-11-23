@@ -225,7 +225,6 @@
 
         },
         save: function( props ) {
-
           var sub_title = el( 'span', {
             className: 'ab-cta-st',
             style: { color: props.attributes.subtitle_text_color },
@@ -240,7 +239,8 @@
             className: 'ab-cta-b',
             href: props.attributes.buttonurl,
              style: { color: props.attributes.button_text_color,
-                      background: props.attributes.button_bg_color },
+                      background: props.attributes.button_bg_color,
+                    },
           }, props.attributes.button_text);
 
           
@@ -255,7 +255,7 @@
 }(
     window.wp.blocks,
     window.wp.element,
-    window.wp.editor,
+    window.wp.blockEditor,
     window.wp.components,
     window.wp.i18n,
 ) );

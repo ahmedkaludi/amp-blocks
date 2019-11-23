@@ -1,15 +1,1 @@
-*,*:after,*:before {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;-o-box-sizing: border-box;}
 body{ font-family: sans-serif; font-size: 16px; line-height:1.4; }
-ol, ul{ list-style-position: inside }
-p, ol, ul, figure{ margin: 0 0 1em; padding: 0; }
-h1, h2, h3, h4, h5, h6 {font-weight: normal;margin:0;}
-a, a:active, a:visited{ color:#ed1c24; text-decoration: none }
-pre{ white-space: pre-wrap;}
-.left{float:left}
-.right{float:right}
-.hidden{ display:none }
-.clearfix{ clear:both }
-blockquote{ background: #141111; margin: 10px 0 20px 0; padding: 15px;}
-blockquote p:last-child {margin-bottom: 0;}
-.amp-wp-unknown-size img {object-fit: contain;}
-.amp-wp-enforced-sizes{ max-width: 100% }

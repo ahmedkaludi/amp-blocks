@@ -24,7 +24,7 @@ class AMPBLOCKS_Gutenberg {
     private function __construct() {
         add_action( 'init', array( $this, 'register_cta' ) );                   
         add_action( 'enqueue_block_editor_assets', array( $this, 'register_admin_assets' ) ); 
-        add_action( 'enqueue_block_assets', array( $this, 'register_frontend_assets' ), 999 ); 
+        add_action( 'enqueue_block_assets', array( $this, 'register_frontend_assets' ) ); 
         add_filter( 'block_categories', array( $this, 'ampblocks_add_blocks_categories' ) );   
         add_action( 'amp_post_template_css', array($this, 'ampblocks_amp_css'));  
     }
