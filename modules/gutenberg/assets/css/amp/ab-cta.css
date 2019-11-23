@@ -30,6 +30,9 @@ a.ab-cta-b{
     line-height: 1.2;
     display: inline-block;
 }
+a.ab-cta-b:hover{
+    color:#fff;
+}
 
 @media(max-width:800px){
     .ab-cta-w{

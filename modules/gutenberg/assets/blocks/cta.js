@@ -242,7 +242,6 @@
                       background: props.attributes.button_bg_color,
                     },
           }, props.attributes.button_text);
-
           
           var ctawrapper = el( 'div',{className: 'ab-cta-w', 
                                        style: { textAlign: props.attributes.alignment, width: props.attributes.widthcntrl } 
