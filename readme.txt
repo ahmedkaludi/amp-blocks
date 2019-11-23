@@ -1,15 +1,41 @@
 === AMP Blocks ===
 Contributors: magazine3
-Tags: AMP Blocks, AMP
-Requires at least: 3.0
-Tested up to: 5.2
-Stable tag: 1.0
+Tags: AMP Blocks, gutenberg, block editor, AMP, wordpress 5.0
+Requires at least: 4.8
+Tested up to: 5.3
+Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Description ==
+
 AMP Blocks is a collection of page building blocks for the Gutenberg.
-Installing the AMP Block plugin and add your own designs with AMP blocks, whick will show in both AMP and Non AMP sites.
+AMP Blocks give you the capability to easily create great websites with just a few clicks, whick will show in both AMP and Non AMP Pages.
 
 ### Features 
+
+<h4>AMP Blocks</h4>
+* <strong>CTA</strong>
+* <strong>Upcoming Blocks</strong>
+
+== Frequently Asked Questions ==
+
+= How to install and use this AMP Blocks plugin? =
+
+After you Active this plugin, just go to Dashboard > CLick on Post (or) Page, and Select the AMP Blocks and Add the Block as per your need and change the content as you like. 
+ 
+
+= How do I report bugs and suggest new features? =
+
+You can report the bugs for this amp-blocks plugin [here](https://github.com/ahmedkaludi/amp-blocks/issues)
+
+= Will you include features to my request? =
+
+Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](hhttps://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
+
+== Changelog ==
+
+= 0.1 (23 Nov 2019) =
+
+
