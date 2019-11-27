@@ -1,6 +1,6 @@
 === AMP Blocks ===
 Contributors: magazine3
-Tags: AMP Blocks, gutenberg, block editor, AMP, wordpress 5.0
+Tags: blocks, gutenberg, AMP
 Requires at least: 4.8
 Tested up to: 5.3
 Stable tag: 0.1
