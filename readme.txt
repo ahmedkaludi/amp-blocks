@@ -1,6 +1,6 @@
 === AMP Blocks ===
 Contributors: magazine3
-Tags: blocks, gutenberg, AMP
+Tags: block, gutenberg, AMP
 Requires at least: 4.8
 Tested up to: 5.3
 Stable tag: 0.1
@@ -37,5 +37,4 @@ Yes, Absolutely! We would suggest you send your feature request by creating an i
 == Changelog ==
 
 = 0.1 (23 Nov 2019) =
-
-
+* Initial release
