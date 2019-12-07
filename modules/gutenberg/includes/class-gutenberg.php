@@ -60,6 +60,16 @@ class AMPBLOCKS_Gutenberg {
     
                     }
 
+                    if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/button'){
+                        
+                        wp_enqueue_style(
+                            'ampblocks-gutenberg-non-amp-css-reg',
+                            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/button.css',
+                            array()                        
+                        );
+    
+                    }
+
                 } // foreach ends here
     
             } // function ends here
@@ -75,6 +85,8 @@ class AMPBLOCKS_Gutenberg {
         
         $cta_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-cta.css';
 
+        $button_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-button.css';
+
         echo file_get_contents($global_css);       
 
         if(function_exists('parse_blocks') && is_object($post)){
@@ -86,6 +98,12 @@ class AMPBLOCKS_Gutenberg {
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/cta'){
 
                     echo @file_get_contents($cta_css);
+
+                }
+
+                if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/button'){
+
+                    echo @file_get_contents($button_css);
 
                 }
 
@@ -122,7 +140,22 @@ class AMPBLOCKS_Gutenberg {
         );                  
         wp_localize_script( 'ampblocks-cta-reg', 'ampblocksGutenbergCTA', $inline_script );
     
-        wp_enqueue_script( 'ampblocks-cta-reg' );                 
+        wp_enqueue_script( 'ampblocks-cta-reg' );  
+        
+        // Button  Scripts
+        wp_register_script(
+            'ampblocks-button-reg',
+            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/blocks/button.js',
+            array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
+        );
+        $inline_script = array( 
+            'title' => 'Button'
+        );                  
+        wp_localize_script( 'ampblocks-button-reg', 'ampblocksGutenbergButton', $inline_script );
+    
+        wp_enqueue_script( 'ampblocks-button-reg' );   
+
+
 	}
     /**
      * Register a Call to Action
@@ -141,6 +174,13 @@ class AMPBLOCKS_Gutenberg {
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-cta-reg',
             'render_callback' => array( $this, 'render_cta_data' ),
+        ) );
+
+        register_block_type( 'ampblocks/button', array(
+            'style'         => 'ampblocks-gutenberg-css-reg',
+            'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
+            'editor_script' => 'ampblocks-button-reg',
+            'render_callback' => array( $this, 'render_button_data' ),
         ) );
                                         
                     
