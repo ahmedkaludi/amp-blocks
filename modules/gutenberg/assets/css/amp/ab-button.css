@@ -6,14 +6,14 @@
     width:100%;
     display: inline-block;
 }
-a.ab-btn-b{
-    padding:12px 40px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 1.2;
+a.ab-btn{
     display: inline-block;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
 }
-a.ab-cta-b:hover{
+a.ab-btn:hover{
     color:#fff;
 }

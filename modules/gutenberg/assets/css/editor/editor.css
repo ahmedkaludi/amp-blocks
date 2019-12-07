@@ -63,3 +63,26 @@ a.ab-cta-b{
     padding-bottom: 10px;
     display: inline-block;
 }
+
+
+
+/** Button CSS **/
+.ab-btn-w{
+    margin:20px auto;
+    font-family:sans-serif;
+    background:#fff;
+    width:100%;
+    display: inline-block;
+}
+a.ab-btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+a.ab-cta-b:hover{
+    color:#fff;
+}

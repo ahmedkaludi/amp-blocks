@@ -19,7 +19,7 @@
             
     blocks.registerBlockType( 'ampblocks/button', {
         title: __('Button', 'amp-blocks'),
-        icon: 'list-view',
+        icon: 'excerpt-view',
         category: 'amp-blocks',
         keywords: ['btn', 'button', 'Button'],
         
@@ -39,7 +39,7 @@
             },
             button_text: {
               type: 'string',
-              default :'Use JOIN free',
+              default :'Button Text',
             },
             button_text_color:{
               type:'string',
@@ -47,7 +47,7 @@
             },
             button_bg_color:{
               type:'string',
-              default: '#1e86ff',
+              default: 'linear-gradient(to right,#eb3349,#f45c43)',
             },
             buttonurl: {
               type: 'string',
@@ -58,11 +58,20 @@
         edit: function(props) {
 
         const colors = [
-            { name: 'blue', color: '#0073a8' },
-            { name: 'lblue', color: '#005075' },
-            { name: 'black', color: '#000000' },
-            { name: 'gray', color: '#767676' },
+            { name: 'pink', color: '#f78da7' },
+            { name: 'red', color: '#cf2e2e' },
+            { name: 'orange', color: '#ff6900' },
+            { name: 'yellow', color: '#fcb900' },
+            { name: 'light-green', color: '#7bdcb5' },
+            { name: 'green', color: '#00d084' },
+            { name: 'sky-blue', color: '#8ed1fc' },
+            { name: 'blue', color: '#0693e3' },
+            { name: 'meroon', color: '#9b51e0' },
+            { name: 'light-gray', color: '#eeeeee' },
+            { name: 'gray', color: '#abb8c3' },
+            { name: 'black', color: '#313131' },
             { name: 'white', color: '#ffffff' },
+
         ];
 
         var attributes = props.attributes;    
@@ -77,8 +86,8 @@
            },                             
           autoFocus: true,                               
           value: attributes.button_text,
-          onChange : function( Button ){
-            props.setAttributes( { button: Button} );
+          onChange : function( event ){
+            props.setAttributes( { button_text: event} );
           }
         })
 
@@ -89,7 +98,7 @@
 
             return [el(InspectorControls,
               {
-               className:'ampblocks-cbtn-fields',
+               className:'ampblocks-btn-fields',
                key: 'inspector'   
               },
                 el(PanelBody,
@@ -127,7 +136,7 @@
                   el('div',{className:"sub-hd-clr", },
                       el('span',{},__('Button Text Color', 'amp-blocks')),
                       el('div',{},el(ColorPalette,{
-                        className:"ampb-btn-color",
+                        className:"ab-btn-color",
                         colors: colors,
                         onChange:function(event){
                           props.setAttributes( { button_text_color:event } );
@@ -138,7 +147,7 @@
                   el('div',{className:"sub-hd-clr", },
                       el('span',{},__('Button Background Color', 'amp-blocks')),
                       el('div',{},el(ColorPalette,{
-                        className:"ampb-btnbg-color",
+                        className:"ab-btnbg-color",
                         colors: colors,
                         onChange:function(event){
                           props.setAttributes( { button_bg_color:event } );
