@@ -7,7 +7,7 @@
     display: inline-block;
     max-width: 100% !important;
 }
-a.ab-btn{
+.ab-btn-w a.ab-btn{
     text-decoration: none !important;
     display: inline-block;
     padding: 15px 40px;
