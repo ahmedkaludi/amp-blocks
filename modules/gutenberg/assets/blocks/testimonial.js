@@ -45,10 +45,8 @@
               type: 'number'
             },
             mediaURL: {
-              type: 'string',
-              source: 'attribute',
-              selector: 'img',
-              attribute: 'src'
+              type: 'string',   
+              default: 'http://localhost/ampdev/wp-content/uploads/2019/12/user-df-img.png',
             },
             testi_authr_nm: {
               type: 'string',
@@ -94,20 +92,27 @@
         var attributes = props.attributes;    
         var alignment  = props.attributes.alignment;
 
-        var onSelectImage = function (media) {
-          return props.setAttributes({
-            mediaURL: media.url,
-            mediaID: media.id
-          })
-        }
-  
-        function onChangeAlignment (newAlignment) {
-          props.setAttributes({ alignment: newAlignment })
-        }
+
+        var media_upload = el(MediaUpload, {
+          onSelect: function(media){  
+            props.setAttributes( { mediaURL: media.url} );
+            //console.log(media);
+          },
+
+         allowedTypes:[ "image" ],
+         render:function(obj){
+             return el( 'img', {                  
+                  className: 'ab-tst-img',            
+                  onClick: obj.open,
+                  src:attributes.mediaURL
+                }            
+          )
+         }
+      });
 
         var testimonial_cnt = el(RichText,{
           tagName: 'div',
-          className: 'ab-testi-cnt',
+          className: 'ab-tsti-cnt',
           style: { color: attributes.testi_content_color,
            },                             
           autoFocus: true,                               
@@ -119,7 +124,7 @@
 
         var testimonial_nme = el(RichText,{
           tagName: 'div',
-          className: 'ab-testi-nm',
+          className: 'ab-tsti-nm',
           style: { color: attributes.testi_authr_nm_color,
            },                             
           autoFocus: true,                               
@@ -131,7 +136,7 @@
 
         var testimonial_spc = el(RichText,{
           tagName: 'div',
-          className: 'ab-testi-spc',
+          className: 'ab-tsti-spf',
           style: { color: attributes.testi_social_fld_nm_color,
            },                             
           autoFocus: true,                               
@@ -142,9 +147,9 @@
         });
 
 
-        var testi_wrap = el('div',{className: 'ab-tst-w', 
+        var testi_wrap = el('div',{className: 'ab-tsti-w', 
           style: { textAlign: attributes.alignment} 
-            },testimonial_cnt, testimonial_nme, testimonial_spc);
+            },testimonial_cnt, media_upload, testimonial_nme, testimonial_spc);
 
 
             return [el(InspectorControls,
@@ -210,33 +215,6 @@
 
               ), // Color Settings Ends
 
-                el(BlockControls, { key: 'controls' }, // Display controls when the block is clicked on.
-                el('div', { className: 'components-toolbar' },
-                  el(MediaUpload, {
-                    onSelect: onSelectImage,
-                    type: 'image',
-                    render: function (obj) {
-                      return el(components.Button, {
-                        className: 'components-icon-button components-toolbar__control',
-                        onClick: obj.open
-                      },
-                      // Add Dashicon for media upload button.
-                      el('svg', { className: 'dashicon dashicons-edit', width: '20', height: '20' },
-                        el('path', { d: 'M2.25 1h15.5c.69 0 1.25.56 1.25 1.25v15.5c0 .69-.56 1.25-1.25 1.25H2.25C1.56 19 1 18.44 1 17.75V2.25C1 1.56 1.56 1 2.25 1zM17 17V3H3v14h14zM10 6c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm3 5s0-6 3-6v10c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1V8c2 0 3 4 3 4s1-3 3-3 3 2 3 2z' })
-                      ))
-                    }
-                  })
-                ),
-                // Display alignment toolbar within block controls.
-                el(AlignmentToolbar, {
-                  value: alignment,
-                  onChange: onChangeAlignment
-                })
-              ) // Block controller Ends 
-
-
-
-
               ),
               testi_wrap
             ];
@@ -250,6 +228,11 @@
              style: { color: props.attributes.testi_content_color,
                     },
           }, props.attributes.testi_content);
+
+          var upload_image = el( 'img' , {
+            className : 'ab-tst-img',
+            src: props.attributes.mediaURL
+          });
 
           var tsti_nm = el( 'div', {
             className: 'ab-tsti-nm',
@@ -266,7 +249,7 @@
           
           var tstiwrapper = el( 'div',{className: 'ab-tsti-w', 
                                        style: { textAlign: props.attributes.alignment } 
-                              },tsti_cnt, tsti_nm, tsti_spf);
+                              },tsti_cnt, upload_image, tsti_nm, tsti_spf);
 
           return tstiwrapper;
 

@@ -53,7 +53,7 @@ class AMPBLOCKS_Gutenberg {
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/cta'){
                         
                         wp_enqueue_style(
-                            'ampblocks-gutenberg-non-amp-css-reg',
+                            'ampblocks-gutenberg-cta-non-amp-css-reg',
                             AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/cta.css',
                             array()                        
                         );
@@ -63,7 +63,7 @@ class AMPBLOCKS_Gutenberg {
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/button'){
                         
                         wp_enqueue_style(
-                            'ampblocks-gutenberg-non-amp-css-reg',
+                            'ampblocks-gutenberg-button-non-amp-css-reg',
                             AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/button.css',
                             array()                        
                         );
@@ -73,7 +73,7 @@ class AMPBLOCKS_Gutenberg {
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/testimonial'){
                         
                         wp_enqueue_style(
-                            'ampblocks-gutenberg-non-amp-css-reg',
+                            'ampblocks-gutenberg-testimonial-non-amp-css-reg',
                             AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/testimonial.css',
                             array()                        
                         );
@@ -201,21 +201,21 @@ class AMPBLOCKS_Gutenberg {
         }                                   
          
         register_block_type( 'ampblocks/cta', array(
-            'style'         => 'ampblocks-gutenberg-css-reg',
+            'style'         => 'ampblocks-gutenberg-cta-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-cta-reg',
             'render_callback' => array( $this, 'render_cta_data' ),
         ) );
 
         register_block_type( 'ampblocks/button', array(
-            'style'         => 'ampblocks-gutenberg-css-reg',
+            'style'         => 'ampblocks-gutenberg-button-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-button-reg',
             'render_callback' => array( $this, 'render_button_data' ),
         ) );
 
         register_block_type( 'ampblocks/testimonial', array(
-            'style'         => 'ampblocks-gutenberg-css-reg',
+            'style'         => 'ampblocks-gutenberg-testimonial-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-testimonial-reg',
             'render_callback' => array( $this, 'render_testimonial_data' ),
