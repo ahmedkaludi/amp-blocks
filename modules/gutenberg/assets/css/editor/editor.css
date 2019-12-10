@@ -139,3 +139,23 @@ a.ab-cta-b:hover{
     font-family: sans-serif;
     font-weight: 600;
 }
+
+
+/** **/
+ .ab-tsti-w li{
+    text-align: center;
+    list-style: none;
+}
+/*
+.ab-tsti-cnt{
+    border:1px solid #ccc;
+    height:100px;
+}
+.ab-tsti-nm{
+    border:1px solid red;
+    height:50px;
+}
+.ab-tsti-spf{
+    border:1px solid green;
+    height:30px;
+} */
