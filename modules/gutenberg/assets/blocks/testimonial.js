@@ -41,8 +41,16 @@
             type: 'string',
             default: 'center',
           },
-          items: {
-            source: "query",
+          testi_content_color:{
+            type:'string',
+          },
+          testi_authr_nm_color:{
+            type:'string',
+          },
+          testi_social_fld_nm_color:{
+            type:'string',
+          },
+          items: {           
             default: [],
             selector: "blockquote.testimonial",
             query: {
@@ -69,15 +77,7 @@
                 type: 'boolean',
                 default:false      
               },
-              testi_content_color:{
-                type:'string',
-              },
-              testi_authr_nm_color:{
-                type:'string',
-              },
-              testi_social_fld_nm_color:{
-                type:'string',
-              },
+              
             } // query ends
           } // Testimonial selector ends
         }, // attributes ends
@@ -116,7 +116,10 @@
         
 
       
-     var itemlist =  props.attributes.items.map(function(key){
+     var itemlist =  props.attributes.items.sort(function(a , b) {
+                  
+      return a.index - b.index;
+      }).map(function(item){
 
         return el('li',{
           
@@ -125,18 +128,32 @@
               tagName: 'div',
               className: 'ab-tsti-cnt',
               placeholder: __('Enter the Testimonial', 'amp-blocks'),
-              style: { color: key.testi_content_color,
+              style: { color: props.attributes.testi_content_color,
               },                             
               autoFocus: true,                               
-              value: key.testi_content,
+              value: item.testi_content,
               onChange : function( event ){
-                props.setAttributes( { testi_content: event} );
+                var newObject = Object.assign({}, item, {
+                  testi_content: event
+                });
+                return props.setAttributes({
+                  items: [].concat(_cloneArray(props.attributes.items.filter(function (itemFilter) {
+                    return itemFilter.index != item.index;
+                  })), [newObject])
+                });
                }
             }),
 
             el(MediaUpload, {
               onSelect: function(media){  
-                props.setAttributes( { mediaURL: media.url} );
+                var newObject = Object.assign({}, item, {
+                  mediaURL: media.url
+                });
+                return props.setAttributes({
+                  items: [].concat(_cloneArray(props.attributes.items.filter(function (itemFilter) {
+                    return itemFilter.index != item.index;
+                  })), [newObject])
+                });
               },
     
              allowedTypes:[ "image" ],
@@ -144,36 +161,53 @@
                  return el( 'img', {                  
                       className: 'ab-tst-img',            
                       onClick: obj.open,
-                      src:key.mediaURL
+                      src:item.mediaURL
                     }            
               )
              }
+
           }),
 
             el(RichText,{
               tagName: 'div',
               className: 'ab-tsti-nm',
               placeholder: __('Name', 'amp-blocks'),
-              style: { color: key.testi_authr_nm_color,
+              style: { color: props.attributes.testi_authr_nm_color,
                },                             
               autoFocus: true,                               
-              value: key.testi_authr_nm,
+              value: item.testi_authr_nm,
               onChange : function( event ){
-                props.setAttributes( { testi_authr_nm: event} );
-              }
+                var newObject = Object.assign({}, item, {
+                  testi_authr_nm: event
+                });
+                return props.setAttributes({
+                  items: [].concat(_cloneArray(props.attributes.items.filter(function (itemFilter) {
+                    return itemFilter.index != item.index;
+                  })), [newObject])
+                });
+               }
+              
             }),
 
             el(RichText,{
               tagName: 'div',
               className: 'ab-tsti-spf',
               placeholder: __('Google', 'amp-blocks'),
-              style: { color: key.testi_social_fld_nm_color,
+              style: { color: props.attributes.testi_social_fld_nm_color,
                },                             
               autoFocus: true,                               
-              value: key.testi_social_fld_nm,
+              value: item.testi_social_fld_nm,
+
               onChange : function( event ){
-                props.setAttributes( { testi_social_fld_nm: event} );
-              }
+                var newObject = Object.assign({}, item, {
+                  testi_social_fld_nm: event
+                });
+                return props.setAttributes({
+                  items: [].concat(_cloneArray(props.attributes.items.filter(function (itemFilter) {
+                    return itemFilter.index != item.index;
+                  })), [newObject])
+                });
+               }
             }),
 
         ) // </li> ends here
@@ -191,10 +225,7 @@
                 testi_content: "You can Decide whether to create your site using UI Kit blocks or samples. The blocks can merge together in various combinations.",
                 mediaURL:'http://localhost/ampdev/wp-content/uploads/2019/12/user-df-img.png',
                 testi_authr_nm:'Raju Jeelaga',
-                testi_social_fld_nm: 'GOOGLE',
-                testi_content_color:'#54479a',
-                testi_authr_nm_color:'#54479a',
-                testi_social_fld_nm_color:'#b0afb4',
+                testi_social_fld_nm: 'GOOGLE'                
               }])
             });                            
           }
@@ -222,13 +253,13 @@
             },
              
               //Display alignment toolbar within block controls.
-              // el('span',{className:"cntrl-lbl"},__('Alignment', 'amp-blocks')),
-              // el(AlignmentToolbar, {
-              //   value: alignment,
-              //   onChange: function(event){
-              //     props.setAttributes({ alignment: event })
-              //   }
-              // }),
+              el('span',{className:"cntrl-lbl"},__('Alignment', 'amp-blocks')),
+              el(AlignmentToolbar, {
+                value: props.attributes.alignment,
+                onChange: function(event){
+                  props.setAttributes({ alignment: event })
+                }
+              }),
 
              
             ), // Layout Settings Ends
@@ -284,7 +315,8 @@
         save: function( props ) {
 
           return null;
-        }
+
+        } // Save ends here
         
 
         

@@ -1,21 +1,21 @@
 /** Testimonial Design CSS **/
-.ab-tsti-w{
+.slides{
     width:600px;
     margin:20px auto;
-    box-shadow: 0px 0px 10px #e4e4e4;
+    /* box-shadow: 0px 0px 10px #e4e4e4; */
     background-color: #fff;
     border-radius: 12px;
-    padding: 50px 30px 30px 30px;
-    font-family:sans-serif;
+    font-family: sans-serif !important;
     background:#fff;
+    /* padding:20px; */
 }
 .ab-tsti-cnt{
     font-size: 16px;
     line-height: 1.4;
     font-weight: 600;
     margin-bottom: 30px;
-    width: 448px;
-    margin: 0 auto 20px auto;
+    width: 450px;
+    margin: 0 auto 30px auto;
 }
 .ab-tsti-nm{
     font-size: 14px;
@@ -26,17 +26,22 @@
 .ab-tsti-spf{
     font-size: 11px;
     line-height: 1.3;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
 }
-.ab-tsti-w img.ab-tst-img{
+.slides img{
     margin:0 auto 10px auto;
     width:70px;
     height:70px;
     border-radius: 100px;
 }
-.ab-tsti-w:before {
+.flex-control-nav li {
+    margin: 0 6px;
+    display: inline-block;
+    zoom: 1;
+}
+.slides li:before {
     content: '“';
     font-size: 70px;
     color: #e4e4e4;
@@ -47,4 +52,94 @@
     display: inline-block;
     font-family: sans-serif;
     font-weight: 600;
+}
+
+
+/** **/
+ .slides li{
+    text-align: center;
+    list-style: none;
+    margin:0px;
+}
+.flexslider{
+    position: relative;
+}
+.flex-control-paging li a.flex-active {
+    background: #000;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: default;
+}
+.flex-control-paging li a {
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: #666;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-indent: -9999px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+.flex-control-nav {
+    width: 100%;
+    position: absolute;
+    bottom: -50px;
+    text-align: center;
+    margin:0px;
+    padding: 0px;
+}
+.flex-direction-nav a {
+    text-decoration: none;
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    overflow: hidden;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+.flex-direction-nav .flex-next {
+    right: -50px;
+    text-align: right;
+}
+.flex-direction-nav .flex-prev {
+    left: -50px;
+}
+.flex-prev:before{
+    content: "\f341";
+    font-family: dashicons;
+    font-size: 35px;
+    display: inline-block;
+    color: rgb(149, 149, 149);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+.flex-next:before {
+    content: "\f345";
+    font-family: dashicons;
+    font-size: 35px;
+    display: inline-block;
+    color: rgb(149, 149, 149);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+ul.flex-direction-nav{
+    list-style: none;
+    margin:0px;
+}
+
+
+@media(max-width:800px){
+    .ab-tsti-cnt {
+        width: 100%;
+    }
+    .flex-direction-nav .flex-prev {
+        left: -10px;
+    }
+    .flex-direction-nav .flex-next {
+        right: -10px;
+    }
 }

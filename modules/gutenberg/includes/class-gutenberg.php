@@ -22,6 +22,7 @@ class AMPBLOCKS_Gutenberg {
      * This is class constructer to use all the hooks and filters used in this class
      */
     private function __construct() {
+        
         add_action( 'init', array( $this, 'register_cta' ) );                   
         add_action( 'enqueue_block_editor_assets', array( $this, 'register_admin_assets' ) ); 
         add_action( 'enqueue_block_assets', array( $this, 'register_frontend_assets' ) ); 
@@ -32,6 +33,7 @@ class AMPBLOCKS_Gutenberg {
          * Function to enqueue frontend assets for gutenberg blocks
          * @Since Version 1.0
          */
+     
     public function register_frontend_assets() {
         if(!is_admin()){
             
@@ -77,7 +79,19 @@ class AMPBLOCKS_Gutenberg {
                             AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/testimonial.css',
                             array()                        
                         );
-    
+                        
+                        wp_enqueue_script(
+                            'ampblocksSDFSAFSdddDAFSDAF',
+                            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/js/slider.js',array( 'jquery', 'jquery-ui-core' ),
+                            AMP_BLOCKS_VERSION                            
+                        );
+                        
+                        wp_enqueue_script(
+                            'ampblocksSDFSAFSDAFSDAF',
+                            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/js/jquery.flexslider.js',array( 'jquery', 'jquery-ui-core' ),
+                            AMP_BLOCKS_VERSION                            
+                        );
+                        
                     }
 
                 } // foreach ends here
@@ -250,6 +264,61 @@ class AMPBLOCKS_Gutenberg {
     		self::$instance = new self;
     	}
 	   return self::$instance;
+    }
+
+    function render_testimonial_data($attributes){
+        //var_dump($attributes); die;
+
+        ob_start();
+
+        if ( !isset( $attributes ) ) {
+			ob_end_clean();
+                                                                       
+			return '';
+		}
+
+        if($attributes['items']){
+            if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+                echo '
+                <amp-carousel width="300" height="300"
+                    layout="responsive"
+                    type="slides">
+                    <amp-img src="https://amp.dev/static/samples/img/image1.jpg"
+                        width="400"
+                        height="300"
+                        alt="a sample image"></amp-img>
+                    <amp-img src="https://amp.dev/static/samples/img/image2.jpg"
+                        width="400"
+                        height="300"
+                        alt="another sample image"></amp-img>
+                    <amp-img src="https://amp.dev/static/samples/img/image3.jpg"
+                        width="400"
+                        height="300"
+                        alt="and another sample image"></amp-img>
+                    </amp-carousel>
+                ';
+
+            }else{
+                echo '<div class="flexslider">
+                   <ul class="slides">';
+                    foreach($attributes['items'] as $item){
+                    
+                        echo '<li>';
+                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($attributes['testi_content_color']).';">'.$item['testi_content'].'</div>';
+                            echo '<img src='.esc_attr($item['mediaURL']).'>';
+                            echo '<div class="ab-tsti-nm" style="color:'.$attributes['testi_authr_nm_color'].';">'.$item['testi_authr_nm'].'</div>';
+                            echo '<div class="ab-tsti-spf" style="color:'.$attributes['testi_social_fld_nm_color'].';">'.$item['testi_social_fld_nm'].'</div>';
+                        echo '</li>';
+
+                    }
+
+                echo '</ul></div>';
+            }
+
+        } // attributes ends 
+
+        return ob_get_clean();
+
     }
 
 }
