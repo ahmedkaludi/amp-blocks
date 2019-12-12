@@ -43,12 +43,15 @@
           },
           testi_content_color:{
             type:'string',
+            default:'#3b3170',
           },
           testi_authr_nm_color:{
             type:'string',
+            default:'#3b3170',
           },
           testi_social_fld_nm_color:{
             type:'string',
+            default:'#b8b8b8',
           },
           items: {           
             default: [],
@@ -120,10 +123,7 @@
                   
       return a.index - b.index;
       }).map(function(item){
-
-        return el('li',{
-          
-        },
+        return el('li',{},
             el(RichText,{
               tagName: 'div',
               className: 'ab-tsti-cnt',
@@ -225,7 +225,7 @@
                 testi_content: "You can Decide whether to create your site using UI Kit blocks or samples. The blocks can merge together in various combinations.",
                 mediaURL:'http://localhost/ampdev/wp-content/uploads/2019/12/user-df-img.png',
                 testi_authr_nm:'Raju Jeelaga',
-                testi_social_fld_nm: 'GOOGLE'                
+                testi_social_fld_nm: 'GOOGLE',
               }])
             });                            
           }
@@ -234,10 +234,11 @@
       );
 
        var parentdiv = el('div',{
-         className: "ab-tsti-w"
+         className: "ab-tsti-w",
+         style: { textAlign: props.attributes.alignment }
        },
        itemlist,
-        repeater  
+       repeater  
        ); 
 
       // Inspector Controls Starts

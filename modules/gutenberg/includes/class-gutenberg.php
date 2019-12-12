@@ -267,50 +267,61 @@ class AMPBLOCKS_Gutenberg {
     }
 
     function render_testimonial_data($attributes){
-        //var_dump($attributes); die;
-
         ob_start();
 
         if ( !isset( $attributes ) ) {
 			ob_end_clean();
                                                                        
 			return '';
-		}
+        }
+        
+        $content_color = '#3b3170';
+        $author_color = '#3b3170';
+        $social_txtcolor = '#b8b8b8';
 
+        if(isset($attributes['testi_content_color'])){
+            $content_color = $attributes['testi_content_color'];
+        }
+        if(isset($attributes['testi_content_color'])){
+            $author_color = $attributes['testi_authr_nm_color'];
+        }
+        if(isset($attributes['testi_content_color'])){
+            $social_txtcolor = $attributes['testi_social_fld_nm_color'];
+        }
+        
+        
         if($attributes['items']){
             if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+                $dotsTemplate = '';
                 echo '
-                <amp-carousel width="300" height="300"
-                    layout="responsive"
-                    type="slides">
-                    <amp-img src="https://amp.dev/static/samples/img/image1.jpg"
-                        width="400"
-                        height="300"
-                        alt="a sample image"></amp-img>
-                    <amp-img src="https://amp.dev/static/samples/img/image2.jpg"
-                        width="400"
-                        height="300"
-                        alt="another sample image"></amp-img>
-                    <amp-img src="https://amp.dev/static/samples/img/image3.jpg"
-                        width="400"
-                        height="300"
-                        alt="and another sample image"></amp-img>
-                    </amp-carousel>
-                ';
+                <amp-carousel class="ab-tsti-w" width="400" height="220" layout="responsive" type="slides"  on="slideChange:AMP.setState({selected: {slide: event.index}})" id="carouselWithPreview-ampblock"> ';
+                    foreach($attributes['items'] as $key=>$item){
+                        echo '<li>';
+                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.$item['testi_content'].'</div>';
+                            echo '<amp-img layout="responsive" width="70" height="70" src='.esc_attr($item['mediaURL']).'></amp-img>';
+                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.$item['testi_authr_nm'].'</div>';
+                            echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';
+                        echo '</li>';
+                        $class = '';
+                        if($key==0){ $class="active";}
+                        $dotsTemplate .= '<li><div role="button" tabindex="'.$key.'" class="'.$class.'"  on="tap:carouselWithPreview-ampblock.goToSlide(index='.$key.')" [class]="selected.slide == '.$key.' ? \'active\' : \'\'"><span>'.$key.'</span></div></li>';
 
+                    } // foreach ends here
+                echo '</amp-carousel>';
+                echo '<ul class="amp-dts" >'.$dotsTemplate.'</ul>';
             }else{
                 echo '<div class="flexslider">
                    <ul class="slides">';
                     foreach($attributes['items'] as $item){
-                    
+
                         echo '<li>';
-                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($attributes['testi_content_color']).';">'.$item['testi_content'].'</div>';
+                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.$item['testi_content'].'</div>';
                             echo '<img src='.esc_attr($item['mediaURL']).'>';
-                            echo '<div class="ab-tsti-nm" style="color:'.$attributes['testi_authr_nm_color'].';">'.$item['testi_authr_nm'].'</div>';
-                            echo '<div class="ab-tsti-spf" style="color:'.$attributes['testi_social_fld_nm_color'].';">'.$item['testi_social_fld_nm'].'</div>';
+                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.$item['testi_authr_nm'].'</div>';
+                            echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';
                         echo '</li>';
 
-                    }
+                    } // foreach ends here
 
                 echo '</ul></div>';
             }

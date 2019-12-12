@@ -140,7 +140,6 @@ a.ab-cta-b:hover{
     font-weight: 600;
 }
 
-
 /** **/
  .ab-tsti-w li{
     text-align: center;
@@ -149,16 +148,3 @@ a.ab-cta-b:hover{
     margin-bottom: 30px;
     border-bottom: 1px solid #ccc;
 }
-/*
-.ab-tsti-cnt{
-    border:1px solid #ccc;
-    height:100px;
-}
-.ab-tsti-nm{
-    border:1px solid red;
-    height:50px;
-}
-.ab-tsti-spf{
-    border:1px solid green;
-    height:30px;
-} */
