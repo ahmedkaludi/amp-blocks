@@ -93,6 +93,9 @@
 
         edit: function(props) {
 
+          var attributes = props.attributes;            
+          var alignment  = props.attributes.alignment;
+
           const colors = [
             { name: 'pink', color: '#f78da7' },
             { name: 'red', color: '#cf2e2e' },
@@ -216,6 +219,40 @@
                   })), [newObject])
                 });
                }
+            }),
+
+            el(IconButton,{
+              icon: "trash",
+              className: 'ab-trsh-btn',
+              onClick : function( event ){
+                const oldAttributes      =  attributes; 
+                const oldItems           =  attributes.items;  
+                const newTestimonials    =  oldItems
+                
+                  .filter(function(itemFilter){
+                      return itemFilter.index != item.index
+                  }).map(function(t){                                          
+                        if (t.index > oldItems.index) {
+                            t.index -= 1;
+                        }
+                        return t;
+                  });
+                  
+                  newTestimonials.forEach(function(value, index){                                        
+                      newTestimonials[index]['testi_content']        = value['testi_content'];
+                      newTestimonials[index]['mediaURL']             = value['mediaURL'];
+                      newTestimonials[index]['testi_authr_nm']       = value['testi_authr_nm'];
+                      newTestimonials[index]['testi_social_fld_nm']  = value['testi_social_fld_nm'];
+                      newTestimonials[index]['index']       = index;
+                      newTestimonials[index]['isSelected']  = false; 
+                  });
+                  
+                  oldAttributes['items'] = newTestimonials;
+                  props.setAttributes({
+                    attributes: oldAttributes
+                  });
+              } // on click function ends
+               
             }),
 
         ) // </li> ends here
