@@ -27,12 +27,14 @@
     font-weight: 600;
     letter-spacing: 1px;
 }
-.ab-tsti-w li  amp-img{
+.ab-tsti-w li amp-img{
     margin:0 auto 10px auto;
     max-width:70px;
     max-height:70px;
     min-height:70px;
     border-radius: 100px;
+    width: 100%;
+    display: inline-block;
 }
 .ab-tsti-w li:before {
     content: '“';

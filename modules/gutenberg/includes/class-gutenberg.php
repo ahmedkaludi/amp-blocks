@@ -278,17 +278,20 @@ class AMPBLOCKS_Gutenberg {
         $content_color = '#3b3170';
         $author_color = '#3b3170';
         $social_txtcolor = '#b8b8b8';
+        $cntn_align = 'center';
 
         if(isset($attributes['testi_content_color'])){
             $content_color = $attributes['testi_content_color'];
         }
-        if(isset($attributes['testi_content_color'])){
+        if(isset($attributes['testi_authr_nm_color'])){
             $author_color = $attributes['testi_authr_nm_color'];
         }
-        if(isset($attributes['testi_content_color'])){
+        if(isset($attributes['testi_social_fld_nm_color'])){
             $social_txtcolor = $attributes['testi_social_fld_nm_color'];
         }
-        
+        if(isset($attributes['alignment'])){
+            $cntn_align = $attributes['alignment'];
+        }
         
         if($attributes['items']){
             if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
@@ -296,9 +299,11 @@ class AMPBLOCKS_Gutenberg {
                 echo '
                 <amp-carousel class="ab-tsti-w" width="400" height="220" layout="responsive" type="slides"  on="slideChange:AMP.setState({selected: {slide: event.index}})" id="carouselWithPreview-ampblock"> ';
                     foreach($attributes['items'] as $key=>$item){
-                        echo '<li>';
+                        echo '<li style="text-align:'.esc_attr($cntn_align).';">';
                             echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.$item['testi_content'].'</div>';
+                            echo '<div class="c-img">';
                             echo '<amp-img layout="responsive" width="70" height="70" src='.esc_attr($item['mediaURL']).'></amp-img>';
+                            echo '</div>';
                             echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.$item['testi_authr_nm'].'</div>';
                             echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';
                         echo '</li>';
@@ -314,9 +319,11 @@ class AMPBLOCKS_Gutenberg {
                    <ul class="slides">';
                     foreach($attributes['items'] as $item){
 
-                        echo '<li>';
+                        echo '<li style="text-align:'.esc_attr($cntn_align).';">';
                             echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.$item['testi_content'].'</div>';
+                           
                             echo '<img src='.esc_attr($item['mediaURL']).'>';
+                          
                             echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.$item['testi_authr_nm'].'</div>';
                             echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';
                         echo '</li>';
