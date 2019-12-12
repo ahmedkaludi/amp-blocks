@@ -251,7 +251,7 @@
                   props.setAttributes({
                     attributes: oldAttributes
                   });
-              } // on click function ends
+              } // on click function
                
             }),
 

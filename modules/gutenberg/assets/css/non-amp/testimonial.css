@@ -103,11 +103,11 @@
     transition: all 0.3s ease-in-out;
 }
 .flex-direction-nav .flex-next {
-    right: -50px;
+    right: 0px;
     text-align: right;
 }
 .flex-direction-nav .flex-prev {
-    left: -50px;
+    left: 0px;
 }
 .flex-prev:before{
     content: "\f341";

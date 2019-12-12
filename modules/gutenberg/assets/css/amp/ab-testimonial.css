@@ -84,6 +84,41 @@ ul.amp-dts{
 
 
 
+.flex-direction-nav .flex-next {
+    right: -50px;
+    text-align: right;
+}
+.flex-direction-nav .flex-prev {
+    left: -50px;
+}
+.amp-carousel-button{
+    height: 0px;
+    width: 15px;
+    background-image: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+
+
+.ab-tsti-w .amp-carousel-button-prev:before{
+    content: "\f341";
+    font-family: dashicons;
+    font-size: 35px;
+    display: inline-block;
+    color: rgb(149, 149, 149);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+.ab-tsti-w .amp-carousel-button-next:before {
+    content: "\f345";
+    font-family: dashicons;
+    font-size: 35px;
+    display: inline-block;
+    color: rgb(149, 149, 149);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+
 @media(max-width:767px){
     .ab-tsti-w{
         width:100%;
