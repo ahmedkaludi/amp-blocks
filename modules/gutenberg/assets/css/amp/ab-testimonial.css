@@ -1,28 +1,25 @@
 /** Testimonial Design CSS **/
 .ab-tsti-w{
-    width:600px;
+    width:700px;
     margin:20px auto 0px auto;
     background-color: #fff;
     border-radius: 12px;
     font-family:sans-serif;
     background:#fff;
+    padding:0px 50px;
 }
 .ab-tsti-cnt{
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 600;
+    font-size: 22px;
     margin-bottom: 30px;
     margin: 0 auto 30px auto;
 }
 .ab-tsti-nm{
     font-size: 14px;
-    line-height: 1.4;
     font-weight: 600;
     margin-bottom: 5px;
 }
 .ab-tsti-spf{
     font-size: 11px;
-    line-height: 1.3;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
@@ -98,7 +95,9 @@ ul.amp-dts{
     cursor: pointer;
     line-height: 1;
 }
-
+.ab-tsti-w .amp-carousel-button-prev {
+    left: 0;
+}
 
 
 .ab-tsti-w .amp-carousel-button-prev:before{
@@ -127,7 +126,7 @@ ul.amp-dts{
 
 @media(max-width:500px){
     .ab-tsti-w{
-        min-height: 350px;
+        min-height: 400px;
     }
     .ab-tsti-w li {
         padding: 30px 20px 10px 20px;

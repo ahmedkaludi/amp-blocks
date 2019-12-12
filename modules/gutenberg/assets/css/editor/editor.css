@@ -101,21 +101,17 @@ a.ab-cta-b:hover{
     padding:20px;
 }
 .ab-tsti-cnt{
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 600;
+    font-size: 22px;
     margin-bottom: 30px;
     margin: 0 auto 30px auto;
 }
 .ab-tsti-nm{
     font-size: 14px;
-    line-height: 1.4;
     font-weight: 600;
     margin-bottom: 5px;
 }
 .ab-tsti-spf{
     font-size: 11px;
-    line-height: 1.3;
     text-transform: capitalize;
     font-weight: 600;
     letter-spacing: 1px;

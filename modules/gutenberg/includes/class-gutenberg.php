@@ -194,7 +194,7 @@ class AMPBLOCKS_Gutenberg {
             array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
         );
         $inline_script = array( 
-            'title' => 'Testimonial',
+            'title' => 'Testimonial Slider',
             'media_url' =>  AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/images/user-df-img.png',
         );                  
         wp_localize_script( 'ampblocks-testimonial-reg', 'ampblocksGutenbergtestimonial', $inline_script );
@@ -298,7 +298,8 @@ class AMPBLOCKS_Gutenberg {
             if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
                 $dotsTemplate = '';
                 echo '
-                <amp-carousel class="ab-tsti-w" width="400" height="200" layout="responsive" type="slides"  on="slideChange:AMP.setState({selected: {slide: event.index}})" id="carouselWithPreview-ampblock"> ';
+                <amp-carousel class="ab-tsti-w" width="400" height="250" layout="responsive" autoplay
+                delay="3000" type="slides"  on="slideChange:AMP.setState({selected: {slide: event.index}})" id="carouselWithPreview-ampblock"> ';
                     foreach($attributes['items'] as $key=>$item){
                         echo '<li style="text-align:'.esc_attr($cntn_align).';">';
                             echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.$item['testi_content'].'</div>';

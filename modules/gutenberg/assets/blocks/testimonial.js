@@ -18,10 +18,10 @@
     var ColorPalette      = components.ColorPalette;
             
     blocks.registerBlockType( 'ampblocks/testimonial', {
-        title: __('Testimonial', 'amp-blocks'),
-        icon: 'list-view',
+        title: __('Testimonial Slider', 'amp-blocks'),
+        icon: 'format-quote',
         category: 'amp-blocks',
-        keywords: ['testi', 'testimonial', 'Testimonial'],
+        keywords: ['testimonial', 'testimonial-slider', 'Testimonial'],
         
         // Allow only one How To block per post.
         supports: {
@@ -55,7 +55,7 @@
           },
           items: {           
             default: [{index: 0, 
-              testi_content: "You can Decide whether to create your site using UI Kit blocks or samples. The blocks can merge together in various combinations.",
+              testi_content: "The clean visuals give me a great look into and I can easily update deals and opportunities as they progress. As our sales team grows, so does our pipe.",
               mediaURL: ampblocksGutenbergtestimonial.media_url,
               mediaID: null,
               testi_authr_nm: "Raju Jeelaga",
@@ -125,9 +125,6 @@
           } 
       }
 
-        
-
-      
      var itemlist =  props.attributes.items.sort(function(a , b) {
                   
       return a.index - b.index;
@@ -267,7 +264,7 @@
               items: [].concat(_cloneArray(props.attributes.items), [{
                 index: props.attributes.items.length,
                 alignment : '',                  
-                testi_content: "",
+                testi_content: '',
                 mediaURL:ampblocksGutenbergtestimonial.media_url,
                 testi_authr_nm:'',
                 testi_social_fld_nm: '',
@@ -275,7 +272,7 @@
             });                            
           }
         },
-        __('Add a Testimonial', 'amp-blocks')
+        __('Add Your Testimonial', 'amp-blocks')
       );
 
        var parentdiv = el('div',{
