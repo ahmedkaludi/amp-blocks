@@ -56,7 +56,7 @@
           items: {           
             default: [{index: 0, 
               testi_content: "You can Decide whether to create your site using UI Kit blocks or samples. The blocks can merge together in various combinations.",
-              mediaURL: "http://localhost/ampdev/wp-content/uploads/2019/12/user-df-img.png",
+              mediaURL: ampblocksGutenbergtestimonial.media_url,
               mediaID: null,
               testi_authr_nm: "Raju Jeelaga",
               testi_social_fld_nm: "GOOGLE"
@@ -138,7 +138,7 @@
             el(RichText,{
               tagName: 'div',
               className: 'ab-tsti-cnt',
-              placeholder: __('Enter the Testimonial', 'amp-blocks'),
+              placeholder: __('Add your Testimonial', 'amp-blocks'),
               style: { color: props.attributes.testi_content_color,
               },                             
               autoFocus: true,                               
@@ -266,11 +266,11 @@
             return props.setAttributes({
               items: [].concat(_cloneArray(props.attributes.items), [{
                 index: props.attributes.items.length,
-                alignment : 'center',                  
-                testi_content: "You can Decide whether to create your site using UI Kit blocks or samples. The blocks can merge together in various combinations.",
-                mediaURL:'http://localhost/ampdev/wp-content/uploads/2019/12/user-df-img.png',
-                testi_authr_nm:'Raju Jeelaga',
-                testi_social_fld_nm: 'GOOGLE',
+                alignment : '',                  
+                testi_content: "",
+                mediaURL:ampblocksGutenbergtestimonial.media_url,
+                testi_authr_nm:'',
+                testi_social_fld_nm: '',
               }])
             });                            
           }

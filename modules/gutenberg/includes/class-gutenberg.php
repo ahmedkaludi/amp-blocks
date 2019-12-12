@@ -194,7 +194,8 @@ class AMPBLOCKS_Gutenberg {
             array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
         );
         $inline_script = array( 
-            'title' => 'Testimonial'
+            'title' => 'Testimonial',
+            'media_url' =>  AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/images/user-df-img.png',
         );                  
         wp_localize_script( 'ampblocks-testimonial-reg', 'ampblocksGutenbergtestimonial', $inline_script );
     
