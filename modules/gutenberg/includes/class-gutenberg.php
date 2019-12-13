@@ -302,16 +302,16 @@ class AMPBLOCKS_Gutenberg {
                 delay="3000" type="slides"  on="slideChange:AMP.setState({selected: {slide: event.index}})" id="carouselWithPreview-ampblock"> ';
                     foreach($attributes['items'] as $key=>$item){
                         echo '<li style="text-align:'.esc_attr($cntn_align).';">';
-                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.$item['testi_content'].'</div>';
+                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.esc_textarea($item['testi_content']).'</div>';
                             echo '<div class="c-img">';
-                            echo '<amp-img layout="responsive" width="70" height="70" src='.esc_attr($item['mediaURL']).'></amp-img>';
+                            echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
                             echo '</div>';
-                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.$item['testi_authr_nm'].'</div>';
+                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.esc_html__($item['testi_authr_nm'], '').'</div>';
                             echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';
                         echo '</li>';
                         $class = '';
                         if($key==0){ $class="active";}
-                        $dotsTemplate .= '<li><div role="button" tabindex="'.$key.'" class="'.$class.'"  on="tap:carouselWithPreview-ampblock.goToSlide(index='.$key.')" [class]="selected.slide == '.$key.' ? \'active\' : \'\'"><span>'.$key.'</span></div></li>';
+                        $dotsTemplate .= '<li><div role="button" tabindex="'.esc_attr($key).'" class="'.esc_attr($class).'"  on="tap:carouselWithPreview-ampblock.goToSlide(index='.$key.')" [class]="selected.slide == '.$key.' ? \'active\' : \'\'"><span>'.$key.'</span></div></li>';
 
                     } // foreach ends here
                 echo '</amp-carousel>';
@@ -322,9 +322,9 @@ class AMPBLOCKS_Gutenberg {
                     foreach($attributes['items'] as $item){
 
                         echo '<li style="text-align:'.esc_attr($cntn_align).';">';
-                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.$item['testi_content'].'</div>';
+                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.esc_textarea($item['testi_content']).'</div>';
                            
-                            echo '<img src='.esc_attr($item['mediaURL']).'>';
+                            echo '<img src='.esc_url($item['mediaURL']).'>';
                           
                             echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.$item['testi_authr_nm'].'</div>';
                             echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';

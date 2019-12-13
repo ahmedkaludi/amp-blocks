@@ -122,6 +122,9 @@ ul.amp-dts{
     .ab-tsti-w{
         width:100%;
     }
+    .ab-tsti-cnt {
+        font-size: 19px;
+    }
 }
 
 @media(max-width:500px){
@@ -131,4 +134,14 @@ ul.amp-dts{
     .ab-tsti-w li {
         padding: 30px 20px 10px 20px;
     }
+    .ab-tsti-w .amp-carousel-button-prev {
+        left: -10px;
+    }
+}
+
+@media(max-width:350px){
+    .ab-tsti-w {
+        min-height: 450px;
+    }
+
 }

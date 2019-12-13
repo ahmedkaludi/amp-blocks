@@ -138,3 +138,19 @@ ul.flex-direction-nav{
         right: -10px;
     }
 }
+
+@media(max-width:767px){
+    .ab-tsti-cnt{
+        font-size: 19px;
+    }
+}
+
+@media(max-width:500px){
+    .flex-direction-nav .flex-prev {
+        left: -20px;
+    }
+    .flex-direction-nav .flex-next {
+        right: -20px;
+    }
+
+}
