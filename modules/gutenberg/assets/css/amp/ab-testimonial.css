@@ -1,0 +1,147 @@
+/** Testimonial Design CSS **/
+.ab-tsti-w{
+    width:700px;
+    margin:20px auto 0px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    font-family:sans-serif;
+    background:#fff;
+    padding:0px 50px;
+}
+.ab-tsti-cnt{
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin: 0 auto 30px auto;
+}
+.ab-tsti-nm{
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.ab-tsti-spf{
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.ab-tsti-w li amp-img{
+    margin:0 auto 10px auto;
+    max-width:70px;
+    max-height:70px;
+    min-height:70px;
+    border-radius: 100px;
+    width: 100%;
+    display: inline-block;
+}
+.ab-tsti-w li:before {
+    content: '“';
+    font-size: 70px;
+    color: #e4e4e4;
+    position: relative;
+    top: 10px;
+    line-height: 0;
+    margin: 0 auto 30px auto;
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+
+/** **/
+ .ab-tsti-w li{
+    text-align: center;
+    list-style: none;
+    padding: 50px 40px 30px 40px;
+}
+ul.amp-dts{
+    list-style: none;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.amp-dts li{
+    margin-right:10px;
+}
+.amp-dts li div:before{
+    content:" ";
+    display:inline-block;
+    width:11px;
+    height:11px;
+    background:rgba(0, 0, 0, 0.5);
+    border-radius: 100px;
+    cursor: pointer;
+}
+.amp-dts li div.active:before{
+    background:#000;
+}
+.amp-dts li div span{display:none;}
+
+
+
+
+.flex-direction-nav .flex-next {
+    right: -50px;
+    text-align: right;
+}
+.flex-direction-nav .flex-prev {
+    left: -50px;
+}
+.amp-carousel-button{
+    height: 0px;
+    width: 15px;
+    background-image: none;
+    cursor: pointer;
+    line-height: 1;
+}
+.ab-tsti-w .amp-carousel-button-prev {
+    left: 0;
+}
+
+
+.ab-tsti-w .amp-carousel-button-prev:before{
+    content: "\f341";
+    font-family: dashicons;
+    font-size: 35px;
+    display: inline-block;
+    color: rgb(149, 149, 149);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+.ab-tsti-w .amp-carousel-button-next:before {
+    content: "\f345";
+    font-family: dashicons;
+    font-size: 35px;
+    display: inline-block;
+    color: rgb(149, 149, 149);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+
+@media(max-width:767px){
+    .ab-tsti-w{
+        width:100%;
+    }
+    .ab-tsti-cnt {
+        font-size: 19px;
+    }
+}
+
+@media(max-width:500px){
+    .ab-tsti-w{
+        min-height: 400px;
+    }
+    .ab-tsti-w li {
+        padding: 30px 20px 10px 20px;
+    }
+    .ab-tsti-w .amp-carousel-button-prev {
+        left: -10px;
+    }
+}
+
+@media(max-width:350px){
+    .ab-tsti-w {
+        min-height: 450px;
+    }
+
+}

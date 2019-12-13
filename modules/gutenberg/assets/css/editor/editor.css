@@ -11,6 +11,7 @@
     font-family: 'sans-serif';
 }
 a,a:hover{text-decoration: none; !important;}
+
 /** CTA Design CSS **/
 .ab-cta-w{
     width:100%;
@@ -42,6 +43,7 @@ a.ab-cta-b{
     text-decoration: none;
     font-size: 13px;
     line-height: 1.2;
+    text-decoration: none !important;
 }
 .sub-hd-clr{
     margin-bottom: 15px;
@@ -62,4 +64,86 @@ a.ab-cta-b{
 .cntrl-lbl{
     padding-bottom: 10px;
     display: inline-block;
+}
+
+
+
+/** Button CSS **/
+.ab-btn-w{
+    margin:20px auto;
+    font-family:sans-serif;
+    background:#fff;
+    width:100%;
+    display: inline-block;
+}
+a.ab-btn{
+    text-decoration: none !important;
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+a.ab-cta-b:hover{
+    color:#fff;
+}
+
+/** Testimonial Design CSS **/
+.ab-tsti-w{
+    width:600px;
+    margin:20px auto;
+    box-shadow: 0px 0px 10px #e4e4e4;
+    background-color: #fff;
+    border-radius: 12px;
+    font-family:sans-serif;
+    background:#fff;
+    padding:20px;
+}
+.ab-tsti-cnt{
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin: 0 auto 30px auto;
+}
+.ab-tsti-nm{
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.ab-tsti-spf{
+    font-size: 11px;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.ab-tsti-w img.ab-tst-img{
+    margin:0 auto 10px auto;
+    width:70px;
+    height:70px;
+    border-radius: 100px;
+}
+.ab-tsti-w li:before {
+    content: '“';
+    font-size: 70px;
+    color: #e4e4e4;
+    position: relative;
+    top: 10px;
+    line-height: 0;
+    margin: 0 auto 30px auto;
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+ .ab-tsti-w li{
+    text-align: center;
+    list-style: none;
+    padding: 50px 30px 30px 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.ab-trsh-btn{
+    position: absolute;
+    top:0px;
+    right:0px;
 }

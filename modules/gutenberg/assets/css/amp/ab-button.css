@@ -1,0 +1,19 @@
+/** CTA Design CSS **/
+.ab-btn-w{
+    margin:20px auto;
+    font-family:sans-serif;
+    background:#fff;
+    width:100%;
+    display: inline-block;
+}
+a.ab-btn{
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+a.ab-btn:hover{
+    color:#fff;
+}
