@@ -94,6 +94,16 @@ class AMPBLOCKS_Gutenberg {
                         
                     }
 
+                    if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/team'){
+                        
+                        wp_enqueue_style(
+                            'ampblocks-gutenberg-team-non-amp-css-reg',
+                            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/team.css',
+                            array()                        
+                        );
+    
+                    }
+
                 } // foreach ends here
     
             } // function ends here
@@ -112,6 +122,8 @@ class AMPBLOCKS_Gutenberg {
         $button_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-button.css';
 
         $testimonial_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-testimonial.css';
+
+        $team_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-team.css';
 
         echo file_get_contents($global_css);       
 
@@ -136,6 +148,12 @@ class AMPBLOCKS_Gutenberg {
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/testimonial'){
 
                     echo @file_get_contents($testimonial_css);
+
+                }
+
+                if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/team'){
+
+                    echo @file_get_contents($team_css);
 
                 }
 
@@ -201,7 +219,19 @@ class AMPBLOCKS_Gutenberg {
     
         wp_enqueue_script( 'ampblocks-testimonial-reg' ); 
 
-
+        // Team  Scripts
+        wp_register_script(
+            'ampblocks-team-reg',
+            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/blocks/team.js',
+            array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
+        );
+        $inline_script = array( 
+            'title' => 'Team',
+            'media_url' =>  AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/images/user-df-img.png',
+        );                  
+        wp_localize_script( 'ampblocks-team-reg', 'ampblocksGutenbergTeam', $inline_script );
+    
+        wp_enqueue_script( 'ampblocks-team-reg' );  
 	}
     /**
      * Register a Call to Action
@@ -234,6 +264,13 @@ class AMPBLOCKS_Gutenberg {
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-testimonial-reg',
             'render_callback' => array( $this, 'render_testimonial_data' ),
+        ) );
+
+        register_block_type( 'ampblocks/team', array(
+            'style'         => 'ampblocks-gutenberg-team-css-reg',
+            'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
+            'editor_script' => 'ampblocks-team-reg',
+            'render_callback' => array( $this, 'render_team_data' ),
         ) );
                                         
                     
@@ -339,7 +376,7 @@ class AMPBLOCKS_Gutenberg {
 
         return ob_get_clean();
 
-    }
+    } //function ends here
 
 }
 
