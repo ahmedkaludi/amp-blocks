@@ -308,10 +308,10 @@
                   });                            
                 }
               },
-              __('Add Your Team List ', 'amp-blocks')
+              __('Add Your Team Member ', 'amp-blocks')
             );
         
-        var team_tlt_blk = el('div',{className: 'ab-team-blk', 
+        var team_blk_wrap= el('div',{className: 'ab-team-blk', 
           style: { textAlign: attributes.alignment} 
             },team_title, team_descript, itemlist, repeater);
 
@@ -400,7 +400,7 @@
               ), // Color Settings Ends
 
               ),
-              team_tlt_blk
+              team_blk_wrap
             ];
 
         },// edit ends here
@@ -415,8 +415,10 @@
             var tm_desc = el( 'span', {
                 className: 'ab-team_dsc',
                 style: { color: props.attributes.team_desc_color }
-              }, props.attributes.team_desc );
+                }, props.attributes.team_desc );
+              
 
+            
 
             var team_wrap = el('div',{
                 className: 'ab-team-blk',

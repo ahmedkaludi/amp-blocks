@@ -304,6 +304,7 @@ class AMPBLOCKS_Gutenberg {
 	   return self::$instance;
     }
 
+    // Testimonial Block Server side markup
     function render_testimonial_data($attributes){
         ob_start();
 
@@ -339,12 +340,12 @@ class AMPBLOCKS_Gutenberg {
                 delay="3000" type="slides"  on="slideChange:AMP.setState({selected: {slide: event.index}})" id="carouselWithPreview-ampblock"> ';
                     foreach($attributes['items'] as $key=>$item){
                         echo '<li style="text-align:'.esc_attr($cntn_align).';">';
-                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.esc_textarea($item['testi_content']).'</div>';
+                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.esc_html__($item['testi_content'], 'amp-blocks').'</div>';
                             echo '<div class="c-img">';
                             echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
                             echo '</div>';
-                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.esc_html__($item['testi_authr_nm'], '').'</div>';
-                            echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';
+                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.esc_html__($item['testi_authr_nm'], 'amp-blocks').'</div>';
+                            echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.esc_html__($item['testi_social_fld_nm'], 'amp-blocks').'</div>';
                         echo '</li>';
                         $class = '';
                         if($key==0){ $class="active";}
@@ -357,14 +358,11 @@ class AMPBLOCKS_Gutenberg {
                 echo '<div class="flexslider">
                    <ul class="slides">';
                     foreach($attributes['items'] as $item){
-
                         echo '<li style="text-align:'.esc_attr($cntn_align).';">';
-                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.esc_textarea($item['testi_content']).'</div>';
-                           
+                            echo '<div class="ab-tsti-cnt" style="color:'.esc_attr($content_color).';">'.esc_html__($item['testi_content'], 'amp-blocks').'</div>';
                             echo '<img src='.esc_url($item['mediaURL']).'>';
-                          
-                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.$item['testi_authr_nm'].'</div>';
-                            echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.$item['testi_social_fld_nm'].'</div>';
+                            echo '<div class="ab-tsti-nm" style="color:'.esc_attr($author_color).';">'.esc_html__($item['testi_authr_nm'], 'amp-blocks').'</div>';
+                            echo '<div class="ab-tsti-spf" style="color:'.esc_attr($social_txtcolor).';">'.esc_html__($item['testi_social_fld_nm'], 'amp-blocks').'</div>';
                         echo '</li>';
 
                     } // foreach ends here
@@ -375,6 +373,90 @@ class AMPBLOCKS_Gutenberg {
         } // attributes ends 
 
         return ob_get_clean();
+
+    } //function ends here
+
+    // Team Block Server side markup
+    function render_team_data($attributes){
+        ob_start();
+
+        if ( !isset( $attributes ) ) {
+			ob_end_clean();
+                                                                       
+			return '';
+        }
+
+        $tm_tlt  = 'Our Team';
+        $tm_description = 'Our Team Consists Only of the Best Talents';
+        $tm_tlt_color = '#000000';
+        $tm_dsc_color = '#333333';
+        $tm_name_color = '#111';
+        $tm_position_color = '#111';
+        $tm_cnt_color = '#333';
+        $cntn_align = 'center';
+
+        if(isset($attributes['team_tlt'])){
+            $tm_tlt = $attributes['team_tlt'];
+        }
+        if(isset($attributes['team_desc'])){
+            $tm_description = $attributes['team_desc'];
+        }
+        if(isset($attributes['team_tlt_color'])){
+            $tm_tlt_color = $attributes['team_tlt_color'];
+        }
+        if(isset($attributes['team_desc_color'])){
+            $tm_dsc_color = $attributes['team_desc_color'];
+        }
+        if(isset($attributes['tm_name_color'])){
+            $tm_name_color = $attributes['tm_name_color'];
+        }
+        if(isset($attributes['tm_position_color'])){
+            $tm_position_color = $attributes['tm_position_color'];
+        }
+        if(isset($attributes['tm_desc_color'])){
+            $tm_cnt_color = $attributes['tm_desc_color'];
+        }
+        if(isset($attributes['alignment'])){
+            $cntn_align = $attributes['alignment'];
+        }
+        if($attributes['items']){
+            if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+                echo '<div class="ab-tm-wrap" style="text-align:'.esc_attr($cntn_align).';">
+                        <h1 style="color:'.esc_attr($tm_tlt_color).';">'.esc_attr($tm_tlt).'</h1>
+                        <span style="color:'.esc_attr($tm_dsc_color).';">'.esc_attr($tm_description).'</span>
+                        <ul class="tm-blk-rpt">';
+                    foreach($attributes['items'] as $key=>$item){
+                        echo '<li>';
+                            echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
+                            echo '<div class="tm-athr-nm" style="color:'.esc_attr($tm_name_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</div>';
+                            echo '<span style="color:'.esc_attr($tm_position_color).';">'.esc_html__($item['tm_position'], 'amp-blocks').'</span>';
+                            echo '<p style="color:'.esc_attr($tm_cnt_color).';">'.esc_html__($item['tm_desc'], 'amp-blocks').'</p>';
+                        echo '</li>';
+                    } // foreach ends here
+                    echo '</ul></div>';
+            }else{
+                echo '<div class="ab-tm-wrap" style="text-align:'.esc_attr($cntn_align).';">
+                <h1 style="color:'.esc_attr($tm_tlt_color).';">'.esc_attr($tm_tlt).'</h1>
+                <span style="color:'.esc_attr($tm_dsc_color).';">'.esc_attr($tm_description).'</span>
+                <ul class="tm-blk-rpt">';
+                    foreach($attributes['items'] as $item){
+                        echo '<li>';
+                        echo '<img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'>';
+                        echo '<div class="tm-athr-nm" style="color:'.esc_attr($tm_name_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</div>';
+                        echo '<span style="color:'.esc_attr($tm_position_color).';">'.esc_html__($item['tm_position'], 'amp-blocks').'</span>';
+                        echo '<p style="color:'.esc_attr($tm_cnt_color).';">'.esc_html__($item['tm_desc'], 'amp-blocks').'</p>';
+                    echo '</li>';
+
+                    } // foreach ends here
+
+                echo '</ul></div>';
+            }
+
+        } // attributes ends 
+
+        return ob_get_clean();
+
+
 
     } //function ends here
 
