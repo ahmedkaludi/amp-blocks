@@ -421,30 +421,32 @@ class AMPBLOCKS_Gutenberg {
         }
         if($attributes['items']){
             if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
-                echo '<div class="ab-tm-wrap" style="text-align:'.esc_attr($cntn_align).';">
-                        <h1 style="color:'.esc_attr($tm_tlt_color).';">'.esc_attr($tm_tlt).'</h1>
-                        <span style="color:'.esc_attr($tm_dsc_color).';">'.esc_attr($tm_description).'</span>
-                        <ul class="tm-blk-rpt">';
+                echo '<div class="ab-team-blk" style="text-align:'.esc_attr($cntn_align).';">
+                        <h1 class="ab-team-tlt" style="color:'.esc_attr($tm_tlt_color).';">'.esc_attr($tm_tlt).'</h1>
+                        <span class="ab-team_dsc" style="color:'.esc_attr($tm_dsc_color).';">'.esc_attr($tm_description).'</span>
+                        <ul class="ab-tm-lst">';
                     foreach($attributes['items'] as $key=>$item){
                         echo '<li>';
+                            echo '<div class="c-img">';
                             echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
-                            echo '<div class="tm-athr-nm" style="color:'.esc_attr($tm_name_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</div>';
-                            echo '<span style="color:'.esc_attr($tm_position_color).';">'.esc_html__($item['tm_position'], 'amp-blocks').'</span>';
-                            echo '<p style="color:'.esc_attr($tm_cnt_color).';">'.esc_html__($item['tm_desc'], 'amp-blocks').'</p>';
+                            echo '</div>';
+                            echo '<div class="ab-tm-nm" style="color:'.esc_attr($tm_name_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</div>';
+                            echo '<span class="ab-tm-position" style="color:'.esc_attr($tm_position_color).';">'.esc_html__($item['tm_position'], 'amp-blocks').'</span>';
+                            echo '<p class="ab-tm-desc" style="color:'.esc_attr($tm_cnt_color).';">'.esc_html__($item['tm_desc'], 'amp-blocks').'</p>';
                         echo '</li>';
                     } // foreach ends here
                     echo '</ul></div>';
             }else{
-                echo '<div class="ab-tm-wrap" style="text-align:'.esc_attr($cntn_align).';">
-                <h1 style="color:'.esc_attr($tm_tlt_color).';">'.esc_attr($tm_tlt).'</h1>
-                <span style="color:'.esc_attr($tm_dsc_color).';">'.esc_attr($tm_description).'</span>
-                <ul class="tm-blk-rpt">';
+                echo '<div class="ab-team-blk" style="text-align:'.esc_attr($cntn_align).';">
+                <h1 class="ab-team-tlt" style="color:'.esc_attr($tm_tlt_color).';">'.esc_attr($tm_tlt).'</h1>
+                <span class="ab-team_dsc" style="color:'.esc_attr($tm_dsc_color).';">'.esc_attr($tm_description).'</span>
+                <ul class="ab-tm-lst">';
                     foreach($attributes['items'] as $item){
                         echo '<li>';
                         echo '<img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'>';
-                        echo '<div class="tm-athr-nm" style="color:'.esc_attr($tm_name_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</div>';
-                        echo '<span style="color:'.esc_attr($tm_position_color).';">'.esc_html__($item['tm_position'], 'amp-blocks').'</span>';
-                        echo '<p style="color:'.esc_attr($tm_cnt_color).';">'.esc_html__($item['tm_desc'], 'amp-blocks').'</p>';
+                        echo '<div class="ab-tm-nm" style="color:'.esc_attr($tm_name_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</div>';
+                        echo '<span class="ab-tm-position" style="color:'.esc_attr($tm_position_color).';">'.esc_html__($item['tm_position'], 'amp-blocks').'</span>';
+                        echo '<p class="ab-tm-desc" style="color:'.esc_attr($tm_cnt_color).';">'.esc_html__($item['tm_desc'], 'amp-blocks').'</p>';
                     echo '</li>';
 
                     } // foreach ends here

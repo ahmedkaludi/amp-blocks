@@ -1,0 +1,46 @@
+/** Team design CSS **/
+.ab-team-blk h1.ab-team-tlt{
+    font-size: 30px;
+    margin: 0px 0px 10px 0px;
+    font-weight: 600;
+}
+.ab-team-blk span.ab-team_dsc{
+    font-size:16px;
+    font-weight:400;
+}
+ul.ab-tm-lst{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap:30px;
+    font-family: sans-serif !important;
+    margin:30px 0px 0px 0px;
+}
+.ab-team-blk li{
+    margin:20px 0px 0px 0px;
+    list-style: none;
+    position: relative;
+    padding:0px 20px;
+}
+.ab-team-blk li amp-img{
+    max-width:90px;
+    min-height: 90px;
+    max-height:90px;
+    margin:0px auto 20px auto;
+    border-radius: 100px;
+    
+}
+.ab-tm-nm{
+    font-size:15px;
+    font-weight:600;
+}
+.ab-tm-position{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 10px 0px;
+    display:inline-block;
+}
+p.ab-tm-desc{
+    font-size: 13px;
+    margin: 0;
+}

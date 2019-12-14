@@ -72,7 +72,7 @@
                   mediaID: null,
                   tm_name: "Raju Jeelaga",
                   tm_position : 'Developer',
-                  tm_desc: "Description"
+                  tm_desc: "Lorem ipsum dolor, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim."
                 }],
                 selector: "blockquote.team",
                 query: {
@@ -194,7 +194,7 @@
 
                     el(RichText,{
                         tagName: 'div',
-                        className: 'ab-tm_nm',
+                        className: 'ab-tm-nm',
                         placeholder: __('Name', 'amp-blocks'),
                         style: { color: props.attributes.tm_name_color,
                         },                             
@@ -215,7 +215,7 @@
       
                   el(RichText,{
                     tagName: 'div',
-                    className: 'ab-tm-poistion',
+                    className: 'ab-tm-position',
                     placeholder: __('Position', 'amp-blocks'),
                     style: { color: props.attributes.tm_position_color,
                      },                             
@@ -313,7 +313,7 @@
         
         var team_blk_wrap= el('div',{className: 'ab-team-blk', 
           style: { textAlign: attributes.alignment} 
-            },team_title, team_descript, itemlist, repeater);
+            },team_title, team_descript, el('ul', {className: "ab-tm-lst"}, itemlist), repeater);
 
             // Inpector Starts Here 
             return [el(InspectorControls,
@@ -406,26 +406,7 @@
         },// edit ends here
 
         save: function( props ) {
-
-            var tm_tlt = el('h1',{
-                className: 'ab-team-tlt',
-                style: { color: props.attributes.team_tlt_color }
-                }, props.attributes.team_tlt );
-
-            var tm_desc = el( 'span', {
-                className: 'ab-team_dsc',
-                style: { color: props.attributes.team_desc_color }
-                }, props.attributes.team_desc );
-              
-
-            
-
-            var team_wrap = el('div',{
-                className: 'ab-team-blk',
-                style: { textAlign: props.attributes.alignment } 
-            }, tm_tlt, tm_desc );
-
-          return team_wrap;
+          return null;
 
           } // Save ends here
     } );
