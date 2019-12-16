@@ -378,12 +378,37 @@ class AMPBLOCKS_Gutenberg {
 
     // Team Block Server side markup
     function render_team_data($attributes){
+        
         ob_start();
 
         if ( !isset( $attributes ) ) {
 			ob_end_clean();
                                                                        
 			return '';
+        }
+        if(empty($attributes['items'] )){
+            $attributes['items'][0] = array(
+                'index' => 0,
+                'mediaURL' => AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/images/user-df-img.png',
+                'tm_name' => 'Raju Jeelaga',
+                'tm_position' => 'Developer',
+                'tm_desc' => 'Lorem ipsum dolor, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim',
+            );
+            $attributes['items'][1] = array(
+                'index' => 1,
+                'mediaURL' => AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/images/user-df-img.png',
+                'tm_name' => 'Sanjevv',
+                'tm_position' => 'Frontend Developer',
+                'tm_desc' => 'Lorem ipsum dolor, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim',
+            );
+            $attributes['items'][2] = array(
+                'index' => 2,
+                'mediaURL' => AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/images/user-df-img.png',
+                'tm_name' => 'Matt',
+                'tm_position' => 'Head of the Development',
+                'tm_desc' => 'Lorem ipsum dolor, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim',
+            );
+
         }
 
         $tm_tlt  = 'Our Team';

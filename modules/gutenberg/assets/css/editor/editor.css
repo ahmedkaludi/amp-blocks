@@ -152,32 +152,32 @@ a.ab-cta-b:hover{
 .ab-team-blk{
     width:100%;
     display:inline-block;
-    
 }
 .ab-team-blk h1.ab-team-tlt{
     font-size: 30px;
-    margin: 0px 0px 10px 0px;
-    font-weight: 600;
+    margin: 0px 0px 5px 0px;
+    font-weight: 700;
 }
 .ab-team-blk span.ab-team_dsc{
-    font-size:16px;
-    font-weight:400;
+    font-size:14px;
+    font-weight:500;
 }
 .ab-tm-lst{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap:30px;
+    grid-gap:0px;
     font-family: sans-serif !important;
 }
 .ab-team-blk li{
-    margin:20px 0px 0px 0px;
     list-style: none;
     position: relative;
+    padding:0px 12px;
+    margin-bottom: 20px !important;
 }
 .ab-team-blk li img{
-    width:90px;
-    height: 90px;
-    margin-bottom: 20px;
+    width:80px;
+    height: 80px;
+    margin-bottom: 15px;
     border-radius: 100px;
 }
 .ab-tm-nm{

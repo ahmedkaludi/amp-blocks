@@ -51,7 +51,7 @@
               },
             team_desc_color: {
                 type: 'string',
-                default : '#333',
+                default : '#111',
             },
             tm_name_color: {
                 type: 'string',
@@ -67,13 +67,27 @@
             },
             items: {           
                 default: [{index: 0, 
-                  testi_content: "",
                   mediaURL: ampblocksGutenbergTeam.media_url,
                   mediaID: null,
                   tm_name: "Raju Jeelaga",
                   tm_position : 'Developer',
                   tm_desc: "Lorem ipsum dolor, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim."
-                }],
+                },
+                {index: 1, 
+                  mediaURL: ampblocksGutenbergTeam.media_url,
+                  mediaID: null,
+                  tm_name: "Sanjevv",
+                  tm_position : 'Frontend Developer',
+                  tm_desc: "Lorem ipsum dolor, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim."
+                },
+                {index: 2, 
+                  mediaURL: ampblocksGutenbergTeam.media_url,
+                  mediaID: null,
+                  tm_name: "Matt",
+                  tm_position : 'Head of the Development',
+                  tm_desc: "Lorem ipsum dolor, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim."
+                }
+              ],
                 selector: "blockquote.team",
                 query: {
                   index: {            
