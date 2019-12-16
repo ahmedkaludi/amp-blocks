@@ -61,11 +61,25 @@
 
         var attributes = props.attributes;    
         var alignment  = props.attributes.alignment;
+        const latesposts = ampblocksGutenbergLatestposts.posts;
 
+        var itemlist  = latesposts.map(function(item){
 
+            return el('li',
+            {},
+            el('div', { className: 'tlel'},
+            item.title),
+            
+
+        });
+       
+
+        var parentdiv = el('div',{},itemlist);
+     
         
-
-        return null;
+     return parentdiv;
+    
+      
             
 
         },// edit ends here

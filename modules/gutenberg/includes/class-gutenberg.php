@@ -104,7 +104,7 @@ class AMPBLOCKS_Gutenberg {
     
                     }
 
-                    if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/team'){
+                    if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/latestposts'){
                         
                         wp_enqueue_style(
                             'ampblocks-gutenberg-team-non-amp-css-reg',
@@ -258,8 +258,39 @@ class AMPBLOCKS_Gutenberg {
             AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/blocks/latestposts.js',
             array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
         );
+            $next_args = array(
+                'post_type' => 'post',
+                'post_status' => 'publish',
+                'numberposts'=>5,
+                'order'=>'DESC',
+                );
+                $posts = array();
+            $the_query = get_posts( $next_args );
+            // The Loop
+            if ( $the_query ) {
+                
+                foreach ( $the_query as $post ) {
+                    //your html here for latest 2
+                    $posts[] = array(
+                                'id'=> $post->ID,
+                                'title' => $post->post_title,
+                                'content' => $post->post_content,
+                                'image' => get_the_post_thumbnail_url($post->ID),
+                                'category' => get_the_category($post->ID),
+                                'author' => get_the_author_meta('display_name',$post->ID),
+                                'author_url' => get_the_author_meta('user_url',$post->ID),
+                                'date' => get_the_date('j F Y',$post->ID),
+                                'comments' => get_comments_number($post->ID),
+                             );
+                }
+            }
+            /* Restore original Post Data */
+            wp_reset_postdata();
+            wp_reset_query();
+
+       
         $inline_script = array( 
-            'title' => 'Latest Posts'
+            'posts' => $posts
         );                  
         wp_localize_script( 'ampblocks-latestposts-reg', 'ampblocksGutenbergLatestposts', $inline_script );
     
@@ -525,6 +556,23 @@ class AMPBLOCKS_Gutenberg {
 
 
     } //function ends here
+
+    function render_latestposts_data($attributes){
+        ob_start();
+        if ( !isset( $attributes ) ) {
+			ob_end_clean();
+                                                                       
+			return '';
+        }
+
+
+
+
+        echo "ajeet bhai";
+        
+        return ob_get_clean();
+    } //function ends here
+
 
 }
 
