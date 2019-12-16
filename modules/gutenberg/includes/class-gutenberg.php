@@ -104,6 +104,16 @@ class AMPBLOCKS_Gutenberg {
     
                     }
 
+                    if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/team'){
+                        
+                        wp_enqueue_style(
+                            'ampblocks-gutenberg-team-non-amp-css-reg',
+                            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/latestposts.css',
+                            array()                        
+                        );
+    
+                    }
+
                 } // foreach ends here
     
             } // function ends here
@@ -124,6 +134,8 @@ class AMPBLOCKS_Gutenberg {
         $testimonial_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-testimonial.css';
 
         $team_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-team.css';
+
+        $latestposts_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-latestposts.css';
 
         echo file_get_contents($global_css);       
 
@@ -154,6 +166,12 @@ class AMPBLOCKS_Gutenberg {
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/team'){
 
                     echo @file_get_contents($team_css);
+
+                }
+
+                if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/latestposts'){
+
+                    echo @file_get_contents($latestposts_css);
 
                 }
 
@@ -232,6 +250,20 @@ class AMPBLOCKS_Gutenberg {
         wp_localize_script( 'ampblocks-team-reg', 'ampblocksGutenbergTeam', $inline_script );
     
         wp_enqueue_script( 'ampblocks-team-reg' );  
+
+
+        // Latest Posts  Scripts
+        wp_register_script(
+            'ampblocks-latestposts-reg',
+            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/blocks/latestposts.js',
+            array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
+        );
+        $inline_script = array( 
+            'title' => 'Latest Posts'
+        );                  
+        wp_localize_script( 'ampblocks-latestposts-reg', 'ampblocksGutenbergLatestposts', $inline_script );
+    
+        wp_enqueue_script( 'ampblocks-latestposts-reg' ); 
 	}
     /**
      * Register a Call to Action
@@ -271,6 +303,13 @@ class AMPBLOCKS_Gutenberg {
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-team-reg',
             'render_callback' => array( $this, 'render_team_data' ),
+        ) );
+
+        register_block_type( 'ampblocks/latestposts', array(
+            'style'         => 'ampblocks-gutenberg-latestposts-css-reg',
+            'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
+            'editor_script' => 'ampblocks-latestposts-reg',
+            'render_callback' => array( $this, 'render_latestposts_data' ),
         ) );
                                         
                     
