@@ -29,17 +29,29 @@
         },
         
         attributes: {
-            btn_clicked:{
-              type:Boolean,
-              default:false
-            },
             alignment: {
               type: 'string',
               default: 'center',
             },
-            
+            lp_background_color: {
+                type:'string',
+                default: '#F2EDF0',
+            },
+            lp_title_color: {
+                type:'string',
+                default: '#1d1d1d',
+            },
+            lp_excerpt_color: {
+                type:'string',
+                default: '#848484',
+            },
+            lp_meta_color: {
+                type:'string',
+                default: '#242424',
+            },
 
-        },               
+            
+        }, // attributes ends here               
         edit: function(props) {
 
         const colors = [
@@ -64,23 +76,156 @@
         const latesposts = ampblocksGutenbergLatestposts.posts;
 
         var itemlist  = latesposts.map(function(item){
-
-            return el('li',
-            {},
-            el('div', { className: 'tlel'},
-            item.title),
             
+            var latestpost_cat = item.category.map(function(itemCat){
+                return el('span', {className: 'post-category'},
+                itemCat.name);
+            })
+            var latestpost_cat = el('span', {className: 'post-category'},
+            item.category[0].name );
 
-        });
-       
+            return el('li',{ className: 'lst-pst'},
 
-        var parentdiv = el('div',{},itemlist);
+                    el('div', { className: 'lp-left'},
+                        el('div',{className: 'lp-cat'},
+                            el('a',{ className: 'ds',
+                            //target='_blank',
+                            href: latestpost_cat.slug,
+                            style: { color: props.attributes.lp_meta_color},
+                        },
+                            latestpost_cat
+                            ),
+                        ),
+                        el('h3', { className: 'ab-lp-tlt'},
+                            el('a',{ href: item.url, 
+                                //target='_blank', 
+                                style: { color: props.attributes.lp_title_color}
+                             },
+                                item.title
+                            ),
+                        ),
+                        el('div', {className: 'excerpt', style: { color: props.attributes.lp_excerpt_color}},
+                            item.excerpt ),
+                        ),
+                    el('div',{ className: 'lp-rght'},
+                        el('a', {className: 'lp-img', href: item.url},
+                            el( 'img', {                  
+                                className: 'ab-tm-img',            
+                                src:item.image
+                            }),
+                        ),
+                    )
+                    // el('div', {className: 'comments'},
+                    //     item.comments  ),
+
+                    // el('div', {className: 'author-name'},
+                    //     item.author ),
+
+                    // el('div', {className: 'author-name'},
+                    //     item.author_url ),
+
+                    // el('div', {className: 'post-date'},
+                    //     item.date ),
+
+                        //latestpost_cat
+                        
+
+                ) // li ends here
+            });
+
+            var parentdiv = el('div',{className: 'lp-wrap', style: { background: props.attributes.lp_background_color} },itemlist);
      
         
-     return parentdiv;
-    
-      
-            
+            //return ;
+            //Inspector Controls
+            return [el(InspectorControls,
+                {
+                 className:'ampblocks-btn-fields',
+                 key: 'inspector'   
+                },
+                el(PanelBody,
+                    {className:'ampblocks-btn-layout-stng',
+                    initialOpen: true,
+                    title:'Layout Settings'   
+                    },
+                     
+                      // Display alignment toolbar within block controls.
+                      el('span',{className:"cntrl-lbl"},__('Alignment', 'amp-blocks')),
+                      el(AlignmentToolbar, {
+                        value: alignment,
+                        onChange: function(event){
+                          props.setAttributes({ alignment: event })
+                        }
+                      }),
+  
+                      el('span',{className:"cntrl-lbl"},__('Button Link', 'amp-blocks')),
+                      el(TextControl,{
+                        className:'button-link',
+                        placeholder: i18n.__('Paste your link here', 'amp-blocks'),
+                        keepPlaceholderOnFocus: true,
+                        onChange:function(event){
+                          props.setAttributes( { buttonurl:event } );
+                        }
+                      }),
+  
+                    ), // Layout Settings Ends
+  
+                el(PanelBody,{
+                  className:'ampblocks-cta-color-stng',
+                  initialOpen: false,
+                  title:'Color Settings',
+                },
+                    el('div',{className:"sub-hd-clr", },
+                        el('span',{},__('Background Color', 'amp-blocks')),
+                        el('div',{},el(ColorPalette,{
+                          className:"ab-lp-bg-color",
+                          colors: colors,
+                          onChange:function(event){
+                            props.setAttributes( { lp_background_color:event } );
+                          }
+                        })),
+                    ),
+
+                    el('div',{className:"sub-hd-clr", },
+                        el('span',{},__('Title Color', 'amp-blocks')),
+                        el('div',{},el(ColorPalette,{
+                        className:"ab-lp-tlt-color",
+                        colors: colors,
+                        onChange:function(event){
+                            props.setAttributes( { lp_title_color:event } );
+                        }
+                        })),
+                    ),
+
+                    el('div',{className:"sub-hd-clr", },
+                        el('span',{},__('Excerpt Color', 'amp-blocks')),
+                        el('div',{},el(ColorPalette,{
+                        className:"ab-lp-bg-color",
+                        colors: colors,
+                        onChange:function(event){
+                            props.setAttributes( { lp_excerpt_color:event } );
+                        }
+                        })),
+                    ),
+
+                    el('div',{className:"sub-hd-clr", },
+                        el('span',{},__('Meta Color', 'amp-blocks')),
+                        el('div',{},el(ColorPalette,{
+                        className:"ab-lp-mt-color",
+                        colors: colors,
+                        onChange:function(event){
+                            props.setAttributes( { lp_meta_color:event } );
+                        }
+                        })),
+                    ),
+  
+                  
+  
+                ), // Color Settings Ends
+  
+                ),
+                parentdiv
+              ]; // Inspector Controls ends
 
         },// edit ends here
 

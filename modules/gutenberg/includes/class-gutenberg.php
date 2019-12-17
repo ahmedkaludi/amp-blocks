@@ -258,36 +258,8 @@ class AMPBLOCKS_Gutenberg {
             AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/blocks/latestposts.js',
             array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
         );
-            $next_args = array(
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'numberposts'=>5,
-                'order'=>'DESC',
-                );
-                $posts = array();
-            $the_query = get_posts( $next_args );
-            // The Loop
-            if ( $the_query ) {
-                
-                foreach ( $the_query as $post ) {
-                    //your html here for latest 2
-                    $posts[] = array(
-                                'id'=> $post->ID,
-                                'title' => $post->post_title,
-                                'content' => $post->post_content,
-                                'image' => get_the_post_thumbnail_url($post->ID),
-                                'category' => get_the_category($post->ID),
-                                'author' => get_the_author_meta('display_name',$post->ID),
-                                'author_url' => get_the_author_meta('user_url',$post->ID),
-                                'date' => get_the_date('j F Y',$post->ID),
-                                'comments' => get_comments_number($post->ID),
-                             );
-                }
-            }
-            /* Restore original Post Data */
-            wp_reset_postdata();
-            wp_reset_query();
-
+         
+        $posts = ampblock_get_latest_post();
        
         $inline_script = array( 
             'posts' => $posts
@@ -557,18 +529,80 @@ class AMPBLOCKS_Gutenberg {
 
     } //function ends here
 
+    // Latest post Markup
     function render_latestposts_data($attributes){
+        $posts = ampblock_get_latest_post();
+        
         ob_start();
         if ( !isset( $attributes ) ) {
 			ob_end_clean();
                                                                        
 			return '';
         }
+            $lp_background_color = '#F2EDF0';
+            $lp_title_color = '#1d1d1d';
+            $lp_excerpt_color = '#848484';
+            $lp_meta_color = '#242424';
+            $cntn_align = 'center';
+
+       
+
+        if($posts){
+
+            echo '<div class="lp-wrap" style="background:'.esc_attr($lp_background_color).';">';
+                foreach($posts as $value){
+                    echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';">';
+                        echo '<div class="lp-left">';
+                            //echo '<span> class="lp-cat" style="color:'.esc_attr($lp_meta_color).';">'.esc_html__($value['category'], 'amp-blocks').'</span>';
+                            echo '<h3 class="ab-lp-tlt"><a href="'.$value['url'].'" target="_blank" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($value['title'], 'amp-blocks').'</a></h3>';
+                            echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($value['excerpt'], 'amp-blocks').'</div>';
+                        echo '</div>';
+                        echo '<div class="lp-rght">';
+                            echo '<a href="'.$value['url'].'" target="_blank" ><img layout="responsive" src='.esc_url($value['image']).'></a>';
+                        echo '</div>';
+                    echo '</li>';
+                } // for each ends
+            echo '</div>';
+
+        }
 
 
+        // if($attributes['items']){
+        //     if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+        //         echo '<div class="lp-wrap" style="background:'.esc_attr($lp_background_color).';">';
+        //             foreach($attributes['items'] as $key=>$item){
+        //                 echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';">';
+        //                     echo '<div class="lp-left">';
+        //                         echo '<span> class="lp-cat" style="color:'.esc_attr($lp_meta_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</span>';
+        //                         echo '<h3 class="ab-lp-tlt"><a href="#" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($item['title'], 'amp-blocks').'</a></h3>';
+        //                         echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($item['excerpt'], 'amp-blocks').'</div>';
+        //                     echo '</div>';
+        //                     echo '<div class="lp-left">';
+        //                         echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
+        //                     echo '</div>';
+        //                 echo '</li>';
+        //             } // foreach ends here
+        //             echo '</ul></div>';
+        //     }else{
+        //         echo '<div class="lp-wrap" style="text-align:'.esc_attr($cntn_align).';">';
+        //             foreach($attributes['items'] as $item){
+        //                 echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';">';
+        //                     echo '<div class="lp-left">';
+        //                        // echo '<span> class="lp-cat" style="color:'.esc_attr($lp_meta_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</span>';
+        //                         echo '<h3 class="ab-lp-tlt"><a href="#" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($item['title'], 'amp-blocks').'</a></h3>';
+        //                         echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($item['excerpt'], 'amp-blocks').'</div>';
+        //                     echo '</div>';
+        //                     echo '<div class="lp-left">';
+        //                         echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
+        //                     echo '</div>';
+        //                 echo '</li>';
 
+        //             } // foreach ends here
 
-        echo "ajeet bhai";
+        //         echo '</ul></div>';
+        //     }
+
+        // } // attributes ends 
         
         return ob_get_clean();
     } //function ends here

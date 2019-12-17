@@ -1,0 +1,38 @@
+/** Latest Posts CSS **/
+.lp-wrap{
+    width:100%;
+    display: inline-block;
+    background:#F2EDF0;
+}
+.lp-wrap li{
+    list-style: none;
+}
+.lp-wrap li a{
+    text-decoration: none !important;
+}
+.lst-pst h3.ab-lp-tlt{
+    margin:0px;
+    font-size:20px;
+    font-weight:600;
+}
+.lp-wrap .lst-pst{
+    display: grid;
+    width:100%;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
+    padding:20px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin: 0;
+}
+.lp-wrap .lst-pst:last-child{
+    border-bottom:1px solid #ccc;
+}
+.lp-cat a{
+    font-size:14px;
+    font-weight:500;
+}
+.lp-wrap .excerpt{
+    font-size:15px;
+    color:#222;
+}
