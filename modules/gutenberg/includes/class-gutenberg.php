@@ -543,9 +543,7 @@ class AMPBLOCKS_Gutenberg {
             $lp_title_color = '#1d1d1d';
             $lp_excerpt_color = '#848484';
             $lp_meta_color = '#242424';
-            $cntn_align = 'center';
-
-       
+            $cntn_align = 'left';
 
         if($posts){
 
@@ -564,47 +562,9 @@ class AMPBLOCKS_Gutenberg {
                 } // for each ends
             echo '</div>';
 
-        }
-
-
-        // if($attributes['items']){
-        //     if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
-        //         echo '<div class="lp-wrap" style="background:'.esc_attr($lp_background_color).';">';
-        //             foreach($attributes['items'] as $key=>$item){
-        //                 echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';">';
-        //                     echo '<div class="lp-left">';
-        //                         echo '<span> class="lp-cat" style="color:'.esc_attr($lp_meta_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</span>';
-        //                         echo '<h3 class="ab-lp-tlt"><a href="#" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($item['title'], 'amp-blocks').'</a></h3>';
-        //                         echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($item['excerpt'], 'amp-blocks').'</div>';
-        //                     echo '</div>';
-        //                     echo '<div class="lp-left">';
-        //                         echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
-        //                     echo '</div>';
-        //                 echo '</li>';
-        //             } // foreach ends here
-        //             echo '</ul></div>';
-        //     }else{
-        //         echo '<div class="lp-wrap" style="text-align:'.esc_attr($cntn_align).';">';
-        //             foreach($attributes['items'] as $item){
-        //                 echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';">';
-        //                     echo '<div class="lp-left">';
-        //                        // echo '<span> class="lp-cat" style="color:'.esc_attr($lp_meta_color).';">'.esc_html__($item['tm_name'], 'amp-blocks').'</span>';
-        //                         echo '<h3 class="ab-lp-tlt"><a href="#" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($item['title'], 'amp-blocks').'</a></h3>';
-        //                         echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($item['excerpt'], 'amp-blocks').'</div>';
-        //                     echo '</div>';
-        //                     echo '<div class="lp-left">';
-        //                         echo '<amp-img layout="responsive" width="70" height="70" src='.esc_url($item['mediaURL']).'></amp-img>';
-        //                     echo '</div>';
-        //                 echo '</li>';
-
-        //             } // foreach ends here
-
-        //         echo '</ul></div>';
-        //     }
-
-        // } // attributes ends 
-        
+        } 
         return ob_get_clean();
+
     } //function ends here
 
 

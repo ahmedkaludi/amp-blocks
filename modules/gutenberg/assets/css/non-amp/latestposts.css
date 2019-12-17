@@ -1,13 +1,13 @@
 /** Latest Posts CSS **/
 .lp-wrap{
     width:100%;
-    display: inherit !important;
+    display: inherit;
 }
 .lp-wrap li{
     list-style: none;
 }
 .lp-wrap li a{
-    text-decoration: none !important;
+    text-decoration: none;
 }
 .lst-pst h3.ab-lp-tlt{
     margin:0px;

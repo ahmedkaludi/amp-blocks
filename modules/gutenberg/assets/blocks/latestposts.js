@@ -31,7 +31,7 @@
         attributes: {
             alignment: {
               type: 'string',
-              default: 'center',
+              default: 'left',
             },
             lp_background_color: {
                 type:'string',
