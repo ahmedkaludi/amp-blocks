@@ -1,7 +1,10 @@
 /** Latest Posts CSS **/
 .lp-wrap{
-    width:100%;
-    display: inherit;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    font-family: sans-serif;
 }
 .lp-wrap li{
     list-style: none;
@@ -10,28 +13,49 @@
     text-decoration: none;
 }
 .lst-pst h3.ab-lp-tlt{
-    margin:0px;
+    margin:0px 0px 10px 0px;
     font-size:20px;
+    line-height:1.4;
     font-weight:600;
 }
 .lp-wrap .lst-pst{
-    display: grid;
-    width:100%;
-    grid-template-columns: 1fr 1fr;
-    grid-gap:20px;
-    padding:20px;
-    border: 1px solid #ccc;
-    border-bottom: none;
-    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    grid-template-columns: 1fr 180px;
+    grid-gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    margin: 0 auto;
+    background: #fff;
 }
-.lp-wrap .lst-pst:last-child{
-    border-bottom:1px solid #ccc;
+.lp-left{
+    flex:1 0 50%;
+}
+.lp-rght{
+    flex: 1 0 22%;
+    margin-left: 30px;
 }
 .lp-cat a{
     font-size:14px;
     font-weight:500;
 }
 .lp-wrap .excerpt{
-    font-size:15px;
-    color:#222;
+    font-size:14px;
+}
+.lp-rght img{
+    max-height:180px;
+    min-height:180px;
+    max-width:180px;
+    min-width:180px;
+}
+.lp-cat{
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
 }

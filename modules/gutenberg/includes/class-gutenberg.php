@@ -539,30 +539,61 @@ class AMPBLOCKS_Gutenberg {
                                                                        
 			return '';
         }
-            $lp_background_color = '#F2EDF0';
+            $lp_backgroundwrap_color = '#F2EDF0';
+            $lp_background_color = '#fff';
+            $lp_cat_color = '#f09d4a';
             $lp_title_color = '#1d1d1d';
             $lp_excerpt_color = '#848484';
             $lp_meta_color = '#242424';
             $cntn_align = 'left';
 
-        if($posts){
+            if(isset($attributes['lp_backgroundwrap_color'])){
+                $lp_backgroundwrap_color = $attributes['lp_backgroundwrap_color'];
+            }
+            if(isset($attributes['lp_background_color'])){
+                $lp_background_color = $attributes['lp_background_color'];
+            }
+            if(isset($attributes['lp_cat_color'])){
+                $lp_cat_color = $attributes['lp_cat_color'];
+            }
+            if(isset($attributes['lp_title_color'])){
+                $lp_title_color = $attributes['lp_title_color'];
+            }
+            if(isset($attributes['lp_excerpt_color'])){
+                $lp_excerpt_color = $attributes['lp_excerpt_color'];
+            }
+            if(isset($attributes['lp_meta_color'])){
+                $lp_meta_color = $attributes['lp_meta_color'];
+            }
+            if(isset($attributes['alignment'])){
+                $cntn_align = $attributes['alignment'];
+            }
 
-            echo '<div class="lp-wrap" style="background:'.esc_attr($lp_background_color).';">';
-                foreach($posts as $value){
-                    echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';">';
-                        echo '<div class="lp-left">';
-                            //echo '<span> class="lp-cat" style="color:'.esc_attr($lp_meta_color).';">'.esc_html__($value['category'], 'amp-blocks').'</span>';
-                            echo '<h3 class="ab-lp-tlt"><a href="'.$value['url'].'" target="_blank" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($value['title'], 'amp-blocks').'</a></h3>';
-                            echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($value['excerpt'], 'amp-blocks').'</div>';
-                        echo '</div>';
-                        echo '<div class="lp-rght">';
-                            echo '<a href="'.$value['url'].'" target="_blank" ><img layout="responsive" src='.esc_url($value['image']).'></a>';
-                        echo '</div>';
-                    echo '</li>';
-                } // for each ends
-            echo '</div>';
 
-        } 
+            if($posts){
+
+                echo '<div class="lp-wrap" style="background:'.esc_attr($lp_backgroundwrap_color).';">';
+                    foreach($posts as $value){
+                        echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';background:'.esc_attr($lp_background_color).'">';
+                            echo '<div class="lp-left">';
+                                echo '<a href="'.$value['category_link'].'"><span class="lp-cat" style="color:'.esc_attr($lp_cat_color).';">'.$value['category'].'</span></a>';
+                                echo '<h3 class="ab-lp-tlt"><a href="'.$value['url'].'" target="_blank" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($value['title'], 'amp-blocks').'</a></h3>';
+                                echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($value['excerpt'], 'amp-blocks').'</div>';
+                            echo '</div>';
+                            if($value['image']){
+                            echo '<div class="lp-rght">';
+                            if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+                                echo '<a href="'.$value['url'].'" target="_blank" ><amp-img layout="responsive" width="180" height="180" src='.esc_url($value['image']).'></a>';
+                            } else {
+                                echo '<a href="'.$value['url'].'" target="_blank" ><img width="180" height="180" src='.esc_url($value['image']).'></a>';
+                            }
+                                echo '</div>';
+                            } //
+                        echo '</li>';
+                    } // for each ends
+                echo '</div>';
+
+            } 
         return ob_get_clean();
 
     } //function ends here

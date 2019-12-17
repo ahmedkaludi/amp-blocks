@@ -197,9 +197,9 @@ a.ab-cta-b:hover{
 
 /** Latest Posts CSS **/
 .lp-wrap{
-    width:100%;
-    display: inline-block;
-    background:#F2EDF0;
+    width:580px;
+    margin:0 auto;
+    padding:20px;
 }
 .lp-wrap li{
     list-style: none;

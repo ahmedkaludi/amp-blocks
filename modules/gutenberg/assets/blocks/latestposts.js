@@ -33,9 +33,17 @@
               type: 'string',
               default: 'left',
             },
-            lp_background_color: {
+            lp_backgroundwrap_color: {
                 type:'string',
                 default: '#F2EDF0',
+            },
+            lp_background_color: {
+                type:'string',
+                default: '#ffffff',
+            },
+            lp_cat_color: {
+                type:'string',
+                default: '#f09d4a',
             },
             lp_title_color: {
                 type:'string',
@@ -77,28 +85,21 @@
 
         var itemlist  = latesposts.map(function(item){
             
-            var latestpost_cat = item.category.map(function(itemCat){
-                return el('span', {className: 'post-category'},
-                itemCat.name);
-            })
-            var latestpost_cat = el('span', {className: 'post-category'},
-            item.category[0].name );
-
-            return el('li',{ className: 'lst-pst'},
-
+            return el('li',{ className: 'lst-pst', 
+                            style: { textAlign: props.attributes.alignment,
+                                     background:  props.attributes.lp_background_color},
+                                },
+                        
                     el('div', { className: 'lp-left'},
                         el('div',{className: 'lp-cat'},
-                            el('a',{ className: 'ds',
-                            //target='_blank',
-                            href: latestpost_cat.slug,
-                            style: { color: props.attributes.lp_meta_color},
+                            el('a',{ href: item.category_link,
+                            style: { color: props.attributes.lp_cat_color},
                         },
-                            latestpost_cat
+                        item.category
                             ),
                         ),
                         el('h3', { className: 'ab-lp-tlt'},
-                            el('a',{ href: item.url, 
-                                //target='_blank', 
+                            el('a',{ href: item.url,
                                 style: { color: props.attributes.lp_title_color}
                              },
                                 item.title
@@ -107,10 +108,26 @@
                         el('div', {className: 'excerpt', style: { color: props.attributes.lp_excerpt_color}},
                             item.excerpt ),
                         ),
+                        // el('div',{ className: 'author-meta',
+                        //             style: { color: props.attributes.lp_meta_color}
+                        // },
+                        //     el('img', {
+                        //         className: 'ab-lp-img',            
+                        //         src:item.author_image
+                        //      }),
+                        //     el('a', {
+                        //         className: 'ab-athr-nm',
+                        //         href:item.author_url
+                        //     })
+
+                        // ),
+
+
+
                     el('div',{ className: 'lp-rght'},
                         el('a', {className: 'lp-img', href: item.url},
                             el( 'img', {                  
-                                className: 'ab-tm-img',            
+                                className: 'ab-lp-img',            
                                 src:item.image
                             }),
                         ),
@@ -133,7 +150,7 @@
                 ) // li ends here
             });
 
-            var parentdiv = el('div',{className: 'lp-wrap', style: { background: props.attributes.lp_background_color} },itemlist);
+            var parentdiv = el('div',{className: 'lp-wrap', style: { background: props.attributes.lp_backgroundwrap_color} },itemlist);
      
         
             //return ;
@@ -176,13 +193,34 @@
                   title:'Color Settings',
                 },
                     el('div',{className:"sub-hd-clr", },
-                        el('span',{},__('Background Color', 'amp-blocks')),
+                        el('span',{},__('Wrapper Background Color', 'amp-blocks')),
+                        el('div',{},el(ColorPalette,{
+                          className:"ab-lp-bgwarp-color",
+                          colors: colors,
+                          onChange:function(event){
+                            props.setAttributes( { lp_backgroundwrap_color:event } );
+                          }
+                        })),
+                    ),
+                    el('div',{className:"sub-hd-clr", },
+                        el('span',{},__('Post Background Color', 'amp-blocks')),
                         el('div',{},el(ColorPalette,{
                           className:"ab-lp-bg-color",
                           colors: colors,
                           onChange:function(event){
                             props.setAttributes( { lp_background_color:event } );
                           }
+                        })),
+                    ),
+
+                    el('div',{className:"sub-hd-clr", },
+                        el('span',{},__('Category Text Color', 'amp-blocks')),
+                        el('div',{},el(ColorPalette,{
+                        className:"ab-lp-cat-color",
+                        colors: colors,
+                        onChange:function(event){
+                            props.setAttributes( { lp_cat_color:event } );
+                        }
                         })),
                     ),
 
