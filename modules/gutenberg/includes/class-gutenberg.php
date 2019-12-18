@@ -574,21 +574,38 @@ class AMPBLOCKS_Gutenberg {
 
                 echo '<div class="lp-wrap" style="background:'.esc_attr($lp_backgroundwrap_color).';">';
                     foreach($posts as $value){
+                        if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+                            $category_link = ampforwp_url_controller($value['category_link']);
+                            $post_link = ampforwp_url_controller($value['url']);
+                            $author_url = ampforwp_url_controller($value['author_url']);
+                        }else{
+                            $category_link = $value['category_link'];
+                            $post_link =  $value['url'];
+                            $author_url = $value['author_url'];
+                        }
                         echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';background:'.esc_attr($lp_background_color).'">';
                             echo '<div class="lp-left">';
-                                echo '<a href="'.$value['category_link'].'"><span class="lp-cat" style="color:'.esc_attr($lp_cat_color).';">'.$value['category'].'</span></a>';
-                                echo '<h3 class="ab-lp-tlt"><a href="'.$value['url'].'" target="_blank" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($value['title'], 'amp-blocks').'</a></h3>';
-                                echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($value['excerpt'], 'amp-blocks').'</div>';
+                                echo '<a class="lp-cat" href="'.$category_link.'" style="color:'.esc_attr($lp_cat_color).';">'.$value['category'].'</a>';
+                                echo '<h3 class="ab-lp-tlt"><a href="'.$post_link.'" target="_blank" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($value['title'], 'amp-blocks').'</a></h3>';
+                                echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($value['excerpt'], 'amp-blocks').'<a target="_blank" href="'.$value['url'].'">'.esc_html__ (' ...Read More', 'amp-blocks').'</a></div>';
+                                echo '<div class="author-meta">';
+                                if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+                                    echo '<amp-img class="ab-lp-img" layout="responsive" width="30" height="30" src='.esc_url($value['author_image']).'></amp-img>';
+                                } else {
+                                    echo '<img class="ab-lp-img"  src='.esc_url($value['author_image']).'>';
+                                }
+                                echo '<a class="ab-athr-nm" href="'.$author_url.'" style="color:'.esc_attr($lp_meta_color).'">'.esc_html__($value['author'], 'amp-blocks').'</a>';
+                                echo '</div>';
                             echo '</div>';
                             if($value['image']){
                             echo '<div class="lp-rght">';
-                            if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
-                                echo '<a href="'.$value['url'].'" target="_blank" ><amp-img layout="responsive" width="180" height="180" src='.esc_url($value['image']).'></a>';
-                            } else {
-                                echo '<a href="'.$value['url'].'" target="_blank" ><img width="180" height="180" src='.esc_url($value['image']).'></a>';
-                            }
-                                echo '</div>';
-                            } //
+                                if(function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()){
+                                    echo '<a href="'.$post_link.'" target="_blank" ><amp-img layout="responsive" width="180" height="180" src='.esc_url($value['image']).'></a>';
+                                } else {
+                                    echo '<a href="'.$post_link.'" target="_blank" ><img src='.esc_url($value['image']).'></a>';
+                                }
+                            echo '</div>';
+                            } // image condition ends
                         echo '</li>';
                     } // for each ends
                 echo '</div>';

@@ -84,7 +84,22 @@
         const latesposts = ampblocksGutenbergLatestposts.posts;
 
         var itemlist  = latesposts.map(function(item){
+
+            // Image Condition
+            var image_tag = '';
+
+            if(item.image){
+               var image_tag =  el('div',{ className: 'lp-rght'},
+                    el('a', {className: 'lp-img', href: item.url},
+                        el( 'img', {                  
+                            className: 'ab-lp-img',            
+                            src:item.image
+                        }),
+                    ),
+                )
+            }
             
+            // Loop Start here
             return el('li',{ className: 'lst-pst', 
                             style: { textAlign: props.attributes.alignment,
                                      background:  props.attributes.lp_background_color},
@@ -105,55 +120,34 @@
                                 item.title
                             ),
                         ),
-                        el('div', {className: 'excerpt', style: { color: props.attributes.lp_excerpt_color}},
-                            item.excerpt ),
-                        ),
-                        // el('div',{ className: 'author-meta',
-                        //             style: { color: props.attributes.lp_meta_color}
-                        // },
-                        //     el('img', {
-                        //         className: 'ab-lp-img',            
-                        //         src:item.author_image
-                        //      }),
-                        //     el('a', {
-                        //         className: 'ab-athr-nm',
-                        //         href:item.author_url
-                        //     })
-
-                        // ),
-
-
-
-                    el('div',{ className: 'lp-rght'},
-                        el('a', {className: 'lp-img', href: item.url},
-                            el( 'img', {                  
+                        el('div', {className: 'excerpt', 
+                            style: { color: props.attributes.lp_excerpt_color}
+                        },
+                          item.excerpt,'...',el('a',{ href: item.url},'Read More')
+                             ),
+                       
+                        el('div',{ className: 'author-meta'},
+                            el('img', {
                                 className: 'ab-lp-img',            
-                                src:item.image
-                            }),
+                                src:item.author_image
+                             }),
+                            el('a', {
+                                className: 'ab-athr-nm',
+                                style: { color: props.attributes.lp_meta_color},
+                                href:item.author_url
+                            }, item.author)
+
                         ),
-                    )
-                    // el('div', {className: 'comments'},
-                    //     item.comments  ),
+                    ), // lp-left class ends here
 
-                    // el('div', {className: 'author-name'},
-                    //     item.author ),
-
-                    // el('div', {className: 'author-name'},
-                    //     item.author_url ),
-
-                    // el('div', {className: 'post-date'},
-                    //     item.date ),
-
-                        //latestpost_cat
-                        
-
-                ) // li ends here
+                    image_tag,
+                                            
+                ) // Loop li ends here
             });
 
             var parentdiv = el('div',{className: 'lp-wrap', style: { background: props.attributes.lp_backgroundwrap_color} },itemlist);
      
         
-            //return ;
             //Inspector Controls
             return [el(InspectorControls,
                 {

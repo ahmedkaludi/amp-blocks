@@ -197,7 +197,7 @@ a.ab-cta-b:hover{
 
 /** Latest Posts CSS **/
 .lp-wrap{
-    width:580px;
+    width:100%;
     margin:0 auto;
     padding:20px;
 }
@@ -208,7 +208,7 @@ a.ab-cta-b:hover{
     text-decoration: none !important;
 }
 .lst-pst h3.ab-lp-tlt{
-    margin:0px;
+    margin:0px 0px 10px 0px;
     font-size:20px;
     font-weight:600;
 }
@@ -219,25 +219,62 @@ a.ab-cta-b:hover{
     width: 100%;
     padding: 20px;
     justify-content: center;
-    border: 1px solid #ccc;
+    border: 1px solid #e1e1e1;
     border-bottom: none;
     margin: 0;
 }
 .lp-left{
     flex:1 0 50%;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
 }
 .lp-rght{
     flex: 1 0 22%;
+    margin-left: 15px;
+}
+.lp-rght img{
     margin-left: 30px;
 }
 .lp-wrap .lst-pst:last-child{
-    border-bottom:1px solid #ccc;
+    border-bottom:1px solid #e1e1e1;
 }
 .lp-cat a{
     font-size:14px;
     font-weight:500;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 .lp-wrap .excerpt{
     font-size:15px;
     color:#222;
+}
+.lp-img img{
+    border-radius: 5px;
+}
+.excerpt a{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+}
+.author-meta {
+    display:inline-block;
+    width:100%;
+    margin-top: 12px;
+}
+.author-meta img{
+    width:30px;
+    height:30px;
+    border-radius:100px;
+    margin-right:10px;
+    display:inline-block;
+    vertical-align: middle;
+}
+.author-meta .ab-athr-nm{
+    font-size: 12px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    display:inline-block;
+    vertical-align: middle;
 }
