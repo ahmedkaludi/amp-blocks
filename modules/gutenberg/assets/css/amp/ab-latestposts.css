@@ -23,8 +23,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    grid-template-columns: 1fr 180px;
-    grid-gap: 20px;
     padding: 20px;
     justify-content: center;
     margin: 0 auto;

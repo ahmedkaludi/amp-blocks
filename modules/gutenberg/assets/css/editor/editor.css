@@ -213,14 +213,22 @@ a.ab-cta-b:hover{
     font-weight:600;
 }
 .lp-wrap .lst-pst{
-    display: grid;
-    width:100%;
-    grid-template-columns: 1fr 1fr;
-    grid-gap:20px;
-    padding:20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
     border: 1px solid #ccc;
     border-bottom: none;
     margin: 0;
+}
+.lp-left{
+    flex:1 0 50%;
+}
+.lp-rght{
+    flex: 1 0 22%;
+    margin-left: 30px;
 }
 .lp-wrap .lst-pst:last-child{
     border-bottom:1px solid #ccc;

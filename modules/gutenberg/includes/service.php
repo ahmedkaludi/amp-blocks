@@ -24,13 +24,23 @@ function ampblock_get_latest_post(){
             $category_obj = get_the_category($post->ID);            
             $post_cat = $category_obj[0]->name;
             $post_cat_link = get_category_link( $category_obj[0]->term_id);
-
+            // Image width and height crops
+            $thumb_url = get_the_post_thumbnail_url($post->ID);
+            $width = 180;
+            $height = 180;
+            $thumb_url_array = ampforwp_aq_resize( $thumb_url, $width, $height, true, false, true );
+            $thumb_url = $thumb_url_array[0];
+            // Excerpt length adjustement
+            $excerpt = get_the_excerpt($post->ID);
+            $excerpt = substr($excerpt, 0, 100);
+            $after_excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
+            
             $posts[] = array(
                         'id'=> $post->ID,
                         'url'=> get_permalink($post->ID),
                         'title' => $post->post_title,
-                        'excerpt' => get_the_excerpt($post->ID),
-                        'image' => get_the_post_thumbnail_url($post->ID),
+                        'excerpt' => $after_excerpt,
+                        'image' => $thumb_url,
                         'category' => $post_cat,
                         'category_link' => $post_cat_link,
                         'author' => get_the_author_meta('display_name',$author_id),

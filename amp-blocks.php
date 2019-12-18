@@ -29,6 +29,7 @@ define('AMP_BLOCKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 //Module files load
 require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/class-gutenberg.php';
 require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/service.php';
+require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/aq_resizer.php';
 
 
 
