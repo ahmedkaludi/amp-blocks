@@ -585,8 +585,8 @@ class AMPBLOCKS_Gutenberg {
                         }
                         echo '<li class="lst-pst" style="text-align:'.esc_attr($cntn_align).';background:'.esc_attr($lp_background_color).'">';
                             echo '<div class="lp-left">';
-                                echo '<a class="lp-cat" href="'.$category_link.'" style="color:'.esc_attr($lp_cat_color).';">'.$value['category'].'</a>';
-                                echo '<h3 class="ab-lp-tlt"><a href="'.$post_link.'" target="_blank" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($value['title'], 'amp-blocks').'</a></h3>';
+                                echo '<a class="lp-cat" href="'.esc_url($category_link).'" style="color:'.esc_attr($lp_cat_color).';">'.esc_html__($value['category'].)'</a>';
+                                echo '<h3 class="ab-lp-tlt"><a href="'.esc_url($post_link).'" target="_blank" style="color:'.esc_attr($lp_title_color).';">' .esc_html__($value['title'], 'amp-blocks').'</a></h3>';
                                 echo '<div class="excerpt" style="color:'.esc_attr($lp_excerpt_color).';">'.esc_html__($value['excerpt'], 'amp-blocks').'<a target="_blank" href="'.$value['url'].'">'.esc_html__ (' ...Read More', 'amp-blocks').'</a></div>';
                                 echo '<div class="author-meta">';
                                 if(ampblock_is_amp()){
@@ -594,15 +594,15 @@ class AMPBLOCKS_Gutenberg {
                                 } else {
                                     echo '<img class="ab-lp-img"  src='.esc_url($value['author_image']).'>';
                                 }
-                                echo '<a class="ab-athr-nm" href="'.$author_url.'" style="color:'.esc_attr($lp_meta_color).'">'.esc_html__($value['author'], 'amp-blocks').'</a>';
+                                echo '<a class="ab-athr-nm" href="'.esc_url($author_url).'" style="color:'.esc_attr($lp_meta_color).'">'.esc_html__($value['author'], 'amp-blocks').'</a>';
                                 echo '</div>';
                             echo '</div>';
                             if($value['image']){
                             echo '<div class="lp-rght">';
                                 if(ampblock_is_amp()){
-                                    echo '<a href="'.$post_link.'" target="_blank" ><amp-img layout="responsive" width="180" height="180" src='.esc_url($value['image']).'></a>';
+                                    echo '<a href="'.esc_url($post_link).'" target="_blank" ><amp-img layout="responsive" width="180" height="180" src='.esc_url($value['image']).'></a>';
                                 } else {
-                                    echo '<a href="'.$post_link.'" target="_blank" ><img src='.esc_url($value['image']).'></a>';
+                                    echo '<a href="'.esc_url($post_link).'" target="_blank" ><img src='.esc_url($value['image']).'></a>';
                                 }
                             echo '</div>';
                             } // image condition ends
