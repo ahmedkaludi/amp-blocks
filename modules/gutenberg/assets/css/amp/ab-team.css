@@ -1,0 +1,73 @@
+/** Team design CSS **/
+.ab-team-blk{
+    font-family: sans-serif;
+    margin-top: 20px;
+    width:100%;
+}
+.ab-team-blk h1.ab-team-tlt{
+    font-size: 30px;
+    font-weight: 600;
+}
+.ab-team-blk span.ab-team_dsc{
+    font-size:14px;
+    font-weight:500;
+}
+ul.ab-tm-lst{
+    display: grid;
+    grid-template-columns: 270px 270px 270px;
+    grid-gap: 30px;
+    margin: 30px auto 0px auto;
+    justify-content: center;
+}
+.ab-team-blk li{
+    list-style: none;
+    position: relative;
+    padding:0px 20px;
+}
+.ab-team-blk li amp-img{
+    max-width:90px;
+    min-height: 90px;
+    max-height:90px;
+    margin:0px auto 14px auto;
+    border-radius: 100px;
+    
+}
+.ab-tm-nm{
+    font-size:15px;
+    font-weight:600;
+}
+.ab-tm-position{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 10px 0px;
+    display:inline-block;
+}
+p.ab-tm-desc{
+    font-size: 13px;
+    margin: 0;
+}
+
+@media(max-width:900px){
+    ul.ab-tm-lst {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0px;
+    }
+}
+
+
+@media(max-width:767px){
+    ul.ab-tm-lst {
+        grid-template-columns: 1fr;
+    }
+    .ab-team-blk li{
+        border-bottom: 1px solid #eeee;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    .ab-team-blk li:last-child{
+        border:none;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+}

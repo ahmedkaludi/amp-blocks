@@ -147,3 +147,126 @@ a.ab-cta-b:hover{
     top:0px;
     right:0px;
 }
+
+/** Team design CSS **/
+.ab-team-blk{
+    width:100%;
+    display:inline-block;
+}
+.ab-team-blk h1.ab-team-tlt{
+    font-size: 30px;
+    margin: 0px 0px 5px 0px;
+    font-weight: 700;
+}
+.ab-team-blk span.ab-team_dsc{
+    font-size:14px;
+    font-weight:500;
+}
+.ab-tm-lst{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap:0px;
+    font-family: sans-serif !important;
+}
+.ab-team-blk li{
+    list-style: none;
+    position: relative;
+    padding:0px 12px;
+    margin-bottom: 20px !important;
+}
+.ab-team-blk li img{
+    width:80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border-radius: 100px;
+}
+.ab-tm-nm{
+    font-size:15px;
+    font-weight:600;
+}
+.ab-tm-position{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 10px 0px;
+}
+.ab-tm-desc{
+    font-size: 13px;
+}
+
+
+/** Latest Posts CSS **/
+.lp-wrap{
+    width:100%;
+    margin:0 auto;
+    padding:20px;
+}
+.lp-wrap li{
+    list-style: none;
+}
+.lp-wrap li a{
+    text-decoration: none !important;
+}
+.lst-pst h3.ab-lp-tlt{
+    margin:0px 0px 10px 0px;
+    font-size:20px;
+    font-weight:600;
+}
+.lp-wrap .lst-pst{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px;
+    margin:0px 0px 20px 0px;
+    border-radius: 5px;
+}
+.lp-left{
+    flex:1 0 50%;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+}
+.lp-rght{
+    flex: 1 0 22%;
+    margin-left: 15px;
+}
+.lp-cat a{
+    font-size:14px;
+    font-weight:500;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.lp-wrap .excerpt{
+    font-size:15px;
+    color:#222;
+}
+.lp-img img{
+    border-radius: 5px;
+}
+.excerpt a{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+}
+.author-meta {
+    display:inline-block;
+    width:100%;
+    margin-top: 12px;
+}
+.author-meta img{
+    width:30px;
+    height:30px;
+    border-radius:100px;
+    margin-right:10px;
+    display:inline-block;
+    vertical-align: middle;
+}
+.author-meta .ab-athr-nm{
+    font-size: 12px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    display:inline-block;
+    vertical-align: middle;
+}

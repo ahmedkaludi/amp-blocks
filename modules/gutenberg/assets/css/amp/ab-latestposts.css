@@ -1,0 +1,131 @@
+/** Latest Posts CSS **/
+.lp-wrap{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    font-family: sans-serif;
+}
+.lp-wrap li{
+    list-style: none;
+}
+.lp-wrap li a{
+    text-decoration: none;
+}
+.lst-pst h3.ab-lp-tlt{
+    margin:0px 0px 10px 0px;
+    font-size:20px;
+    line-height:1.4;
+    font-weight:600;
+}
+.lp-wrap .lst-pst{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.lp-left{
+    flex:1 0 50%;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+}
+.lp-rght{
+    flex: 1 0 22%;
+    margin-left: 15px;
+}
+.lp-rght amp-img{
+    border-radius: 5px;
+}
+.lp-cat a{
+    font-size:14px;
+    font-weight:500;
+}
+.lp-wrap .excerpt{
+    font-size:14px;
+}
+.lp-cat{
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+.excerpt a{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+}
+.author-meta {
+    display:inline-block;
+    width:100%;
+    margin-top: 12px;
+}
+.author-meta amp-img{
+    width:30px;
+    height:30px;
+    border-radius:100px;
+    margin-right:10px;
+    display:inline-block;
+    vertical-align: middle;
+}
+.author-meta .ab-athr-nm{
+    font-size: 12px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+@media(max-width:1200px){
+    .lp-left{
+        flex:1 0 45%;
+    }
+}
+
+@media(max-width:991px){
+    .lp-wrap{
+        grid-template-columns: 1fr;
+    }
+    .lp-left{
+        flex:1 0 70%;
+    }
+}
+
+
+@media(max-width:767px){
+    .lp-left {
+        flex: 1 0 58%;
+    }
+    
+}
+
+@media(max-width:500px){
+    .lp-wrap {
+        padding: 15px;
+        grid-gap: 15px;
+    }
+    .lp-cat {
+        font-size: 10px;
+    }
+    .lst-pst h3.ab-lp-tlt {
+        margin: 0px 0px 5px 0px;
+        font-size: 16px;
+    }
+    .lp-wrap .excerpt {
+        font-size: 13px;
+    }
+    .excerpt a {
+        font-size: 12px;
+    }
+    .lp-wrap .lst-pst{
+        padding:10px;
+    }
+}
