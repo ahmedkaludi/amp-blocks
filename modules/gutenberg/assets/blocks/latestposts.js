@@ -18,7 +18,7 @@
     var ColorPalette      = components.ColorPalette;
             
     blocks.registerBlockType( 'ampblocks/latestposts', {
-        title: __('Latest Posts', 'amp-blocks'),
+        title: __('Posts', 'amp-blocks'),
         icon: 'list-view',
         category: 'amp-blocks',
         keywords: ['posts', 'latest', 'latest posts', 'Latest Posts'],

@@ -218,10 +218,8 @@ a.ab-cta-b:hover{
     flex-wrap: wrap;
     width: 100%;
     padding: 20px;
-    justify-content: center;
-    border: 1px solid #e1e1e1;
-    border-bottom: none;
-    margin: 0;
+    margin:0px 0px 20px 0px;
+    border-radius: 5px;
 }
 .lp-left{
     flex:1 0 50%;
@@ -232,12 +230,6 @@ a.ab-cta-b:hover{
 .lp-rght{
     flex: 1 0 22%;
     margin-left: 15px;
-}
-.lp-rght img{
-    margin-left: 30px;
-}
-.lp-wrap .lst-pst:last-child{
-    border-bottom:1px solid #e1e1e1;
 }
 .lp-cat a{
     font-size:14px;

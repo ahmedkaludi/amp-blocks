@@ -26,6 +26,7 @@
     padding: 20px;
     justify-content: center;
     margin: 0 auto;
+    border-radius: 5px;
 }
 .lp-left{
     flex:1 0 50%;
@@ -92,13 +93,6 @@
 }
 
 @media(max-width:991px){
-    /* .lp-left{
-        flex:1 0 100%;
-    }
-    .lp-rght{
-        flex: 1 0 100%;
-        margin-left: 0px;
-    } */
     .lp-wrap{
         grid-template-columns: 1fr;
     }
@@ -118,6 +112,7 @@
 @media(max-width:500px){
     .lp-wrap {
         padding: 15px;
+        grid-gap: 15px;
     }
     .lp-cat {
         font-size: 10px;
@@ -131,5 +126,8 @@
     }
     .excerpt a {
         font-size: 12px;
+    }
+    .lp-wrap .lst-pst{
+        padding:10px;
     }
 }
