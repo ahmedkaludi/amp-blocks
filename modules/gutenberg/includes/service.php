@@ -34,7 +34,7 @@ function ampblock_get_latest_post(){
             $excerpt = get_the_excerpt($post->ID);
             $excerpt = substr($excerpt, 0, 100);
             $after_excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
-            
+
             $posts[] = array(
                         'id'=> $post->ID,
                         'url'=> get_permalink($post->ID),
@@ -57,5 +57,20 @@ function ampblock_get_latest_post(){
     wp_reset_query();
 
     return $posts;
+
+}
+
+function ampblock_is_amp(){
+
+    $response = false;
+
+    if(
+        (function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()) || 
+        (function_exists('is_amp_endpoint') && is_amp_endpoint())
+    ){
+        $response = true;
+    }
+
+    return $response;
 
 }
