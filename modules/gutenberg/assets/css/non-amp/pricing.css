@@ -1,0 +1,15 @@
+/** Pricing blocks CSS **/
+.price-wrap{
+    width:100%;
+    font-family: sans-serif;
+}
+.price-wrap h2.ab-pri-hdng{
+    margin:0px 0px 15px 0px;
+    font-size:32px;
+    font-weight:700;
+}
+.price-wrap .ab-pri-desc{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}

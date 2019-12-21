@@ -270,3 +270,58 @@ a.ab-cta-b:hover{
     display:inline-block;
     vertical-align: middle;
 }
+
+/** Pricing blocks CSS **/
+.price-wrap h2.ab-pri-hdng{
+    margin:0px 0px 15px 0px;
+    font-size:32px;
+    font-weight:700;
+}
+.price-wrap .ab-pri-desc{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}
+ul.ab-pric-lst{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
+    width:100%;
+    font-family: sans-serif;
+}
+.ab-pric-lst li{
+    list-style-type: none;
+    border:1px solid #ccc;
+    position: relative;
+    padding: 30px;
+}
+.ab-pric-tlt{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.ab-pric-lbl{
+    font-size: 12px;
+    font-weight: 500;
+}
+.ab-pric-amnt{
+    font-size: 45px;
+    font-weight: 600;
+    margin: 20px 0px;
+}
+.ab-pric-amnt:before{
+    content:"$";
+    display: inline-block;
+    font-size: 15px;
+    vertical-align: top;
+    font-weight: 500;
+}
+a.ab-pric-btn{
+    background: #fff;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 14px;
+    text-decoration: none !important;
+}
