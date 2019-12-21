@@ -51,7 +51,8 @@ class AMPBLOCKS_Gutenberg {
                 
                 
                 foreach ($blocks as $parse_blocks){
-                    
+
+                    // CTA
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/cta'){
                         
                         wp_enqueue_style(
@@ -61,7 +62,7 @@ class AMPBLOCKS_Gutenberg {
                         );
     
                     }
-
+                    // Button
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/button'){
                         
                         wp_enqueue_style(
@@ -71,7 +72,7 @@ class AMPBLOCKS_Gutenberg {
                         );
     
                     }
-
+                    // Testimonial
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/testimonial'){
                         
                         wp_enqueue_style(
@@ -93,7 +94,7 @@ class AMPBLOCKS_Gutenberg {
                         );
                         
                     }
-
+                    // Team
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/team'){
                         
                         wp_enqueue_style(
@@ -103,12 +104,22 @@ class AMPBLOCKS_Gutenberg {
                         );
     
                     }
-
+                    // Latest posts
                     if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/latestposts'){
                         
                         wp_enqueue_style(
                             'ampblocks-gutenberg-latestposts-css-reg',
                             AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/latestposts.css',
+                            array()                        
+                        );
+    
+                    }
+                    // Pricing
+                    if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/pricing'){
+                        
+                        wp_enqueue_style(
+                            'ampblocks-gutenberg-pricing-css-reg',
+                            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/css/non-amp/pricing.css',
                             array()                        
                         );
     
@@ -137,6 +148,8 @@ class AMPBLOCKS_Gutenberg {
 
         $latestposts_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-latestposts.css';
 
+        $pricing_css  =  AMP_BLOCKS_DIR_PATH . '/modules/gutenberg/assets/css/amp/ab-pricing.css';
+
         echo file_get_contents($global_css);       
 
         if(function_exists('parse_blocks') && is_object($post)){
@@ -145,33 +158,40 @@ class AMPBLOCKS_Gutenberg {
 
             foreach ($blocks as $parse_blocks){
 
+                //CTA
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/cta'){
 
                     echo @file_get_contents($cta_css);
 
                 }
-
+                //Button
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/button'){
 
                     echo @file_get_contents($button_css);
 
                 }
-
+                //Testimonial
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/testimonial'){
 
                     echo @file_get_contents($testimonial_css);
 
                 }
-
+                //Team
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/team'){
 
                     echo @file_get_contents($team_css);
 
                 }
-
+                //Posts
                 if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/latestposts'){
 
                     echo @file_get_contents($latestposts_css);
+
+                }
+                //Pricing
+                if(isset($parse_blocks['blockName']) && $parse_blocks['blockName'] === 'ampblocks/pricing'){
+
+                    echo @file_get_contents($pricing_css);
 
                 }
 
@@ -267,7 +287,21 @@ class AMPBLOCKS_Gutenberg {
         wp_localize_script( 'ampblocks-latestposts-reg', 'ampblocksGutenbergLatestposts', $inline_script );
     
         wp_enqueue_script( 'ampblocks-latestposts-reg' ); 
-	}
+
+        // Pricing  Scripts
+        wp_register_script(
+            'ampblocks-pricing-reg',
+            AMP_BLOCKS_PLUGIN_URL . '/modules/gutenberg/assets/blocks/pricing.js',
+            array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' )
+        );
+        $inline_script = array( 
+            'title' => 'Pricing'
+        );                  
+        wp_localize_script( 'ampblocks-pricing-reg', 'ampblocksGutenbergPricing', $inline_script );
+    
+        wp_enqueue_script( 'ampblocks-pricing-reg' );  
+
+	} // Register admin assets ends
     /**
      * Register a Call to Action
      * @return type
@@ -279,40 +313,48 @@ class AMPBLOCKS_Gutenberg {
             // no Gutenberg, Abort
             return;
         }                                   
-         
+        
+        //CTA
         register_block_type( 'ampblocks/cta', array(
             'style'         => 'ampblocks-gutenberg-cta-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-cta-reg',
             'render_callback' => array( $this, 'render_cta_data' ),
         ) );
-
+        //Button
         register_block_type( 'ampblocks/button', array(
             'style'         => 'ampblocks-gutenberg-button-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-button-reg',
             'render_callback' => array( $this, 'render_button_data' ),
         ) );
-
+        //Testimonial
         register_block_type( 'ampblocks/testimonial', array(
             'style'         => 'ampblocks-gutenberg-testimonial-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-testimonial-reg',
             'render_callback' => array( $this, 'render_testimonial_data' ),
         ) );
-
+        //Team
         register_block_type( 'ampblocks/team', array(
             'style'         => 'ampblocks-gutenberg-team-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-team-reg',
             'render_callback' => array( $this, 'render_team_data' ),
         ) );
-
+        //Posts
         register_block_type( 'ampblocks/latestposts', array(
             'style'         => 'ampblocks-gutenberg-latestposts-css-reg',
             'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
             'editor_script' => 'ampblocks-latestposts-reg',
             'render_callback' => array( $this, 'render_latestposts_data' ),
+        ) );
+        //Pricing
+        register_block_type( 'ampblocks/pricing', array(
+            'style'         => 'ampblocks-gutenberg-pricing-css-reg',
+            'editor_style'  => 'ampblocks-gutenberg-css-reg-editor',
+            'editor_script' => 'ampblocks-pricing-reg',
+            'render_callback' => array( $this, 'render_pricing_data' ),
         ) );
                                         
                     
