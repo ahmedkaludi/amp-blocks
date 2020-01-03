@@ -50,3 +50,10 @@ Yes, Absolutely! We would suggest you send your feature request by creating an i
 
 = 0.1 (23 Nov 2019) =
 * Initial release
+
+
+
+***************
+Install npm modules => npm install
+to run the development mode => npm start
+To run production mode => npm run-script build

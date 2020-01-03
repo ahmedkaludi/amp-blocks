@@ -6,7 +6,7 @@ Version: 0.3
 Text Domain: amp-blocks
 Domain Path: /languages
 Author: Magazine3
-Author URI: 
+Author URI:
 Donate link: https://www.paypal.me/Kaludi/25
 License: GPL2
 */
@@ -30,6 +30,16 @@ define('AMP_BLOCKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/class-gutenberg.php';
 require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/service.php';
 require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/aq_resizer.php';
+/**
+ * Load Plugin
+ */
+function amp_blocks_init()
+{
+    require_once AMP_BLOCKS_DIR_PATH . 'dist/init.php';
+    require_once AMP_BLOCKS_DIR_PATH . 'dist/class-amp-blocks-frontend.php';
+}
+
+add_action('plugins_loaded', 'amp_blocks_init');
 
 
 
