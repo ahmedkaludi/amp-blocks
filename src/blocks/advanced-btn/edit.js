@@ -5,11 +5,9 @@
  */
 import times from 'lodash/times';
 import map from 'lodash/map';
-import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
 import GenIcon from '../../genicon';
 import Ico from '../../svgicons';
 import FaIco from '../../faicons';
-import TypographyControls from '../../typography-control';
 import AdvancedColorControl from '../../advanced-color-control';
 import BoxShadowControl from '../../box-shadow-control';
 import WebfontLoader from '../../fontloader';
@@ -53,7 +51,7 @@ const {
  */
 const ktadvancedbuttonUniqueIDs = [];
 
-class KadenceAdvancedButton extends Component {
+class AmpAdvancedButton extends Component {
 	constructor() {
 		super( ...arguments );
 		this.showSettings = this.showSettings.bind( this );
@@ -97,18 +95,7 @@ class KadenceAdvancedButton extends Component {
 		if ( this.props.attributes.btns && this.props.attributes.btns[ 0 ] && undefined === this.props.attributes.btns[ 0 ].btnSize ) {
 			this.saveArrayUpdate( { btnSize: 'custom' }, 0 );
 		}
-		if ( this.props.attributes.btns && this.props.attributes.btns[ 1 ] && undefined === this.props.attributes.btns[ 1 ].btnSize ) {
-			this.saveArrayUpdate( { btnSize: 'custom' }, 1 );
-		}
-		if ( this.props.attributes.btns && this.props.attributes.btns[ 2 ] && undefined === this.props.attributes.btns[ 2 ].btnSize ) {
-			this.saveArrayUpdate( { btnSize: 'custom' }, 2 );
-		}
-		if ( this.props.attributes.btns && this.props.attributes.btns[ 3 ] && undefined === this.props.attributes.btns[ 3 ].btnSize ) {
-			this.saveArrayUpdate( { btnSize: 'custom' }, 3 );
-		}
-		if ( this.props.attributes.btns && this.props.attributes.btns[ 4 ] && undefined === this.props.attributes.btns[ 4 ].btnSize ) {
-			this.saveArrayUpdate( { btnSize: 'custom' }, 4 );
-		}
+
 		if ( undefined === this.props.attributes.widthType ) {
 			if ( this.props.attributes.forceFullwidth ) {
 				this.props.setAttributes( { widthType: 'full' } );
@@ -158,21 +145,6 @@ class KadenceAdvancedButton extends Component {
 				families: [ typography + ( fontVariant ? ':' + fontVariant : '' ) ],
 			},
 		};
-		const btnSizes = [
-			{ key: 'small', name: __( 'S' ) },
-			{ key: 'standard', name: __( 'M' ) },
-			{ key: 'large', name: __( 'L' ) },
-			{ key: 'custom', name: <Dashicon icon="admin-generic" /> },
-		];
-		const btnWidths = [
-			{ key: 'auto', name: __( 'Auto' ) },
-			{ key: 'fixed', name: __( 'Fixed' ) },
-			{ key: 'full', name: __( 'Full' ) },
-		];
-		const unitTypes = [
-			{ key: 'px', name: __( 'px' ) },
-			{ key: '%', name: __( '%' ) },
-		];
 		const gradTypes = [
 			{ key: 'linear', name: __( 'Linear' ) },
 			{ key: 'radial', name: __( 'Radial' ) },
@@ -293,36 +265,8 @@ class KadenceAdvancedButton extends Component {
 				} );
 			}
 		};
-		const onFocusBtn2 = () => {
-			if ( 'btn2' !== this.state.btnFocused ) {
-				this.setState( {
-					btnFocused: 'btn2',
-				} );
-			}
-		};
-		const onFocusBtn3 = () => {
-			if ( 'btn3' !== this.state.btnFocused ) {
-				this.setState( {
-					btnFocused: 'btn3',
-				} );
-			}
-		};
-		const onFocusBtn4 = () => {
-			if ( 'btn4' !== this.state.btnFocused ) {
-				this.setState( {
-					btnFocused: 'btn4',
-				} );
-			}
-		};
-		const defineWidthType = ( type ) => {
-			if ( 'full' === type ) {
-				setAttributes( { forceFullwidth: true } );
-				setAttributes( { widthType: type } );
-			} else {
-				setAttributes( { forceFullwidth: false } );
-				setAttributes( { widthType: type } );
-			}
-		};
+
+
 		const defineWidthTypeToggle = ( value ) => {
 			if ( value ) {
 				setAttributes( { forceFullwidth: true } );
@@ -1161,4 +1105,4 @@ class KadenceAdvancedButton extends Component {
 		);
 	}
 }
-export default ( KadenceAdvancedButton );
+export default ( AmpAdvancedButton );
