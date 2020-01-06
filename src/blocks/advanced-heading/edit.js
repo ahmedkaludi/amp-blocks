@@ -437,30 +437,7 @@ class ampAdvancedHeading extends Component {
 				</BlockControls>
 				{ this.showSettings( 'allSettings' ) && (
 					<InspectorControls>
-						<PanelBody title={ __( 'Text Settings' ) }>
-							<p>{ __( 'Text Alignment' ) }</p>
-							<AlignmentToolbar
-								value={ align }
-								onChange={ ( nextAlign ) => {
-									setAttributes( { align: nextAlign } );
-								} }
-							/>
-							{ this.showSettings( 'colorSettings' ) && (
-								<AdvancedColorControl
-									label={ __( 'Text Color' ) }
-									colorValue={ ( color ? color : '' ) }
-									colorDefault={ '' }
-									onColorChange={ value => setAttributes( { color: value } ) }
-								/>
-							) }
-							{ this.showSettings( 'sizeSettings' ) && (
-								<Fragment>
-									<p className="amp-heading-size-title">{ __( 'Size Controls' ) }</p>
-									{ tabControls }
-								</Fragment>
-							) }
-						</PanelBody>
-						{ this.showSettings( 'advancedSettings' ) && (
+
 							<PanelBody
 								title={ __( 'Typography Settings' ) }
 								initialOpen={ false }
@@ -491,13 +468,35 @@ class ampAdvancedHeading extends Component {
 									textTransform={ textTransform }
 									onTextTransform={ ( value ) => setAttributes( { textTransform: value } ) }
 								/>
+
 							</PanelBody>
-						) }
+
+						<PanelBody title={ __( 'color' ) }>
+							{ this.showSettings( 'colorSettings' ) && (
+								<AdvancedColorControl
+									label={ __( 'Text Color' ) }
+									colorValue={ ( color ? color : '' ) }
+									colorDefault={ '' }
+									onColorChange={ value => setAttributes( { color: value } ) }
+								/>
+							) }
+
+						</PanelBody>
+						<PanelBody title={ __( 'Alignment' ) }>
+							<p>{ __( 'Text Alignment' ) }</p>
+							<AlignmentToolbar
+								value={ align }
+								onChange={ ( nextAlign ) => {
+									setAttributes( { align: nextAlign } );
+								} }
+							/>
+						</PanelBody>
 						{ this.showSettings( 'marginSettings' ) && (
 							<PanelBody
-								title={ __( 'Margin Settings' ) }
+								title={ __( 'Gapping' ) }
 								initialOpen={ false }
 							>
+
 								<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Margin Type' ) }>
 									{ map( marginTypes, ( { name, key } ) => (
 										<Button
@@ -544,6 +543,7 @@ class ampAdvancedHeading extends Component {
 								/>
 							</PanelBody>
 						) }
+
 					</InspectorControls>
 				) }
 				<InspectorAdvancedControls>
