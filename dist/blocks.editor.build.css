@@ -2067,3 +2067,21 @@ button.components-button.components-icon-button.amp-font-clear-btn {
 .wp-block-amp-advancedbtn.amp-force-btn-fullwidth .amp-button {
   -ms-flex-pack: center;
       justify-content: center; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/

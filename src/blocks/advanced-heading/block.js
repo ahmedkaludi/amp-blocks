@@ -14,7 +14,6 @@ import icons from './icon';
 import './style.scss';
 import './editor.scss';
 import edit from './edit';
-import backwardCompatibility from './deprecated';
 /**
  * Internal block libraries
  */
@@ -58,7 +57,7 @@ registerBlockType( 'amp/advancedheading', {
 		content: {
 			type: 'string',
 			source: 'html',
-			selector: 'h1,h2,h3,h4,h5,h6',
+			selector: 'p,h2',
 		},
 		level: {
 			type: 'number',
@@ -109,10 +108,6 @@ registerBlockType( 'amp/advancedheading', {
 		googleFont: {
 			type: 'boolean',
 			default: false,
-		},
-		loadGoogleFont: {
-			type: 'boolean',
-			default: true,
 		},
 		fontSubset: {
 			type: 'string',
@@ -323,5 +318,4 @@ registerBlockType( 'amp/advancedheading', {
 			</Fragment>
 		);
 	},
-	deprecated: backwardCompatibility,
 } );
