@@ -9,6 +9,7 @@ import './blocks/row-layout/block.js';
 import './blocks/column/block.js';
 import './blocks/advanced-heading/block.js';
 import './blocks/advanced-btn/block.js';
+import './blocks/image/block.js';
 import Prebuilt_Modal from './blocks/row-layout/prebuilt_modal';
 
 window.kb = {
