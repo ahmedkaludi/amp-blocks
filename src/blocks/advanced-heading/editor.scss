@@ -6,7 +6,7 @@
  */
 
  // Controls
- .edit-post-sidebar .typography-family-select-form-row input[type=text], .kt-block-defaults-modal .typography-family-select-form-row input[type=text], .components-popover.kt-popover-font-family .components-popover__content .typography-family-select-form-row input[type=text] {
+ .edit-post-sidebar .typography-family-select-form-row input[type=text], .amp-block-defaults-modal .typography-family-select-form-row input[type=text], .components-popover.amp-popover-font-family .components-popover__content .typography-family-select-form-row input[type=text] {
 	box-shadow:none;
 }
 .kb-tag-level-control .components-toolbar__control.components-button[data-subscript]:after {
@@ -22,26 +22,26 @@
     box-shadow: none;
     background: #555d66;
 }
-.components-popover.kt-popover-font-family .components-popover__content .typography-family-select-form-row .kt-typography__control input {
+.components-popover.amp-popover-font-family .components-popover__content .typography-family-select-form-row .amp-typography__control input {
     min-height: 18px;
 }
-.components-popover.kt-popover-font-family .components-popover__content input.components-text-control__input {
+.components-popover.amp-popover-font-family .components-popover__content input.components-text-control__input {
     min-height: 28px;
     padding: 5px 4px;
 }
-.components-popover.kt-popover-font-family .components-popover__content  .components-select-control__input {
+.components-popover.amp-popover-font-family .components-popover__content  .components-select-control__input {
     padding-right: 10px;
     background-size: 10px 10px;
 }
-.edit-post-sidebar .typography-family-select-form-row, .kt-block-defaults-modal .typography-family-select-form-row {
+.edit-post-sidebar .typography-family-select-form-row, .amp-block-defaults-modal .typography-family-select-form-row {
 	margin-bottom: 10px;
 	z-index: 200;
     position: relative;
 }
-.typography-family-select-form-row .kt-typography__control input {
+.typography-family-select-form-row .amp-typography__control input {
     min-height: 18px;
 }
-.components-popover.kt-popover-font-family .components-popover__content .typography-family-select-form-row {
+.components-popover.amp-popover-font-family .components-popover__content .typography-family-select-form-row {
 	z-index: 200;
     position: relative;
     border-left: none;
@@ -51,18 +51,18 @@
     transition: none;
     width: 100%;
 }
-.kt-font-family-icon svg path {
+.amp-font-family-icon svg path {
 	fill: #555d66;
 }
-.components-popover.kt-popover-font-family .components-popover__content {
+.components-popover.amp-popover-font-family .components-popover__content {
 	min-height: 240px;
     overflow: visible;
     max-height: 240px;
 }
-.components-popover.kt-popover-font-family .components-popover__content {
+.components-popover.amp-popover-font-family .components-popover__content {
 	padding:10px;
 	z-index: 1;
-	.kt-heading-fontfamily-title {
+	.amp-heading-fontfamily-title {
 		margin: 0;
 		line-height: 10px;
 		text-transform: uppercase;
@@ -100,31 +100,31 @@
 			margin-right:0px;
 		}
 	}
-	.typography-family-select-form-row .kt-typography__control {
+	.typography-family-select-form-row .amp-typography__control {
 		min-height: 28px;
 		border: 1px solid #8d96a0;
 		border-radius: 4px;
 		box-shadow: 0 0 0 transparent;
 	}
-	.typography-family-select-form-row .kt-typography__control--is-focused {
+	.typography-family-select-form-row .amp-typography__control--is-focused {
 		border-color: #2684ff;
 	}
-	.typography-family-select-form-row .kt-typography__indicator {
+	.typography-family-select-form-row .amp-typography__indicator {
 		padding: 0 8px;
 	}
-	p.kt-inline-size-title {
+	p.amp-inline-size-title {
 		font-size: 10px;
 		margin:0;
 		line-height: 15px;
 		text-transform: uppercase;
 	}
-	.kt-typography-number-input {
+	.amp-typography-number-input {
 		width: 70px;
 		margin-right: 0;
 		flex: none;
 		display: inline-block;
 	}
-	.kt-typography-size-type-options .components-button.kt-size-btn {
+	.amp-typography-size-type-options .components-button.amp-size-btn {
 		background: transparent;
 		border: 0;
 		border-bottom: 0;
@@ -137,77 +137,77 @@
 		width: auto;
 		font-size: 10px;
 	}
-	.kt-typography-size-type-options .components-button.kt-size-btn.is-primary {
+	.amp-typography-size-type-options .components-button.amp-size-btn.is-primary {
 		color: #0085ba;
 		background: #f2f2f2;
 		box-shadow: none;
 	}
-	.kt-typography-size-type-options .components-button.kt-size-btn svg {
+	.amp-typography-size-type-options .components-button.amp-size-btn svg {
 		width: 12px;
 		height: 12px;
 	}
-	.kt-typography-size-type-options {
+	.amp-typography-size-type-options {
 		flex-grow: 2;
 	}
-	.kt-size-tite-device-wrap {
+	.amp-size-tite-device-wrap {
 		display: flex;
 		text-align: right;
 		align-items: center;
 	}
-	.kt-type-size-input-wrap .kt-typography-number-input {
+	.amp-type-size-input-wrap .amp-typography-number-input {
 		width: 55%;
 		flex: none;
 		margin-right: 0;
 		display: inline-block;
 	}
-	.kt-type-size-input-wrap .kt-typography-size-type {
+	.amp-type-size-input-wrap .amp-typography-size-type {
 		width: 40%;
 		flex: none;
 		margin-right: 0;
 		display: inline-block;
 	}
-	.kt-type-size-input-wrap {
+	.amp-type-size-input-wrap {
 		display: flex;
 		justify-content: space-between;
 	}
 }
-.components-popover.kt-popover-font-family .components-popover__content .typography-row-settings .kt-type-input-wrap {
+.components-popover.amp-popover-font-family .components-popover__content .typography-row-settings .amp-type-input-wrap {
     flex: 0 1 33.33%;
     margin-right: 5px;
     margin-bottom: 0;
 }
-.components-popover.kt-popover-font-family .components-popover__content .typography-row-settings .kt-size-input-wrap {
+.components-popover.amp-popover-font-family .components-popover__content .typography-row-settings .amp-size-input-wrap {
     flex: 0 1 50%;
     margin-right: 15px;
     margin-bottom: 0;
 }
-.components-popover.kt-popover-font-family .components-popover__content .typography-row-settings .kt-size-input-wrap:last-child {
+.components-popover.amp-popover-font-family .components-popover__content .typography-row-settings .amp-size-input-wrap:last-child {
     margin-right: 0px;
 }
-.components-popover.kt-popover-font-family .components-popover__content .typography-row-settings .kt-type-input-wrap .components-base-control {
+.components-popover.amp-popover-font-family .components-popover__content .typography-row-settings .amp-type-input-wrap .components-base-control {
     flex:none;
     display:inline-block;
     margin-right:0;
     width: 70%;
 }
-.components-popover.kt-popover-font-family .components-popover__content .typography-row-settings .kt-type-input-wrap .kt-unit {
+.components-popover.amp-popover-font-family .components-popover__content .typography-row-settings .amp-type-input-wrap .amp-unit {
     width: 30%;
     display: inline-block;
     text-align: center;
 }
- .edit-post-sidebar h2.kt-heading-size-title,  .kt-block-defaults-modal h2.kt-heading-size-title {
+ .edit-post-sidebar h2.amp-heading-size-title,  .amp-block-defaults-modal h2.amp-heading-size-title {
     font-size: 14px;
 	margin-bottom: 0;
     color:#555d66;
     margin-top: 30px;
 }
-.components-button-group.kt-size-type-options {
+.components-button-group.amp-size-type-options {
     margin: 0;
     text-align: right;
     display: block;
     margin-bottom: -18px;
 }
-.kt-size-type-options button.components-button.kt-size-btn {
+.amp-size-type-options button.components-button.amp-size-btn {
     background: transparent;
     color: #777;
     border: 0;
@@ -218,7 +218,7 @@
     padding: 0 4px;
     position: relative;
 }
-.kt-size-type-options button.components-button.kt-size-btn.is-primary, .kt-size-type-options button.components-button.kt-size-btn.is-primary:focus:not(:disabled):not([aria-disabled=true]) {
+.amp-size-type-options button.components-button.amp-size-btn.is-primary, .amp-size-type-options button.components-button.amp-size-btn.is-primary:focus:not(:disabled):not([aria-disabled=true]) {
  color:#000;
  text-decoration:underline;
  background:transparent;
@@ -226,20 +226,20 @@
  border:none;
  outline: none;
 }
-.kt-size-type-options button.components-button.kt-size-btn:hover, .kt-size-type-options button.components-button.kt-size-btn:hover:focus:not(:disabled):not([aria-disabled=true]) {
+.amp-size-type-options button.components-button.amp-size-btn:hover, .amp-size-type-options button.components-button.amp-size-btn:hover:focus:not(:disabled):not([aria-disabled=true]) {
     color:#000;
      background:transparent;
  box-shadow:none;
  border:none;
  outline: none;
 }
-.kt-size-tabs .components-tab-panel__tabs {
+.amp-size-tabs .components-tab-panel__tabs {
     border-bottom: 0;
 	text-align: right;
     margin-top: -20px;
     margin-bottom:0;
 }
-.kt-size-tabs .components-tab-panel__tabs button {
+.amp-size-tabs .components-tab-panel__tabs button {
     background: transparent;
     border: 0;
     border-bottom: 0;
@@ -249,20 +249,20 @@
     width: auto;
     font-size: 10px;
 }
-.kt-size-tabs .components-tab-panel__tabs button.active-tab {
+.amp-size-tabs .components-tab-panel__tabs button.active-tab {
 	color: #0085ba;
 	background: #f2f2f2;
 }
-.kt-size-tabs .components-tab-panel__tabs button svg {
+.amp-size-tabs .components-tab-panel__tabs button svg {
 	width: 15px;
 	height:15px;
 }
-h2.kt-heading-fontfamily-title {
+h2.amp-heading-fontfamily-title {
     margin: 30px 0 10px;
     font-size: 14px;
     color: #555d66;
 }
-button.components-button.components-icon-button.kt-font-clear-btn {
+button.components-button.components-icon-button.amp-font-clear-btn {
     display: block;
     margin-right: 0;
     margin-left: auto;

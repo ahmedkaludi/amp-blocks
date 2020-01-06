@@ -146,11 +146,11 @@ class ampAdvancedHeading extends Component {
 
 		const deskControls = (
 			<PanelBody>
-				<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Size Type' ) }>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
 					{ map( sizeTypes, ( { name, key } ) => (
 						<Button
 							key={ key }
-							className="kt-size-btn"
+							className="amp-size-btn"
 							isSmall
 							isPrimary={ sizeType === key }
 							aria-pressed={ sizeType === key }
@@ -168,11 +168,11 @@ class ampAdvancedHeading extends Component {
 					max={ fontMax }
 					step={ fontStep }
 				/>
-				<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Size Type' ) }>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
 					{ map( sizeTypes, ( { name, key } ) => (
 						<Button
 							key={ key }
-							className="kt-size-btn"
+							className="amp-size-btn"
 							isSmall
 							isPrimary={ lineType === key }
 							aria-pressed={ lineType === key }
@@ -194,11 +194,11 @@ class ampAdvancedHeading extends Component {
 		);
 		const tabletControls = (
 			<PanelBody>
-				<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Size Type' ) }>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
 					{ map( sizeTypes, ( { name, key } ) => (
 						<Button
 							key={ key }
-							className="kt-size-btn"
+							className="amp-size-btn"
 							isSmall
 							isPrimary={ sizeType === key }
 							aria-pressed={ sizeType === key }
@@ -216,11 +216,11 @@ class ampAdvancedHeading extends Component {
 					max={ fontMax }
 					step={ fontStep }
 				/>
-				<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Size Type' ) }>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
 					{ map( sizeTypes, ( { name, key } ) => (
 						<Button
 							key={ key }
-							className="kt-size-btn"
+							className="amp-size-btn"
 							isSmall
 							isPrimary={ lineType === key }
 							aria-pressed={ lineType === key }
@@ -242,11 +242,11 @@ class ampAdvancedHeading extends Component {
 		);
 		const mobileControls = (
 			<PanelBody>
-				<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Size Type' ) }>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
 					{ map( sizeTypes, ( { name, key } ) => (
 						<Button
 							key={ key }
-							className="kt-size-btn"
+							className="amp-size-btn"
 							isSmall
 							isPrimary={ sizeType === key }
 							aria-pressed={ sizeType === key }
@@ -264,11 +264,11 @@ class ampAdvancedHeading extends Component {
 					max={ fontMax }
 					step={ fontStep }
 				/>
-				<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Size Type' ) }>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
 					{ map( sizeTypes, ( { name, key } ) => (
 						<Button
 							key={ key }
-							className="kt-size-btn"
+							className="amp-size-btn"
 							isSmall
 							isPrimary={ lineType === key }
 							aria-pressed={ lineType === key }
@@ -289,23 +289,23 @@ class ampAdvancedHeading extends Component {
 			</PanelBody>
 		);
 		const tabControls = (
-			<TabPanel className="kt-size-tabs"
+			<TabPanel className="amp-size-tabs"
 				activeClass="active-tab"
 				tabs={ [
 					{
 						name: 'desk',
 						title: <Dashicon icon="desktop" />,
-						className: 'kt-desk-tab',
+						className: 'amp-desk-tab',
 					},
 					{
 						name: 'tablet',
 						title: <Dashicon icon="tablet" />,
-						className: 'kt-tablet-tab',
+						className: 'amp-tablet-tab',
 					},
 					{
 						name: 'mobile',
 						title: <Dashicon icon="smartphone" />,
-						className: 'kt-mobile-tab',
+						className: 'amp-mobile-tab',
 					},
 				] }>
 				{
@@ -358,14 +358,14 @@ class ampAdvancedHeading extends Component {
 					marginTop: ( undefined !== topMargin ? topMargin + marginType : '' ),
 					marginBottom: ( undefined !== bottomMargin ? bottomMargin + marginType : '' ),
 				} }
-				className={ `kt-adv-heading${ uniqueID }` }
+				className={ `amp-adv-heading${ uniqueID }` }
 				placeholder={ __( 'Add your text.....' ) }
 			/>
 		);
 		return (
 			<Fragment>
 				<style>
-					{ `.kt-adv-heading${ uniqueID } mark {
+					{ `.amp-adv-heading${ uniqueID } mark {
 						color: ${ markColor };
 						background: ${ ( markBG ? markBGString : 'transparent' ) };
 						font-weight: ${ ( markTypography && markFontWeight ? markFontWeight : 'inherit' ) };
@@ -455,7 +455,7 @@ class ampAdvancedHeading extends Component {
 							) }
 							{ this.showSettings( 'sizeSettings' ) && (
 								<Fragment>
-									<p className="kt-heading-size-title">{ __( 'Size Controls' ) }</p>
+									<p className="amp-heading-size-title">{ __( 'Size Controls' ) }</p>
 									{ tabControls }
 								</Fragment>
 							) }
@@ -498,11 +498,11 @@ class ampAdvancedHeading extends Component {
 								title={ __( 'Margin Settings' ) }
 								initialOpen={ false }
 							>
-								<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Margin Type' ) }>
+								<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Margin Type' ) }>
 									{ map( marginTypes, ( { name, key } ) => (
 										<Button
 											key={ key }
-											className="kt-size-btn"
+											className="amp-size-btn"
 											isSmall
 											isPrimary={ marginType === key }
 											aria-pressed={ marginType === key }
@@ -520,11 +520,11 @@ class ampAdvancedHeading extends Component {
 									max={ marginMax }
 									step={ marginStep }
 								/>
-								<ButtonGroup className="kt-size-type-options" aria-label={ __( 'Margin Type' ) }>
+								<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Margin Type' ) }>
 									{ map( marginTypes, ( { name, key } ) => (
 										<Button
 											key={ key }
-											className="kt-size-btn"
+											className="amp-size-btn"
 											isSmall
 											isPrimary={ marginType === key }
 											aria-pressed={ marginType === key }
@@ -559,8 +559,8 @@ class ampAdvancedHeading extends Component {
 						} } />
 				</InspectorAdvancedControls>
 				{ ampAnimation && (
-					<div className={ `kt-animation-wrap-${ ampAnimation }` }>
-						<div id={ `animate-id${ uniqueID }` } className={ 'aos-animate kt-animation-wrap' } data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
+					<div className={ `amp-animation-wrap-${ ampAnimation }` }>
+						<div id={ `animate-id${ uniqueID }` } className={ 'aos-animate amp-animation-wrap' } data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
 							data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }
 							data-aos-easing={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].easing ? ampAOSOptions[ 0 ].easing : undefined ) }
 						>

@@ -47,6 +47,7 @@ class Amp_Blocks_Frontend
 	{
 		add_action('init', array($this, 'on_init'), 20);
 		add_action('enqueue_block_assets', array($this, 'blocks_assets'));
+		add_action( 'wp_head', array( $this, 'frontend_gfonts' ), 90 );
 
 		$siteUrl = filter_input(INPUT_SERVER, 'REQUEST_URI');
 		$amp_end_query = explode('/', $siteUrl);
@@ -865,6 +866,42 @@ class Amp_Blocks_Frontend
 			}
 		}
 		return $content;
+	}
+	/**
+	 * Load the front end Google Fonts
+	 */
+	public function frontend_gfonts() {
+		if ( empty( self::$gfonts ) ) {
+			return;
+		}
+		$print_google_fonts = apply_filters( 'kadence_blocks_print_google_fonts', true );
+		if ( ! $print_google_fonts ) {
+			return;
+		}
+		$link    = '';
+		$subsets = array();
+		foreach ( self::$gfonts as $key => $gfont_values ) {
+			if ( ! empty( $link ) ) {
+				$link .= '%7C'; // Append a new font to the string.
+			}
+			$link .= $gfont_values['fontfamily'];
+			if ( ! empty( $gfont_values['fontvariants'] ) ) {
+				$link .= ':';
+				$link .= implode( ',', $gfont_values['fontvariants'] );
+			}
+			if ( ! empty( $gfont_values['fontsubsets'] ) ) {
+				foreach ( $gfont_values['fontsubsets'] as $subset ) {
+					if ( ! in_array( $subset, $subsets ) ) {
+						array_push( $subsets, $subset );
+					}
+				}
+			}
+		}
+		if ( ! empty( $subsets ) ) {
+			$link .= '&amp;subset=' . implode( ',', $subsets );
+		}
+		echo '<link href="//fonts.googleapis.com/css?family=' . esc_attr( str_replace( '|', '%7C', $link ) ) . '" rel="stylesheet">';
+
 	}
 
 	/**

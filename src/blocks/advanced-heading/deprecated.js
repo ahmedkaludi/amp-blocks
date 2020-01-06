@@ -200,16 +200,16 @@ export default [
 			const { anchor, align, level, content, color, uniqueID, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } = attributes;
 			const tagName = 'h' + level;
 			const mType = ( marginType ? marginType : 'px' );
-			let tagId = ( anchor ? anchor : `kt-adv-heading${ uniqueID }` );
+			let tagId = ( anchor ? anchor : `amp-adv-heading${ uniqueID }` );
 			const revealAnimation = ( ampAnimation && ( 'reveal-left' === ampAnimation || 'reveal-right' === ampAnimation || 'reveal-up' === ampAnimation || 'reveal-down' === ampAnimation ) ? true : false );
 			const wrapper = ( anchor || revealAnimation ? true : false );
-			tagId = ( revealAnimation && ! anchor ? `kt-adv-inner-heading${ uniqueID }` : tagId );
+			tagId = ( revealAnimation && ! anchor ? `amp-adv-inner-heading${ uniqueID }` : tagId );
 			const classes = ( className ? `${ className } ${ getBlockDefaultClassName( 'amp/advancedheading' ) }` : getBlockDefaultClassName( 'amp/advancedheading' ) );
 			const htmlItem = (
 				<RichText.Content
 					tagName={ tagName }
 					id={ tagId }
-					className={ `kt-adv-heading${ uniqueID } ${ classes }` }
+					className={ `amp-adv-heading${ uniqueID } ${ classes }` }
 					data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
 					data-aos-offset={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].offset ? ampAOSOptions[ 0 ].offset : undefined ) }
 					data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }
@@ -229,7 +229,7 @@ export default [
 			return (
 				<Fragment>
 					{ wrapper && (
-						<div id={ `kt-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }` }>
+						<div id={ `amp-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }` }>
 							{ htmlItem }
 						</div>
 					) }
@@ -426,16 +426,16 @@ export default [
 			const { anchor, align, level, content, color, uniqueID, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } = attributes;
 			const tagName = 'h' + level;
 			const mType = ( marginType ? marginType : 'px' );
-			let tagId = ( anchor ? anchor : `kt-adv-heading${ uniqueID }` );
+			let tagId = ( anchor ? anchor : `amp-adv-heading${ uniqueID }` );
 			const revealAnimation = ( ampAnimation && ( 'reveal-left' === ampAnimation || 'reveal-right' === ampAnimation || 'reveal-up' === ampAnimation || 'reveal-down' === ampAnimation ) ? true : false );
 			const wrapper = ( anchor || revealAnimation ? true : false );
-			tagId = ( revealAnimation && ! anchor ? `kt-adv-inner-heading${ uniqueID }` : tagId );
+			tagId = ( revealAnimation && ! anchor ? `amp-adv-inner-heading${ uniqueID }` : tagId );
 			const classes = ( className ? `${ className } ${ getBlockDefaultClassName( 'amp/advancedheading' ) }` : getBlockDefaultClassName( 'amp/advancedheading' ) );
 			const htmlItem = (
 				<RichText.Content
 					tagName={ tagName }
 					id={ tagId }
-					className={ `kt-adv-heading${ uniqueID } ${ classes }` }
+					className={ `amp-adv-heading${ uniqueID } ${ classes }` }
 					data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
 					data-aos-offset={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].offset ? ampAOSOptions[ 0 ].offset : undefined ) }
 					data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }
@@ -455,7 +455,7 @@ export default [
 			return (
 				<Fragment>
 					{ wrapper && (
-						<div id={ `kt-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }` }>
+						<div id={ `amp-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }` }>
 							{ htmlItem }
 						</div>
 					) }
@@ -644,16 +644,16 @@ export default [
 			const { anchor, align, level, content, color, uniqueID, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } = attributes;
 			const tagName = 'h' + level;
 			const mType = ( marginType ? marginType : 'px' );
-			let tagId = ( anchor ? anchor : `kt-adv-heading${ uniqueID }` );
+			let tagId = ( anchor ? anchor : `amp-adv-heading${ uniqueID }` );
 			const revealAnimation = ( ampAnimation && ( 'reveal-left' === ampAnimation || 'reveal-right' === ampAnimation || 'reveal-up' === ampAnimation || 'reveal-down' === ampAnimation ) ? true : false );
 			const wrapper = ( anchor || revealAnimation ? true : false );
-			tagId = ( revealAnimation && ! anchor ? `kt-adv-inner-heading${ uniqueID }` : `kt-adv-heading${ uniqueID }` );
+			tagId = ( revealAnimation && ! anchor ? `amp-adv-inner-heading${ uniqueID }` : `amp-adv-heading${ uniqueID }` );
 			const classes = ( className ? `${ className } ${ getBlockDefaultClassName( 'amp/advancedheading' ) }` : getBlockDefaultClassName( 'amp/advancedheading' ) );
 			const htmlItem = (
 				<RichText.Content
 					tagName={ tagName }
 					id={ tagId }
-					className={ `kt-adv-heading${ uniqueID } ${ classes }` }
+					className={ `amp-adv-heading${ uniqueID } ${ classes }` }
 					data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
 					data-aos-offset={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].offset ? ampAOSOptions[ 0 ].offset : undefined ) }
 					data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }
@@ -673,7 +673,7 @@ export default [
 			return (
 				<Fragment>
 					{ wrapper && (
-						<div id={ `kt-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }` }>
+						<div id={ `amp-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }` }>
 							{ htmlItem }
 						</div>
 					) }
@@ -862,7 +862,7 @@ export default [
 			return (
 				<RichText.Content
 					tagName={ tagName }
-					id={ `kt-adv-heading${ uniqueID }` }
+					id={ `amp-adv-heading${ uniqueID }` }
 					style={ {
 						textAlign: align,
 						color: color,
@@ -959,7 +959,7 @@ export default [
 			return (
 				<RichText.Content
 					tagName={ tagName }
-					id={ `kt-adv-heading${ uniqueID }` }
+					id={ `amp-adv-heading${ uniqueID }` }
 					style={ {
 						textAlign: align,
 						color: color,

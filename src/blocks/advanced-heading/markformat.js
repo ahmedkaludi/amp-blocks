@@ -9,7 +9,7 @@ const name = 'amp/mark';
 const ampMarkHighlight = {
 	title: __( 'Highlight' ),
 	tagName: 'mark',
-	className: 'kt-highlight',
+	className: 'amp-highlight',
 	edit( { isActive, value, onChange } ) {
 		const onToggle = () => onChange( toggleFormat( value, { type: name } ) );
 

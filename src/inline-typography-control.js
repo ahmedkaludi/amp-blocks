@@ -348,12 +348,12 @@ class InlineTypographyControl extends Component {
 		return (
 			<Fragment>
 				<Dropdown
-					className="kt-popover-font-family-container components-dropdown-menu components-toolbar"
-					contentClassName="kt-popover-font-family"
+					className="amp-popover-font-family-container components-dropdown-menu components-toolbar"
+					contentClassName="amp-popover-font-family"
 					position="top center"
 					renderToggle={ ( { isOpen, onToggle } ) => (
 						<Fragment>
-							<IconButton className="components-dropdown-menu__toggle kt-font-family-icon" label={ __( 'Typography Settings' ) } tooltip={ __( 'Typography Settings' ) } icon={ icons.fontfamily } onClick={ onToggle } aria-expanded={ isOpen }>
+							<IconButton className="components-dropdown-menu__toggle amp-font-family-icon" label={ __( 'Typography Settings' ) } tooltip={ __( 'Typography Settings' ) } icon={ icons.fontfamily } onClick={ onToggle } aria-expanded={ isOpen }>
 								<span className="components-dropdown-menu__indicator" />
 							</IconButton>
 						</Fragment>
@@ -362,12 +362,12 @@ class InlineTypographyControl extends Component {
 						<Fragment>
 							{ onFontFamily && (
 								<Fragment>
-									<h2 className="kt-heading-fontfamily-title">{ __( 'Font Family' ) }</h2>
+									<h2 className="amp-heading-fontfamily-title">{ __( 'Font Family' ) }</h2>
 									<div className="typography-family-select-form-row block-editor-block-toolbar">
 										<Select
 											options={ typographyOptions }
-											className="kt-inline-typography-select"
-											classNamePrefix="kt-typography"
+											className="amp-inline-typography-select"
+											classNamePrefix="amp-typography"
 											value={ fontFamilyValue }
 											isMulti={ false }
 											isSearchable={ true }
@@ -407,12 +407,12 @@ class InlineTypographyControl extends Component {
 							</div>
 							<div className="typography-row-settings">
 								{ onLetterSpacing && (
-									<div className="kt-type-input-wrap">
-										<div className="components-base-control kt-typography-number-input">
+									<div className="amp-type-input-wrap">
+										<div className="components-base-control amp-typography-number-input">
 											<div className="components-base-control__field">
-												<label className="components-base-control__label" htmlFor={ `kt-inline-spacing${ uniqueID }` }>{ __( 'Spacing' ) }</label>
+												<label className="components-base-control__label" htmlFor={ `amp-inline-spacing${ uniqueID }` }>{ __( 'Spacing' ) }</label>
 												<input
-													id={ `kt-inline-spacing${ uniqueID }` }
+													id={ `amp-inline-spacing${ uniqueID }` }
 													value={ ( undefined !== letterSpacing ? letterSpacing : '' ) }
 													onChange={ onLetterSpacingInput }
 													min={ -5 }
@@ -423,7 +423,7 @@ class InlineTypographyControl extends Component {
 												/>
 											</div>
 										</div>
-										<span className="kt-unit">{ __( 'px' ) }</span>
+										<span className="amp-unit">{ __( 'px' ) }</span>
 									</div>
 								) }
 								{ fontFamily && googleFont && onFontSubset && (
@@ -444,15 +444,15 @@ class InlineTypographyControl extends Component {
 							</div>
 							<div className="typography-row-settings typography-size-row-settings">
 								{ onFontSize && onFontSizeType && ! fontSizeArray && (
-									<div className="kt-size-input-wrap">
-										<div className="kt-size-tite-device-wrap">
-											<p className="kt-inline-size-title">{ __( 'Size' ) }</p>
-											<ButtonGroup className="kt-typography-size-type-options" aria-label={ __( 'Device Size Control Switch' ) }>
+									<div className="amp-size-input-wrap">
+										<div className="amp-size-tite-device-wrap">
+											<p className="amp-inline-size-title">{ __( 'Size' ) }</p>
+											<ButtonGroup className="amp-typography-size-type-options" aria-label={ __( 'Device Size Control Switch' ) }>
 												{ map( deviceControlTypes, ( { name, key, icon } ) => (
 													<Tooltip text={ name }>
 														<Button
 															key={ key }
-															className="kt-size-btn"
+															className="amp-size-btn"
 															isSmall
 															isPrimary={ controlSize === key }
 															aria-pressed={ controlSize === key }
@@ -465,9 +465,9 @@ class InlineTypographyControl extends Component {
 											</ButtonGroup>
 										</div>
 										{ onFontSize && (
-											<div className="kt-type-size-input-wrap">
+											<div className="amp-type-size-input-wrap">
 												{ 'mobile' === controlSize && (
-													<div className="components-base-control kt-typography-number-input">
+													<div className="components-base-control amp-typography-number-input">
 														<div className="components-base-control__field">
 															<input
 																value={ ( mobileSize ? mobileSize : '' ) }
@@ -482,7 +482,7 @@ class InlineTypographyControl extends Component {
 													</div>
 												) }
 												{ 'tablet' === controlSize && (
-													<div className="components-base-control kt-typography-number-input">
+													<div className="components-base-control amp-typography-number-input">
 														<div className="components-base-control__field">
 															<input
 																value={ ( tabSize ? tabSize : '' ) }
@@ -497,7 +497,7 @@ class InlineTypographyControl extends Component {
 													</div>
 												) }
 												{ 'desk' === controlSize && (
-													<div className="components-base-control kt-typography-number-input">
+													<div className="components-base-control amp-typography-number-input">
 														<div className="components-base-control__field">
 															<input
 																value={ ( fontSize ? fontSize : '' ) }
@@ -513,7 +513,7 @@ class InlineTypographyControl extends Component {
 												) }
 												<SelectControl
 													value={ fontSizeType }
-													className="kt-typography-size-type"
+													className="amp-typography-size-type"
 													options={ [
 														{ value: 'px', label: __( 'px' ) },
 														{ value: 'em', label: __( 'em' ) },
@@ -525,15 +525,15 @@ class InlineTypographyControl extends Component {
 									</div>
 								) }
 								{ onLineHeight && onLineHeightType && ! fontSizeArray && (
-									<div className="kt-size-input-wrap">
-										<div className="kt-size-tite-device-wrap">
-											<p className="kt-inline-size-title">{ __( 'Height' ) }</p>
-											<ButtonGroup className="kt-typography-size-type-options" aria-label={ __( 'Device Size Control Switch' ) }>
+									<div className="amp-size-input-wrap">
+										<div className="amp-size-tite-device-wrap">
+											<p className="amp-inline-size-title">{ __( 'Height' ) }</p>
+											<ButtonGroup className="amp-typography-size-type-options" aria-label={ __( 'Device Size Control Switch' ) }>
 												{ map( deviceControlTypes, ( { name, key, icon } ) => (
 													<Tooltip text={ name }>
 														<Button
 															key={ key }
-															className="kt-size-btn"
+															className="amp-size-btn"
 															isSmall
 															isPrimary={ controlSize === key }
 															aria-pressed={ controlSize === key }
@@ -546,9 +546,9 @@ class InlineTypographyControl extends Component {
 											</ButtonGroup>
 										</div>
 										{ onLineHeight && (
-											<div className="kt-type-size-input-wrap">
+											<div className="amp-type-size-input-wrap">
 												{ 'mobile' === controlSize && (
-													<div className="components-base-control kt-typography-number-input">
+													<div className="components-base-control amp-typography-number-input">
 														<div className="components-base-control__field">
 															<input
 																value={ ( mobileLineHeight ? mobileLineHeight : '' ) }
@@ -563,7 +563,7 @@ class InlineTypographyControl extends Component {
 													</div>
 												) }
 												{ 'tablet' === controlSize && (
-													<div className="components-base-control kt-typography-number-input">
+													<div className="components-base-control amp-typography-number-input">
 														<div className="components-base-control__field">
 															<input
 																value={ ( tabLineHeight ? tabLineHeight : '' ) }
@@ -578,7 +578,7 @@ class InlineTypographyControl extends Component {
 													</div>
 												) }
 												{ 'desk' === controlSize && (
-													<div className="components-base-control kt-typography-number-input">
+													<div className="components-base-control amp-typography-number-input">
 														<div className="components-base-control__field">
 															<input
 																value={ ( lineHeight ? lineHeight : '' ) }
@@ -594,7 +594,7 @@ class InlineTypographyControl extends Component {
 												) }
 												<SelectControl
 													value={ lineHeightType }
-													className="kt-typography-size-type"
+													className="amp-typography-size-type"
 													options={ [
 														{ value: 'px', label: __( 'px' ) },
 														{ value: 'em', label: __( 'em' ) },
