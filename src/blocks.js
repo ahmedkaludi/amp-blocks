@@ -11,6 +11,7 @@ import './blocks/advanced-heading/block.js';
 import './blocks/advanced-btn/block.js';
 import './blocks/image/block.js';
 import './blocks/icon/block.js';
+import './blocks/video/block.js';
 import Prebuilt_Modal from './blocks/row-layout/prebuilt_modal';
 
 window.kb = {
