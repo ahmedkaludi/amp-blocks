@@ -1,0 +1,372 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+ .amp-button-text.is-selected {
+    min-width: 5px;
+}
+.block-editor-rich-text__editable.amp-button-text [data-rich-text-placeholder]:after {
+    display:inline-block;
+}
+.block-editor-rich-text__editable.amp-button-text.is-selected:focus [data-rich-text-placeholder]:after {
+    display:none;
+}
+ .amp-block-defaults-modal h2.amp-beside-btn-group, .amp-block-defaults-modal h2.amp-beside-color-label {
+    font-size: 14px;
+    color: #555d66;
+}
+.amp-block-defaults-modal h2.amp-tab-wrap-title.amp-color-settings-title {
+    text-align: center;
+    background: #f2f2f2;
+    margin-bottom: 0;
+        font-size: 14px;
+    color: #555d66;
+}
+ .amp-btn-link-group .amp-btn-link-input input[type=text] {
+    max-width: 97%;
+    width: 100%;
+}
+.amp-btn-link-group {
+    display: flex;
+    max-width: 100%;
+}
+.edit-post-sidebar h2.side-h2-label {
+	margin-bottom: 4px;
+}
+.amp-inspect-tabs .amp-btn-size-settings-container .amp-button-size-type-options {
+    margin-bottom: 0;
+}
+.amp-btn-size-settings-container .amp-button-size-type-options {
+	margin-bottom: 0;
+	display: flex;
+}
+.amp-box-shadow-label .components-base-control.components-toggle-control, .amp-box-shadow-label .components-toggle-control .components-base-control__field {
+    margin-bottom: 0 !important;
+}
+.amp-box-shadow-label h2.amp-beside-color-label {
+    flex-grow: 1;
+    margin: 12px 0;
+}
+.amp-box-shadow-label {
+    display: flex;
+    align-items: center;
+}
+.amp-select-icon-container .rfip {
+    margin: 0 0 15px 0;
+}
+.amp-inner-sub-section-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.amp-box-shadow-subset {
+    padding: 0 2px;
+    text-align: center;
+}
+.amp-box-shadow-subset .amp-box-shadow-title {
+    font-size:12px;
+}
+
+.amp-box-shadow-subset .amp-advanced-color-settings-container {
+    flex-direction: column-reverse;
+}
+.edit-post-sidebar h2.amp-tab-wrap-title.amp-color-settings-title {
+    text-align: center;
+    background: #f2f2f2;
+    //margin-bottom: 0;
+}
+.amp-advanced-color-settings-container .amp-has-alpha {
+    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
+    background-size: 10px 10px;
+    background-position: 0 0,0 5px,5px -5px,-5px 0;
+}
+.amp-advanced-color-settings-container .amp-color-icon-indicate {
+    position: relative;
+    transform: scale(1);
+	transition: transform .1s ease;
+	border-radius: 50%;
+    padding: 0;
+}
+.amp-advanced-color-settings-container .amp-color-icon-indicate:hover {
+    transform: scale(1.2);
+}
+.components-popover__content .components-range-control.amp-opacity-value {
+    padding: 0 12px 12px;
+}
+
+.components-popover__content .components-range-control.amp-opacity-value .components-base-control__field {
+    flex-wrap: nowrap;
+}
+
+.components-popover__content .components-range-control.amp-opacity-value .components-range-control__slider {
+    flex-grow: 10;
+}
+.components-popover__content .components-range-control.amp-opacity-value .components-base-control__label {
+    width: auto;
+    margin-right: 5px;
+}
+.amp-advanced-color-settings-container .components-color-palette__clear svg {
+	width:16px;
+}
+.amp-advanced-color-settings-container .components-color-palette__clear {
+    background: transparent;
+    padding: 4px;
+    height: auto;
+    box-shadow: none;
+    border: 1px solid transparent;
+}
+.amp-beside-color-click {
+    display: flex;
+    align-items: center;
+}
+.amp-advanced-color-settings-container .amp-color-icon-indicate .component-color-indicator.amp-advanced-color-indicate {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin: 0;
+}
+.components-popover__content .components-color-palette .components-color-palette__item-wrapper {
+	margin-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.components-popover__content .components-color-palette .components-color-palette__item-wrapper:last-child {
+    margin-right: 0;
+}
+.components-popover__content .components-color-palette {
+    margin: 0;
+    padding: 0px 12px 12px;
+    width: 100%;
+}
+.amp-advanced-color-settings-container {
+    display: flex;
+    align-items: center;
+}
+.amp-advanced-color-settings-container h2.amp-beside-color-label {
+    flex-grow: 1;
+}
+.amp-link-settings {
+    border: 1px solid #8d96a0;
+    margin: 2px 0;
+    height: 30px;
+    padding: 2px 8px;
+}
+.amp-inner-sub-section {
+    border: 1px solid #ddd;
+    border-top: 0;
+    padding: 25px 10px 10px 10px;
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+.amp-inner-sub-section .amp-size-tabs .components-tab-panel__tabs {
+    margin-bottom: 10px;
+}
+.amp-btn-size-settings-container .amp-beside-btn-group {
+    flex-grow: 1;
+    margin: 0;
+}
+.btn-text-size-range {
+    margin-top: 8px;
+}
+.edit-post-sidebar h2.amp-heading-size-title.amp-secondary-color-size {
+    margin-top: 0;
+    font-weight: normal;
+}
+.amp-btn-size-settings-container {
+    display: flex;
+	align-items: center;
+	margin: 20px 0;
+}
+.amp-link-settings .dashicon {
+    width: 16px;
+    height: 16px;
+}
+.amp-button-size-type-options .dashicon {
+	width:14px;
+}
+ // Controls
+.components-base-control__field .components-range-control__slider+.dashicon.dashicons-editor-textcolor {
+    width: 30px;
+    height: 30px;
+}
+.amp-popover-container {
+    float: left;
+    margin-top: -20px;
+}
+.components-popover.amp-popover-opacity .components-popover__content {
+    padding: 10px;
+}
+.components-popover.amp-popover-opacity .components-popover__content .components-base-control .components-base-control__field {
+    margin:0;
+}
+.amp-popover-container .components-button.is-button {
+    background: transparent;
+    height: 20px;
+    padding: 0;
+    width: 20px;
+    border: 0;
+    box-shadow: none !important;
+}
+.amp-popover-container .components-button.is-button svg {
+	opacity:1;
+	transition: all .3s ease-in-out;
+}
+.amp-popover-container .components-button.is-button:hover svg {
+    opacity:0.7;
+}
+.wp-block-amp-advancedbtn form.blocks-button__inline-link {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    line-height: 1.4;
+    width: 340px;
+}
+.components-panel__body.amp-font-family-area.is-opened {
+    min-height: 340px;
+}
+.amp-color-indicate {
+    display: block;
+    float: right;
+	margin-bottom: -18px;
+    margin-top: 10px;
+}
+.components-panel__body.amp-font-family-area h2.amp-heading-fontfamily-title {
+    margin-top: 0;
+}
+.wp-block-amp-advancedbtn .btn-area-wrap form.blocks-button__inline-link {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    border: 1px solid #eee;
+    padding: 0;
+    background: white;
+    transform: translate(-50%, 0);
+}
+.amp-hover-tabs {
+    padding-top: 0;
+    margin-top: -5px;
+}
+.amp-hover-tabs  .components-tab-panel__tabs {
+    margin-bottom: 15px;
+}
+.amp-hover-tabs .components-tab-panel__tabs button.active-tab {
+    border-color: #0085ba;
+    color: #0085ba;
+}
+.amp-hover-tabs .components-tab-panel__tabs button {
+    background: transparent;
+    border: 0;
+    border: 1px solid #eee;
+    border-bottom: 4px solid transparent;
+    padding: 6px 16px;
+    margin-bottom: -4px;
+    outline: 0;
+    color: #575757;
+    width: 50%;
+    font-size: 14px;
+    font-weight: bold;
+}
+.wp-block-amp-advancedbtn.amp-btn-align-left .btn-area-wrap form.blocks-button__inline-link {
+    left: 0;
+    transform: translate(0, 0);
+}
+.wp-block-amp-advancedbtn.amp-btn-align-right .btn-area-wrap form.blocks-button__inline-link {
+    left: auto;
+    right:0;
+    transform: translate(0, 0);
+}
+// Item
+.wp-block-amp-advancedbtn .btn-area-wrap {
+    position: relative;
+    display:inline-block;
+}
+[data-type="amp/advancedbtn"].is-selected .wp-block-amp-advancedbtn, [data-type="amp/advancedbtn"].is-typing .wp-block-amp-advancedbtn {
+    padding-bottom: 40px;
+}
+.amp-button {
+	z-index: 1;
+	position: relative;
+    padding: 8px 16px;
+    cursor: pointer;
+	font-size: 18px;
+	border-width:2px;
+	border-radius: 3px;
+	border-color:#555555;
+	background:transparent;
+	color:#555555;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	border-style: solid;
+	overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+.amp-button::before {
+    position: absolute;
+	content: "";
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	opacity: 0;
+	background:#444444;
+	transition: all .3s ease-in-out;
+}
+.amp-button:hover {
+	border-color:#444444;
+	color:#ffffff;
+}
+.amp-button:hover::before {
+	opacity: 1;
+}
+.amp-btn-size-small {
+    font-size: 16px;
+    padding: 4px 8px;
+    border-width: 1px;
+}
+.amp-btn-size-large {
+    font-size: 20px;
+	padding: 12px 24px;
+	border-width: 3px;
+}
+.amp-btn-svg-icon.amp-btn-side-right {
+    padding-left: 5px;
+}
+.amp-btn-svg-icon.amp-btn-side-left {
+    padding-right: 5px;
+}
+.amp-button-wrap {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.amp-btn-align-center {
+    text-align: center;
+}
+.amp-btn-align-left {
+    text-align: left;
+}
+.amp-btn-align-right {
+    text-align: right;
+}
+.wp-block-amp-advancedbtn .btn-area-wrap:last-child {
+    margin-right: 0;
+}
+.wp-block-amp-advancedbtn .btn-area-wrap {
+    margin-right: 5px;
+}
+.amp-force-btn-fullwidth .btn-inner-wrap > div {
+    display: flex;
+}
+.wp-block-amp-advancedbtn.amp-force-btn-fullwidth .btn-area-wrap {
+    display: block;
+    flex-grow:1;
+}
+.wp-block-amp-advancedbtn.amp-force-btn-fullwidth .btn-area-wrap .amp-button-wrap {
+    display:block;
+}
+.wp-block-amp-advancedbtn.amp-force-btn-fullwidth .amp-button {
+    justify-content: center;
+}
