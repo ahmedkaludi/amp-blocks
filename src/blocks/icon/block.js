@@ -15,8 +15,8 @@ import edit from './edit';
 /**
  * Import Css
  */
-import './style.css';
-import './editor.css';
+import './style.scss';
+import './editor.scss';
 
 /**
  * Internal block libraries

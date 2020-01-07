@@ -108,7 +108,7 @@ class ampIcons extends Component {
 		const renderIconSettings = ( index ) => {
 			return (
 				<PanelBody
-					title={ __( 'Icon' ) + ' ' + ( index + 1 ) + ' ' + __( 'Settings' ) }
+					title={ __( 'Icon Settings' ) }
 					initialOpen={ ( 1 === iconCount ? true : false ) }
 				>
 					<FontIconPicker
@@ -366,47 +366,7 @@ class ampIcons extends Component {
 					/>
 				</BlockControls>
 				<InspectorControls>
-					<PanelBody
-						title={ __( 'Icon Count' ) }
-						initialOpen={ true }
-					>
-						<RangeControl
-							label={ __( 'Number of Icons' ) }
-							value={ iconCount }
-							onChange={ newcount => {
-								const newicons = icons;
-								if ( newicons.length < newcount ) {
-									const amount = Math.abs( newcount - newicons.length );
-									{ times( amount, n => {
-										newicons.push( {
-											icon: newicons[ 0 ].icon,
-											link: newicons[ 0 ].link,
-											target: newicons[ 0 ].target,
-											size: newicons[ 0 ].size,
-											width: newicons[ 0 ].width,
-											title: newicons[ 0 ].title,
-											color: newicons[ 0 ].color,
-											background: newicons[ 0 ].background,
-											border: newicons[ 0 ].border,
-											borderRadius: newicons[ 0 ].borderRadius,
-											borderWidth: newicons[ 0 ].borderWidth,
-											padding: newicons[ 0 ].padding,
-											style: newicons[ 0 ].style,
-											marginTop: ( newicons[ 0 ].marginTop ? newicons[ 0 ].marginTop : 0 ),
-											marginRight: ( newicons[ 0 ].marginRight ? newicons[ 0 ].marginRight : 0 ),
-											marginBottom: ( newicons[ 0 ].marginBottom ? newicons[ 0 ].marginBottom : 0 ),
-											marginLeft: ( newicons[ 0 ].marginLeft ? newicons[ 0 ].marginLeft : 0 ),
-										} );
-									} ); }
-									setAttributes( { icons: newicons } );
-									this.saveArrayUpdate( { title: icons[ 0 ].title }, 0 );
-								}
-								setAttributes( { iconCount: newcount } );
-							} }
-							min={ 1 }
-							max={ 10 }
-						/>
-					</PanelBody>
+
 					{ renderSettings }
 				</InspectorControls>
 				<div className={ `amp-svg-icons ${ clientId }` } style={ {
