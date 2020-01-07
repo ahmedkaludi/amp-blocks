@@ -1,5 +1,5 @@
 /**
- * BLOCK: ampblocks Icon
+ * BLOCK: amp Icon
  */
 
 /**
@@ -21,8 +21,8 @@ import IcoNames from '../../svgiconsnames';
 /**
  * Import Css
  */
-import './style.css';
-import './editor.css';
+import './style.scss';
+import './editor.scss';
 
 /**
  * Internal block libraries
@@ -54,9 +54,9 @@ const {
 /**
  * This allows for checking to see if the block needs to generate a new ID.
  */
-const ampiconUniqueIDs = [];
+const kticonUniqueIDs = [];
 
-class ampblocksIcons extends Component {
+class ampIcons extends Component {
 	constructor() {
 		super( ...arguments );
 		this.saveArrayUpdate = this.saveArrayUpdate.bind( this );
@@ -70,14 +70,14 @@ class ampblocksIcons extends Component {
 			this.props.setAttributes( {
 				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
 			} );
-			ampiconUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
-		} else if ( ampiconUniqueIDs.includes( this.props.attributes.uniqueID ) ) {
+			kticonUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
+		} else if ( kticonUniqueIDs.includes( this.props.attributes.uniqueID ) ) {
 			this.props.setAttributes( {
 				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
 			} );
-			ampiconUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
+			kticonUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
 		} else {
-			ampiconUniqueIDs.push( this.props.attributes.uniqueID );
+			kticonUniqueIDs.push( this.props.attributes.uniqueID );
 		}
 	}
 	saveArrayUpdate( value, index ) {
@@ -418,5 +418,5 @@ class ampblocksIcons extends Component {
 		);
 	}
 }
-export default ( ampblocksIcons );
+export default ( ampIcons );
 
