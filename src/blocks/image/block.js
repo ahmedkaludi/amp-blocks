@@ -50,8 +50,8 @@ registerBlockType('ampblocks/image', {
 			//Loops throug the image
 			if (typeof image !== 'undefined') {
 				return (
-					<div className="gallery-item-container">
-						<img width="100%" height="100%" className='gallery-item' src={image.url} />
+					<div className="amp-img-block-container">
+						<img width="100%" height="100%" className='amp-img-item' src={image.url} />
 					</div>
 				)
 			} else {
@@ -61,7 +61,7 @@ registerBlockType('ampblocks/image', {
 		//JSX to return
 		return (
 			<div>
-				<div className="gallery-grid">
+				<div className="amp-img-block">
 					{displayimage(image)}
 				</div>
 				<br />
@@ -94,8 +94,8 @@ registerBlockType('ampblocks/image', {
 			//Loops throug the image
 			if (typeof image !== 'undefined') {
 				return (
-					<div className="gallery-item-container">
-						<img width="100%" height="100%" className='gallery-item' src={image.url} />
+					<div className="amp-img-block-container">
+						<img width="100%" height="100%" className='amp-img-item' src={image.url} />
 					</div>
 				)
 			} else {
@@ -103,7 +103,7 @@ registerBlockType('ampblocks/image', {
 			}
 		};
 		return (
-			<div className="gallery-grid">
+			<div className="amp-image-block">
 				{displayimage(image)}
 			</div>
 		)
