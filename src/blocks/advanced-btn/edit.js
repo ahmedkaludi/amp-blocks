@@ -12,6 +12,7 @@ import AdvancedColorControl from '../../advanced-color-control';
 import BoxShadowControl from '../../box-shadow-control';
 import WebfontLoader from '../../fontloader';
 import hexToRGBA from '../../hex-to-rgba';
+import TypographyControls from '../../typography-control';
 
 /**
  * Import Css
@@ -92,9 +93,8 @@ class AmpAdvancedButton extends Component {
 		if ( blockSettings[ 'amp/advancedbtn' ] !== undefined && typeof blockSettings[ 'amp/advancedbtn' ] === 'object' ) {
 			this.setState( { settings: blockSettings[ 'amp/advancedbtn' ] } );
 		}
-		if ( this.props.attributes.btns && this.props.attributes.btns[ 0 ] && undefined === this.props.attributes.btns[ 0 ].btnSize ) {
 			this.saveArrayUpdate( { btnSize: 'custom' }, 0 );
-		}
+		
 
 		if ( undefined === this.props.attributes.widthType ) {
 			if ( this.props.attributes.forceFullwidth ) {
@@ -156,11 +156,7 @@ class AmpAdvancedButton extends Component {
 		const config = ( googleFont ? gconfig : '' );
 		const renderBtns = ( index ) => {
 			let btnSize;
-			if ( undefined !== btns[ index ].paddingLR || undefined !== btns[ index ].paddingBT ) {
-				btnSize = 'custom';
-			} else {
-				btnSize = 'standard';
-			}
+			btnSize = 'custom';
 			let btnbg;
 			let btnGrad;
 			let btnGrad2;
@@ -191,10 +187,10 @@ class AmpAdvancedButton extends Component {
 							borderRadius: ( undefined !== btns[ index ].borderRadius ? btns[ index ].borderRadius + 'px' : undefined ),
 							borderWidth: ( undefined !== btns[ index ].borderWidth ? btns[ index ].borderWidth + 'px' : undefined ),
 							borderColor: ( undefined === btns[ index ].border ? '#555555' : hexToRGBA( btns[ index ].border, ( btns[ index ].borderOpacity !== undefined ? btns[ index ].borderOpacity : 1 ) ) ),
-							paddingLeft: ( undefined !== btns[ index ].paddingLR && 'custom' === btns[ index ].btnSize ? btns[ index ].paddingLR + 'px' : undefined ),
-							paddingRight: ( undefined !== btns[ index ].paddingLR && 'custom' === btns[ index ].btnSize ? btns[ index ].paddingLR + 'px' : undefined ),
-							paddingTop: ( undefined !== btns[ index ].paddingBT && 'custom' === btns[ index ].btnSize ? btns[ index ].paddingBT + 'px' : undefined ),
-							paddingBottom: ( undefined !== btns[ index ].paddingBT && 'custom' === btns[ index ].btnSize ? btns[ index ].paddingBT + 'px' : undefined ),
+							paddingLeft: btns[ index ].paddingLR + 'px' ,
+							paddingRight: btns[ index ].paddingLR + 'px' ,
+							paddingTop: btns[ index ].paddingBT + 'px',
+							paddingBottom: btns[ index ].paddingBT + 'px',
 							width: ( undefined !== widthType && 'fixed' === widthType && undefined !== btns[ index ].width && undefined !== btns[ index ].width[ 0 ] ? btns[ index ].width[ 0 ] + ( undefined !== widthUnit ? widthUnit : 'px' ) : undefined ),
 							boxShadow: ( undefined !== btns[ index ].boxShadow && undefined !== btns[ index ].boxShadow[ 0 ] && btns[ index ].boxShadow[ 0 ] ? ( undefined !== btns[ index ].boxShadow[ 7 ] && btns[ index ].boxShadow[ 7 ] ? 'inset ' : '' ) + ( undefined !== btns[ index ].boxShadow[ 3 ] ? btns[ index ].boxShadow[ 3 ] : 1 ) + 'px ' + ( undefined !== btns[ index ].boxShadow[ 4 ] ? btns[ index ].boxShadow[ 4 ] : 1 ) + 'px ' + ( undefined !== btns[ index ].boxShadow[ 5 ] ? btns[ index ].boxShadow[ 5 ] : 2 ) + 'px ' + ( undefined !== btns[ index ].boxShadow[ 6 ] ? btns[ index ].boxShadow[ 6 ] : 0 ) + 'px ' + hexToRGBA( ( undefined !== btns[ index ].boxShadow[ 1 ] ? btns[ index ].boxShadow[ 1 ] : '#000000' ), ( undefined !== btns[ index ].boxShadow[ 2 ] ? btns[ index ].boxShadow[ 2 ] : 1 ) ) : undefined ),
 						} } >
@@ -832,9 +828,10 @@ class AmpAdvancedButton extends Component {
 												/>
 											</Fragment>
 										) }
-										{ this.showSettings( 'sizeSettings' ) && (
+										{ true && (
+											
 											<Fragment>
-												{ 'custom' === btns[ indexcountamp ].btnSize && (
+												{ true && (
 													<div className="amp-inner-sub-section">
 														<h2 className="amp-heading-size-title amp-secondary-color-size">{ __( 'Padding', 'amp-blocks' ) }</h2>
 														<TabPanel className="amp-size-tabs"
@@ -938,79 +935,7 @@ class AmpAdvancedButton extends Component {
 													</div>
 												) }
 
-												{ 'fixed' === widthType && (
-													<div className="amp-inner-sub-section">
-														<h2 className="amp-heading-size-title amp-secondary-color-size">{ __( 'Fixed Width', 'amp-blocks' ) }</h2>
-														<TabPanel className="amp-size-tabs"
-																  activeClass="active-tab"
-																  tabs={ [
-																	  {
-																		  name: 'desk',
-																		  title: <Dashicon icon="desktop" />,
-																		  className: 'amp-desk-tab',
-																	  },
-																	  {
-																		  name: 'tablet',
-																		  title: <Dashicon icon="tablet" />,
-																		  className: 'amp-tablet-tab',
-																	  },
-																	  {
-																		  name: 'mobile',
-																		  title: <Dashicon icon="smartphone" />,
-																		  className: 'amp-mobile-tab',
-																	  },
-																  ] }>
-															{
-																( tab ) => {
-																	let tabout;
-																	if ( tab.name ) {
-																		if ( 'mobile' === tab.name ) {
-																			tabout = (
-																				<Fragment>
-																					<RangeControl
-																						value={ ( btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 2 ] ? btns[ indexcountamp ].width[ 2 ] : undefined ) }
-																						onChange={ value => {
-																							this.saveArrayUpdate( { width: [ ( undefined !== btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 0 ] ? btns[ indexcountamp ].width[ 0 ] : '' ), ( undefined !== btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 1 ] ? btns[ indexcountamp ].width[ 1 ] : '' ), value ] }, indexcountamp );
-																						} }
-																						min={ 10 }
-																						max={ 500 }
-																					/>
-																				</Fragment>
-																			);
-																		} else if ( 'tablet' === tab.name ) {
-																			tabout = (
-																				<Fragment>
-																					<RangeControl
-																						value={ ( btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 1 ] ? btns[ indexcountamp ].width[ 1 ] : undefined ) }
-																						onChange={ value => {
-																							this.saveArrayUpdate( { width: [ ( undefined !== btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 0 ] ? btns[ indexcountamp ].width[ 0 ] : '' ), value, ( undefined !== btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 2 ] ? btns[ indexcountamp ].width[ 2 ] : '' ) ] }, indexcountamp );
-																						} }
-																						min={ 10 }
-																						max={ 500 }
-																					/>
-																				</Fragment>
-																			);
-																		} else {
-																			tabout = (
-																				<Fragment>
-																					<RangeControl
-																						value={ ( btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 0 ] ? btns[ indexcountamp ].width[ 0 ] : undefined ) }
-																						onChange={ value => {
-																							this.saveArrayUpdate( { width: [ value, ( undefined !== btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 1 ] ? btns[ indexcountamp ].width[ 1 ] : '' ), ( undefined !== btns[ indexcountamp ].width && undefined !== btns[ indexcountamp ].width[ 2 ] ? btns[ indexcountamp ].width[ 2 ] : '' ) ] }, indexcountamp );
-																						} }
-																						min={ 10 }
-																						max={ 500 }
-																					/>
-																				</Fragment>
-																			);
-																		}
-																	}
-																	return <div>{ tabout }</div>;
-																}
-															}
-														</TabPanel>
-													</div>
-												) }
+											
 											</Fragment>
 										) }
 										{ this.showSettings( 'colorSettings' ) && (
@@ -1071,17 +996,114 @@ class AmpAdvancedButton extends Component {
 											value={ ( btns[ indexcountamp ].cssClass ? btns[ indexcountamp ].cssClass : '' ) }
 											onChange={ ( value ) => this.saveArrayUpdate( { cssClass: value }, indexcountamp ) }
 										/>
-										<RangeControl
-											label={ __( 'Space Between Next Button', 'amp-blocks' ) }
-											value={ btns[ indexcountamp ].gap }
-											onChange={ value => {
-												this.saveArrayUpdate( { gap: value }, indexcountamp );
+									</PanelBody>
+								{ this.showSettings( 'fontSettings' ) && (
+									<PanelBody
+										title={ __( 'Font Family', 'kadence-blocks' ) }
+										initialOpen={ false }
+										className="amp-font-family-area"
+									>
+										<TypographyControls
+											letterSpacing={ letterSpacing }
+											onLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
+											textTransform={ textTransform }
+											onTextTransform={ ( value ) => setAttributes( { textTransform: value } ) }
+											fontFamily={ typography }
+											onFontFamily={ ( value ) => setAttributes( { typography: value } ) }
+											onFontChange={ ( select ) => {
+												setAttributes( {
+													typography: select.value,
+													googleFont: select.google,
+												} );
 											} }
-											min={ 0 }
-											max={ 50 }
+											googleFont={ googleFont }
+											onGoogleFont={ ( value ) => setAttributes( { googleFont: value } ) }
+											loadGoogleFont={ loadGoogleFont }
+											onLoadGoogleFont={ ( value ) => setAttributes( { loadGoogleFont: value } ) }
+											fontVariant={ fontVariant }
+											onFontVariant={ ( value ) => setAttributes( { fontVariant: value } ) }
+											fontWeight={ fontWeight }
+											onFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
+											fontStyle={ fontStyle }
+											onFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
+											fontSubset={ fontSubset }
+											onFontSubset={ ( value ) => setAttributes( { fontSubset: value } ) }
 										/>
 									</PanelBody>
-
+								) }
+								
+								<h2 className="amp-heading-size-title">{ __( 'Text Size', 'kadence-blocks' ) }</h2>
+							<TabPanel className="amp-size-tabs"
+								activeClass="active-tab"
+								tabs={ [
+									{
+										name: 'desk',
+										title: <Dashicon icon="desktop" />,
+										className: 'amp-desk-tab',
+									},
+									{
+										name: 'tablet',
+										title: <Dashicon icon="tablet" />,
+										className: 'amp-tablet-tab',
+									},
+									{
+										name: 'mobile',
+										title: <Dashicon icon="smartphone" />,
+										className: 'amp-mobile-tab',
+									},
+								] }>
+								{
+									( tab ) => {
+										let tabout;
+										if ( tab.name ) {
+											if ( 'mobile' === tab.name ) {
+												tabout = (
+													<RangeControl
+														className="btn-text-size-range"
+														beforeIcon="editor-textcolor"
+														afterIcon="editor-textcolor"
+														value={ ( undefined !== btns[ indexcountamp ].responsiveSize && undefined !== btns[ indexcountamp ].responsiveSize[ 1 ] ? btns[ indexcountamp ].responsiveSize[ 1 ] : '' ) }
+														onChange={ value => {
+															this.saveArrayUpdate( { responsiveSize: [ ( undefined !== btns[ indexcountamp ].responsiveSize && undefined !== btns[ indexcountamp ].responsiveSize[ 0 ] ? btns[ indexcountamp ].responsiveSize[ 0 ] : '' ), value ] }, indexcountamp );
+														} }
+														min={ 4 }
+														max={ 100 }
+													/>
+												);
+											} else if ( 'tablet' === tab.name ) {
+												tabout = (
+													<RangeControl
+														className="btn-text-size-range"
+														beforeIcon="editor-textcolor"
+														afterIcon="editor-textcolor"
+														value={ ( undefined !== btns[ indexcountamp ].responsiveSize && undefined !== btns[ indexcountamp ].responsiveSize[ 0 ] ? btns[ indexcountamp ].responsiveSize[ 0 ] : '' ) }
+														onChange={ value => {
+															this.saveArrayUpdate( { responsiveSize: [ value, ( undefined !== btns[ indexcountamp ].responsiveSize && undefined !== btns[ indexcountamp ].responsiveSize[ 1 ] ? btns[ indexcountamp ].responsiveSize[ 1 ] : '' ) ] }, indexcountamp );
+														} }
+														min={ 4 }
+														max={ 100 }
+													/>
+												);
+											} else {
+												tabout = (
+													<RangeControl
+														className="btn-text-size-range"
+														beforeIcon="editor-textcolor"
+														afterIcon="editor-textcolor"
+														value={ btns[ indexcountamp ].size }
+														onChange={ value => {
+															this.saveArrayUpdate( { size: value }, indexcountamp );
+														} }
+														min={ 4 }
+														max={ 100 }
+													/>
+												);
+											}
+										}
+										return <div>{ tabout }</div>;
+									}
+								}
+							</TabPanel>
 								</Fragment>
 							</InspectorControls>
 							<InspectorAdvancedControls>

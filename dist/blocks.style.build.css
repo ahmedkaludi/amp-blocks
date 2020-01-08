@@ -1094,30 +1094,8 @@
  *
  * CSS for both Frontend+Backend.
  */
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
 .kt-svg-style-stacked .kt-svg-icon {
   border: 0px solid #444444; }
 
 .kt-svg-icon-wrap {
   display: inline-block; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
