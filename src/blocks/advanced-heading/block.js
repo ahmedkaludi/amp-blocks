@@ -57,11 +57,7 @@ registerBlockType( 'amp/advancedheading', {
 		content: {
 			type: 'string',
 			source: 'html',
-			selector: 'p,h2',
-		},
-		level: {
-			type: 'number',
-			default: 2,
+			selector: 'p',
 		},
 		uniqueID: {
 			type: 'string',
@@ -230,54 +226,9 @@ registerBlockType( 'amp/advancedheading', {
 			type: 'string',
 		},
 	},
-	transforms: {
-		from: [
-			{
-				type: 'block',
-				blocks: [ 'core/paragraph' ],
-				transform: ( { content } ) => {
-					return createBlock( 'amp/advancedheading', {
-						content,
-					} );
-				},
-			},
-			{
-				type: 'block',
-				blocks: [ 'core/heading' ],
-				transform: ( { content, level } ) => {
-					return createBlock( 'amp/advancedheading', {
-						content: content,
-						level: level,
-					} );
-				},
-			},
-		],
-		to: [
-			{
-				type: 'block',
-				blocks: [ 'core/paragraph' ],
-				transform: ( { content } ) => {
-					return createBlock( 'core/paragraph', {
-						content,
-					} );
-				},
-			},
-			{
-				type: 'block',
-				blocks: [ 'core/heading' ],
-				transform: ( { content, level } ) => {
-					return createBlock( 'core/heading', {
-						content: content,
-						level: level,
-					} );
-				},
-			},
-		],
-	},
 	edit,
 	save: props => {
-		const { attributes: { anchor, align, level, content, color, uniqueID, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } } = props;
-		const tagName = 'h' + level;
+		const { attributes: { anchor, align, content, color, uniqueID, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } } = props;
 		const mType = ( marginType ? marginType : 'px' );
 		let tagId = ( anchor ? anchor : `amp-adv-heading${ uniqueID }` );
 		const revealAnimation = ( ampAnimation && ( 'reveal-left' === ampAnimation || 'reveal-right' === ampAnimation || 'reveal-up' === ampAnimation || 'reveal-down' === ampAnimation ) ? true : false );
@@ -286,7 +237,7 @@ registerBlockType( 'amp/advancedheading', {
 		const classes = ( ! wrapper && className ? `${ className } ${ getBlockDefaultClassName( 'amp/advancedheading' ) }` : getBlockDefaultClassName( 'amp/advancedheading' ) );
 		const htmlItem = (
 			<RichText.Content
-				tagName={ tagName }
+				tagName={ 'p' }
 				id={ tagId }
 				className={ `amp-adv-heading${ uniqueID } ${ classes }` }
 				data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
