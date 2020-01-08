@@ -63,8 +63,6 @@ registerBlockType('ampblocks/video', {
      * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
      */
     save({ attributes }) {
-        console.log("i am bigboss");
-        console.log(attributes);
         const { images, videoSource } = attributes;
         const getId = (url) => {
             let name = 'v';

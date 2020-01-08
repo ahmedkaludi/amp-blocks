@@ -1,19 +1,13 @@
 /**
- * BLOCK: my-test-block
+ * BLOCK: AMP Image
  *
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
  */
-
-import './style.css';
-import './editor.css';
-
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { MediaUpload } = wp.editor; //Import MediaUpload from wp.editor
 const { Button } = wp.components; //Import Button from wp.components
-
-
 /**
  * Register: aa Gutenberg Block.
  *
@@ -27,128 +21,91 @@ const { Button } = wp.components; //Import Button from wp.components
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-
-registerBlockType( 'ampblocks/image', {
-    title: __( 'Image' ), // Block title.
-    icon: 'format-image', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-    category: 'amp-blocks', // Block category
-    keywords: [ //Keywords
-        __('photo'),
-        __('image')
-    ],
-    attributes: { //Attributes
-        images : { //Images array
-            type: 'array',
-        }
-},
-
-    /**
-     * The edit function describes the structure of your block in the context of the editor.
-     * This represents what the editor will render when the block is used.
-     *
-     * The "edit" property must be a valid function.
-     *
-     * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-     */
-    edit({ attributes, className, setAttributes }) {
-
-        //Destructuring the images array attribute
-        const {images = []} = attributes;
-
-
-        // This removes an image from the gallery
-        const removeImage = (removeImage) => {
-                    //filter the images
-                    const newImages = images.filter( (image) => {
-                        //If the current image is equal to removeImage the image will be returnd
-                        if(image.id != removeImage.id) {
-                            return image;
-                        }
-                    });
-
-                    //Saves the new state
-                    setAttributes({
-                        images:newImages,
-                    })
-        }
-
-
-        //Displays the images
-        const displayImages = (images) => {
-            return (
-                //Loops throug the images
-                images.map( (image) => {
-                    return (
-                    <div className="gallery-item-container">
-                            <img className='gallery-item' src={image.url} key={ images.id } />
-                            <div className='remove-item' onClick={() => removeImage(image)}><span class="dashicons dashicons-trash"></span></div>
-                            <div className='caption-text'>{image.caption[0]}</div>
-                    </div>
-                    )
-                })
-
-            )
-        }
-
-        //JSX to return
-        return (
-            <div>
-                <div className="gallery-grid">
-                    {displayImages(images)}
-                </div>
-                <br/>
-                <MediaUpload
-                        onSelect={(media) => {setAttributes({images: [...images, ...media]});}}
-                        type="image"
-                        multiple={true}
-                        value={images}
-                        render={({open}) => (
-                            <Button className="select-images-button is-button is-default is-large" onClick={open}>
-                                Add images
-                            </Button>
-                        )}
-                    />
-            </div>
-
-        );
-    },
-
-    /**
-     * The save function defines the way in which the different attributes should be combined
-     * into the final markup, which is then serialized by Gutenberg into post_content.
-     *
-     * The "save" property must be specified and must be a valid function.
-     *
-     * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-     */
-    save({attributes}) {
-        //Destructuring the images array attribute
-        const { images = [] } = attributes;
-
-        // Displays the images
-        const displayImages = (images) => {
-            return (
-                images.map( (image,index) => {
-                    return (
-                            <img
-                                className='gallery-item'
-                                key={images.id}
-                                src={image.url}
-                                data-slide-no={index}
-                                data-caption={image.caption[0]}
-                                alt={image.alt}
-                                />
-                    )
-                })
-            )
-        }
-
-        //JSX to return
-        return (
-            <div>
-            <div className="gallery-grid" data-total-slides={images.length}>{ displayImages(images) }</div>
-            </div>
-        );
-
-    },
-} );
+registerBlockType('ampblocks/image', {
+	title: __('Image'), // Block title.
+	icon: 'format-image', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	category: 'amp-blocks', // Block category
+	keywords: [ //Keywords
+		__('photo'),
+		__('image')
+	],
+	attributes: { //Attributes
+		image: { //image array
+			type: 'json',
+		}
+	},
+	/**
+	 * The edit function describes the structure of your block in the context of the editor.
+	 * This represents what the editor will render when the block is used.
+	 *
+	 * The "edit" property must be a valid function.
+	 *
+	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
+	 */
+	edit({ attributes, setAttributes }) {
+		//Destructuring the image array attribute
+		const { image } = attributes;
+		//Displays the image
+		let displayimage = (image) => {
+			//Loops throug the image
+			if (typeof image !== 'undefined') {
+				return (
+					<div className="gallery-item-container">
+						<img width="100%" height="100%" className='gallery-item' src={image.url} />
+					</div>
+				)
+			} else {
+				return ("");
+			}
+		};
+		//JSX to return
+		return (
+			<div>
+				<div className="gallery-grid">
+					{displayimage(image)}
+				</div>
+				<br />
+				{typeof image === 'undefined' && (
+					<MediaUpload
+						onSelect={(media) => { setAttributes({ image: media }); }}
+						allowedTypes={'image'}
+						value={image}
+						render={({ open }) => (
+							<Button className="select-image-button is-button is-default is-large" onClick={open}>
+								Add image
+						</Button>
+						)}
+					/>
+				)}
+			</div>
+		);
+	},
+	/**
+	 * The save function defines the way in which the different attributes should be combined
+	 * into the final markup, which is then serialized by Gutenberg into post_content.
+	 *
+	 * The "save" property must be specified and must be a valid function.
+	 *
+	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
+	 */
+	save({ attributes }) {
+		const { image } = attributes;
+		let displayimage = (image) => {
+			//Loops throug the image
+			if (typeof image !== 'undefined') {
+				return (
+					<div className="gallery-item-container">
+						<img width="100%" height="100%" className='gallery-item' src={image.url} />
+					</div>
+				)
+			} else {
+				return ("");
+			}
+		};
+		return (
+			<div className="gallery-grid">
+				{displayimage(image)}
+			</div>
+		)
+	},
+});

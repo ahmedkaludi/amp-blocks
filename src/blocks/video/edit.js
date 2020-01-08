@@ -24,7 +24,6 @@ class ampAdvancedHeading extends Component {
 		this.state = {
 			hideShowUploadButton: arguments[0].attributes.images ? false : true,
 		};
-		// console.log(arguments[0].attributes.images);
 	}
 	GetParamByName(name, url) {
 		if (!url) url = window.location.href;
