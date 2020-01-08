@@ -22,38 +22,36 @@ class ampAdvancedHeading extends Component {
 	constructor() {
 		super(...arguments);
 		this.state = {
-			hideShowUploadButton: arguments[0].attributes.images ? false : true,
+			hideShowUploadButton: arguments[0].attributes.video ? false : true,
 		};
 	}
-	GetParamByName(name, url) {
+	youtubeVideoConvertor = (url) => {
+		var name = 'v';
 		if (!url) url = window.location.href;
 		name = name.replace(/[\[\]]/g, "\\$&");
 		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
 			results = regex.exec(url);
 		if (!results) return null;
 		if (!results[2]) return '';
-		return decodeURIComponent(results[2].replace(/\+/g, " "));
+		return '//www.youtube.com/embed/' + decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
 	render() {
 		const { attributes, setAttributes } = this.props;
-		const { images, videoSource } = attributes;
-		const getId = (url) => {
-			var a = this.GetParamByName('v', url);
-			return '//www.youtube.com/embed/' + a;
-		}
-		let displayImages = (images) => {
+		const { video, videoSource } = attributes;
+
+		let displayvideo = (video) => {
 			if (videoSource) {
 				return (
 					<div className="gallery-item-container">
-						<iframe width="900px" height="500px" className='gallery-item' src={getId(images)} />
+						<iframe width="100%" height="100%" className='video-item' src={this.youtubeVideoConvertor(video)} />
 					</div>
 				)
 			} else {
-				//Loops throug the images
-				if (typeof images !== 'undefined') {
+				//Loops throug the video
+				if (typeof video !== 'undefined') {
 					return (
-						<div className="gallery-item-container">
-							<iframe width="900px" height="500px" className='gallery-item' src={images} />
+						<div className="video-item-container">
+							<video controls width="100%" height="100%" className='video-item' src={video} />
 						</div>
 					)
 				} else {
@@ -63,8 +61,8 @@ class ampAdvancedHeading extends Component {
 		};
 		return (
 			<Fragment>
-				<div className="gallery-grid">
-					{displayImages(images)}
+				<div className="video-grid">
+					{displayvideo(video)}
 				</div>
 				<InspectorControls> {/* For left panel controls */}
 					<PanelBody title={__('Video URL')}>
@@ -85,7 +83,7 @@ class ampAdvancedHeading extends Component {
 							<TextControl
 								label={__('Please Enter URL', 'amp-blocks')}
 								onChange={(value) => {
-									setAttributes({ images: value });
+									setAttributes({ video: value });
 									this.setState({ hideShowUploadButton: false })
 								}}
 							/>
@@ -95,10 +93,11 @@ class ampAdvancedHeading extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => { setAttributes({ images: media.url }); this.setState({ hideShowUploadButton: false }) }}
-						value={images}
+						onSelect={(media) => { setAttributes({ video: media.url }); this.setState({ hideShowUploadButton: false }) }}
+						value={video}
+						allowedTypes={'video'}
 						render={({ open }) => (
-							<Button className="select-images-button is-button is-default is-large" onClick={open}>
+							<Button className="select-video-button is-button is-default is-large" onClick={open}>
 								Upload Video
 				</Button>
 						)}

@@ -4,21 +4,9 @@
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
  */
-import './style.css';
-import './editor.css';
 import edit from './edit';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const { MediaUpload } = wp.editor; //Import MediaUpload from wp.editor
-const { Button } = wp.components; //Import Button from wp.components
-const {
-    RichText,
-    URLInput,
-    InspectorControls,
-    BlockControls,
-    AlignmentToolbar,
-    InspectorAdvancedControls,
-} = wp.blockEditor;
 /**
  * Register: aa Gutenberg Block.
  *
@@ -41,15 +29,11 @@ registerBlockType('ampblocks/video', {
         __('videos')
     ],
     attributes: { //Attributes
-        videolink_demo: {
-            type: Boolean,
-            default: false
-        },
         videoSource: {
             type: Boolean,
             default: false
         },
-        images: { //Images array
+        video: {
             type: 'string',
         }
     },
@@ -63,7 +47,7 @@ registerBlockType('ampblocks/video', {
      * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
      */
     save({ attributes }) {
-        const { images, videoSource } = attributes;
+        const { video, videoSource } = attributes;
         const getId = (url) => {
             let name = 'v';
             if (!url) url = window.location.href;
@@ -74,19 +58,19 @@ registerBlockType('ampblocks/video', {
             if (!results[2]) return '';
             return '//www.youtube.com/embed/' + decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-        let displayImages = (images) => {
+        let displayvideo = (video) => {
             if (videoSource) {
                 return (
-                    <div className="gallery-item-container">
-                        <iframe width="1000px" height="500px" className='gallery-item' src={getId(images)} />
+                    <div className="video-item-container">
+                        <iframe width="100%" height="100%" className='video-item' src={getId(video)} />
                     </div>
                 )
             } else {
-                //Loops throug the images
-                if (typeof images !== 'undefined') {
+                //Loops throug the video
+                if (typeof video !== 'undefined') {
                     return (
-                        <div className="gallery-item-container">
-                            <iframe width="1000px" height="500px" className='gallery-item9999999' src={images} />
+                        <div className="video-item-container">
+                            <video controls width="100%" height="100%" className='video-item' src={video} />
                         </div>
                     )
                 } else {
@@ -95,8 +79,8 @@ registerBlockType('ampblocks/video', {
             }
         };
         return (
-            <div className="gallery-grid">
-                {displayImages(images)}
+            <div className="video-grid">
+                {displayvideo(video)}
             </div>
         )
     },
