@@ -3787,7 +3787,7 @@ class Amp_Blocks_Frontend
 							$this->render_column_layout_css_head($blockattr);
 						}
 					}
-					if ('amp/advancedheading' === $block['blockName']) {
+					if ('amp/advancedheading' === $block['blockName'] || 'ampblocks/advancedheading' === $block['blockName']) {
 						if (isset($block['attrs']) && is_array($block['attrs'])) {
 							$blockattr = $block['attrs'];
 							$this->render_advanced_heading_css_head($blockattr);
