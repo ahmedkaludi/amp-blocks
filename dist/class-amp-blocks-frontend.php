@@ -47,15 +47,17 @@ class Amp_Blocks_Frontend
 	{
 		add_action('init', array($this, 'on_init'), 20);
 		add_action('enqueue_block_assets', array($this, 'blocks_assets'));
-		add_action( 'wp_head', array( $this, 'frontend_gfonts' ), 90 );
+		
 
 		$siteUrl = filter_input(INPUT_SERVER, 'REQUEST_URI');
 		$amp_end_query = explode('/', $siteUrl);
 		if (function_exists('ampforwp_generate_endpoint') && (in_array('amp', $amp_end_query) || in_array('?amp', $amp_end_query))) {
 			add_action('amp_post_template_css', array($this, 'frontend_inline_css'), 20);
+			add_action( 'amp_post_template_css', array( $this, 'frontend_gfonts' ), 90 );
 			self::$ampcheck = 'amp';
 		} else {
 			add_action('wp_enqueue_scripts', array($this, 'frontend_inline_css'), 20);
+			add_action( 'wp_head', array( $this, 'frontend_gfonts' ), 90 );
 		}
 	}
 
@@ -811,7 +813,7 @@ class Amp_Blocks_Frontend
 		if ( empty( self::$gfonts ) ) {
 			return;
 		}
-		$print_google_fonts = apply_filters( 'kadence_blocks_print_google_fonts', true );
+		$print_google_fonts = apply_filters( 'amp_blocks_print_google_fonts', true );
 		if ( ! $print_google_fonts ) {
 			return;
 		}
@@ -837,8 +839,15 @@ class Amp_Blocks_Frontend
 		if ( ! empty( $subsets ) ) {
 			$link .= '&amp;subset=' . implode( ',', $subsets );
 		}
-		echo '<link href="//fonts.googleapis.com/css?family=' . esc_attr( str_replace( '|', '%7C', $link ) ) . '" rel="stylesheet">';
-
+		if (self::$ampcheck == 'amp'){
+			$google_font_path=  'https://fonts.googleapis.com/css?family=' . esc_attr( str_replace( '|', '%7C', $link ) );
+			echo file_get_contents($google_font_path);
+		}else{
+			echo '<link href="//fonts.googleapis.com/css?family=' . esc_attr( str_replace( '|', '%7C', $link ) ) . '" rel="stylesheet">';
+		}
+	}
+	public function allow_ampBlock_css_inamp(){
+		
 	}
 
 	/**

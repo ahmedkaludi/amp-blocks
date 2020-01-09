@@ -1213,8 +1213,14 @@ button.components-button.amp-pre-sidebar-image {
 [data-type="ampblocks/heading"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
 [data-type="amp/advancedheading"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
 [data-type="ampblocks/video"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="ampblocks/image"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
 [data-type="amp/advancedbtn"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb {
   display: none; }
+
+[data-type="amp/column"] .editor-block-list__insertion-point {
+  position: absolute;
+  width: 29px;
+  margin: auto; }
 
 .entry-title {
   display: block; }
