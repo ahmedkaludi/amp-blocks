@@ -1206,6 +1206,19 @@ button.components-button.amp-pre-sidebar-image {
   padding-left: 43px;
   padding-right: 43px; }
 
+[data-type="amp/rowlayout"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="amp/column"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="ampblocks/icon"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="amp-blocks"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="ampblocks/heading"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="amp/advancedheading"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="ampblocks/video"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+[data-type="amp/advancedbtn"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb {
+  display: none; }
+
+.entry-title {
+  display: block; }
+
 .wp-block.is-hovered[data-type="amp/rowlayout"] .amp-resizeable-column-container .components-button.amp-fluid-grid-btn.is-button {
   opacity: 1;
   z-index: 1010; }

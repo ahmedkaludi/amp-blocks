@@ -1585,11 +1585,24 @@ button.components-button.amp-pre-sidebar-image {
 .block-editor-block-list__block.is-hovered {
   //display: none;
 }
-
-.editor-block-list__breadcrumb {
-  //display: none;
+[data-type="amp/rowlayout"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb ,
+  [data-type="amp/column"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+  [data-type="ampblocks/icon"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+  [data-type="amp-blocks"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+  [data-type="ampblocks/heading"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+  [data-type="amp/advancedheading"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+  [data-type="ampblocks/video"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
+  [data-type="amp/advancedbtn"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb {
+display: none;
 }
 
+
+.editor-block-list__breadcrumb {
+  // display: none;
+}
+.entry-title {
+  display: block;
+}
 .amp-column.editor-block-list__block.block-editor-block-list__block {
   //border: 2px solid black;
 }
