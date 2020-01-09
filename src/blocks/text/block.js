@@ -125,11 +125,11 @@ registerBlockType( 'amp/advancedheading', {
 		},
 		topMargin: {
 			type: 'number',
-			default: '',
+			default: '10',
 		},
 		bottomMargin: {
 			type: 'number',
-			default: '',
+			default: '10',
 		},
 		marginType: {
 			type: 'string',
