@@ -8,7 +8,7 @@ import BoxShadowControl from './box-shadow-control';
 import './blocks/row-layout/block.js';
 import './blocks/column/block.js';
 import './blocks/text/block.js';
-import './blocks/advanced-btn/block.js';
+import './blocks/button/block.js';
 import './blocks/image/block.js';
 import './blocks/icon/block.js';
 import './blocks/video/block.js';

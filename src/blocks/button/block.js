@@ -35,7 +35,7 @@ const {
  *                             registered; otherwise `undefined`.
  */
 registerBlockType( 'amp/advancedbtn', {
-	title: __( 'Advanced Button', 'amp-blocks' ), // Block title.
+	title: __( 'Button', 'amp-blocks' ), // Block title.
 	description: __( 'Create an advanced button or a row of buttons. Style each one, including hover controls!', 'amp-blocks' ),
 	icon: {
 		src: icons.block,
