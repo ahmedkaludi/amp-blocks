@@ -245,7 +245,6 @@ class ampAdvancedHeading extends Component {
 
 							<PanelBody
 								title={ __( 'Typography Settings' ) }
-								initialOpen={ false }
 							>
 								<TypographyControls
 									letterSpacing={ letterSpacing }
@@ -271,10 +270,12 @@ class ampAdvancedHeading extends Component {
 									textTransform={ textTransform }
 									onTextTransform={ ( value ) => setAttributes( { textTransform: value } ) }
 								/>
-
 							</PanelBody>
 
-						<PanelBody title={ __( 'color' ) }>
+						<PanelBody 
+							title={ __( 'Color' ) }
+							initialOpen={ false }
+						>
 							{ this.showSettings( 'colorSettings' ) && (
 								<AdvancedColorControl
 									label={ __( 'Text Color' ) }
@@ -285,7 +286,10 @@ class ampAdvancedHeading extends Component {
 							) }
 
 						</PanelBody>
-						<PanelBody title={ __( 'Alignment' ) }>
+						<PanelBody 
+							title={ __( 'Alignment' ) }
+							initialOpen={ false }
+						>
 							<p>{ __( 'Text Alignment' ) }</p>
 							<AlignmentToolbar
 								value={ align }
