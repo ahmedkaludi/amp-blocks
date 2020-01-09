@@ -1225,6 +1225,10 @@ button.components-button.amp-pre-sidebar-image {
 
 button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   display: none; }
+
+.editor-styles-wrapper [data-block] {
+  margin-top: 0px;
+  margin-bottom: 0px; }
 /**
  * #.# Common SCSS
  *

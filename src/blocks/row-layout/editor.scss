@@ -1653,6 +1653,7 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   display: none;
 }
 
-//.amp-row-padding span{
-//  min-height: 10px;
-//}
+.editor-styles-wrapper [data-block] {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

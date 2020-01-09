@@ -112,30 +112,6 @@ class Amp_Blocks_Frontend
 			)
 		);
 		register_block_type(
-			'amp/tabs',
-			array(
-				'render_callback' => array($this, 'render_tabs_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
-		register_block_type(
-			'amp/spacer',
-			array(
-				'render_callback' => array($this, 'render_spacer_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
-		register_block_type(
-			'amp/infobox',
-			array(
-				'render_callback' => array($this, 'render_infobox_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
-		register_block_type(
 			'amp/icon',
 			array(
 				'render_callback' => array($this, 'render_icon_css'),
@@ -143,46 +119,7 @@ class Amp_Blocks_Frontend
 				'editor_style' => 'amp-blocks-editor-css',
 			)
 		);
-		register_block_type(
-			'amp/accordion',
-			array(
-				'render_callback' => array($this, 'render_accordion_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
-		register_block_type(
-			'amp/iconlist',
-			array(
-				'render_callback' => array($this, 'render_iconlist_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
-		register_block_type(
-			'amp/testimonials',
-			array(
-				'render_callback' => array($this, 'render_testimonials_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
-		register_block_type(
-			'amp/advancedgallery',
-			array(
-				'render_callback' => array($this, 'render_advancedgallery_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
-		register_block_type(
-			'amp/form',
-			array(
-				'render_callback' => array($this, 'render_form_css'),
-				'editor_script' => 'amp-blocks-js',
-				'editor_style' => 'amp-blocks-editor-css',
-			)
-		);
+
 		add_filter('excerpt_allowed_blocks', array($this, 'add_blocks_to_excerpt'), 20);
 	}
 
@@ -1499,37 +1436,6 @@ class Amp_Blocks_Frontend
 	}
 
 	/**
-	 * Render Tabs Block CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 * @param string $content the blocks content.
-	 */
-	public function render_tabs_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-tabs', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-tabs');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'tabs', $unique_id)) {
-				if ($this->it_is_not_amp()) {
-					wp_enqueue_script('amp-blocks-tabs-js');
-				}
-				$css = $this->blocks_tabs_array($attributes, $unique_id);
-				if (!empty($css)) {
-					if (doing_filter('the_content')) {
-						$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-					} else {
-						$this->render_inline_css($css, $style_id, true);
-					}
-				}
-			}
-		}
-		return $content;
-	}
-
-	/**
 	 * Builds CSS for Tabs block.
 	 *
 	 * @param array $attr the blocks attr.
@@ -1752,32 +1658,6 @@ class Amp_Blocks_Frontend
 	}
 
 	/**
-	 * Render Spacing Block CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 * @param string $content the blocks content.
-	 */
-	public function render_spacer_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-spacer', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-spacer');
-		}
-		if (isset($attributes['uniqueID']) && ((isset($attributes['tabletSpacerHeight']) && !empty($attributes['tabletSpacerHeight'])) || isset($attributes['mobileSpacerHeight']) && !empty($attributes['mobileSpacerHeight']))) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'spacer', $unique_id)) {
-				$css = $this->blocks_spacer_array($attributes, $unique_id);
-				if (doing_filter('the_content')) {
-					$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-				} else {
-					$this->render_inline_css($css, $style_id, true);
-				}
-			}
-		}
-		return $content;
-	}
-
-	/**
 	 * Builds CSS for Spacer block.
 	 *
 	 * @param array $attr the blocks attr.
@@ -1813,34 +1693,6 @@ class Amp_Blocks_Frontend
 	{
 		if (!wp_style_is('amp-blocks-icon', 'enqueued')) {
 			wp_enqueue_style('amp-blocks-icon');
-		}
-		return $content;
-	}
-
-	/**
-	 * Render Info Block CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 * @param string $content the blocks content.
-	 */
-	public function render_infobox_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-infobox', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-infobox');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'infobox', $unique_id)) {
-				$css = $this->blocks_infobox_array($attributes, $unique_id);
-				if (!empty($css)) {
-					if (doing_filter('the_content')) {
-						$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-					} else {
-						$this->render_inline_css($css, $style_id, true);
-					}
-				}
-			}
 		}
 		return $content;
 	}
@@ -2327,37 +2179,6 @@ class Amp_Blocks_Frontend
 	}
 
 	/**
-	 * Render Accordion CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 * @param string $content the blocks content.
-	 */
-	public function render_accordion_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-accordion', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-accordion');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'accordion', $unique_id)) {
-				if ($this->it_is_not_amp()) {
-					wp_enqueue_script('amp-blocks-accordion-js');
-				}
-				$css = $this->blocks_accordion_array($attributes, $unique_id);
-				if (!empty($css)) {
-					if (doing_filter('the_content')) {
-						$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-					} else {
-						$this->render_inline_css($css, $style_id, true);
-					}
-				}
-			}
-		}
-		return $content;
-	}
-
-	/**
 	 * Builds CSS for Accordion block.
 	 *
 	 * @param array $attr the blocks attr.
@@ -2533,40 +2354,6 @@ class Amp_Blocks_Frontend
 			$css .= '}';
 		}
 		return $css;
-	}
-
-	/**
-	 * Render Testimonials CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 * @param string $content the blocks content.
-	 */
-	public function render_testimonials_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-testimonials', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-testimonials');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'testimonials', $unique_id)) {
-				if (isset($attributes['layout']) && 'carousel' === $attributes['layout']) {
-					if ($this->it_is_not_amp()) {
-						wp_enqueue_style('amp-blocks-pro-slick');
-						wp_enqueue_script('amp-blocks-slick-init');
-					}
-				}
-				$css = $this->blocks_testimonials_array($attributes, $unique_id);
-				if (!empty($css)) {
-					if (doing_filter('the_content')) {
-						$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-					} else {
-						$this->render_inline_css($css, $style_id, true);
-					}
-				}
-			}
-		}
-		return $content;
 	}
 
 	/**
@@ -2820,38 +2607,6 @@ class Amp_Blocks_Frontend
 			$css .= '}';
 		}
 		return $css;
-	}
-
-	/**
-	 * Render form CSS Inline
-	 *
-	 * @param array $attributes the blocks attributes.
-	 * @param string $content the blocks content.
-	 */
-	public function render_form_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-form', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-form');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued')) {
-				wp_enqueue_script('amp-blocks-form');
-				if (isset($attributes['recaptcha']) && $attributes['recaptcha']) {
-					wp_enqueue_script('google-recaptcha-v3');
-				}
-				$css = $this->blocks_form_array($attributes, $unique_id);
-				if (!empty($css)) {
-					if (doing_filter('the_content')) {
-						$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-					} else {
-						$this->render_inline_css($css, $style_id, true);
-					}
-				}
-			}
-		}
-		return $content;
 	}
 
 	/**
@@ -3408,46 +3163,6 @@ class Amp_Blocks_Frontend
 	}
 
 	/**
-	 * Render Gallery CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 * @param string $content the blocks content.
-	 */
-	public function render_advancedgallery_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-gallery', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-gallery');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'advancedgallery', $unique_id)) {
-				if ($this->it_is_not_amp()) {
-					if (isset($attributes['type']) && ('carousel' === $attributes['type'] || 'fluidcarousel' === $attributes['type'] || 'slider' === $attributes['type'] || 'thumbslider' === $attributes['type'])) {
-						wp_enqueue_style('amp-blocks-pro-slick');
-						wp_enqueue_script('amp-blocks-slick-init');
-					} elseif (!isset($attributes['type']) || (isset($attributes['type']) && 'masonry' === $attributes['type'])) {
-						wp_enqueue_script('amp-blocks-masonry-init');
-					}
-					if (isset($attributes['linkTo']) && 'media' == isset($attributes['linkTo']) && isset($attributes['lightbox']) && 'magnific' === $attributes['lightbox']) {
-						wp_enqueue_style('amp-blocks-magnific-css');
-						wp_enqueue_script('amp-blocks-gallery-magnific-init');
-					}
-				}
-				$css = $this->blocks_advancedgallery_array($attributes, $unique_id);
-				if (!empty($css)) {
-					if (doing_filter('the_content')) {
-						$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-					} else {
-						$this->render_inline_css($css, $style_id, true);
-					}
-				}
-			}
-		}
-		return $content;
-	}
-
-	/**
 	 * Builds CSS for Gallery block.
 	 *
 	 * @param array $attr the blocks attr.
@@ -3632,34 +3347,6 @@ class Amp_Blocks_Frontend
 	}
 
 	/**
-	 * Render Icon list CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 * @param string $content the blocks content.
-	 */
-	public function render_iconlist_css($attributes, $content)
-	{
-		if (!wp_style_is('amp-blocks-iconlist', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-iconlist');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'iconlist', $unique_id)) {
-				$css = $this->blocks_iconlist_array($attributes, $unique_id);
-				if (!empty($css)) {
-					if (doing_filter('the_content')) {
-						$content = '<style id="' . $style_id . '" type="text/css">' . $css . '</style>' . $content;
-					} else {
-						$this->render_inline_css($css, $style_id, true);
-					}
-				}
-			}
-		}
-		return $content;
-	}
-
-	/**
 	 * Builds CSS for Icon List block.
 	 *
 	 * @param array $attr the blocks attr.
@@ -3805,65 +3492,10 @@ class Amp_Blocks_Frontend
 							$this->blocks_advanced_btn_gfont($blockattr);
 						}
 					}
-					if ('amp/accordion' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->render_accordion_css_head($blockattr);
-							$this->blocks_accordion_scripts_gfonts($blockattr);
-						}
-					}
-					if ('amp/tabs' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->render_tabs_css_head($blockattr);
-							$this->blocks_tabs_scripts_gfonts($blockattr);
-						}
-					}
-					if ('amp/infobox' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->render_infobox_css_head($blockattr);
-							$this->blocks_infobox_scripts_gfonts($blockattr);
-						}
-					}
-					if ('amp/iconlist' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->render_iconlist_css_head($blockattr);
-							$this->blocks_iconlist_scripts_gfonts($blockattr);
-						}
-					}
 					if ('amp/icon' === $block['blockName']) {
 						if (isset($block['attrs']) && is_array($block['attrs'])) {
 							$blockattr = $block['attrs'];
 							$this->render_icon_css_head($blockattr);
-						}
-					}
-					if ('amp/testimonials' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->render_testimonials_css_head($blockattr);
-							$this->blocks_testimonials_scripts_gfonts($blockattr);
-						}
-					}
-					if ('amp/advancedgallery' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->render_advancedgallery_css_head($blockattr);
-							$this->blocks_advancedgallery_scripts_gfonts($blockattr);
-						}
-					}
-					if ('amp/spacer' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->render_spacer_css_head($blockattr);
-						}
-					}
-					if ('amp/form' === $block['blockName']) {
-						if (isset($block['attrs']) && is_array($block['attrs'])) {
-							$blockattr = $block['attrs'];
-							$this->blocks_form_scripts_check($blockattr);
-							$this->render_form_css_head($blockattr);
 						}
 					}
 					if ('core/block' === $block['blockName']) {
@@ -4076,270 +3708,6 @@ class Amp_Blocks_Frontend
 	}
 
 	/**
-	 * Render Accordion CSS in Head
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 */
-	public function render_accordion_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-accordion', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-accordion');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'accordion', $unique_id)) {
-				$css = $this->blocks_accordion_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Adds Scripts and Google fonts for Accordion block.
-	 *
-	 * @param array $attr the blocks attr.
-	 */
-	public function blocks_accordion_scripts_gfonts($attr)
-	{
-		wp_enqueue_script('amp-blocks-accordion-js');
-		if (isset($attr['titleStyles']) && is_array($attr['titleStyles']) && isset($attr['titleStyles'][0]) && is_array($attr['titleStyles'][0]) && isset($attr['titleStyles'][0]['google']) && $attr['titleStyles'][0]['google'] && (!isset($attr['titleStyles'][0]['loadGoogle']) || true === $attr['titleStyles'][0]['loadGoogle']) && isset($attr['titleStyles'][0]['family'])) {
-			$title_styles = $attr['titleStyles'][0];
-			// Check if the font has been added yet
-			if (!array_key_exists($title_styles['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $title_styles['family'],
-					'fontvariants' => (isset($title_styles['variant']) && !empty($title_styles['variant']) ? array($title_styles['variant']) : array()),
-					'fontsubsets' => (isset($title_styles['subset']) && !empty($title_styles['subset']) ? array($title_styles['subset']) : array()),
-				);
-				self::$gfonts[$title_styles['family']] = $add_font;
-			} else {
-				if (!in_array($title_styles['variant'], self::$gfonts[$title_styles['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$title_styles['family']]['fontvariants'], $title_styles['variant']);
-				}
-				if (!in_array($title_styles['subset'], self::$gfonts[$title_styles['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$title_styles['family']]['fontsubsets'], $title_styles['subset']);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Render Tabs Block CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 */
-	public function render_tabs_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-tabs', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-tabs');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'tabs', $unique_id)) {
-				$css = $this->blocks_tabs_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Adds Scripts and Google fonts for Tabs block.
-	 *
-	 * @param array $attr the blocks attr.
-	 */
-	public function blocks_tabs_scripts_gfonts($attr)
-	{
-		if ($this->it_is_not_amp()) {
-			wp_enqueue_script('amp-blocks-tabs-js');
-		}
-		if (isset($attr['googleFont']) && $attr['googleFont'] && (!isset($attr['loadGoogleFont']) || true == $attr['loadGoogleFont']) && isset($attr['typography'])) {
-			// Check if the font has been added yet.
-			if (!array_key_exists($attr['typography'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $attr['typography'],
-					'fontvariants' => (isset($attr['fontVariant']) && !empty($attr['fontVariant']) ? array($attr['fontVariant']) : array()),
-					'fontsubsets' => (isset($attr['fontSubset']) && !empty($attr['fontSubset']) ? array($attr['fontSubset']) : array()),
-				);
-				self::$gfonts[$attr['typography']] = $add_font;
-			} else {
-				if (isset($attr['fontVariant']) && !empty($attr['fontVariant'])) {
-					if (!in_array($attr['fontVariant'], self::$gfonts[$attr['typography']]['fontvariants'], true)) {
-						array_push(self::$gfonts[$attr['typography']]['fontvariants'], $attr['fontVariant']);
-					}
-				}
-				if (isset($attr['fontSubset']) && !empty($attr['fontSubset'])) {
-					if (!in_array($attr['fontSubset'], self::$gfonts[$attr['typography']]['fontsubsets'], true)) {
-						array_push(self::$gfonts[$attr['typography']]['fontsubsets'], $attr['fontSubset']);
-					}
-				}
-			}
-		}
-		if (isset($attr['subtitleFont']) && is_array($attr['subtitleFont']) && isset($attr['subtitleFont'][0]) && is_array($attr['subtitleFont'][0]) && isset($attr['subtitleFont'][0]['google']) && $attr['subtitleFont'][0]['google'] && (!isset($attr['subtitleFont'][0]['loadGoogle']) || true === $attr['subtitleFont'][0]['loadGoogle']) && isset($attr['subtitleFont'][0]['family'])) {
-			$subtitle_font = $attr['subtitleFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($subtitle_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $subtitle_font['family'],
-					'fontvariants' => (isset($subtitle_font['variant']) && !empty($subtitle_font['variant']) ? array($subtitle_font['variant']) : array()),
-					'fontsubsets' => (isset($subtitle_font['subset']) && !empty($subtitle_font['subset']) ? array($subtitle_font['subset']) : array()),
-				);
-				self::$gfonts[$subtitle_font['family']] = $add_font;
-			} else {
-				if (!in_array($subtitle_font['variant'], self::$gfonts[$subtitle_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$subtitle_font['family']]['fontvariants'], $subtitle_font['variant']);
-				}
-				if (!in_array($subtitle_font['subset'], self::$gfonts[$subtitle_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$subtitle_font['family']]['fontsubsets'], $subtitle_font['subset']);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Render Info Block CSS in Head
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 */
-	public function render_infobox_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-infobox', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-infobox');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'infobox', $unique_id)) {
-				$css = $this->blocks_infobox_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Adds Google fonts for infobox block.
-	 *
-	 * @param array $attr the blocks attr.
-	 */
-	public function blocks_infobox_scripts_gfonts($attr)
-	{
-		if (isset($attr['titleFont']) && is_array($attr['titleFont']) && isset($attr['titleFont'][0]) && is_array($attr['titleFont'][0]) && isset($attr['titleFont'][0]['google']) && $attr['titleFont'][0]['google'] && (!isset($attr['titleFont'][0]['loadGoogle']) || true === $attr['titleFont'][0]['loadGoogle']) && isset($attr['titleFont'][0]['family'])) {
-			$title_font = $attr['titleFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($title_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $title_font['family'],
-					'fontvariants' => (isset($title_font['variant']) && !empty($title_font['variant']) ? array($title_font['variant']) : array()),
-					'fontsubsets' => (isset($title_font['subset']) && !empty($title_font['subset']) ? array($title_font['subset']) : array()),
-				);
-				self::$gfonts[$title_font['family']] = $add_font;
-			} else {
-				if (!in_array($title_font['variant'], self::$gfonts[$title_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$title_font['family']]['fontvariants'], $title_font['variant']);
-				}
-				if (!in_array($title_font['subset'], self::$gfonts[$title_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$title_font['family']]['fontsubsets'], $title_font['subset']);
-				}
-			}
-		}
-		if (isset($attr['textFont']) && is_array($attr['textFont']) && isset($attr['textFont'][0]) && is_array($attr['textFont'][0]) && isset($attr['textFont'][0]['google']) && $attr['textFont'][0]['google'] && (!isset($attr['textFont'][0]['loadGoogle']) || true === $attr['textFont'][0]['loadGoogle']) && isset($attr['textFont'][0]['family'])) {
-			$text_font = $attr['textFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($text_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $text_font['family'],
-					'fontvariants' => (isset($text_font['variant']) && !empty($text_font['variant']) ? array($text_font['variant']) : array()),
-					'fontsubsets' => (isset($text_font['subset']) && !empty($text_font['subset']) ? array($text_font['subset']) : array()),
-				);
-				self::$gfonts[$text_font['family']] = $add_font;
-			} else {
-				if (!in_array($text_font['variant'], self::$gfonts[$text_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$text_font['family']]['fontvariants'], $text_font['variant']);
-				}
-				if (!in_array($text_font['subset'], self::$gfonts[$text_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$text_font['family']]['fontsubsets'], $text_font['subset']);
-				}
-			}
-		}
-		if (isset($attr['learnMoreStyles']) && is_array($attr['learnMoreStyles']) && isset($attr['learnMoreStyles'][0]) && is_array($attr['learnMoreStyles'][0]) && isset($attr['learnMoreStyles'][0]['google']) && $attr['learnMoreStyles'][0]['google'] && (!isset($attr['learnMoreStyles'][0]['loadGoogle']) || true === $attr['learnMoreStyles'][0]['loadGoogle']) && isset($attr['learnMoreStyles'][0]['family'])) {
-			$learn_more_font = $attr['learnMoreStyles'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($learn_more_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $learn_more_font['family'],
-					'fontvariants' => (isset($learn_more_font['variant']) && !empty($learn_more_font['variant']) ? array($learn_more_font['variant']) : array()),
-					'fontsubsets' => (isset($learn_more_font['subset']) && !empty($learn_more_font['subset']) ? array($learn_more_font['subset']) : array()),
-				);
-				self::$gfonts[$learn_more_font['family']] = $add_font;
-			} else {
-				if (!in_array($learn_more_font['variant'], self::$gfonts[$learn_more_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$learn_more_font['family']]['fontvariants'], $learn_more_font['variant']);
-				}
-				if (!in_array($learn_more_font['subset'], self::$gfonts[$learn_more_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$learn_more_font['family']]['fontsubsets'], $learn_more_font['subset']);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Render Icon List CSS in Head
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 */
-	public function render_iconlist_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-iconlist', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-iconlist');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'iconlist', $unique_id)) {
-				$css = $this->blocks_iconlist_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Adds Google fonts for iconlist block.
-	 *
-	 * @param array $attr the blocks attr.
-	 */
-	public function blocks_iconlist_scripts_gfonts($attr)
-	{
-		if (isset($attr['listStyles']) && is_array($attr['listStyles']) && isset($attr['listStyles'][0]) && is_array($attr['listStyles'][0]) && isset($attr['listStyles'][0]['google']) && $attr['listStyles'][0]['google'] && (!isset($attr['listStyles'][0]['loadGoogle']) || true === $attr['listStyles'][0]['loadGoogle']) && isset($attr['listStyles'][0]['family'])) {
-			$list_font = $attr['listStyles'][0];
-			// Check if the font has been added yet
-			if (!array_key_exists($list_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $list_font['family'],
-					'fontvariants' => (isset($list_font['variant']) && !empty($list_font['variant']) ? array($list_font['variant']) : array()),
-					'fontsubsets' => (isset($list_font['subset']) && !empty($list_font['subset']) ? array($list_font['subset']) : array()),
-				);
-				self::$gfonts[$list_font['family']] = $add_font;
-			} else {
-				if (!in_array($list_font['variant'], self::$gfonts[$list_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$list_font['family']]['fontvariants'], $list_font['variant']);
-				}
-				if (!in_array($list_font['subset'], self::$gfonts[$list_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$list_font['family']]['fontsubsets'], $list_font['subset']);
-				}
-			}
-		}
-	}
-
-	/**
 	 * Render Info Block CSS in Head
 	 *
 	 * @param array $attributes the blocks attribtues.
@@ -4350,294 +3718,6 @@ class Amp_Blocks_Frontend
 			wp_enqueue_style('amp-blocks-icon');
 		}
 	}
-
-	/**
-	 * Render Testimonials CSS in Head
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 */
-	public function render_testimonials_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-testimonials', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-testimonials');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'testimonials', $unique_id)) {
-				$css = $this->blocks_testimonials_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Grabs the Google Fonts that are needed so we can load in the head.
-	 *
-	 * @param array $attr the blocks attr.
-	 */
-	public function blocks_testimonials_scripts_gfonts($attr)
-	{
-		if (isset($attr['layout']) && 'carousel' === $attr['layout']) {
-			wp_enqueue_style('amp-blocks-pro-slick');
-			wp_enqueue_script('amp-blocks-slick-init');
-		}
-		if (isset($attr['titleFont']) && is_array($attr['titleFont']) && isset($attr['titleFont'][0]) && is_array($attr['titleFont'][0]) && isset($attr['titleFont'][0]['google']) && $attr['titleFont'][0]['google'] && (!isset($attr['titleFont'][0]['loadGoogle']) || true === $attr['titleFont'][0]['loadGoogle']) && isset($attr['titleFont'][0]['family'])) {
-			$title_font = $attr['titleFont'][0];
-			// Check if the font has been added yet
-			if (!array_key_exists($title_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $title_font['family'],
-					'fontvariants' => (isset($title_font['variant']) && !empty($title_font['variant']) ? array($title_font['variant']) : array()),
-					'fontsubsets' => (isset($title_font['subset']) && !empty($title_font['subset']) ? array($title_font['subset']) : array()),
-				);
-				self::$gfonts[$title_font['family']] = $add_font;
-			} else {
-				if (!in_array($title_font['variant'], self::$gfonts[$title_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$title_font['family']]['fontvariants'], $title_font['variant']);
-				}
-				if (!in_array($title_font['subset'], self::$gfonts[$title_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$title_font['family']]['fontsubsets'], $title_font['subset']);
-				}
-			}
-		}
-		if (isset($attr['contentFont']) && is_array($attr['contentFont']) && isset($attr['contentFont'][0]) && is_array($attr['contentFont'][0]) && isset($attr['contentFont'][0]['google']) && $attr['contentFont'][0]['google'] && (!isset($attr['contentFont'][0]['loadGoogle']) || true === $attr['contentFont'][0]['loadGoogle']) && isset($attr['contentFont'][0]['family'])) {
-			$content_font = $attr['contentFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($content_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $content_font['family'],
-					'fontvariants' => (isset($content_font['variant']) && !empty($content_font['variant']) ? array($content_font['variant']) : array()),
-					'fontsubsets' => (isset($content_font['subset']) && !empty($content_font['subset']) ? array($content_font['subset']) : array()),
-				);
-				self::$gfonts[$content_font['family']] = $add_font;
-			} else {
-				if (!in_array($content_font['variant'], self::$gfonts[$content_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$content_font['family']]['fontvariants'], $content_font['variant']);
-				}
-				if (!in_array($content_font['subset'], self::$gfonts[$content_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$content_font['family']]['fontsubsets'], $content_font['subset']);
-				}
-			}
-		}
-		if (isset($attr['nameFont']) && is_array($attr['nameFont']) && isset($attr['nameFont'][0]) && is_array($attr['nameFont'][0]) && isset($attr['nameFont'][0]['google']) && $attr['nameFont'][0]['google'] && (!isset($attr['nameFont'][0]['loadGoogle']) || true === $attr['nameFont'][0]['loadGoogle']) && isset($attr['nameFont'][0]['family'])) {
-			$name_font = $attr['nameFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($name_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $name_font['family'],
-					'fontvariants' => (isset($name_font['variant']) && !empty($name_font['variant']) ? array($name_font['variant']) : array()),
-					'fontsubsets' => (isset($name_font['subset']) && !empty($name_font['subset']) ? array($name_font['subset']) : array()),
-				);
-				self::$gfonts[$name_font['family']] = $add_font;
-			} else {
-				if (!in_array($name_font['variant'], self::$gfonts[$name_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$name_font['family']]['fontvariants'], $name_font['variant']);
-				}
-				if (!in_array($name_font['subset'], self::$gfonts[$name_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$name_font['family']]['fontsubsets'], $name_font['subset']);
-				}
-			}
-		}
-		if (isset($attr['occupationFont']) && is_array($attr['occupationFont']) && isset($attr['occupationFont'][0]) && is_array($attr['occupationFont'][0]) && isset($attr['occupationFont'][0]['google']) && $attr['occupationFont'][0]['google'] && (!isset($attr['occupationFont'][0]['loadGoogle']) || true === $attr['occupationFont'][0]['loadGoogle']) && isset($attr['occupationFont'][0]['family'])) {
-			$occupation_font = $attr['occupationFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($occupation_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $occupation_font['family'],
-					'fontvariants' => (isset($occupation_font['variant']) && !empty($occupation_font['variant']) ? array($occupation_font['variant']) : array()),
-					'fontsubsets' => (isset($occupation_font['subset']) && !empty($occupation_font['subset']) ? array($occupation_font['subset']) : array()),
-				);
-				self::$gfonts[$occupation_font['family']] = $add_font;
-			} else {
-				if (!in_array($occupation_font['variant'], self::$gfonts[$occupation_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$occupation_font['family']]['fontvariants'], $occupation_font['variant']);
-				}
-				if (!in_array($occupation_font['subset'], self::$gfonts[$occupation_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$occupation_font['family']]['fontsubsets'], $occupation_font['subset']);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Render Gallery CSS in Head
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 */
-	public function render_advancedgallery_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-gallery', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-gallery');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'advancedgallery', $unique_id)) {
-				$css = $this->blocks_advancedgallery_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Grabs the Google Fonts that are needed so we can load in the head.
-	 *
-	 * @param array $attr the blocks attr.
-	 */
-	public function blocks_advancedgallery_scripts_gfonts($attr)
-	{
-		if ($this->it_is_not_amp()) {
-			if (isset($attr['type']) && ('carousel' === $attr['type'] || 'fluidcarousel' === $attr['type'] || 'slider' === $attr['type'] || 'thumbslider' === $attr['type'])) {
-				wp_enqueue_style('amp-blocks-pro-slick');
-				wp_enqueue_script('amp-blocks-slick-init');
-			} elseif (!isset($attr['type']) || (isset($attr['type']) && 'masonry' === $attr['type'])) {
-				wp_enqueue_script('amp-blocks-masonry-init');
-			}
-			if (isset($attr['linkTo']) && 'media' === $attr['linkTo'] && isset($attr['lightbox']) && !empty($attr['lightbox']) && 'magnific' === $attr['lightbox']) {
-				wp_enqueue_style('amp-blocks-magnific-css');
-				wp_enqueue_script('amp-blocks-gallery-magnific-init');
-			}
-		}
-		if (isset($attr['captionStyles']) && is_array($attr['captionStyles']) && isset($attr['captionStyles'][0]) && is_array($attr['captionStyles'][0]) && isset($attr['captionStyles'][0]['google']) && $attr['captionStyles'][0]['google'] && (!isset($attr['captionStyles'][0]['loadGoogle']) || true === $attr['captionStyles'][0]['loadGoogle']) && isset($attr['captionStyles'][0]['family'])) {
-			$caption_font = $attr['captionStyles'][0];
-			// Check if the font has been added yet
-			if (!array_key_exists($caption_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $caption_font['family'],
-					'fontvariants' => (isset($caption_font['variant']) && !empty($caption_font['variant']) ? array($caption_font['variant']) : array()),
-					'fontsubsets' => (isset($caption_font['subset']) && !empty($caption_font['subset']) ? array($caption_font['subset']) : array()),
-				);
-				self::$gfonts[$caption_font['family']] = $add_font;
-			} else {
-				if (!in_array($caption_font['variant'], self::$gfonts[$caption_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$caption_font['family']]['fontvariants'], $caption_font['variant']);
-				}
-				if (!in_array($caption_font['subset'], self::$gfonts[$caption_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$caption_font['family']]['fontsubsets'], $caption_font['subset']);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Render Spacing Block CSS
-	 *
-	 * @param array $attributes the blocks attribtues.
-	 */
-	public function render_spacer_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-spacer', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-spacer');
-		}
-		if (isset($attributes['uniqueID']) && ((isset($attributes['tabletSpacerHeight']) && !empty($attributes['tabletSpacerHeight'])) || isset($attributes['mobileSpacerHeight']) && !empty($attributes['mobileSpacerHeight']))) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued') && apply_filters('amp_blocks_render_inline_css', true, 'spacer', $unique_id)) {
-				$css = $this->blocks_spacer_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Grabs the scripts that are needed so we can load in the head.
-	 *
-	 * @param array $attr the blocks attr.
-	 */
-	public function blocks_form_scripts_check($attr)
-	{
-		wp_enqueue_script('amp-blocks-form');
-		if (isset($attr['recaptcha']) && $attr['recaptcha']) {
-			wp_enqueue_script('google-recaptcha-v3');
-		}
-		if (isset($attr['labelFont']) && is_array($attr['labelFont']) && isset($attr['labelFont'][0]) && is_array($attr['labelFont'][0]) && isset($attr['labelFont'][0]['google']) && $attr['labelFont'][0]['google'] && (!isset($attr['labelFont'][0]['loadGoogle']) || true === $attr['labelFont'][0]['loadGoogle']) && isset($attr['labelFont'][0]['family'])) {
-			$label_font = $attr['labelFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($label_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $label_font['family'],
-					'fontvariants' => (isset($label_font['variant']) && !empty($label_font['variant']) ? array($label_font['variant']) : array()),
-					'fontsubsets' => (isset($label_font['subset']) && !empty($label_font['subset']) ? array($label_font['subset']) : array()),
-				);
-				self::$gfonts[$label_font['family']] = $add_font;
-			} else {
-				if (!in_array($label_font['variant'], self::$gfonts[$label_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$label_font['family']]['fontvariants'], $label_font['variant']);
-				}
-				if (!in_array($label_font['subset'], self::$gfonts[$label_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$label_font['family']]['fontsubsets'], $label_font['subset']);
-				}
-			}
-		}
-		if (isset($attr['submitFont']) && is_array($attr['submitFont']) && isset($attr['submitFont'][0]) && is_array($attr['submitFont'][0]) && isset($attr['submitFont'][0]['google']) && $attr['submitFont'][0]['google'] && (!isset($attr['submitFont'][0]['loadGoogle']) || true === $attr['submitFont'][0]['loadGoogle']) && isset($attr['submitFont'][0]['family'])) {
-			$submit_font = $attr['submitFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($submit_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $submit_font['family'],
-					'fontvariants' => (isset($submit_font['variant']) && !empty($submit_font['variant']) ? array($submit_font['variant']) : array()),
-					'fontsubsets' => (isset($submit_font['subset']) && !empty($submit_font['subset']) ? array($submit_font['subset']) : array()),
-				);
-				self::$gfonts[$submit_font['family']] = $add_font;
-			} else {
-				if (!in_array($submit_font['variant'], self::$gfonts[$submit_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$submit_font['family']]['fontvariants'], $submit_font['variant']);
-				}
-				if (!in_array($submit_font['subset'], self::$gfonts[$submit_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$submit_font['family']]['fontsubsets'], $submit_font['subset']);
-				}
-			}
-		}
-		if (isset($attr['messageFont']) && is_array($attr['messageFont']) && isset($attr['messageFont'][0]) && is_array($attr['messageFont'][0]) && isset($attr['messageFont'][0]['google']) && $attr['messageFont'][0]['google'] && (!isset($attr['messageFont'][0]['loadGoogle']) || true === $attr['messageFont'][0]['loadGoogle']) && isset($attr['messageFont'][0]['family'])) {
-			$message_font = $attr['messageFont'][0];
-			// Check if the font has been added yet.
-			if (!array_key_exists($message_font['family'], self::$gfonts)) {
-				$add_font = array(
-					'fontfamily' => $message_font['family'],
-					'fontvariants' => (isset($message_font['variant']) && !empty($message_font['variant']) ? array($message_font['variant']) : array()),
-					'fontsubsets' => (isset($message_font['subset']) && !empty($message_font['subset']) ? array($message_font['subset']) : array()),
-				);
-				self::$gfonts[$message_font['family']] = $add_font;
-			} else {
-				if (!in_array($message_font['variant'], self::$gfonts[$message_font['family']]['fontvariants'], true)) {
-					array_push(self::$gfonts[$message_font['family']]['fontvariants'], $message_font['variant']);
-				}
-				if (!in_array($message_font['subset'], self::$gfonts[$message_font['family']]['fontsubsets'], true)) {
-					array_push(self::$gfonts[$message_font['family']]['fontsubsets'], $message_font['subset']);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Render form CSS In Head
-	 *
-	 * @param array $attributes the blocks attributes.
-	 */
-	public function render_form_css_head($attributes)
-	{
-		if (!wp_style_is('amp-blocks-form', 'enqueued')) {
-			wp_enqueue_style('amp-blocks-form');
-		}
-		if (isset($attributes['uniqueID'])) {
-			$unique_id = $attributes['uniqueID'];
-			$style_id = 'amp-blocks' . esc_attr($unique_id);
-			if (!wp_style_is($style_id, 'enqueued')) {
-				$css = $this->blocks_form_array($attributes, $unique_id);
-				if (!empty($css)) {
-					$this->render_inline_css($css, $style_id);
-				}
-			}
-		}
-	}
-
 	/**
 	 * Builds css for inner blocks
 	 *
@@ -4660,18 +3740,11 @@ class Amp_Blocks_Frontend
 						$this->render_column_layout_css_head($blockattr);
 					}
 				}
-				if ('amp/advancedheading' === $inner_block['blockName']) {
+				if ('amp/advancedheading' === $inner_block['blockName']|| 'ampblocks/heading' === $inner_block['blockName']) {
 					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
 						$blockattr = $inner_block['attrs'];
 						$this->render_advanced_heading_css_head($blockattr);
 						$this->blocks_advanced_heading_gfont($blockattr);
-					}
-				}
-				if ('amp/accordion' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_accordion_css_head($blockattr);
-						$this->blocks_accordion_scripts_gfonts($blockattr);
 					}
 				}
 				if ('amp/advancedbtn' === $inner_block['blockName']) {
@@ -4681,58 +3754,10 @@ class Amp_Blocks_Frontend
 						$this->blocks_advanced_btn_gfont($blockattr);
 					}
 				}
-				if ('amp/tabs' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_tabs_css_head($blockattr);
-						$this->blocks_tabs_scripts_gfonts($blockattr);
-					}
-				}
-				if ('amp/infobox' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_infobox_css_head($blockattr);
-						$this->blocks_infobox_scripts_gfonts($blockattr);
-					}
-				}
-				if ('amp/iconlist' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_iconlist_css_head($blockattr);
-						$this->blocks_iconlist_scripts_gfonts($blockattr);
-					}
-				}
 				if ('amp/icon' === $inner_block['blockName']) {
 					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
 						$blockattr = $inner_block['attrs'];
 						$this->render_icon_css_head($blockattr);
-					}
-				}
-				if ('amp/testimonials' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_testimonials_css_head($blockattr);
-						$this->blocks_testimonials_scripts_gfonts($blockattr);
-					}
-				}
-				if ('amp/advancedgallery' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_advancedgallery_css_head($blockattr);
-						$this->blocks_advancedgallery_scripts_gfonts($blockattr);
-					}
-				}
-				if ('amp/spacer' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_spacer_css_head($blockattr);
-					}
-				}
-				if ('amp/form' === $inner_block['blockName']) {
-					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
-						$blockattr = $inner_block['attrs'];
-						$this->render_form_css_head($blockattr);
-						$this->blocks_form_scripts_check($blockattr);
 					}
 				}
 				if ('core/block' === $inner_block['blockName']) {
