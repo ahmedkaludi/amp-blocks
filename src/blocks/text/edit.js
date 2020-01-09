@@ -107,14 +107,20 @@ class ampAdvancedHeading extends Component {
 	}
 	render() {
 		const { attributes, className, setAttributes, mergeBlocks, onReplace } = this.props;
-		const { uniqueID, align, content, color, size, sizeType, lineType, lineHeight, tabLineHeight, tabSize, mobileSize, mobileLineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, markSize, markSizeType, markLineHeight, markLineType, markLetterSpacing, markTypography, markGoogleFont, markLoadGoogleFont, markFontSubset, markFontVariant, markFontWeight, markFontStyle, markPadding, markPaddingControl, markColor, markBG, markBGOpacity, markBorder, markBorderWidth, markBorderOpacity, markBorderStyle, anchor, textTransform, markTextTransform, ampAnimation, ampAOSOptions } = attributes;
+		const { uniqueID, align, level, content, color, size, sizeType, lineType, lineHeight, tabLineHeight, tabSize, mobileSize, mobileLineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, markSize, markSizeType, markLineHeight, markLineType, markLetterSpacing, markTypography, markGoogleFont, markLoadGoogleFont, markFontSubset, markFontVariant, markFontWeight, markFontStyle, markPadding, markPaddingControl, markColor, markBG, markBGOpacity, markBorder, markBorderWidth, markBorderOpacity, markBorderStyle, anchor, textTransform, markTextTransform, ampAnimation, ampAOSOptions } = attributes;
 		const markBGString = ( markBG ? hexToRGBA( markBG, markBGOpacity ) : '' );
 		const markBorderString = ( markBorder ? hexToRGBA( markBorder, markBorderOpacity ) : '' );
 		const gconfig = {
 			google: {
 				families: [ typography + ( fontVariant ? ':' + fontVariant : '' ) ],
 			},
-		};
+		}	;
+		let tagName = 'p';
+		if(level == 'p'){
+			 tagName = 'p';
+		}else{
+			 tagName = 'h' + level;
+		}
 		const sizeTypes = [
 			{ key: 'px', name: __( 'px' ) },
 			{ key: 'em', name: __( 'em' ) },
@@ -142,6 +148,33 @@ class ampAdvancedHeading extends Component {
 		const lineMin = ( lineType === 'em' ? 0.2 : 5 );
 		const lineMax = ( lineType === 'em' ? 12 : 200 );
 		const lineStep = ( lineType === 'em' ? 0.1 : 1 );
+		const createLevelControl = ( targetLevel ) => {
+			if(targetLevel == 1){
+				return [ {
+					icon: 'editor-paragraph',
+					// translators: %s: heading level e.g: "1", "2", "3"
+					title: 'Paragraph' ,
+					isActive: (level == 'p' || typeof level === 'undefined') ,
+					onClick: () => setAttributes( { level: 'p' } ),
+				},{
+					icon: 'heading',
+					// translators: %s: heading level e.g: "1", "2", "3"
+					title: sprintf( __( 'Heading %d' ), targetLevel ),
+					isActive: targetLevel === level,
+					onClick: () => setAttributes( { level: targetLevel } ),
+					subscript: String( targetLevel ),
+				} ];
+			}else{
+			return [ {
+				icon: 'heading',
+				// translators: %s: heading level e.g: "1", "2", "3"
+				title: sprintf( __( 'Heading %d' ), targetLevel ),
+				isActive: targetLevel === level,
+				onClick: () => setAttributes( { level: targetLevel } ),
+				subscript: String( targetLevel ),
+			} ];
+		}
+		};
 		const deskControls = (
 			<PanelBody>
 				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
@@ -328,7 +361,7 @@ class ampAdvancedHeading extends Component {
 				formattingControls={ [ 'bold', 'italic', 'link', 'mark' ] }
 				allowedFormats={ [ 'core/bold', 'core/italic', 'core/link', 'amp/mark' ] }
 				wrapperClassName={ className }
-				tagName={ 'p' }
+				tagName={ tagName }
 				value={ content }
 				onChange={ ( value ) => setAttributes( { content: value } ) }
 				onMerge={ mergeBlocks }
@@ -433,6 +466,12 @@ class ampAdvancedHeading extends Component {
 				</BlockControls>
 				{ this.showSettings( 'allSettings' ) && (
 					<InspectorControls>
+						<PanelBody title={ __( 'Heading Tags' ) }>
+							<div className="amp-tag-level-control">
+								<p>{ __( 'HTML Tag' ) }</p>
+								<Toolbar controls={ range( 1, 7 ).map( createLevelControl ) } />
+							</div>
+						</PanelBody>
 
 							<PanelBody
 								title={ __( 'Typography Settings' ) }

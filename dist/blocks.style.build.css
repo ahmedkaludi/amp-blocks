@@ -1099,3 +1099,19 @@
 
 .kt-svg-icon-wrap {
   display: inline-block; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend
+ */
+.wp-block-amp-advancedheading mark {
+  color: #f76a0c;
+  background: transparent;
+  border-style: solid;
+  border-width: 0; }
