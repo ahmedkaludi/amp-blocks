@@ -38,7 +38,7 @@ const {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'ampblocks/advancedheading', {
+registerBlockType( 'ampblocks/heading', {
 	title: __( 'Heading' ),
 	icon: {
 		src: icons.block,
