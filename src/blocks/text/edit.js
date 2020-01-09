@@ -115,6 +115,11 @@ class ampAdvancedHeading extends Component {
 				families: [ typography + ( fontVariant ? ':' + fontVariant : '' ) ],
 			},
 		};
+		const sizeTypes = [
+			{ key: 'px', name: __( 'px' ) },
+			{ key: 'em', name: __( 'em' ) },
+		];
+		const fontMin = ( sizeType === 'em' ? 0.2 : 5 );
 		const sgconfig = {
 			google: {
 				families: [ markTypography + ( markFontVariant ? ':' + markFontVariant : '' ) ],
@@ -132,6 +137,192 @@ class ampAdvancedHeading extends Component {
 		const marginMin = ( marginType === 'em' || marginType === 'rem' ? -2 : -100 );
 		const marginMax = ( marginType === 'em' || marginType === 'rem' ? 12 : 100 );
 		const marginStep = ( marginType === 'em' || marginType === 'rem' ? 0.1 : 1 );
+		const fontMax = ( sizeType === 'em' ? 12 : 200 );
+		const fontStep = ( sizeType === 'em' ? 0.1 : 1 );
+		const lineMin = ( lineType === 'em' ? 0.2 : 5 );
+		const lineMax = ( lineType === 'em' ? 12 : 200 );
+		const lineStep = ( lineType === 'em' ? 0.1 : 1 );
+		const deskControls = (
+			<PanelBody>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
+					{ map( sizeTypes, ( { name, key } ) => (
+						<Button
+							key={ key }
+							className="amp-size-btn"
+							isSmall
+							isPrimary={ sizeType === key }
+							aria-pressed={ sizeType === key }
+							onClick={ () => setAttributes( { sizeType: key } ) }
+						>
+							{ name }
+						</Button>
+					) ) }
+				</ButtonGroup>
+				<RangeControl
+					label={ __( 'Font Size' ) }
+					value={ ( size ? size : '' ) }
+					onChange={ ( value ) => setAttributes( { size: value } ) }
+					min={ fontMin }
+					max={ fontMax }
+					step={ fontStep }
+				/>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
+					{ map( sizeTypes, ( { name, key } ) => (
+						<Button
+							key={ key }
+							className="amp-size-btn"
+							isSmall
+							isPrimary={ lineType === key }
+							aria-pressed={ lineType === key }
+							onClick={ () => setAttributes( { lineType: key } ) }
+						>
+							{ name }
+						</Button>
+					) ) }
+				</ButtonGroup>
+				<RangeControl
+					label={ __( 'Line Height' ) }
+					value={ ( lineHeight ? lineHeight : '' ) }
+					onChange={ ( value ) => setAttributes( { lineHeight: value } ) }
+					min={ lineMin }
+					max={ lineMax }
+					step={ lineStep }
+				/>
+			</PanelBody>
+		);
+		const tabletControls = (
+			<PanelBody>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
+					{ map( sizeTypes, ( { name, key } ) => (
+						<Button
+							key={ key }
+							className="amp-size-btn"
+							isSmall
+							isPrimary={ sizeType === key }
+							aria-pressed={ sizeType === key }
+							onClick={ () => setAttributes( { sizeType: key } ) }
+						>
+							{ name }
+						</Button>
+					) ) }
+				</ButtonGroup>
+				<RangeControl
+					label={ __( 'Tablet Font Size' ) }
+					value={ ( tabSize ? tabSize : '' ) }
+					onChange={ ( value ) => setAttributes( { tabSize: value } ) }
+					min={ fontMin }
+					max={ fontMax }
+					step={ fontStep }
+				/>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
+					{ map( sizeTypes, ( { name, key } ) => (
+						<Button
+							key={ key }
+							className="amp-size-btn"
+							isSmall
+							isPrimary={ lineType === key }
+							aria-pressed={ lineType === key }
+							onClick={ () => setAttributes( { lineType: key } ) }
+						>
+							{ name }
+						</Button>
+					) ) }
+				</ButtonGroup>
+				<RangeControl
+					label={ __( 'Tablet Line Height' ) }
+					value={ ( tabLineHeight ? tabLineHeight : '' ) }
+					onChange={ ( value ) => setAttributes( { tabLineHeight: value } ) }
+					min={ lineMin }
+					max={ lineMax }
+					step={ lineStep }
+				/>
+			</PanelBody>
+		);
+		const mobileControls = (
+			<PanelBody>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
+					{ map( sizeTypes, ( { name, key } ) => (
+						<Button
+							key={ key }
+							className="amp-size-btn"
+							isSmall
+							isPrimary={ sizeType === key }
+							aria-pressed={ sizeType === key }
+							onClick={ () => setAttributes( { sizeType: key } ) }
+						>
+							{ name }
+						</Button>
+					) ) }
+				</ButtonGroup>
+				<RangeControl
+					label={ __( 'Mobile Font Size' ) }
+					value={ ( mobileSize ? mobileSize : '' ) }
+					onChange={ ( value ) => setAttributes( { mobileSize: value } ) }
+					min={ fontMin }
+					max={ fontMax }
+					step={ fontStep }
+				/>
+				<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Size Type' ) }>
+					{ map( sizeTypes, ( { name, key } ) => (
+						<Button
+							key={ key }
+							className="amp-size-btn"
+							isSmall
+							isPrimary={ lineType === key }
+							aria-pressed={ lineType === key }
+							onClick={ () => setAttributes( { lineType: key } ) }
+						>
+							{ name }
+						</Button>
+					) ) }
+				</ButtonGroup>
+				<RangeControl
+					label={ __( 'Mobile Line Height' ) }
+					value={ ( mobileLineHeight ? mobileLineHeight : '' ) }
+					onChange={ ( value ) => setAttributes( { mobileLineHeight: value } ) }
+					min={ lineMin }
+					max={ lineMax }
+					step={ lineStep }
+				/>
+			</PanelBody>
+		);
+		const tabControls = (
+			<TabPanel className="amp-size-tabs"
+				activeClass="active-tab"
+				tabs={ [
+					{
+						name: 'desk',
+						title: <Dashicon icon="desktop" />,
+						className: 'amp-desk-tab',
+					},
+					{
+						name: 'tablet',
+						title: <Dashicon icon="tablet" />,
+						className: 'amp-tablet-tab',
+					},
+					{
+						name: 'mobile',
+						title: <Dashicon icon="smartphone" />,
+						className: 'amp-mobile-tab',
+					},
+				] }>
+				{
+					( tab ) => {
+						let tabout;
+						if ( tab.name ) {
+							if ( 'mobile' === tab.name ) {
+								tabout = mobileControls;
+							} else if ( 'tablet' === tab.name ) {
+								tabout = tabletControls;
+							} else {
+								tabout = deskControls;
+							}
+						}
+						return <div>{ tabout }</div>;
+					}
+				}
+			</TabPanel>
+		);
 		const headingContent = (
 			<RichText
 				formattingControls={ [ 'bold', 'italic', 'link', 'mark' ] }
@@ -270,6 +461,12 @@ class ampAdvancedHeading extends Component {
 									textTransform={ textTransform }
 									onTextTransform={ ( value ) => setAttributes( { textTransform: value } ) }
 								/>
+								{ this.showSettings( 'sizeSettings' ) && (
+								<Fragment>
+									<h2 className="amp-heading-size-title">{ __( 'Size Controls' ) }</h2>
+									{ tabControls }
+								</Fragment>
+							) }
 							</PanelBody>
 
 						<PanelBody 

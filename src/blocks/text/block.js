@@ -40,9 +40,7 @@ const {
  */
 registerBlockType( 'amp/advancedheading', {
 	title: __( 'Text' ),
-	icon: {
-		src: icons.block,
-	},
+	icon: 'editor-paragraph',
 	category: 'amp-blocks',
 	keywords: [
 		__( 'text' ),
@@ -259,7 +257,7 @@ registerBlockType( 'amp/advancedheading', {
 		return (
 			<Fragment>
 				{ wrapper && (
-					<div id={ `amp-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }${ ( className ? ' ' + className : '' ) }` }>
+					<div id={ `amp-text-block${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }${ ( className ? ' ' + className : '' ) }` }>
 						{ htmlItem }
 					</div>
 				) }
