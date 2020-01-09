@@ -3762,6 +3762,10 @@ class Amp_Blocks_Frontend
 	 */
 	public function frontend_inline_css()
 	{
+		if (self::$ampcheck == 'amp'){
+			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/row.style.build.css');
+			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css');
+		}
 		if (function_exists('has_blocks') && has_blocks(get_the_ID())) {
 			global $post;
 			if (!is_object($post)) {
