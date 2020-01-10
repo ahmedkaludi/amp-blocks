@@ -19,19 +19,12 @@ import edit from './edit';
  */
 import save from './save';
 
-import classnames from 'classnames';
 /**
  * Import Css
  */
 import './style.scss';
 import './editor.scss';
 
-const {
-	Fragment,
-} = wp.element;
-const {
-	InnerBlocks,
-} = wp.blockEditor;
 
 /**
  * Internal block libraries
@@ -60,8 +53,7 @@ registerBlockType( 'amp/rowlayout', {
 		__( 'KB' ),
 	],
 	supports: {
-		// anchor: true,
-		align: true,
+		anchor: true,
 		// Add EditorsKit block navigator toolbar
 		editorsKitBlockNavigator: true,
 	},

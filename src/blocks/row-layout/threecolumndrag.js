@@ -93,6 +93,10 @@ export default function ThreeColumnDrag( {
 			firstWidth: tempfirstW,
 			secondWidth: tempsecondW,
 		} );
+		document.getElementById( 'left-column-width-' + uniqueID ).style.opacity = 1;
+		document.getElementById( 'right-column-width-' + uniqueID ).style.opacity = 1;
+		document.getElementById( 'third-right-column-width-' + uniqueID ).style.opacity = 1;
+		document.getElementById( 'third-column-width-' + uniqueID ).style.opacity = 1;
 		document.getElementById( 'left-column-width-' + uniqueID ).innerHTML = tempfirstW + '%';
 		document.getElementById( 'right-column-width-' + uniqueID ).innerHTML = tempsecondW + '%';
 		document.getElementById( 'third-right-column-width-' + uniqueID ).innerHTML = tempsecondW + '%';
@@ -117,6 +121,10 @@ export default function ThreeColumnDrag( {
 			firstWidth: null,
 			secondWidth: null,
 		} );
+		document.getElementById( 'left-column-width-' + uniqueID ).style.opacity = 0;
+		document.getElementById( 'right-column-width-' + uniqueID ).style.opacity = 0;
+		document.getElementById( 'third-right-column-width-' + uniqueID ).style.opacity = 0;
+		document.getElementById( 'third-column-width-' + uniqueID ).style.opacity = 0;
 	};
 	const onResizeSecond = ( event, direction, elt ) => {
 		let tempfirstW;
@@ -135,6 +143,10 @@ export default function ThreeColumnDrag( {
 			firstWidth: tempfirstW,
 			secondWidth: tempsecondWidth,
 		} );
+		document.getElementById( 'left-column-width-' + uniqueID ).style.opacity = 1;
+		document.getElementById( 'right-column-width-' + uniqueID ).style.opacity = 1;
+		document.getElementById( 'third-right-column-width-' + uniqueID ).style.opacity = 1;
+		document.getElementById( 'third-column-width-' + uniqueID ).style.opacity = 1;
 		document.getElementById( 'left-column-width-' + uniqueID ).innerHTML = tempfirstW + '%';
 		document.getElementById( 'right-column-width-' + uniqueID ).innerHTML = ( tempsecondWidth ) + '%';
 		document.getElementById( 'third-right-column-width-' + uniqueID ).innerHTML = ( tempsecondWidth ) + '%';
@@ -159,6 +171,10 @@ export default function ThreeColumnDrag( {
 			firstWidth: null,
 			secondWidth: null,
 		} );
+		document.getElementById( 'left-column-width-' + uniqueID ).style.opacity = 0;
+		document.getElementById( 'right-column-width-' + uniqueID ).style.opacity = 0;
+		document.getElementById( 'third-right-column-width-' + uniqueID ).style.opacity = 0;
+		document.getElementById( 'third-column-width-' + uniqueID ).style.opacity = 0;
 	};
 	return (
 		<div className="amp-resizeable-column-container" style={ {
