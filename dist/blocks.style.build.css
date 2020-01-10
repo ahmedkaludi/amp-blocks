@@ -985,8 +985,6 @@
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
-  border-width: 2px;
-  border-color: #555555;
   overflow: hidden;
   background: transparent;
   color: #555555; }
