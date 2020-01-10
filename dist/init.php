@@ -10,7 +10,7 @@
 if (!defined('ABSPATH')) {
 	exit;
 }
-
+add_theme_support( 'align-wide' );
 /**
  * Enqueue Gutenberg block assets for backend editor.
  *

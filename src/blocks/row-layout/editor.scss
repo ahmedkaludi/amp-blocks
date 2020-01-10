@@ -1571,6 +1571,9 @@ button.components-button.amp-pre-sidebar-image {
   margin-left: -28px;
   margin-right: -28px;
 }
+[data-type="amp/rowlayout"]{
+// max-width: inherit !important;
+}
 
 .wp-block-amp-rowlayout .editor-block-list__layout .editor-block-list__block {
   padding-left: 43px;
@@ -1600,6 +1603,18 @@ display: none;
   position: absolute;
   width: 29px;
   margin: auto;
+}
+[data-type="amp/rowlayout"] [data-type="amp/column"]  .wp-block+.block-list-appender{
+  width: 0px;
+  margin: auto;
+}
+
+[data-type="amp/rowlayout"] .block-editor-default-block-appender textarea.block-editor-default-block-appender__content{
+padding: 0px;
+
+}
+.block-editor-block-list__layout .block-editor-block-list__block .block-editor-block-drop-zone{
+  // margin: 0px;
 }
 
 .editor-block-list__breadcrumb {
