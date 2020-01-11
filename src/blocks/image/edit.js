@@ -129,7 +129,7 @@ class ampImage extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => { setAttributes({ width: media.width, height: media.height, image: media }); this.setState({ hideShowUploadButton: false }) }}
+						onSelect={(media) => { setAttributes({ width: (media.width < 700)? media.width :700 , height:(media.height < 700)? media.width :700 , image: media }); this.setState({ hideShowUploadButton: false }) }}
 						allowedTypes={'image'}
 						value={image}
 						render={({ open }) => (
