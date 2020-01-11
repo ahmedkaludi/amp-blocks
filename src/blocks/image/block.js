@@ -4,10 +4,9 @@
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
  */
+import edit from './edit';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const { MediaUpload } = wp.editor; //Import MediaUpload from wp.editor
-const { Button } = wp.components; //Import Button from wp.components
 /**
  * Register: aa Gutenberg Block.
  *
@@ -30,9 +29,17 @@ registerBlockType('ampblocks/image', {
 		__('image')
 	],
 	attributes: { //Attributes
+		width: { //image array
+			type: 'number',
+			// default: "10"
+		},
+		height: { //image array
+			type: 'number',
+			// default: "10"
+		},
 		image: { //image array
 			type: 'json',
-		}
+		},
 	},
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
@@ -42,44 +49,7 @@ registerBlockType('ampblocks/image', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	edit({ attributes, setAttributes }) {
-		//Destructuring the image array attribute
-		const { image } = attributes;
-		//Displays the image
-		let displayimage = (image) => {
-			//Loops throug the image
-			if (typeof image !== 'undefined') {
-				return (
-					<div className="amp-img-block-container">
-						<img width="100%" height="100%" className='amp-img-item' src={image.url} />
-					</div>
-				)
-			} else {
-				return ("");
-			}
-		};
-		//JSX to return
-		return (
-			<div>
-				<div className="amp-img-block">
-					{displayimage(image)}
-				</div>
-				<br />
-				{typeof image === 'undefined' && (
-					<MediaUpload
-						onSelect={(media) => { setAttributes({ image: media }); }}
-						allowedTypes={'image'}
-						value={image}
-						render={({ open }) => (
-							<Button className="select-image-button is-button is-default is-large" onClick={open}>
-								Add image
-						</Button>
-						)}
-					/>
-				)}
-			</div>
-		);
-	},
+	edit,
 	/**
 	 * The save function defines the way in which the different attributes should be combined
 	 * into the final markup, which is then serialized by Gutenberg into post_content.
@@ -89,13 +59,14 @@ registerBlockType('ampblocks/image', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save({ attributes }) {
-		const { image } = attributes;
+		// console.log(attributes);
+		const { width, height, image } = attributes;
 		let displayimage = (image) => {
 			//Loops throug the image
 			if (typeof image !== 'undefined') {
 				return (
 					<div className="amp-img-block-container">
-						<img width="100%" height="100%" className='amp-img-item' src={image.url} />
+						<img className='amp-img-item' width={width} height={height} src={image.url} />
 					</div>
 				)
 			} else {
