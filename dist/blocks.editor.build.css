@@ -1224,7 +1224,10 @@ button.components-button.amp-pre-sidebar-image {
 
 [data-type="amp/rowlayout"] [data-type="amp/column"] .wp-block + .block-list-appender {
   width: 0px;
-  margin: auto; }
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  margin-top: -27px; }
 
 [data-type="amp/rowlayout"] .block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
   padding: 0px; }
