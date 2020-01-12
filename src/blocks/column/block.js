@@ -239,8 +239,8 @@ registerBlockType( 'amp/column', {
 		const bgImg = ( backgroundImg && backgroundImg[0] && backgroundImg[0].bgImg ? backgroundImg[0].bgImg : '' );
 		const backgroundString = ( background && '' === bgImg ? hexToRGBA( background, backgroundOpacity ) : undefined );
 		return (
-			<div className={ `inner-column-${ id } amp-column${ uniqueID }` }>
-				<div className={ 'amp-inside-inner-col' } style={ {
+			<div className={ `c-${ id } amp-column${ uniqueID }` }>
+				<div className={ 'ci' } style={ {
 					background: backgroundString,
 				} }>
 					<InnerBlocks.Content/>
@@ -336,8 +336,8 @@ registerBlockType( 'amp/column', {
 				const { id, background, backgroundOpacity } = attributes;
 				const backgroundString = ( background ? hexToRGBA( background, backgroundOpacity ) : undefined );
 				return (
-					<div className={ `inner-column-${ id }` }>
-						<div className={ 'amp-inside-inner-col' } style={ {
+					<div className={ `c-${ id }` }>
+						<div className={ 'ci' } style={ {
 							background: backgroundString,
 						} }>
 							<InnerBlocks.Content/>
@@ -356,8 +356,8 @@ registerBlockType( 'amp/column', {
 			save: ( { attributes } ) => {
 				const { id } = attributes;
 				return (
-					<div className={ `inner-column-${ id }` }>
-						<div className={ 'amp-inside-inner-col' }>
+					<div className={ `c-${ id }` }>
+						<div className={ 'ci' }>
 							<InnerBlocks.Content/>
 						</div>
 					</div>
@@ -374,7 +374,7 @@ registerBlockType( 'amp/column', {
 			save: ( { attributes } ) => {
 				const { id } = attributes;
 				return (
-					<div className={ `inner-column-${ id }` }>
+					<div className={ `c-${ id }` }>
 						<InnerBlocks.Content/>
 					</div>
 				);

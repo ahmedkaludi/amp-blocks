@@ -1,0 +1,36 @@
+XXX .amp-row-layout-inner = 			.ab
+XXX .amp-row-column-wrap = 				.cw
+FAILED .wp-block-amp-column = 			.c
+XXX .inner-column-1 = 					.c-1
+XXX .inner-column-2 = 					.c-2
+XXX .amp-has-2-columns = 				.ab2
+XXX .amp-has-1-columns = 				.ab1
+XXX .amp-has-3-columns = 				.ab3
+XXX .amp-gutter- = 						.g
+XXX .amp-v-gutter- = 					.gv
+XXX .amp-row-valign- = 					.rv
+XXX .amp-row-valign-top = 				.rvt
+XXX .amp-row-valign-middle =			.rvm
+XXX .amp-row-valign-bottom =			.rvb
+XXX .amp-row-layout- =					.rl
+XXX .amp-tab-layout- =					.tl
+XXX .amp-m-colapse-left-to-right = 		.mcltr
+XXX .amp-mobile-layout- = 				.m
+XXX .amp-inside-inner-col = 			.ci
+Essential Modules
+Row Sub classes
+-o-
+-webkit-
+
+=== 2 (Lokesh) ===
+wp-block-amp- 780
+> wp-block-amp-column 472 = 			.c
+> wp-block-amp-rowlayout 252 = 			.cr
+kadence
+@font-face dashicons.ttf
+jarallax
+@media mergeup
+Padding merge
+margin merge
+minimize dynamic class
+dynamic class + -00 

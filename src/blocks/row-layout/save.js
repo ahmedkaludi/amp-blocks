@@ -186,8 +186,8 @@ class AmpRowLayoutSave extends Component {
 		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'amp-row-has-bg' : '' );
 		const overlayType = ( ! currentOverlayTab || 'grad' !== currentOverlayTab ? 'normal' : 'gradient' );
 		const classes = classnames( `align${ ( blockAlignment ? blockAlignment : 'none' ) }` );
-		const innerClasses = classnames( `amp-row-layout-inner ${ hasBG } amp-layout-id${ classId }${ bgImg && bgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` );
-		const innerColumnClasses = classnames( `amp-row-column-wrap amp-has-${ columns }-columns amp-gutter-${ columnGutter } amp-v-gutter-${ ( collapseGutter ? collapseGutter : 'default' ) } amp-row-valign-${ verticalAlignment } amp-row-layout-${ layoutClass } amp-tab-layout-${ tabLayoutClass } amp-m-colapse-${ collapseOrder } amp-mobile-layout-${ mobileLayoutClass }${ firstColumnClass }${ secondColumnClass }${ thirdColumnClass }${ ( undefined !== columnsInnerHeight && true === columnsInnerHeight ? ' amp-inner-column-height-full' : '' ) }` );
+		const innerClasses = classnames( `ab ${ hasBG } amp-layout-id${ classId }${ bgImg && bgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` );
+		const innerColumnClasses = classnames( `cw ab${ columns } amp-gutter-${ columnGutter } gv${ ( collapseGutter ? collapseGutter : 'default' ) } rv${ verticalAlignment } rl${ layoutClass } tl${ tabLayoutClass } amp-m-colapse-${ collapseOrder } m${ mobileLayoutClass }${ firstColumnClass }${ secondColumnClass }${ thirdColumnClass }${ ( undefined !== columnsInnerHeight && true === columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		const renderSliderImages = ( index ) => {
 			let bgSlider;
 			if (undefined === backgroundSlider || ( undefined !== backgroundSlider && undefined === backgroundSlider[0] )) {
@@ -321,10 +321,10 @@ class AmpRowLayoutSave extends Component {
 					) }
 					{ ( overlay || overlayBgImg ) && (
 						<div
-							className={ `amp-row-layout-overlay amp-row-overlay-${ overlayType }${ overlayBgImg && 'gradient' !== overlayType && overlayBgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }></div>
+							className={ `rloverlay amp-row-overlay-${ overlayType }${ overlayBgImg && 'gradient' !== overlayType && overlayBgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }></div>
 					) }
 					{ topSep && 'none' !== topSep && '' !== topSep && (
-						<div className={ `amp-row-layout-top-sep amp-row-sep-type-${ topSep }` }>
+						<div className={ `rltop-sep amp-row-sep-type-${ topSep }` }>
 							<svg style={ { fill: topSepColor } } viewBox="0 0 1000 100" preserveAspectRatio="none">
 								{ topSVGDivider }
 							</svg>
@@ -334,7 +334,7 @@ class AmpRowLayoutSave extends Component {
 						<InnerBlocks.Content/>
 					</div>
 					{ bottomSep && 'none' !== bottomSep && '' !== bottomSep && (
-						<div className={ `amp-row-layout-bottom-sep amp-row-sep-type-${ bottomSep }` }>
+						<div className={ `rlbottom-sep amp-row-sep-type-${ bottomSep }` }>
 							<svg style={ { fill: bottomSepColor } } viewBox="0 0 1000 100" preserveAspectRatio="none">
 								{ bottomSVGDivider }
 							</svg>

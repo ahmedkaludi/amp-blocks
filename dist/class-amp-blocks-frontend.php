@@ -195,11 +195,11 @@ class Amp_Blocks_Frontend
 		$css = '';
 		if (isset($attr['firstColumnWidth']) && !empty($attr['firstColumnWidth']) && (!isset($attr['columns']) || 2 === $attr['columns'])) {
 			$css .= '@media (min-width: 767px) {';
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-1 {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
 			$css .= '-ms-flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= 'flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= '}';
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-2 {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
 			$css .= '-ms-flex: 0 1 ' . abs($attr['firstColumnWidth'] - 100) . '%;';
 			$css .= 'flex: 0 1 ' . abs($attr['firstColumnWidth'] - 100) . '%;';
 			$css .= '}';
@@ -219,11 +219,11 @@ class Amp_Blocks_Frontend
 					$tabCol2 = '50';
 				}
 				$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-1 {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
 				$css .= '-ms-flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= '}';
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-2 {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
 				$css .= '-ms-flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= '}';
@@ -232,15 +232,15 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['firstColumnWidth']) && !empty($attr['firstColumnWidth']) && isset($attr['secondColumnWidth']) && !empty($attr['secondColumnWidth']) && (isset($attr['columns']) && 3 === $attr['columns'])) {
 			$css .= '@media (min-width: 767px) {';
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-1 {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
 			$css .= '-ms-flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= 'flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= '}';
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-2 {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
 			$css .= '-ms-flex: 0 1 ' . $attr['secondColumnWidth'] . '%;';
 			$css .= 'flex: 0 1 ' . $attr['secondColumnWidth'] . '%;';
 			$css .= '}';
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-3 {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-3 {';
 			$css .= '-ms-flex: 0 1 ' . abs(($attr['firstColumnWidth'] + $attr['secondColumnWidth']) - 100) . '%;';
 			$css .= 'flex: 0 1 ' . abs(($attr['firstColumnWidth'] + $attr['secondColumnWidth']) - 100) . '%;';
 			$css .= '}';
@@ -276,15 +276,15 @@ class Amp_Blocks_Frontend
 					$tabCol3 = '33.33';
 				}
 				$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-1 {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
 				$css .= '-ms-flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= '}';
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-2 {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
 				$css .= '-ms-flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= '}';
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-3 {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-3 {';
 				$css .= '-ms-flex: 0 1 ' . $tabCol3 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol3 . '%;';
 				$css .= '}';
@@ -321,7 +321,7 @@ class Amp_Blocks_Frontend
 			$css .= '}';
 		}
 		if (isset($attr['zIndex'])) {
-			$css .= '.amp-layout-id' . $unique_id . ' > .amp-row-column-wrap {';
+			$css .= '.amp-layout-id' . $unique_id . ' > .cw {';
 			$css .= 'z-index:' . $attr['zIndex'] . ';';
 			$css .= '}';
 		}
@@ -343,12 +343,12 @@ class Amp_Blocks_Frontend
 		if (isset($attr['bottomSep']) && 'none' != $attr['bottomSep']) {
 			if (isset($attr['bottomSepHeight']) || isset($attr['bottomSepWidth'])) {
 				if (isset($attr['bottomSepHeight'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-bottom-sep {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rlbottom-sep {';
 					$css .= 'height:' . $attr['bottomSepHeight'] . 'px;';
 					$css .= '}';
 				}
 				if (isset($attr['bottomSepWidth'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-bottom-sep svg {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rlbottom-sep svg {';
 					$css .= 'width:' . $attr['bottomSepWidth'] . '%;';
 					$css .= '}';
 				}
@@ -356,12 +356,12 @@ class Amp_Blocks_Frontend
 			if (isset($attr['bottomSepHeightTab']) || isset($attr['bottomSepWidthTab'])) {
 				$css .= '@media (min-width: 767px) and (max-width: 1024px) {';
 				if (isset($attr['bottomSepHeightTab'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-bottom-sep {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rlbottom-sep {';
 					$css .= 'height:' . $attr['bottomSepHeightTab'] . 'px;';
 					$css .= '}';
 				}
 				if (isset($attr['bottomSepWidthTab'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-bottom-sep svg {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rlbottom-sep svg {';
 					$css .= 'width:' . $attr['bottomSepWidthTab'] . '%;';
 					$css .= '}';
 				}
@@ -370,12 +370,12 @@ class Amp_Blocks_Frontend
 			if (isset($attr['bottomSepHeightMobile']) || isset($attr['bottomSepWidthMobile'])) {
 				$css .= '@media (max-width: 767px) {';
 				if (isset($attr['bottomSepHeightMobile'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-bottom-sep {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rlbottom-sep {';
 					$css .= 'height:' . $attr['bottomSepHeightMobile'] . 'px;';
 					$css .= '}';
 				}
 				if (isset($attr['bottomSepWidthMobile'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-bottom-sep svg {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rlbottom-sep svg {';
 					$css .= 'width:' . $attr['bottomSepWidthMobile'] . '%;';
 					$css .= '}';
 				}
@@ -385,12 +385,12 @@ class Amp_Blocks_Frontend
 		if (isset($attr['topSep']) && 'none' != $attr['topSep']) {
 			if (isset($attr['topSepHeight']) || isset($attr['topSepWidth'])) {
 				if (isset($attr['topSepHeight'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-top-sep {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rltop-sep {';
 					$css .= 'height:' . $attr['topSepHeight'] . 'px;';
 					$css .= '}';
 				}
 				if (isset($attr['topSepWidth'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-top-sep svg {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rltop-sep svg {';
 					$css .= 'width:' . $attr['topSepWidth'] . '%;';
 					$css .= '}';
 				}
@@ -398,12 +398,12 @@ class Amp_Blocks_Frontend
 			if (isset($attr['topSepHeightTab']) || isset($attr['topSepWidthTab'])) {
 				$css .= '@media (min-width: 767px) and (max-width: 1024px) {';
 				if (isset($attr['topSepHeightTab'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-top-sep {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rltop-sep {';
 					$css .= 'height:' . $attr['topSepHeightTab'] . 'px;';
 					$css .= '}';
 				}
 				if (isset($attr['topSepWidthTab'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-top-sep svg {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rltop-sep svg {';
 					$css .= 'width:' . $attr['topSepWidthTab'] . '%;';
 					$css .= '}';
 				}
@@ -412,12 +412,12 @@ class Amp_Blocks_Frontend
 			if (isset($attr['topSepHeightMobile']) || isset($attr['topSepWidthMobile'])) {
 				$css .= '@media (max-width: 767px) {';
 				if (isset($attr['topSepHeightMobile'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-top-sep {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rltop-sep {';
 					$css .= 'height:' . $attr['topSepHeightMobile'] . 'px;';
 					$css .= '}';
 				}
 				if (isset($attr['topSepWidthMobile'])) {
-					$css .= '#amp-layout-id' . $unique_id . ' .amp-row-layout-top-sep svg {';
+					$css .= '#amp-layout-id' . $unique_id . ' .rltop-sep svg {';
 					$css .= 'width:' . $attr['topSepWidthMobile'] . '%;';
 					$css .= '}';
 				}
@@ -425,7 +425,7 @@ class Amp_Blocks_Frontend
 			}
 		}
 		if (isset($attr['topPadding']) || isset($attr['bottomPadding']) || isset($attr['leftPadding']) || isset($attr['rightPadding']) || isset($attr['minHeight']) || isset($attr['maxWidth'])) {
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw {';
 			if (isset($attr['topPadding'])) {
 				$css .= 'padding-top:' . $attr['topPadding'] . 'px;';
 			}
@@ -449,7 +449,7 @@ class Amp_Blocks_Frontend
 			$css .= '}';
 		}
 		if (isset($attr['overlay']) || isset($attr['overlayBgImg']) || isset($attr['overlaySecond'])) {
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-layout-overlay {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .rloverlay {';
 			if (isset($attr['overlayOpacity'])) {
 				if ($attr['overlayOpacity'] < 10) {
 					$css .= 'opacity:0.0' . $attr['overlayOpacity'] . ';';
@@ -512,7 +512,7 @@ class Amp_Blocks_Frontend
 				$css .= '}';
 			}
 			if (isset($attr['tabletPadding']) && is_array($attr['tabletPadding'])) {
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .cw {';
 				if (isset($attr['tabletPadding'][0]) && is_numeric($attr['tabletPadding'][0])) {
 					$css .= 'padding-top:' . $attr['tabletPadding'][0] . 'px;';
 				}
@@ -563,7 +563,7 @@ class Amp_Blocks_Frontend
 				}
 			}
 			if (!empty($tablet_overlay['enable']) && $tablet_overlay['enable']) {
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-layout-overlay {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .rloverlay {';
 				if (!empty($tablet_overlay['overlayOpacity'])) {
 					if ($tablet_overlay['overlayOpacity'] < 10) {
 						$css .= 'opacity:0.0' . $tablet_overlay['overlayOpacity'] . ';';
@@ -628,7 +628,7 @@ class Amp_Blocks_Frontend
 				$css .= '}';
 			}
 			if (isset($attr['topPaddingM']) || isset($attr['bottomPaddingM']) || isset($attr['leftPaddingM']) || isset($attr['rightPaddingM'])) {
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .cw {';
 				if (isset($attr['topPaddingM'])) {
 					$css .= 'padding-top:' . $attr['topPaddingM'] . 'px;';
 				}
@@ -679,7 +679,7 @@ class Amp_Blocks_Frontend
 				}
 			}
 			if (isset($mobile_overlay['enable']) && $mobile_overlay['enable']) {
-				$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-layout-overlay {';
+				$css .= '#amp-layout-id' . $unique_id . ' > .rloverlay {';
 				if (!empty($mobile_overlay['overlayOpacity'])) {
 					if ($mobile_overlay['overlayOpacity'] < 10) {
 						$css .= 'opacity:0.0' . $mobile_overlay['overlayOpacity'] . ';';
@@ -788,9 +788,9 @@ class Amp_Blocks_Frontend
 			$unique_id = $attributes['uniqueID'];
 		} else {
 			$unique_id = rand(100, 10000);
-			$pos = strpos($content, 'inner-column-');
+			$pos = strpos($content, 'c-');
 			if (false !== $pos) {
-				$content = substr_replace($content, 'amp-column' . $unique_id . ' inner-column-', $pos, strlen('inner-column-'));
+				$content = substr_replace($content, 'amp-column' . $unique_id . ' c-', $pos, strlen('c-'));
 			}
 		}
 		$style_id = 'amp-blocks' . esc_attr($unique_id);
@@ -860,7 +860,7 @@ class Amp_Blocks_Frontend
 	{
 		$css = '';
 		if (isset($attr['topPadding']) || isset($attr['bottomPadding']) || isset($attr['leftPadding']) || isset($attr['rightPadding']) || isset($attr['topMargin']) || isset($attr['bottomMargin']) || isset($attr['rightMargin']) || isset($attr['leftMargin']) || isset($attr['border']) || isset($attr['borderWidth'])) {
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' > .amp-inside-inner-col {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
 			if (isset($attr['topPadding'])) {
 				$css .= 'padding-top:' . $attr['topPadding'] . 'px;';
 			}
@@ -902,7 +902,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['backgroundImg']) && is_array($attr['backgroundImg']) && isset($attr['backgroundImg'][0]) && is_array($attr['backgroundImg'][0]) && isset($attr['backgroundImg'][0]['bgImg']) && !empty($attr['backgroundImg'][0]['bgImg'])) {
 			$bg_img = $attr['backgroundImg'][0];
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' > .amp-inside-inner-col {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
 			if (isset($attr['background']) && !empty($attr['background'])) {
 				$alpha = (isset($attr['backgroundOpacity']) && !empty($attr['backgroundOpacity']) ? $attr['backgroundOpacity'] : 1);
 				$css .= 'background-color:' . $this->hex2rgba($attr['background'], $alpha) . ';';
@@ -915,7 +915,7 @@ class Amp_Blocks_Frontend
 			$css .= '}';
 		}
 		if (isset($attr['textAlign']) && is_array($attr['textAlign']) && isset($attr['textAlign'][0]) && !empty($attr['textAlign'][0])) {
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
 			$css .= 'text-align:' . $attr['textAlign'][0] . ';';
 			$css .= '}';
 		}
@@ -936,20 +936,20 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['textAlign']) && is_array($attr['textAlign']) && isset($attr['textAlign'][1]) && !empty($attr['textAlign'][1])) {
 			$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
 			$css .= 'text-align:' . $attr['textAlign'][1] . ';';
 			$css .= '}';
-			$css .= '}';
+			$css .= '}'; 
 		}
 		if (isset($attr['textAlign']) && is_array($attr['textAlign']) && isset($attr['textAlign'][2]) && !empty($attr['textAlign'][2])) {
 			$css .= '@media (max-width: 767px) {';
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
 			$css .= 'text-align:' . $attr['textAlign'][2] . ';';
 			$css .= '}';
 			$css .= '}';
 		}
 		if (isset($attr['zIndex'])) {
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
 			if (isset($attr['zIndex'])) {
 				$css .= 'z-index:' . $attr['zIndex'] . ';';
 			}
@@ -957,14 +957,14 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['collapseOrder'])) {
 			$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-			$css .= '.amp-row-column-wrap.amp-tab-layout-three-grid > .amp-column' . $unique_id . ', .amp-row-column-wrap.amp-tab-layout-two-grid > .amp-column' . $unique_id . ', .amp-row-column-wrap.amp-tab-layout-row > .amp-column' . $unique_id . ' {';
+			$css .= '.cw.tlthree-grid > .amp-column' . $unique_id . ', .cw.tltwo-grid > .amp-column' . $unique_id . ', .cw.tlrow > .amp-column' . $unique_id . ' {';
 			if (isset($attr['collapseOrder'])) {
 				$css .= 'order:' . $attr['collapseOrder'] . ';';
 			}
 			$css .= '}';
 			$css .= '}';
 			$css .= '@media (max-width: 767px) {';
-			$css .= '.amp-row-column-wrap.amp-mobile-layout-three-grid > .amp-column' . $unique_id . ', .amp-row-column-wrap.amp-mobile-layout-two-grid > .amp-column' . $unique_id . ', .amp-row-column-wrap.amp-mobile-layout-row > .amp-column' . $unique_id . ' {';
+			$css .= '.cw.mthree-grid > .amp-column' . $unique_id . ', .cw.mtwo-grid > .amp-column' . $unique_id . ', .cw.mrow > .amp-column' . $unique_id . ' {';
 			if (isset($attr['collapseOrder'])) {
 				$css .= 'order:' . $attr['collapseOrder'] . ';';
 			}
@@ -973,7 +973,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['topPaddingT']) || isset($attr['bottomPaddingT']) || isset($attr['leftPaddingT']) || isset($attr['rightPaddingT']) || isset($attr['topMarginT']) || isset($attr['bottomMarginT']) || isset($attr['rightMarginT']) || isset($attr['leftMarginT'])) {
 			$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' > .amp-inside-inner-col {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
 			if (isset($attr['topPaddingT'])) {
 				$css .= 'padding-top:' . $attr['topPaddingT'] . 'px;';
 			}
@@ -1003,7 +1003,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['topPaddingM']) || isset($attr['bottomPaddingM']) || isset($attr['leftPaddingM']) || isset($attr['rightPaddingM']) || isset($attr['topMarginM']) || isset($attr['bottomMarginM']) || isset($attr['rightMarginM']) || isset($attr['leftMarginM'])) {
 			$css .= '@media (max-width: 767px) {';
-			$css .= '.amp-row-layout-inner > .amp-row-column-wrap > .amp-column' . $unique_id . ' > .amp-inside-inner-col {';
+			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
 			if (isset($attr['topPaddingM'])) {
 				$css .= 'padding-top:' . $attr['topPaddingM'] . 'px;';
 			}
@@ -3799,7 +3799,7 @@ class Amp_Blocks_Frontend
 	{
 		$css = '';
 		if (isset($attr['topPadding']) || isset($attr['bottomPadding']) || isset($attr['leftPadding']) || isset($attr['rightPadding']) || isset($attr['topMargin']) || isset($attr['bottomMargin']) || isset($attr['rightMargin']) || isset($attr['leftMargin'])) {
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-' . $column_key . ' > .amp-inside-inner-col {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-' . $column_key . ' > .ci {';
 			if (isset($attr['topPadding'])) {
 				$css .= 'padding-top:' . $attr['topPadding'] . 'px;';
 			}
@@ -3827,7 +3827,7 @@ class Amp_Blocks_Frontend
 			$css .= '}';
 		}
 		if (isset($attr['zIndex'])) {
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-' . $column_key . ' {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-' . $column_key . ' {';
 			if (isset($attr['zIndex'])) {
 				$css .= 'z-index:' . $attr['zIndex'] . ';';
 			}
@@ -3835,7 +3835,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['topPaddingM']) || isset($attr['bottomPaddingM']) || isset($attr['leftPaddingM']) || isset($attr['rightPaddingM']) || isset($attr['topMarginM']) || isset($attr['bottomMarginM']) || isset($attr['rightMarginM']) || isset($attr['leftMarginM'])) {
 			$css .= '@media (max-width: 767px) {';
-			$css .= '#amp-layout-id' . $unique_id . ' > .amp-row-column-wrap > .inner-column-' . $column_key . ' > .amp-inside-inner-col {';
+			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-' . $column_key . ' > .ci {';
 			if (isset($attr['topPaddingM'])) {
 				$css .= 'padding-top:' . $attr['topPaddingM'] . 'px;';
 			}

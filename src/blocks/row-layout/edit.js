@@ -313,7 +313,7 @@ class AmpRowLayout extends Component {
 		const mobileLayoutClass = ( ! mobileLayout ? 'inherit' : mobileLayout );
 		const selectColLayout = ( columns && ( 2 === columns || 3 === columns ) ? widthString : colLayout );
 		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'amp-row-has-bg' : '' );
-		const classes = classnames( className, `amp-has-${ columns }-columns amp-row-layout-${ layoutClass } amp-row-valign-${ verticalAlignment } amp-tab-layout-${ tabLayoutClass } amp-mobile-layout-${ mobileLayoutClass } current-tab-${ currentTab } amp-gutter-${ columnGutter } amp-v-gutter-${ collapseGutter } amp-custom-first-width-${ widthString } amp-custom-second-width-${ secondWidthString } amp-custom-third-width-${ thirdWidthString } ${ hasBG }${ ( columnsInnerHeight ? ' amp-inner-column-height-full' : '' ) }` );
+		const classes = classnames( className, `ab${ columns } rl${ layoutClass } rv${ verticalAlignment } tl${ tabLayoutClass } m${ mobileLayoutClass } current-tab-${ currentTab } g${ columnGutter } gv${ collapseGutter } amp-custom-first-width-${ widthString } amp-custom-second-width-${ secondWidthString } amp-custom-third-width-${ thirdWidthString } ${ hasBG }${ ( columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		let layoutOptions;
 		let mobileLayoutOptions;
 		const startlayoutOptions = [
@@ -3377,7 +3377,7 @@ class AmpRowLayout extends Component {
 				} }>
 					{ ( 'slider' !== backgroundSettingTab && 'video' !== backgroundSettingTab ) && (
 						<div
-							className={ `amp-row-layout-background${ bgImg && bgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }
+							className={ `rlbackground${ bgImg && bgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }
 							data-bg-img-id={ bgImgID } style={ {
 							backgroundColor: ( bgColor ? bgColor : undefined ),
 							backgroundImage: ( bgImg ? `url(${ bgImg })` : undefined ),
@@ -3416,7 +3416,7 @@ class AmpRowLayout extends Component {
 					) }
 					{ ( ! currentOverlayTab || 'grad' !== currentOverlayTab ) && (
 						<div
-							className={ `amp-row-layout-overlay amp-row-overlay-normal${ overlayBgImg && overlayBgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }
+							className={ `rloverlay amp-row-overlay-normal${ overlayBgImg && overlayBgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }
 							data-bg-img-id={ overlayBgImgID } style={ {
 							backgroundColor: ( overlay ? overlay : undefined ),
 							backgroundImage: ( overlayBgImg ? `url(${ overlayBgImg })` : undefined ),
@@ -3430,7 +3430,7 @@ class AmpRowLayout extends Component {
 						</div>
 					) }
 					{ currentOverlayTab && 'grad' === currentOverlayTab && (
-						<div className={ 'amp-row-layout-overlay amp-row-overlay-gradient' }
+						<div className={ 'rloverlay amp-row-overlay-gradient' }
 							 data-bg-img-id={ overlayBgImgID } style={ {
 							backgroundImage: ( 'radial' === overlayGradType ? `radial-gradient(at ${ overlayBgImgPosition }, ${ ( overlay ? hexToRGBA( overlay, ( undefined !== overlayFirstOpacity && '' !== overlayFirstOpacity ? overlayFirstOpacity : 1 ) ) : '' ) } ${ overlayGradLoc }%, ${ ( overlaySecond ? hexToRGBA( overlaySecond, ( undefined !== overlaySecondOpacity && '' !== overlaySecondOpacity ? overlaySecondOpacity : 1 ) ) : '' ) } ${ overlayGradLocSecond }%)` : `linear-gradient(${ overlayGradAngle }deg, ${ ( overlay ? hexToRGBA( overlay, ( undefined !== overlayFirstOpacity && '' !== overlayFirstOpacity ? overlayFirstOpacity : 1 ) ) : '' ) } ${ overlayGradLoc }%, ${ ( overlaySecond ? hexToRGBA( overlaySecond, ( undefined !== overlaySecondOpacity && '' !== overlaySecondOpacity ? overlaySecondOpacity : 1 ) ) : '' ) } ${ overlayGradLocSecond }%)` ),
 							mixBlendMode: overlayBlendMode,
@@ -3466,7 +3466,7 @@ class AmpRowLayout extends Component {
 						</div>
 					) }
 					{ colLayout && 'none' !== topSep && '' !== topSep && (
-						<div className={ `amp-row-layout-top-sep amp-row-sep-type-${ topSep }` } style={ {
+						<div className={ `rltop-sep amp-row-sep-type-${ topSep }` } style={ {
 							height: topSepHeight + 'px',
 						} }>
 							<svg style={ { fill: topSepColor, width: topSepWidth + '%' } } viewBox="0 0 1000 100"
@@ -3677,7 +3677,7 @@ class AmpRowLayout extends Component {
 					) }
 					<div style={ { height: '1px' } }></div>
 					{ colLayout && 'none' !== bottomSep && '' !== bottomSep && (
-						<div className={ `amp-row-layout-bottom-sep amp-row-sep-type-${ bottomSep }` } style={ {
+						<div className={ `rlbottom-sep amp-row-sep-type-${ bottomSep }` } style={ {
 							height: bottomSepHeight + 'px',
 						} }>
 							<svg style={ { fill: bottomSepColor, width: bottomSepWidth + '%' } } viewBox="0 0 1000 100"
