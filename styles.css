@@ -19,8 +19,6 @@ XXX .amp-mobile-layout- = 				.m
 XXX .amp-inside-inner-col = 			.ci
 Essential Modules
 Row Sub classes
--o-
--webkit-
 
 === 2 (Lokesh) ===
 wp-block-amp- 780
@@ -28,6 +26,13 @@ XXX wp-block-amp-column 472 = 			.c
 XXX .wp-block-amp-rowlayout 252 = 			.cr
 XXX kadence = amp
 XXX jarallax
+-o-
+-webkit-
+-ms
+amp-row-has-bg	
+Static + Dynamic Class 
+amp-layout-id_
+dynamic class 
 @media mergeup
 Padding merge
 margin merge
