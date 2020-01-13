@@ -43,7 +43,7 @@ const {
 /**
  * This allows for checking to see if the block needs to generate a new ID.
  */
-const ktcolumnUniqueIDs = [];
+const columnUniqueIDs = [];
 
 /**
  * Build the spacer edit
@@ -73,16 +73,16 @@ class AmpColumn extends Component {
 				}
 			}
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			ktcolumnUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
-		} else if (ktcolumnUniqueIDs.includes( this.props.attributes.uniqueID )) {
+			columnUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
+		} else if (columnUniqueIDs.includes( this.props.attributes.uniqueID )) {
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			ktcolumnUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
+			columnUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
 		} else {
-			ktcolumnUniqueIDs.push( this.props.attributes.uniqueID );
+			columnUniqueIDs.push( this.props.attributes.uniqueID );
 		}
 		if (this.props.attributes.borderWidth && this.props.attributes.borderWidth[0] === this.props.attributes.borderWidth[1] && this.props.attributes.borderWidth[0] === this.props.attributes.borderWidth[2] && this.props.attributes.borderWidth[0] === this.props.attributes.borderWidth[3]) {
 			this.setState( { borderWidthControl: 'linked' } );

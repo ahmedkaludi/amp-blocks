@@ -54,7 +54,7 @@ const ANCHOR_REGEX = /[\s#]/g;
 /**
  * This allows for checking to see if the block needs to generate a new ID.
  */
-const ktadvancedheadingUniqueIDs = [];
+const advancedheadingUniqueIDs = [];
 
 class ampAdvancedHeading extends Component {
 	constructor() {
@@ -75,16 +75,16 @@ class ampAdvancedHeading extends Component {
 				} );
 			}
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			ktadvancedheadingUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
-		} else if ( ktadvancedheadingUniqueIDs.includes( this.props.attributes.uniqueID ) ) {
+			advancedheadingUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
+		} else if ( advancedheadingUniqueIDs.includes( this.props.attributes.uniqueID ) ) {
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			ktadvancedheadingUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
+			advancedheadingUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
 		} else {
-			ktadvancedheadingUniqueIDs.push( this.props.attributes.uniqueID );
+			advancedheadingUniqueIDs.push( this.props.attributes.uniqueID );
 		}
 		const blockSettings = ( amp_blocks_params.settings ? JSON.parse( amp_blocks_params.settings ) : {} );
 		if ( blockSettings[ 'amp/advancedheading' ] !== undefined && typeof blockSettings[ 'amp/advancedheading' ] === 'object' ) {

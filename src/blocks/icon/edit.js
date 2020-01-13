@@ -54,7 +54,7 @@ const {
 /**
  * This allows for checking to see if the block needs to generate a new ID.
  */
-const kticonUniqueIDs = [];
+const iconUniqueIDs = [];
 
 class ampIcons extends Component {
 	constructor() {
@@ -68,16 +68,16 @@ class ampIcons extends Component {
 	componentDidMount() {
 		if ( ! this.props.attributes.uniqueID ) {
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			kticonUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
-		} else if ( kticonUniqueIDs.includes( this.props.attributes.uniqueID ) ) {
+			iconUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
+		} else if ( iconUniqueIDs.includes( this.props.attributes.uniqueID ) ) {
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			kticonUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
+			iconUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
 		} else {
-			kticonUniqueIDs.push( this.props.attributes.uniqueID );
+			iconUniqueIDs.push( this.props.attributes.uniqueID );
 		}
 	}
 	saveArrayUpdate( value, index ) {

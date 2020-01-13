@@ -50,7 +50,7 @@ const {
 /**
  * This allows for checking to see if the block needs to generate a new ID.
  */
-const ktadvancedbuttonUniqueIDs = [];
+const advancedbuttonUniqueIDs = [];
 
 class AmpAdvancedButton extends Component {
 	constructor() {
@@ -78,16 +78,16 @@ class AmpAdvancedButton extends Component {
 				});
 			}
 			this.props.setAttributes({
-				uniqueID: '_' + this.props.clientId.substr(2, 9),
+				uniqueID: '_' + this.props.clientId.substr(2, 3),
 			});
-			ktadvancedbuttonUniqueIDs.push('_' + this.props.clientId.substr(2, 9));
-		} else if (ktadvancedbuttonUniqueIDs.includes(this.props.attributes.uniqueID)) {
+			advancedbuttonUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
+		} else if (advancedbuttonUniqueIDs.includes(this.props.attributes.uniqueID)) {
 			this.props.setAttributes({
-				uniqueID: '_' + this.props.clientId.substr(2, 9),
+				uniqueID: '_' + this.props.clientId.substr(2, 3),
 			});
-			ktadvancedbuttonUniqueIDs.push('_' + this.props.clientId.substr(2, 9));
+			advancedbuttonUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
 		} else {
-			ktadvancedbuttonUniqueIDs.push(this.props.attributes.uniqueID);
+			advancedbuttonUniqueIDs.push(this.props.attributes.uniqueID);
 		}
 		const blockSettings = (amp_blocks_params.settings ? JSON.parse(amp_blocks_params.settings) : {});
 		if (blockSettings['amp/advancedbtn'] !== undefined && typeof blockSettings['amp/advancedbtn'] === 'object') {

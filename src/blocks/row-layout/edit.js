@@ -81,7 +81,7 @@ const overlayOpacityOutput = memoize( ( opacity ) => {
 /**
  * This allows for checking to see if the block needs to generate a new ID.
  */
-const ktrowUniqueIDs = [];
+const rowUniqueIDs = [];
 
 /**
  * Build the row edit
@@ -117,17 +117,17 @@ class AmpRowLayout extends Component {
 				}
 			}
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			ktrowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
-		} else if (ktrowUniqueIDs.includes( this.props.attributes.uniqueID )) {
-			this.props.attributes.uniqueID = '_' + this.props.clientId.substr( 2, 9 );
+			rowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
+		} else if (rowUniqueIDs.includes( this.props.attributes.uniqueID )) {
+			this.props.attributes.uniqueID = '_' + this.props.clientId.substr( 2, 3 );
 			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 9 ),
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
 			} );
-			ktrowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 9 ) );
+			rowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
 		} else {
-			ktrowUniqueIDs.push( this.props.attributes.uniqueID );
+			rowUniqueIDs.push( this.props.attributes.uniqueID );
 		}
 		const blockSettings = ( amp_blocks_params.settings ? JSON.parse( amp_blocks_params.settings ) : {} );
 		if (blockSettings['amp/rowlayout'] !== undefined && typeof blockSettings['amp/rowlayout'] === 'object') {
