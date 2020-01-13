@@ -182,7 +182,7 @@ registerBlockType( 'amp/advancedbtn', {
 				btnSize = 'standard';
 			}
 			return (
-				<div className={ `amp-btn-wrap amp-btn-wrap-${ index }` }>
+				<div className={ ` bp amp-btn-wrap amp-btn-wrap-${ index }` }>
 					<a className={ `amp-button button amp-btn-${ index }-action amp-btn-size-${ ( btns[ index ].btnSize ? btns[ index ].btnSize : btnSize ) } amp-btn-style-${ ( btns[ index ].btnStyle ? btns[ index ].btnStyle : 'basic' ) } amp-btn-svg-show-${ ( ! btns[ index ].iconHover ? 'always' : 'hover' ) } amp-btn-has-text-${ ( ! btns[ index ].text ? 'false' : 'true' ) } amp-btn-has-svg-${ ( ! btns[ index ].icon ? 'false' : 'true' ) }${ ( 'video' === btns[ index ].target ? ' ktblocksvideopop' : '' ) }${ ( btns[ index ].cssClass ? ' ' + btns[ index ].cssClass : '' ) }` } href={ ( ! btns[ index ].link ? '#' : btns[ index ].link ) } target={ ( '_blank' === btns[ index ].target ? btns[ index ].target : undefined ) } rel={ relAttr } style={ {
 						borderRadius: ( undefined !== btns[ index ].borderRadius && '' !== btns[ index ].borderRadius ? btns[ index ].borderRadius + 'px' : undefined ),
 						borderWidth: ( undefined !== btns[ index ].borderWidth && '' !== btns[ index ].borderWidth ? btns[ index ].borderWidth + 'px' : undefined ),

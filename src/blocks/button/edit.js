@@ -721,7 +721,7 @@ class AmpAdvancedButton extends Component {
 		return (
 			<Fragment>
 				{renderCSS}
-				<div id={`amp-btns_${uniqueID}`} className={`${className} amp-btn-align-${hAlign}${(forceFullwidth ? ' amp-force-btn-fullwidth' : '')}`}>
+				<div id={`amp-btns_${uniqueID}`} className={`bp ${className} amp-btn-align-${hAlign}${(forceFullwidth ? ' amp-force-btn-fullwidth' : '')}`}>
 					<BlockControls>
 						<AlignmentToolbar
 							value={hAlign}
