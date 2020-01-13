@@ -59,6 +59,15 @@ Essential Blocks
 ----> .wp-block-amp-advancedheading 	===    .pp[Aditional Class]
 ---->  amp-adv-heading(class/ID)		===     h [right now it is taking 'h', need to change this]
 
+> Image block 
+----> .amp-image-block 					===    .imw
+----> .amp-img-block-container			===    .imc
+----> .amp-img-item						===    .im-t
+
+
+
+
+
 **************** Errors ***********************
 ----> Proper registerBlockType names in blocks [Need to add proper names]
 

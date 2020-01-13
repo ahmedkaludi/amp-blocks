@@ -70,8 +70,8 @@ class ampImage extends Component {
 							toggleSelection(false);
 						}}
 					>
-						<div className="amp-img-block-container">
-							<img width={width} height={height} className='amp-img-item' src={image.url} />
+						<div className="imc">
+							<img width={width} height={height} className='im-t' src={image.url} />
 						</div>
 					</ResizableBox>
 				)

@@ -65,8 +65,8 @@ registerBlockType('ampblocks/image', {
 			//Loops throug the image
 			if (typeof image !== 'undefined') {
 				return (
-					<div className="amp-img-block-container">
-						<img className='amp-img-item' width={width} height={height} src={image.url} />
+					<div className="imc">
+						<img className='im-t' width={width} height={height} src={image.url} />
 					</div>
 				)
 			} else {
@@ -74,7 +74,7 @@ registerBlockType('ampblocks/image', {
 			}
 		};
 		return (
-			<div className="amp-image-block">
+			<div className="imw">
 				{displayimage(image)}
 			</div>
 		)
