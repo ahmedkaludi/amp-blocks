@@ -1073,7 +1073,7 @@ class Amp_Blocks_Frontend
 		}
 		$css = '';
 		if (isset($attr['typography']) || isset($attr['textTransform'])) {
-			$css .= '.amp-btns' . $unique_id . ' .b {';
+			$css .= '.b' . $unique_id . ' .b {';
 			if (isset($attr['typography']) && !empty($attr['typography'])) {
 				$css .= 'font-family:' . $attr['typography'] . ';';
 			}
@@ -1092,7 +1092,7 @@ class Amp_Blocks_Frontend
 			foreach ($attr['btns'] as $btnkey => $btnvalue) {
 				if (is_array($btnvalue)) {
 					if (isset($btnvalue['gap']) && is_numeric($btnvalue['gap'])) {
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
 						$css .= 'margin-right:' . $btnvalue['gap'] . 'px;';
 						$css .= '}';
 					}
@@ -1101,7 +1101,7 @@ class Amp_Blocks_Frontend
 					} else {
 						$bgtype = 'solid';
 					}
-					$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b {';
+					$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b {';
 					if (isset($attr['widthType']) && 'fixed' === $attr['widthType'] && isset($btnvalue['width']) && is_array($btnvalue['width']) && isset($btnvalue['width'][0]) && !empty($btnvalue['width'][0])) {
 						$css .= 'width:' . $btnvalue['width'][0] . 'px;';
 					}
@@ -1143,7 +1143,7 @@ class Amp_Blocks_Frontend
 						$css .= 'box-shadow:' . (isset($btnvalue['boxShadow'][7]) && true === $btnvalue['boxShadow'][7] ? 'inset ' : '') . (isset($btnvalue['boxShadow'][3]) && is_numeric($btnvalue['boxShadow'][3]) ? $btnvalue['boxShadow'][3] : '1') . 'px ' . (isset($btnvalue['boxShadow'][4]) && is_numeric($btnvalue['boxShadow'][4]) ? $btnvalue['boxShadow'][4] : '1') . 'px ' . (isset($btnvalue['boxShadow'][5]) && is_numeric($btnvalue['boxShadow'][5]) ? $btnvalue['boxShadow'][5] : '2') . 'px ' . (isset($btnvalue['boxShadow'][6]) && is_numeric($btnvalue['boxShadow'][6]) ? $btnvalue['boxShadow'][6] : '0') . 'px ' . $this->hex2rgba((isset($btnvalue['boxShadow'][1]) && !empty($btnvalue['boxShadow'][1]) ? $btnvalue['boxShadow'][1] : '#000000'), (isset($btnvalue['boxShadow'][2]) && is_numeric($btnvalue['boxShadow'][2]) ? $btnvalue['boxShadow'][2] : 0.2)) . ';';
 					}
 					$css .= '}';
-					$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b:hover, .amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b:focus {';
+					$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b:hover, .b' . $unique_id . ' .bw-' . $btnkey . ' .b:focus {';
 					if (isset($btnvalue['colorHover']) && !empty($btnvalue['colorHover'])) {
 						$css .= 'color:' . $btnvalue['colorHover'] . ';';
 					}
@@ -1156,7 +1156,7 @@ class Amp_Blocks_Frontend
 					}
 					$css .= '}';
 					if ('gradient' === $bgtype) {
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b::before {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b::before {';
 						if (isset($btnvalue['backgroundHoverType']) && 'gradient' === $btnvalue['backgroundHoverType']) {
 							$bg1 = (!isset($btnvalue['backgroundHover']) ? $this->hex2rgba('#444444', (isset($btnvalue['backgroundHoverOpacity']) && is_numeric($btnvalue['backgroundHoverOpacity']) ? $btnvalue['backgroundHoverOpacity'] : 1)) : $this->hex2rgba($btnvalue['backgroundHover'], (isset($btnvalue['backgroundHoverOpacity']) && is_numeric($btnvalue['backgroundHoverOpacity']) ? $btnvalue['backgroundHoverOpacity'] : 1)));
 							$bg2 = (isset($btnvalue['gradientHover'][0]) && !empty($btnvalue['gradientHover'][0]) ? $this->hex2rgba($btnvalue['gradientHover'][0], (isset($btnvalue['gradientHover'][1]) && is_numeric($btnvalue['gradientHover'][1]) ? $btnvalue['gradientHover'][1] : 1)) : $this->hex2rgba('#999999', (isset($btnvalue['gradientHover'][1]) && is_numeric($btnvalue['gradientHover'][1]) ? $btnvalue['gradientHover'][1] : 1)));
@@ -1175,10 +1175,10 @@ class Amp_Blocks_Frontend
 						}
 						$css .= '}';
 					} else {
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b::before {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b::before {';
 						$css .= 'display:none;';
 						$css .= '}';
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b:hover, .amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b:focus {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b:hover, .b' . $unique_id . ' .bw-' . $btnkey . ' .b:focus {';
 						if (isset($btnvalue['backgroundHover']) && !empty($btnvalue['backgroundHover'])) {
 							$alpha = (isset($btnvalue['backgroundHoverOpacity']) && is_numeric($btnvalue['backgroundHoverOpacity']) ? $btnvalue['backgroundHoverOpacity'] : 1);
 							$css .= 'background:' . $this->hex2rgba($btnvalue['backgroundHover'], $alpha) . ';';
@@ -1194,7 +1194,7 @@ class Amp_Blocks_Frontend
 					// Tablet CSS.
 					if ((isset($btnvalue['responsiveSize']) && is_array($btnvalue['responsiveSize']) && isset($btnvalue['responsiveSize'][0]) && is_numeric($btnvalue['responsiveSize'][0])) || (isset($attr['widthType']) && 'fixed' === $attr['widthType'] && isset($btnvalue['width']) && is_array($btnvalue['width']) && isset($btnvalue['width'][1]) && !empty($btnvalue['width'][1]))) {
 						$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b {';
 						if (isset($btnvalue['responsiveSize']) && is_array($btnvalue['responsiveSize']) && isset($btnvalue['responsiveSize'][0]) && is_numeric($btnvalue['responsiveSize'][0])) {
 							$css .= 'font-size:' . $btnvalue['responsiveSize'][0] . 'px;';
 						}
@@ -1206,7 +1206,7 @@ class Amp_Blocks_Frontend
 					}
 					if (isset($btnvalue['btnSize']) && 'custom' === $btnvalue['btnSize'] && ((isset($btnvalue['responsivePaddingBT']) && is_array($btnvalue['responsivePaddingBT']) && isset($btnvalue['responsivePaddingBT'][0]) && is_numeric($btnvalue['responsivePaddingBT'][0])) || (isset($btnvalue['responsivePaddingLR']) && is_array($btnvalue['responsivePaddingLR']) && isset($btnvalue['responsivePaddingLR'][0]) && is_numeric($btnvalue['responsivePaddingLR'][0])))) {
 						$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b {';
 						if (isset($btnvalue['responsivePaddingLR']) && is_array($btnvalue['responsivePaddingLR']) && isset($btnvalue['responsivePaddingLR'][0]) && is_numeric($btnvalue['responsivePaddingLR'][0])) {
 							$css .= 'padding-left:' . $btnvalue['responsivePaddingLR'][0] . 'px;';
 							$css .= 'padding-right:' . $btnvalue['responsivePaddingLR'][0] . 'px;';
@@ -1221,7 +1221,7 @@ class Amp_Blocks_Frontend
 					// Mobile CSS.
 					if ((isset($btnvalue['responsiveSize']) && is_array($btnvalue['responsiveSize']) && isset($btnvalue['responsiveSize'][1]) && is_numeric($btnvalue['responsiveSize'][1])) || (isset($attr['widthType']) && 'fixed' === $attr['widthType'] && isset($btnvalue['width']) && is_array($btnvalue['width']) && isset($btnvalue['width'][2]) && !empty($btnvalue['width'][2]))) {
 						$css .= '@media (max-width: 767px) {';
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b {';
 						if (isset($btnvalue['responsiveSize']) && is_array($btnvalue['responsiveSize']) && isset($btnvalue['responsiveSize'][1]) && is_numeric($btnvalue['responsiveSize'][1])) {
 							$css .= 'font-size:' . $btnvalue['responsiveSize'][1] . 'px;';
 						}
@@ -1233,7 +1233,7 @@ class Amp_Blocks_Frontend
 					}
 					if (isset($btnvalue['btnSize']) && 'custom' === $btnvalue['btnSize'] && ((isset($btnvalue['responsivePaddingLR']) && is_array($btnvalue['responsivePaddingLR']) && isset($btnvalue['responsivePaddingLR'][1]) && is_numeric($btnvalue['responsivePaddingLR'][1])) || (isset($btnvalue['responsivePaddingBT']) && is_array($btnvalue['responsivePaddingBT']) && isset($btnvalue['responsivePaddingBT'][1]) && is_numeric($btnvalue['responsivePaddingBT'][1])))) {
 						$css .= '@media (max-width: 767px) {';
-						$css .= '.amp-btns' . $unique_id . ' .bw-' . $btnkey . ' .b {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b {';
 						if (isset($btnvalue['responsivePaddingLR']) && is_array($btnvalue['responsivePaddingLR']) && isset($btnvalue['responsivePaddingLR'][1]) && is_numeric($btnvalue['responsivePaddingLR'][1])) {
 							$css .= 'padding-left:' . $btnvalue['responsivePaddingLR'][1] . 'px;';
 							$css .= 'padding-right:' . $btnvalue['responsivePaddingLR'][1] . 'px;';

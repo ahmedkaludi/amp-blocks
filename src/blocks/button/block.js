@@ -203,7 +203,7 @@ registerBlockType( 'amp/advancedbtn', {
 			);
 		};
 		return (
-			<div className={ `b-align-${ hAlign } bt-align-${ ( thAlign ? thAlign : 'inherit' ) } bm-align-${ ( mhAlign ? mhAlign : 'inherit' ) } amp-btns${ uniqueID }${ ( forceFullwidth ? ' amp-force-btn-fullwidth' : '' ) }` }>
+			<div className={ `b-align-${ hAlign } bt-align-${ ( thAlign ? thAlign : 'inherit' ) } bm-align-${ ( mhAlign ? mhAlign : 'inherit' ) } b${ uniqueID }${ ( forceFullwidth ? ' amp-force-btn-fullwidth' : '' ) }` }>
 				{ times( btnCount, n => renderSaveBtns( n ) ) }
 			</div>
 		);
