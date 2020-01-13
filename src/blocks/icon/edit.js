@@ -334,9 +334,9 @@ class ampIcons extends Component {
 		);
 		const renderIconsPreview = ( index ) => {
 			return (
-				<div className={ `amp-svg-style-${ icons[ index ].style } amp-svg-icon-wrap amp-svg-item-${ index }` } >
+				<div className={ `isvg-s-${ icons[ index ].style } isvg-w isvg-i-${ index }` } >
 					{ icons[ index ].icon && (
-						<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+						<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 							color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 							backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 							padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -369,7 +369,7 @@ class ampIcons extends Component {
 
 					{ renderSettings }
 				</InspectorControls>
-				<div className={ `amp-svg-icons ${ clientId }` } style={ {
+				<div className={ `isvgi ${ clientId }` } style={ {
 					textAlign: ( textAlignment ? textAlignment : 'center' ),
 				} } >
 					{ times( iconCount, n => renderIconsPreview( n ) ) }

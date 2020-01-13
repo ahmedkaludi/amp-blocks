@@ -97,16 +97,16 @@ registerBlockType( 'ampblocks/icon', {
 		const { attributes: { icons, iconCount, blockAlignment, textAlignment, uniqueID } } = props;
 		const renderSaveIcons = ( index ) => {
 			return (
-				<div className={ `amp-svg-style-${ icons[ index ].style } amp-svg-icon-wrap amp-svg-item-${ index }` }>
+				<div className={ `isvg-s-${ icons[ index ].style } isvg-w isvg-i-${ index }` }>
 					{ icons[ index ].icon && icons[ index ].link && (
-						<a href={ icons[ index ].link } className={ 'amp-svg-icon-link' } target={ ( '_blank' === icons[ index ].target ? icons[ index ].target : undefined ) } rel={ '_blank' === icons[ index ].target ? 'noopener noreferrer' : undefined } style={ {
+						<a href={ icons[ index ].link } className={ 'isvg-link' } target={ ( '_blank' === icons[ index ].target ? icons[ index ].target : undefined ) } rel={ '_blank' === icons[ index ].target ? 'noopener noreferrer' : undefined } style={ {
 							marginTop: ( icons[ index ].marginTop ? icons[ index ].marginTop + 'px' : undefined ),
 							marginRight: ( icons[ index ].marginRight ? icons[ index ].marginRight + 'px' : undefined ),
 							marginBottom: ( icons[ index ].marginBottom ? icons[ index ].marginBottom + 'px' : undefined ),
 							marginLeft: ( icons[ index ].marginLeft ? icons[ index ].marginLeft + 'px' : undefined ),
 						} }
 						>
-							<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+							<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 								color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 								backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 								padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -117,7 +117,7 @@ registerBlockType( 'ampblocks/icon', {
 						</a>
 					) }
 					{ icons[ index ].icon && ! icons[ index ].link && (
-						<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+						<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 							color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 							backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 							padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -134,7 +134,7 @@ registerBlockType( 'ampblocks/icon', {
 			);
 		};
 		return (
-			<div className={ `amp-svg-icons amp-svg-icons${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
+			<div className={ `isvgi isvgi${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
 				textAlign: ( textAlignment ? textAlignment : 'center' ),
 			} } >
 				{ times( iconCount, n => renderSaveIcons( n ) ) }
@@ -183,10 +183,10 @@ registerBlockType( 'ampblocks/icon', {
 				const { icons, iconCount, blockAlignment, textAlignment, uniqueID } = attributes;
 				const renderSaveIcons = ( index ) => {
 					return (
-						<div className={ `amp-svg-style-${ icons[ index ].style } amp-svg-icon-wrap amp-svg-item-${ index }` }>
+						<div className={ `isvg-s-${ icons[ index ].style } isvg-w isvg-i-${ index }` }>
 							{ icons[ index ].icon && icons[ index ].link && (
-								<a href={ icons[ index ].link } className={ 'amp-svg-icon-link' } target={ ( '_blank' === icons[ index ].target ? icons[ index ].target : undefined ) } rel={ '_blank' === icons[ index ].target ? 'noopener noreferrer' : undefined }>
-									<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+								<a href={ icons[ index ].link } className={ 'isvg-link' } target={ ( '_blank' === icons[ index ].target ? icons[ index ].target : undefined ) } rel={ '_blank' === icons[ index ].target ? 'noopener noreferrer' : undefined }>
+									<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 										color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 										backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 										padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -197,7 +197,7 @@ registerBlockType( 'ampblocks/icon', {
 								</a>
 							) }
 							{ icons[ index ].icon && ! icons[ index ].link && (
-								<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+								<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 									color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 									backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 									padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -210,7 +210,7 @@ registerBlockType( 'ampblocks/icon', {
 					);
 				};
 				return (
-					<div className={ `amp-svg-icons amp-svg-icons${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
+					<div className={ `isvgi isvgi${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
 						textAlign: ( textAlignment ? textAlignment : 'center' ),
 					} } >
 						{ times( iconCount, n => renderSaveIcons( n ) ) }
@@ -259,9 +259,9 @@ registerBlockType( 'ampblocks/icon', {
 				const { icons, iconCount, blockAlignment, textAlignment, uniqueID } = attributes;
 				const renderSaveIcons = ( index ) => {
 					return (
-						<div className={ `amp-svg-style-${ icons[ index ].style } amp-svg-icon-wrap amp-svg-item-${ index }` }>
+						<div className={ `isvg-s-${ icons[ index ].style } isvg-w isvg-i-${ index }` }>
 							{ icons[ index ].icon && icons[ index ].link && (
-								<a href={ icons[ index ].link } className={ 'amp-svg-icon-link' } target={ ( '_blank' === icons[ index ].target ? icons[ index ].target : undefined ) } rel={ '_blank' === icons[ index ].target ? 'noopener noreferrer' : undefined }>
+								<a href={ icons[ index ].link } className={ 'isvg-link' } target={ ( '_blank' === icons[ index ].target ? icons[ index ].target : undefined ) } rel={ '_blank' === icons[ index ].target ? 'noopener noreferrer' : undefined }>
 									<div style={ {
 										color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 										backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
@@ -269,7 +269,7 @@ registerBlockType( 'ampblocks/icon', {
 										borderColor: ( icons[ index ].border && icons[ index ].style !== 'default' ? icons[ index ].border : undefined ),
 										borderWidth: ( icons[ index ].borderWidth && icons[ index ].style !== 'default' ? icons[ index ].borderWidth + 'px' : undefined ),
 										borderRadius: ( icons[ index ].borderRadius && icons[ index ].style !== 'default' ? icons[ index ].borderRadius + '%' : undefined ),
-									} } className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` }>
+									} } className={ `isvg isvg-${ icons[ index ].icon }` }>
 									</div>
 								</a>
 							) }
@@ -281,14 +281,14 @@ registerBlockType( 'ampblocks/icon', {
 									borderColor: ( icons[ index ].border && icons[ index ].style !== 'default' ? icons[ index ].border : undefined ),
 									borderWidth: ( icons[ index ].borderWidth && icons[ index ].style !== 'default' ? icons[ index ].borderWidth + 'px' : undefined ),
 									borderRadius: ( icons[ index ].borderRadius && icons[ index ].style !== 'default' ? icons[ index ].borderRadius + '%' : undefined ),
-								} } className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` }>
+								} } className={ `isvg isvg-${ icons[ index ].icon }` }>
 								</div>
 							) }
 						</div>
 					);
 				};
 				return (
-					<div className={ `amp-svg-icons amp-svg-icons${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
+					<div className={ `isvgi isvgi${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
 						textAlign: ( textAlignment ? textAlignment : 'center' ),
 					} } >
 						{ times( iconCount, n => renderSaveIcons( n ) ) }
@@ -337,10 +337,10 @@ registerBlockType( 'ampblocks/icon', {
 				const { icons, iconCount, blockAlignment, textAlignment, uniqueID } = attributes;
 				const renderSaveIcons = ( index ) => {
 					return (
-						<div className={ `amp-svg-style-${ icons[ index ].style } amp-svg-icon-wrap amp-svg-item-${ index }` }>
+						<div className={ `isvg-s-${ icons[ index ].style } isvg-w isvg-i-${ index }` }>
 							{ icons[ index ].icon && icons[ index ].link && (
-								<a href={ icons[ index ].link } className={ 'amp-svg-icon-link' } target={ icons[ index ].target }>
-									<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+								<a href={ icons[ index ].link } className={ 'isvg-link' } target={ icons[ index ].target }>
+									<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 										color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 										backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 										padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -351,7 +351,7 @@ registerBlockType( 'ampblocks/icon', {
 								</a>
 							) }
 							{ icons[ index ].icon && ! icons[ index ].link && (
-								<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+								<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 									color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 									backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 									padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -364,7 +364,7 @@ registerBlockType( 'ampblocks/icon', {
 					);
 				};
 				return (
-					<div className={ `amp-svg-icons amp-svg-icons${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
+					<div className={ `isvgi isvgi${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
 						textAlign: ( textAlignment ? textAlignment : 'center' ),
 					} } >
 						{ times( iconCount, n => renderSaveIcons( n ) ) }
@@ -413,10 +413,10 @@ registerBlockType( 'ampblocks/icon', {
 				const { icons, iconCount, blockAlignment, textAlignment, uniqueID } = attributes;
 				const renderSaveIcons = ( index ) => {
 					return (
-						<div className={ `amp-svg-style-${ icons[ index ].style } amp-svg-icon-wrap amp-svg-item-${ index }` }>
+						<div className={ `isvg-s-${ icons[ index ].style } isvg-w isvg-i-${ index }` }>
 							{ icons[ index ].icon && icons[ index ].link && (
-								<a href={ icons[ index ].link } className={ 'amp-svg-icon-link' } target={ icons[ index ].target } rel="noopener noreferrer">
-									<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+								<a href={ icons[ index ].link } className={ 'isvg-link' } target={ icons[ index ].target } rel="noopener noreferrer">
+									<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 										color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 										backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 										padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -427,7 +427,7 @@ registerBlockType( 'ampblocks/icon', {
 								</a>
 							) }
 							{ icons[ index ].icon && ! icons[ index ].link && (
-								<GenIcon className={ `amp-svg-icon amp-svg-icon-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
+								<GenIcon className={ `isvg isvg-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
 									color: ( icons[ index ].color ? icons[ index ].color : undefined ),
 									backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
 									padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
@@ -440,7 +440,7 @@ registerBlockType( 'ampblocks/icon', {
 					);
 				};
 				return (
-					<div className={ `amp-svg-icons amp-svg-icons${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
+					<div className={ `isvgi isvgi${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
 						textAlign: ( textAlignment ? textAlignment : 'center' ),
 					} } >
 						{ times( iconCount, n => renderSaveIcons( n ) ) }
