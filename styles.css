@@ -60,14 +60,19 @@ Essential Blocks
 ---->  amp-adv-heading(class/ID)		===     h
 
 
+
 > Text block 
 ----> .wp-block-amp-advancedheading 	===    .pp[Aditional Class]
 ---->  amp-adv-heading(class/ID)		===     h [right now it is taking 'h', need to change this]
+
+
 
 > Image block 
 ----> .amp-image-block 					===    .imw
 ----> .amp-img-block-container			===    .imc
 ----> .amp-img-item						===    .im-t
+
+
 
 > Icon block 
 ----> .amp-svg-icon  			===    .isvg
@@ -77,6 +82,12 @@ Essential Blocks
 ----> .amp-svg-style  			===    .isvg-s
 ----> .amp-svg-item  			===    .isvg-i
 ----> .amp-svg-icon-link  		===    .isvg-link
+
+
+
+> Video  block 
+----> .video-grid  					===    .v
+----> .video-item-container  		===    .vc
 
 
 

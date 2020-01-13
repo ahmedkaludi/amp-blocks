@@ -50,7 +50,7 @@ class ampAdvancedHeading extends Component {
 				//Loops throug the video
 				if (typeof video !== 'undefined') {
 					return (
-						<div className="video-item-container">
+						<div className="v-c">
 							<video controls width="100%" height="100%" className='video-item' src={video} />
 						</div>
 					)
@@ -61,7 +61,7 @@ class ampAdvancedHeading extends Component {
 		};
 		return (
 			<Fragment>
-				<div className="video-grid">
+				<div className="v">
 					{displayvideo(video)}
 				</div>
 				<InspectorControls> {/* For left panel controls */}

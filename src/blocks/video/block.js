@@ -61,7 +61,7 @@ registerBlockType('ampblocks/video', {
         let displayvideo = (video) => {
             if (videoSource) {
                 return (
-                    <div className="video-item-container">
+                    <div className="v-c">
                         <iframe width="100%" height="100%" className='video-item' src={getId(video)} />
                     </div>
                 )
@@ -69,7 +69,7 @@ registerBlockType('ampblocks/video', {
                 //Loops throug the video
                 if (typeof video !== 'undefined') {
                     return (
-                        <div className="video-item-container">
+                        <div className="v-c">
                             <video controls width="100%" height="100%" className='video-item' src={video} />
                         </div>
                     )
@@ -79,7 +79,7 @@ registerBlockType('ampblocks/video', {
             }
         };
         return (
-            <div className="video-grid">
+            <div className="v">
                 {displayvideo(video)}
             </div>
         )
