@@ -193,11 +193,9 @@ class Amp_Blocks_Frontend
 		if (isset($attr['firstColumnWidth']) && !empty($attr['firstColumnWidth']) && (!isset($attr['columns']) || 2 === $attr['columns'])) {
 			$css .= '@media (min-width: 767px) {';
 			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
-			$css .= '-ms-flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= 'flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= '}';
 			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
-			$css .= '-ms-flex: 0 1 ' . abs($attr['firstColumnWidth'] - 100) . '%;';
 			$css .= 'flex: 0 1 ' . abs($attr['firstColumnWidth'] - 100) . '%;';
 			$css .= '}';
 			$css .= '}';
@@ -217,11 +215,9 @@ class Amp_Blocks_Frontend
 				}
 				$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
 				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
-				$css .= '-ms-flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= '}';
 				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
-				$css .= '-ms-flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= '}';
 				$css .= '}';
@@ -230,15 +226,12 @@ class Amp_Blocks_Frontend
 		if (isset($attr['firstColumnWidth']) && !empty($attr['firstColumnWidth']) && isset($attr['secondColumnWidth']) && !empty($attr['secondColumnWidth']) && (isset($attr['columns']) && 3 === $attr['columns'])) {
 			$css .= '@media (min-width: 767px) {';
 			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
-			$css .= '-ms-flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= 'flex: 0 1 ' . $attr['firstColumnWidth'] . '%;';
 			$css .= '}';
 			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
-			$css .= '-ms-flex: 0 1 ' . $attr['secondColumnWidth'] . '%;';
 			$css .= 'flex: 0 1 ' . $attr['secondColumnWidth'] . '%;';
 			$css .= '}';
 			$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-3 {';
-			$css .= '-ms-flex: 0 1 ' . abs(($attr['firstColumnWidth'] + $attr['secondColumnWidth']) - 100) . '%;';
 			$css .= 'flex: 0 1 ' . abs(($attr['firstColumnWidth'] + $attr['secondColumnWidth']) - 100) . '%;';
 			$css .= '}';
 			$css .= '}';
@@ -274,15 +267,12 @@ class Amp_Blocks_Frontend
 				}
 				$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
 				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-1 {';
-				$css .= '-ms-flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol1 . '%;';
 				$css .= '}';
 				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-2 {';
-				$css .= '-ms-flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol2 . '%;';
 				$css .= '}';
 				$css .= '#amp-layout-id' . $unique_id . ' > .cw > .c-3 {';
-				$css .= '-ms-flex: 0 1 ' . $tabCol3 . '%;';
 				$css .= 'flex: 0 1 ' . $tabCol3 . '%;';
 				$css .= '}';
 				$css .= '}';
@@ -1156,7 +1146,7 @@ class Amp_Blocks_Frontend
 					}
 					$css .= '}';
 					if ('gradient' === $bgtype) {
-						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b::before {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b:before {';
 						if (isset($btnvalue['backgroundHoverType']) && 'gradient' === $btnvalue['backgroundHoverType']) {
 							$bg1 = (!isset($btnvalue['backgroundHover']) ? $this->hex2rgba('#444444', (isset($btnvalue['backgroundHoverOpacity']) && is_numeric($btnvalue['backgroundHoverOpacity']) ? $btnvalue['backgroundHoverOpacity'] : 1)) : $this->hex2rgba($btnvalue['backgroundHover'], (isset($btnvalue['backgroundHoverOpacity']) && is_numeric($btnvalue['backgroundHoverOpacity']) ? $btnvalue['backgroundHoverOpacity'] : 1)));
 							$bg2 = (isset($btnvalue['gradientHover'][0]) && !empty($btnvalue['gradientHover'][0]) ? $this->hex2rgba($btnvalue['gradientHover'][0], (isset($btnvalue['gradientHover'][1]) && is_numeric($btnvalue['gradientHover'][1]) ? $btnvalue['gradientHover'][1] : 1)) : $this->hex2rgba('#999999', (isset($btnvalue['gradientHover'][1]) && is_numeric($btnvalue['gradientHover'][1]) ? $btnvalue['gradientHover'][1] : 1)));
@@ -1175,7 +1165,7 @@ class Amp_Blocks_Frontend
 						}
 						$css .= '}';
 					} else {
-						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b::before {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b:before {';
 						$css .= 'display:none;';
 						$css .= '}';
 						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' .b:hover, .b' . $unique_id . ' .bw-' . $btnkey . ' .b:focus {';
@@ -1909,28 +1899,21 @@ class Amp_Blocks_Frontend
 			if ('top' === $attr['mediaAlignTablet']) {
 				$display = 'block';
 				$align = '';
-				$ms_content = '';
 				$content = '';
 			} elseif ('left' === $attr['mediaAlignTablet']) {
 				$display = 'flex';
 				$align = 'center';
-				$ms_content = 'start';
 				$content = 'flex-start';
 			} else {
 				$display = 'flex';
 				$align = 'center';
-				$ms_content = 'end';
 				$content = 'flex-end';
 			}
 			$css .= '@media (min-width: 767px) and (max-width: 1024px) {';
 			$css .= '#amp-info-box' . $unique_id . ' .amp-blocks-info-box-link-wrap {';
 			$css .= 'display: ' . $display . ';';
 			if (!empty($align)) {
-				$css .= '-ms-flex-align:' . $align . ';';
 				$css .= 'align-items: ' . $align . ';';
-			}
-			if (!empty($ms_content)) {
-				$css .= '-ms-flex-pack: ' . $ms_content . ';';
 			}
 			if (!empty($content)) {
 				$css .= 'justify-content: ' . $content . ';';
@@ -1941,30 +1924,24 @@ class Amp_Blocks_Frontend
 		if (isset($attr['mediaAlignMobile']) && !empty($attr['mediaAlignMobile'])) {
 			if ('top' === $attr['mediaAlignMobile']) {
 				$display = 'block';
-				$ms_content = '';
 				$content = '';
 			} elseif ('left' === $attr['mediaAlignMobile']) {
 				$display = 'flex';
-				$ms_content = 'start';
 				$content = 'flex-start';
 				$direction = 'row';
 			} else {
 				$display = 'flex';
-				$ms_content = 'end';
 				$content = 'flex-end';
 				$direction = 'row-reverse';
 			}
 			$css .= '@media (max-width: 767px) {';
 			$css .= '#amp-info-box' . $unique_id . ' .amp-blocks-info-box-link-wrap {';
 			$css .= 'display: ' . $display . ';';
-			if (!empty($ms_content)) {
-				$css .= '-ms-flex-pack: ' . $ms_content . ';';
-			}
+
 			if (!empty($content)) {
 				$css .= 'justify-content: ' . $content . ';';
 			}
 			if (!empty($direction)) {
-				$css .= '-ms-flex-direction: ' . $direction . ';';
 				$css .= 'flex-direction: ' . $direction . ';';
 			}
 			$css .= '}';
@@ -2898,7 +2875,7 @@ class Amp_Blocks_Frontend
 			}
 			$css .= '}';
 			if ('gradient' === $bgtype) {
-				$css .= '.amp-form-' . $unique_id . ' .amp-pre-form .amp-blocks-form-field .amp-pre-forms-submit::before {';
+				$css .= '.amp-form-' . $unique_id . ' .amp-pre-form .amp-blocks-form-field .amp-pre-forms-submit:before {';
 				if (isset($submit['backgroundHoverType']) && 'gradient' === $submit['backgroundHoverType']) {
 					$bg1 = (!isset($submit['backgroundHover']) ? $this->hex2rgba('#444444', (isset($submit['backgroundHoverOpacity']) && is_numeric($submit['backgroundHoverOpacity']) ? $submit['backgroundHoverOpacity'] : 1)) : $this->hex2rgba($submit['backgroundHover'], (isset($submit['backgroundHoverOpacity']) && is_numeric($submit['backgroundHoverOpacity']) ? $submit['backgroundHoverOpacity'] : 1)));
 					$bg2 = (isset($submit['gradientHover'][0]) && !empty($submit['gradientHover'][0]) ? $this->hex2rgba($submit['gradientHover'][0], (isset($submit['gradientHover'][1]) && is_numeric($submit['gradientHover'][1]) ? $submit['gradientHover'][1] : 1)) : $this->hex2rgba('#999999', (isset($submit['gradientHover'][1]) && is_numeric($submit['gradientHover'][1]) ? $submit['gradientHover'][1] : 1)));
