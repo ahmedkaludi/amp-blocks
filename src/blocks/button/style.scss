@@ -66,13 +66,13 @@
     display: inline-block;
     margin-bottom: 5px;
 }
-.amp-btn-align-center {
+.b-align-center {
     text-align: center;
 }
-.amp-btn-align-left {
+.b-align-left {
     text-align: left;
 }
-.amp-btn-align-right {
+.b-align-right {
     text-align: right;
 }
 .bp .amp-btn-wrap:last-child {
@@ -92,24 +92,24 @@
     justify-content: center;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-.amp-btn-tablet-align-center {
+.bt-align-center {
     text-align: center;
 }
-.amp-btn-tablet-align-left {
+.bt-align-left {
     text-align: left;
 }
-.amp-btn-tablet-align-right {
+.bt-align-right {
     text-align: right;
 }
 }
 @media (max-width: 767px) {
-.amp-btn-mobile-align-center {
+.bm-align-center {
 	text-align: center;
 }
-.amp-btn-mobile-align-left {
+.bm-align-left {
 	text-align: left;
 }
-.amp-btn-mobile-align-right {
+.bm-align-right {
 	text-align: right;
 }
 }

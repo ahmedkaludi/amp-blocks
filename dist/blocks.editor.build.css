@@ -1987,13 +1987,13 @@ button.components-button.components-icon-button.amp-font-clear-btn {
   font-size: 14px;
   font-weight: bold; }
 
-.bp.amp-btn-align-left .btn-area-wrap form.blocks-button__inline-link {
+.bp.b-align-left .btn-area-wrap form.blocks-button__inline-link {
   left: 0;
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0); }
 
-.bp.amp-btn-align-right .btn-area-wrap form.blocks-button__inline-link {
+.bp.b-align-right .btn-area-wrap form.blocks-button__inline-link {
   left: auto;
   right: 0;
   -webkit-transform: translate(0, 0);
@@ -2070,13 +2070,13 @@ button.components-button.components-icon-button.amp-font-clear-btn {
   display: inline-block;
   margin-bottom: 5px; }
 
-.amp-btn-align-center {
+.b-align-center {
   text-align: center; }
 
-.amp-btn-align-left {
+.b-align-left {
   text-align: left; }
 
-.amp-btn-align-right {
+.b-align-right {
   text-align: right; }
 
 .bp .btn-area-wrap:last-child {
