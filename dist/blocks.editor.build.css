@@ -2112,7 +2112,7 @@ button.components-button.components-icon-button.amp-font-clear-btn {
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
-.wp-block-kadence-icon {
+.wp-block-amp-icon {
   min-width: 20px;
   min-height: 10px; }
 

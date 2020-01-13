@@ -85,13 +85,13 @@ class InlineTypographyControl extends Component {
 				options: fontsarray,
 			},
 		];
-		let typographyOptions = applyFilters( 'kadence.typography_options', options );
+		let typographyOptions = applyFilters( 'amp.typography_options', options );
 		let typographySelectOptions = [].concat.apply( [], typographyOptions.map( option => option.options ) );
 		const blockConfigObject = ( amp_blocks_params.configuration ? JSON.parse( amp_blocks_params.configuration ) : [] );
-		if ( blockConfigObject[ 'kadence/typography' ] !== undefined && typeof blockConfigObject[ 'kadence/typography' ] === 'object' ) {
-			if ( blockConfigObject[ 'kadence/typography' ].showAll !== undefined && ! blockConfigObject[ 'kadence/typography' ].showAll ) {
-				typographyOptions = blockConfigObject[ 'kadence/typography' ].choiceArray;
-				typographySelectOptions = blockConfigObject[ 'kadence/typography' ].choiceArray;
+		if ( blockConfigObject[ 'amp/typography' ] !== undefined && typeof blockConfigObject[ 'amp/typography' ] === 'object' ) {
+			if ( blockConfigObject[ 'amp/typography' ].showAll !== undefined && ! blockConfigObject[ 'amp/typography' ].showAll ) {
+				typographyOptions = blockConfigObject[ 'amp/typography' ].choiceArray;
+				typographySelectOptions = blockConfigObject[ 'amp/typography' ].choiceArray;
 			}
 		}
 		this.setState( { typographyOptions: typographyOptions } );
