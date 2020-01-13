@@ -700,12 +700,12 @@ class AmpAdvancedButton extends Component {
 				btnBox = 'none';
 			}
 			return (
-				`#amp-btns_${uniqueID} .amp-button-${index}:hover {
+				`#b_${uniqueID} .amp-button-${index}:hover {
 					color: ${ btns[index].colorHover} !important;
 					border-color: ${ hexToRGBA((undefined === btns[index].borderHover ? '#444444' : btns[index].borderHover), (btns[index].borderHoverOpacity !== undefined ? btns[index].borderHoverOpacity : 1))} !important;
 					box-shadow: ${ btnBox} !important;
 				}
-				#amp-btns_${ uniqueID} .amp-button-${index}::before {
+				#b_${ uniqueID} .amp-button-${index}::before {
 					background: ${ btnbg};
 					box-shadow: ${ btnBox2};
 					border-radius: ${ btnRad}px;
@@ -721,7 +721,7 @@ class AmpAdvancedButton extends Component {
 		return (
 			<Fragment>
 				{renderCSS}
-				<div id={`amp-btns_${uniqueID}`} className={`bp ${className} b-align-${hAlign}${(forceFullwidth ? ' amp-force-btn-fullwidth' : '')}`}>
+				<div id={`b_${uniqueID}`} className={`bp ${className} b-align-${hAlign}${(forceFullwidth ? ' amp-force-btn-fullwidth' : '')}`}>
 					<BlockControls>
 						<AlignmentToolbar
 							value={hAlign}

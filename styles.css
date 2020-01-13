@@ -40,10 +40,11 @@ dynamic class + -00
 Essential Blocks
 
 > Button block  
-----> .wp-block-amp-advancedbtn ===    .bp
-----> .amp-btn-align-center ===    .b-align
-----> .amp-btn-tablet-align ===    .bt-align
-----> .amp-btn-mobile-align ===    .bm-align
+----> .wp-block-amp-advancedbtn ===    .bp[Aditional Class]
+----> .amp-btn-align-center     ===    .b-align
+----> .amp-btn-tablet-align     ===    .bt-align
+----> .amp-btn-mobile-align     ===    .bm-align
+----> .amp-btn-wrap             ===    .bw
 
 
 

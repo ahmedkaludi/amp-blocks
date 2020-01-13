@@ -1,7 +1,7 @@
 /**
  * #.# Styles
  */
- .amp-btn-wrap {
+ .bw {
 	.amp-button {
 		padding: 8px 16px;
 		z-index: 1;
@@ -34,7 +34,7 @@
 		border-width: 3px;
 	}
 }
-.bp .amp-btn-wrap a.amp-button:not(.link) {
+.bp .bw a.amp-button:not(.link) {
     text-decoration: none;
 }
 .amp-button::before {
@@ -62,7 +62,7 @@
     padding-left:0;
     padding-right:0;
 }
-.amp-btn-wrap {
+.bw {
     display: inline-block;
     margin-bottom: 5px;
 }
@@ -75,20 +75,20 @@
 .b-align-right {
     text-align: right;
 }
-.bp .amp-btn-wrap:last-child {
+.bp .bw:last-child {
     margin-right: 0;
 }
-.bp .amp-btn-wrap {
+.bp .bw {
     margin-right: 5px;
 }
 .amp-force-btn-fullwidth {
     display: flex;
 }
-.amp-force-btn-fullwidth .amp-btn-wrap {
+.amp-force-btn-fullwidth .bw {
     display: block;
     flex-grow: 1;
 }
-.amp-force-btn-fullwidth .amp-btn-wrap .amp-button {
+.amp-force-btn-fullwidth .bw .amp-button {
     justify-content: center;
 }
 @media (min-width: 768px) and (max-width: 1024px) {

@@ -968,7 +968,7 @@
 /**
  * #.# Styles
  */
-.amp-btn-wrap .amp-button {
+.bw .amp-button {
   padding: 8px 16px;
   z-index: 1;
   position: relative;
@@ -989,21 +989,21 @@
   background: transparent;
   color: #555555; }
 
-.amp-btn-wrap .amp-button:hover, .amp-btn-wrap .amp-button:focus {
+.bw .amp-button:hover, .bw .amp-button:focus {
   border-color: #444444;
   color: #ffffff; }
 
-.amp-btn-wrap .amp-btn-size-small {
+.bw .amp-btn-size-small {
   font-size: 16px;
   padding: 4px 8px;
   border-width: 1px; }
 
-.amp-btn-wrap .amp-btn-size-large {
+.bw .amp-btn-size-large {
   font-size: 20px;
   padding: 12px 24px;
   border-width: 3px; }
 
-.bp .amp-btn-wrap a.amp-button:not(.link) {
+.bp .bw a.amp-button:not(.link) {
   text-decoration: none; }
 
 .amp-button::before {
@@ -1033,7 +1033,7 @@
   padding-left: 0;
   padding-right: 0; }
 
-.amp-btn-wrap {
+.bw {
   display: inline-block;
   margin-bottom: 5px; }
 
@@ -1046,22 +1046,22 @@
 .b-align-right {
   text-align: right; }
 
-.bp .amp-btn-wrap:last-child {
+.bp .bw:last-child {
   margin-right: 0; }
 
-.bp .amp-btn-wrap {
+.bp .bw {
   margin-right: 5px; }
 
 .amp-force-btn-fullwidth {
   display: -ms-flexbox;
   display: flex; }
 
-.amp-force-btn-fullwidth .amp-btn-wrap {
+.amp-force-btn-fullwidth .bw {
   display: block;
   -ms-flex-positive: 1;
       flex-grow: 1; }
 
-.amp-force-btn-fullwidth .amp-btn-wrap .amp-button {
+.amp-force-btn-fullwidth .bw .amp-button {
   -ms-flex-pack: center;
       justify-content: center; }
 
