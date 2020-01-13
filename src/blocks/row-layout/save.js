@@ -186,7 +186,7 @@ class AmpRowLayoutSave extends Component {
 		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'amp-row-has-bg' : '' );
 		const overlayType = ( ! currentOverlayTab || 'grad' !== currentOverlayTab ? 'normal' : 'gradient' );
 		const classes = classnames( `cr align${ ( blockAlignment ? blockAlignment : 'none' ) }` );
-		const innerClasses = classnames( `ab ${ hasBG } amp-layout-id${ classId }${ bgImg && bgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` );
+		const innerClasses = classnames( `ab ${ hasBG } amp-layout-id${ classId }` );
 		const innerColumnClasses = classnames( `cw ab${ columns } amp-gutter-${ columnGutter } gv${ ( collapseGutter ? collapseGutter : 'default' ) } rv${ verticalAlignment } rl${ layoutClass } tl${ tabLayoutClass } amp-m-colapse-${ collapseOrder } m${ mobileLayoutClass }${ firstColumnClass }${ secondColumnClass }${ thirdColumnClass }${ ( undefined !== columnsInnerHeight && true === columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		const renderSliderImages = ( index ) => {
 			let bgSlider;
@@ -321,7 +321,7 @@ class AmpRowLayoutSave extends Component {
 					) }
 					{ ( overlay || overlayBgImg ) && (
 						<div
-							className={ `rloverlay amp-row-overlay-${ overlayType }${ overlayBgImg && 'gradient' !== overlayType && overlayBgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }></div>
+							className={ `rloverlay amp-row-overlay-${ overlayType }` }></div>
 					) }
 					{ topSep && 'none' !== topSep && '' !== topSep && (
 						<div className={ `rltop-sep amp-row-sep-type-${ topSep }` }>

@@ -970,7 +970,6 @@ class AmpRowLayout extends Component {
 											options={ [
 												{ value: 'scroll', label: __( 'Scroll', 'amp-blocks' ) },
 												{ value: 'fixed', label: __( 'Fixed', 'amp-blocks' ) },
-												{ value: 'parallax', label: __( 'Parallax', 'amp-blocks' ) },
 											] }
 											onChange={ value => saveMobileBackground( { bgImgAttachment: value } ) }
 										/>
@@ -1208,7 +1207,6 @@ class AmpRowLayout extends Component {
 											options={ [
 												{ value: 'scroll', label: __( 'Scroll', 'amp-blocks' ) },
 												{ value: 'fixed', label: __( 'Fixed', 'amp-blocks' ) },
-												{ value: 'parallax', label: __( 'Parallax', 'amp-blocks' ) },
 											] }
 											onChange={ value => saveTabletBackground( { bgImgAttachment: value } ) }
 										/>
@@ -2031,10 +2029,6 @@ class AmpRowLayout extends Component {
 																		value: 'fixed',
 																		label: __( 'Fixed', 'amp-blocks' ),
 																	},
-																	{
-																		value: 'parallax',
-																		label: __( 'Parallax', 'amp-blocks' ),
-																	},
 																] }
 																onChange={ value => setAttributes( { bgImgAttachment: value } ) }
 															/>
@@ -2175,7 +2169,6 @@ class AmpRowLayout extends Component {
 							options={ [
 								{ value: 'scroll', label: __( 'Scroll', 'amp-blocks' ) },
 								{ value: 'fixed', label: __( 'Fixed', 'amp-blocks' ) },
-								{ value: 'parallax', label: __( 'Parallax', 'amp-blocks' ) },
 							] }
 							onChange={ value => setAttributes( { overlayBgImgAttachment: value } ) }
 						/>
@@ -2408,7 +2401,6 @@ class AmpRowLayout extends Component {
 					options={ [
 						{ value: 'scroll', label: __( 'Scroll' ) },
 						{ value: 'fixed', label: __( 'Fixed' ) },
-						{ value: 'parallax', label: __( 'Parallax' ) },
 					] }
 					onChange={ value => saveTabletOverlay( { overlayBgImgAttachment: value } ) }
 				/>
@@ -2635,7 +2627,6 @@ class AmpRowLayout extends Component {
 					options={ [
 						{ value: 'scroll', label: __( 'Scroll' ) },
 						{ value: 'fixed', label: __( 'Fixed' ) },
-						{ value: 'parallax', label: __( 'Parallax' ) },
 					] }
 					onChange={ value => saveMobileOverlay( { overlayBgImgAttachment: value } ) }
 				/>
@@ -3377,14 +3368,14 @@ class AmpRowLayout extends Component {
 				} }>
 					{ ( 'slider' !== backgroundSettingTab && 'video' !== backgroundSettingTab ) && (
 						<div
-							className={ `rlbackground${ bgImg && bgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }
+							className={ `rlbackground` }
 							data-bg-img-id={ bgImgID } style={ {
 							backgroundColor: ( bgColor ? bgColor : undefined ),
 							backgroundImage: ( bgImg ? `url(${ bgImg })` : undefined ),
 							backgroundSize: bgImgSize,
 							backgroundPosition: bgImgPosition,
 							backgroundRepeat: bgImgRepeat,
-							backgroundAttachment: ( bgImgAttachment === 'parallax' ? 'fixed' : bgImgAttachment ),
+							backgroundAttachment: bgImgAttachment,
 						} }></div>
 					) }
 					{ ( 'slider' === backgroundSettingTab ) && (
@@ -3416,14 +3407,14 @@ class AmpRowLayout extends Component {
 					) }
 					{ ( ! currentOverlayTab || 'grad' !== currentOverlayTab ) && (
 						<div
-							className={ `rloverlay amp-row-overlay-normal${ overlayBgImg && overlayBgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` }
+							className={ `rloverlay amp-row-overlay-normal` }
 							data-bg-img-id={ overlayBgImgID } style={ {
 							backgroundColor: ( overlay ? overlay : undefined ),
 							backgroundImage: ( overlayBgImg ? `url(${ overlayBgImg })` : undefined ),
 							backgroundSize: overlayBgImgSize,
 							backgroundPosition: overlayBgImgPosition,
 							backgroundRepeat: overlayBgImgRepeat,
-							backgroundAttachment: ( overlayBgImgAttachment === 'parallax' ? 'fixed' : overlayBgImgAttachment ),
+							backgroundAttachment: overlayBgImgAttachment ,
 							mixBlendMode: overlayBlendMode,
 							opacity: overlayOpacityOutput( overlayOpacity ),
 						} }>

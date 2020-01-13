@@ -172,9 +172,6 @@ class Amp_Blocks_Frontend
 	 */
 	public function render_row_layout_scripts($attr)
 	{
-		if ((isset($attr['bgImg']) && !empty($attr['bgImg']) && isset($attr['bgImgAttachment']) && 'parallax' === $attr['bgImgAttachment']) || (isset($attr['overlayBgImg']) && !empty($attr['overlayBgImg']) && isset($attr['overlayBgImgAttachment']) && 'parallax' === $attr['overlayBgImgAttachment'])) {
-			wp_enqueue_script('amp-blocks-parallax-js');
-		}
 		if (isset($attr['backgroundSettingTab']) && 'slider' === $attr['backgroundSettingTab']) {
 			wp_enqueue_style('amp-blocks-pro-slick');
 			wp_enqueue_script('amp-blocks-slick-init');
@@ -304,11 +301,7 @@ class Amp_Blocks_Frontend
 			}
 			if (isset($attr['bgImg']) && !empty($attr['bgImg']) && (!isset($attr['backgroundSettingTab']) || empty($attr['backgroundSettingTab']) || 'normal' === $attr['backgroundSettingTab'])) {
 				if (isset($attr['bgImgAttachment'])) {
-					if ('parallax' === $attr['bgImgAttachment']) {
-						$bg_attach = 'fixed';
-					} else {
 						$bg_attach = $attr['bgImgAttachment'];
-					}
 				} else {
 					$bg_attach = 'scroll';
 				}
@@ -477,11 +470,7 @@ class Amp_Blocks_Frontend
 				}
 				if (isset($attr['overlayBgImg'])) {
 					if (isset($attr['overlayBgImgAttachment'])) {
-						if ('parallax' === $attr['overlayBgImgAttachment']) {
-							$overbg_attach = 'fixed';
-						} else {
 							$overbg_attach = $attr['overlayBgImgAttachment'];
-						}
 					} else {
 						$overbg_attach = 'scroll';
 					}
@@ -534,15 +523,11 @@ class Amp_Blocks_Frontend
 				}
 				if (!empty($tablet_background['bgImg'])) {
 					if (!empty($tablet_background['bgImgAttachment'])) {
-						if ('parallax' === $tablet_background['bgImgAttachment']) {
-							$bg_attach = 'fixed';
-						} else {
 							$bg_attach = $tablet_background['bgImgAttachment'];
-						}
 					} else {
 						$bg_attach = 'scroll';
 					}
-					$css .= 'background-image:url(' . $tablet_background['bgImg'] . ')' . (isset($attr['bgImg']) && !empty($attr['bgImg']) && isset($attr['bgImgAttachment']) && 'parallax' === $attr['bgImgAttachment'] && isset($tablet_background['bgImgAttachment']) && 'parallax' !== $tablet_background['bgImgAttachment'] ? '!important' : '') . ';';
+					$css .= 'background-image:url(' . $tablet_background['bgImg'] . ') ;';
 					$css .= 'background-size:' . (!empty($tablet_background['bgImgSize']) ? $tablet_background['bgImgSize'] : 'cover') . ';';
 					$css .= 'background-position:' . (!empty($tablet_background['bgImgPosition']) ? $tablet_background['bgImgPosition'] : 'center center') . ';';
 					$css .= 'background-attachment:' . $bg_attach . ';';
@@ -551,11 +536,6 @@ class Amp_Blocks_Frontend
 					$css .= 'background-image:none;';
 				}
 				$css .= '}';
-				if (isset($attr['bgImg']) && !empty($attr['bgImg']) && isset($attr['bgImgAttachment']) && 'parallax' === $attr['bgImgAttachment'] && isset($tablet_background['bgImg']) && !empty($tablet_background['bgImg']) && isset($tablet_background['bgImgAttachment']) && 'parallax' !== $tablet_background['bgImgAttachment']) {
-					$css .= '#amp-layout-id' . $unique_id . ' [id*="jarallax-container-"] {';
-					$css .= 'display:none !important;';
-					$css .= '}';
-				}
 				if (isset($attr['backgroundSettingTab']) && !empty($attr['backgroundSettingTab']) && 'normal' !== $attr['backgroundSettingTab']) {
 					$css .= '#amp-layout-id' . $unique_id . ' .amp-pre-blocks-bg-video-container, #amp-layout-id' . $unique_id . ' .amp-pre-blocks-bg-slider {';
 					$css .= 'display:none;';
@@ -591,11 +571,7 @@ class Amp_Blocks_Frontend
 					}
 					if (!empty($tablet_overlay['overlayBgImg'])) {
 						if (!empty($tablet_overlay['overlayBgImgAttachment'])) {
-							if ('parallax' === $tablet_overlay['overlayBgImgAttachment']) {
-								$overbg_attach = 'fixed';
-							} else {
-								$overbg_attach = $tablet_overlay['overlayBgImgAttachment'];
-							}
+							$overbg_attach = 'fixed';
 						} else {
 							$overbg_attach = 'scroll';
 						}
@@ -650,15 +626,11 @@ class Amp_Blocks_Frontend
 				}
 				if (isset($mobile_background['bgImg']) && !empty($mobile_background['bgImg'])) {
 					if (!empty($mobile_background['bgImgAttachment'])) {
-						if ('parallax' === $mobile_background['bgImgAttachment']) {
-							$bg_attach = 'fixed';
-						} else {
-							$bg_attach = $mobile_background['bgImgAttachment'];
-						}
+						$bg_attach = $mobile_background['bgImgAttachment'];
 					} else {
 						$bg_attach = 'scroll';
 					}
-					$css .= 'background-image:url(' . $mobile_background['bgImg'] . ')' . (isset($attr['bgImg']) && !empty($attr['bgImg']) && isset($attr['bgImgAttachment']) && 'parallax' === $attr['bgImgAttachment'] && isset($mobile_background['bgImgAttachment']) && 'parallax' !== $mobile_background['bgImgAttachment'] ? '!important' : '') . ';';
+					$css .= 'background-image:url(' . $mobile_background['bgImg'] . ') ;';
 					$css .= 'background-size:' . (!empty($mobile_background['bgImgSize']) ? $mobile_background['bgImgSize'] : 'cover') . ';';
 					$css .= 'background-position:' . (!empty($mobile_background['bgImgPosition']) ? $mobile_background['bgImgPosition'] : 'center center') . ';';
 					$css .= 'background-attachment:' . $bg_attach . ';';
@@ -667,11 +639,6 @@ class Amp_Blocks_Frontend
 					$css .= 'background-image:none;';
 				}
 				$css .= '}';
-				if (isset($attr['bgImg']) && !empty($attr['bgImg']) && isset($attr['bgImgAttachment']) && 'parallax' === $attr['bgImgAttachment'] && isset($mobile_background['bgImg']) && !empty($mobile_background['bgImg']) && isset($mobile_background['bgImgAttachment']) && 'parallax' !== $mobile_background['bgImgAttachment']) {
-					$css .= '#amp-layout-id' . $unique_id . ' [id*="jarallax-container-"] {';
-					$css .= 'display:none !important;';
-					$css .= '}';
-				}
 				if (isset($attr['backgroundSettingTab']) && !empty($attr['backgroundSettingTab']) && 'normal' !== $attr['backgroundSettingTab']) {
 					$css .= '#amp-layout-id' . $unique_id . ' .amp-pre-blocks-bg-video-container, #amp-layout-id' . $unique_id . ' .amp-pre-blocks-bg-slider {';
 					$css .= 'display:none;';
@@ -707,11 +674,7 @@ class Amp_Blocks_Frontend
 					}
 					if (!empty($mobile_overlay['overlayBgImg'])) {
 						if (!empty($mobile_overlay['overlayBgImgAttachment'])) {
-							if ('parallax' === $mobile_overlay['overlayBgImgAttachment']) {
-								$overbg_attach = 'fixed';
-							} else {
-								$overbg_attach = $mobile_overlay['overlayBgImgAttachment'];
-							}
+							$overbg_attach = $mobile_overlay['overlayBgImgAttachment'];
 						} else {
 							$overbg_attach = 'scroll';
 						}
