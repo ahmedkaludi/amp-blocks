@@ -183,7 +183,7 @@ class AmpRowLayoutSave extends Component {
 		const HtmlTagOut = ( ! htmlTag ? 'div' : htmlTag );
 		const mobileLayoutClass = ( ! mobileLayout ? 'inherit' : mobileLayout );
 		const classId = ( ! uniqueID ? 'notset' : uniqueID );
-		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'amp-row-has-bg' : '' );
+		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'rb' : '' );
 		const overlayType = ( ! currentOverlayTab || 'grad' !== currentOverlayTab ? 'normal' : 'gradient' );
 		const classes = classnames( `cr align${ ( blockAlignment ? blockAlignment : 'none' ) }` );
 		const innerClasses = classnames( `ab ${ hasBG } amp-layout-id${ classId }` );

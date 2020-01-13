@@ -312,7 +312,7 @@ class AmpRowLayout extends Component {
 		const tabLayoutClass = ( ! tabletLayout ? 'inherit' : tabletLayout );
 		const mobileLayoutClass = ( ! mobileLayout ? 'inherit' : mobileLayout );
 		const selectColLayout = ( columns && ( 2 === columns || 3 === columns ) ? widthString : colLayout );
-		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'amp-row-has-bg' : '' );
+		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'rb' : '' );
 		const classes = classnames( className, `cr ab${ columns } rl${ layoutClass } rv${ verticalAlignment } tl${ tabLayoutClass } m${ mobileLayoutClass } current-tab-${ currentTab } g${ columnGutter } gv${ collapseGutter } amp-custom-first-width-${ widthString } amp-custom-second-width-${ secondWidthString } amp-custom-third-width-${ thirdWidthString } ${ hasBG }${ ( columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		let layoutOptions;
 		let mobileLayoutOptions;

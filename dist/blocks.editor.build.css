@@ -767,7 +767,7 @@ button.components-button.amp-pre-sidebar-image {
     background: rgba(255, 255, 255, 0.7);
     padding: 0 6px; }
 
-.amp-row-has-bg .amp-row-padding {
+.rb .amp-row-padding {
   color: #000; }
 
 .is-selected .amp-padding-resize-box:hover .amp-row-padding {
@@ -850,7 +850,7 @@ button.components-button.amp-pre-sidebar-image {
   bottom: 0;
   top: 0; }
 
-.amp-row-has-bg .innerblocks-wrap {
+.rb .innerblocks-wrap {
   padding-left: 15px;
   padding-right: 15px; }
 
