@@ -238,7 +238,7 @@ registerBlockType( 'amp/advancedheading', {
 			 tagName = 'h' + level;
 		}
 		const mType = ( marginType ? marginType : 'px' );
-		let tagId = ( anchor ? anchor : `amp-adv-heading${ uniqueID }` );
+		let tagId = ( anchor ? anchor : `h${ uniqueID }` );
 		const revealAnimation = ( ampAnimation && ( 'reveal-left' === ampAnimation || 'reveal-right' === ampAnimation || 'reveal-up' === ampAnimation || 'reveal-down' === ampAnimation ) ? true : false );
 		const wrapper = ( anchor || revealAnimation ? true : false );
 		tagId = ( revealAnimation && ! anchor ? `amp-adv-inner-heading${ uniqueID }` : tagId );
@@ -247,7 +247,7 @@ registerBlockType( 'amp/advancedheading', {
 			<RichText.Content
 				tagName={ tagName }
 				id={ tagId }
-				className={ `amp-adv-heading${ uniqueID } ${ classes }` }
+				className={ `h${ uniqueID } ${ classes }` }
 				data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
 				data-aos-offset={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].offset ? ampAOSOptions[ 0 ].offset : undefined ) }
 				data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }

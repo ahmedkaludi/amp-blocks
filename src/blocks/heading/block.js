@@ -283,7 +283,7 @@ registerBlockType( 'ampblocks/heading', {
 		const { attributes: { anchor, align, level, content, color, uniqueID, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } } = props;
 		const tagName = 'h' + level;
 		const mType = ( marginType ? marginType : 'px' );
-		let tagId = ( anchor ? anchor : `amp-adv-heading${ uniqueID }` );
+		let tagId = ( anchor ? anchor : `h${ uniqueID }` );
 		const revealAnimation = ( ampAnimation && ( 'reveal-left' === ampAnimation || 'reveal-right' === ampAnimation || 'reveal-up' === ampAnimation || 'reveal-down' === ampAnimation ) ? true : false );
 		const wrapper = ( anchor || revealAnimation ? true : false );
 		tagId = ( revealAnimation && ! anchor ? `amp-adv-inner-heading${ uniqueID }` : tagId );
@@ -292,7 +292,7 @@ registerBlockType( 'ampblocks/heading', {
 			<RichText.Content
 				tagName={ tagName }
 				id={ tagId }
-				className={ `amp-adv-heading${ uniqueID } ${ classes }` }
+				className={ `h${ uniqueID } hp ${ classes }` }
 				data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
 				data-aos-offset={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].offset ? ampAOSOptions[ 0 ].offset : undefined ) }
 				data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }
@@ -312,7 +312,7 @@ registerBlockType( 'ampblocks/heading', {
 		return (
 			<Fragment>
 				{ wrapper && (
-					<div id={ `amp-adv-heading${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }${ ( className ? ' ' + className : '' ) }` }>
+					<div id={ `h${ uniqueID }` } className={ `amp-advanced-heading-wrapper${ ( revealAnimation ? ' amp-heading-clip-animation' : '' ) }${ ( className ? ' ' + className : '' ) }` }>
 						{ htmlItem }
 					</div>
 				) }

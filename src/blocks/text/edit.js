@@ -389,14 +389,14 @@ class ampAdvancedHeading extends Component {
 					marginTop: ( undefined !== topMargin ? topMargin + marginType : '' ),
 					marginBottom: ( undefined !== bottomMargin ? bottomMargin + marginType : '' ),
 				} }
-				className={ `amp-adv-heading${ uniqueID }` }
+				className={ `h${ uniqueID }` }
 				placeholder={ __( 'Add your text.....' ) }
 			/>
 		);
 		return (
 			<Fragment>
 				<style>
-					{ `.amp-adv-heading${ uniqueID } mark {
+					{ `.h${ uniqueID } mark {
 						color: ${ markColor };
 						background: ${ ( markBG ? markBGString : 'transparent' ) };
 						font-weight: ${ ( markTypography && markFontWeight ? markFontWeight : 'inherit' ) };

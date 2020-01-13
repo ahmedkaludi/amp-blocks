@@ -40,18 +40,21 @@ dynamic class + -00
 Essential Blocks
 
 > Button block  
-----> .wp-block-amp-advancedbtn ===    .bp[Aditional Class]
-----> .b-align-center     		===    .b-align
-----> .b-tablet-align     		===    .bt-align
-----> .b-mobile-align     		===    .bm-align
-----> .b-wrap             		===    .bw
-----> .amp-button               ===    .b
-----> .amp-btn-              	===    .b-
-----> .amp-btn-size-custom      ===    .bsc
-----> .amp-btn-style-basic      ===    .bs-basic
+----> .wp-block-amp-advancedbtn 		===    .bp[Aditional Class]
+----> .amp-btn-align-center     		===    .b-align
+----> .amp-btn-tablet-align     		===    .bt-align
+----> .amp-btn-mobile-align     		===    .bm-align
+----> .amp-btn-wrap             		===    .bw
+----> .amp-button               		===    .b
+----> .amp-btn-              			===    .b-
+----> .amp-btn-size-custom      		===    .bsc
+----> .amp-btn-style-basic      		===    .bs-basic
+----> .amp-btn-inner-text      			===    .bt
 
-
-
+> Heading block 
+----> .wp-block-amp-advancedbtn 		===    .bp[Aditional Class]
+---->  amp-adv-heading(class/ID)		===     h
+amp-adv-heading
 
 
 **************** Errors ***********************

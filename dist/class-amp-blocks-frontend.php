@@ -1326,7 +1326,7 @@ class Amp_Blocks_Frontend
 	{
 		$css = '';
 		if (isset($attr['size']) || isset($attr['lineHeight']) || isset($attr['typography']) || isset($attr['fontWeight']) || isset($attr['fontStyle']) || isset($attr['textTransform'])) {
-			$css .= '#amp-adv-heading' . $unique_id . ', #amp-adv-heading' . $unique_id . ' .wp-block-amp-advancedheading {';
+			$css .= '#h' . $unique_id . ', #h' . $unique_id . ' .hp {';
 			if (isset($attr['size']) && !empty($attr['size'])) {
 				$css .= 'font-size:' . $attr['size'] . (!isset($attr['sizeType']) ? 'px' : $attr['sizeType']) . ';';
 			}
@@ -1349,7 +1349,7 @@ class Amp_Blocks_Frontend
 		}
 		// Highlight.
 		if (isset($attr['markBorder']) || isset($attr['markBorderWidth']) || isset($attr['markBorderStyle']) || isset($attr['markPadding']) || isset($attr['markLetterSpacing']) || isset($attr['markSize']) || isset($attr['markLineHeight']) || isset($attr['markTypography']) || isset($attr['markColor']) || isset($attr['markBG']) || isset($attr['markTextTransform'])) {
-			$css .= '#amp-adv-heading' . $unique_id . ' mark, #amp-adv-heading' . $unique_id . ' .wp-block-amp-advancedheading mark {';
+			$css .= '#h' . $unique_id . ' mark, #h' . $unique_id . ' .hp mark {';
 			if (isset($attr['markLetterSpacing']) && !empty($attr['markLetterSpacing'])) {
 				$css .= 'letter-spacing:' . $attr['markLetterSpacing'] . 'px;';
 			}
@@ -1395,7 +1395,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['tabSize']) || isset($attr['tabLineHeight'])) {
 			$css .= '@media (min-width: 767px) and (max-width: 1024px) {';
-			$css .= '#amp-adv-heading' . $unique_id . ', #amp-adv-heading' . $unique_id . ' .wp-block-amp-advancedheading {';
+			$css .= '#h' . $unique_id . ', #h' . $unique_id . ' .hp {';
 			if (isset($attr['tabSize'])) {
 				$css .= 'font-size:' . $attr['tabSize'] . (!isset($attr['sizeType']) ? 'px' : $attr['sizeType']) . ';';
 			}
@@ -1407,7 +1407,7 @@ class Amp_Blocks_Frontend
 		}
 		if ((isset($attr['markSize']) && is_array($attr['markSize']) && !empty($attr['markSize'][1])) || isset($attr['markLineHeight']) && is_array($attr['markLineHeight']) && !empty($attr['markLineHeight'][1])) {
 			$css .= '@media (min-width: 767px) and (max-width: 1024px) {';
-			$css .= '#amp-adv-heading' . $unique_id . ' mark, #amp-adv-heading' . $unique_id . ' .wp-block-amp-advancedheading mark {';
+			$css .= '#h' . $unique_id . ' mark, #h' . $unique_id . ' .hp mark {';
 			if (isset($attr['markSize']) && is_array($attr['markSize']) && !empty($attr['markSize'][1])) {
 				$css .= 'font-size:' . $attr['markSize'][1] . (!isset($attr['markSizeType']) ? 'px' : $attr['markSizeType']) . ';';
 			}
@@ -1419,7 +1419,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['mobileSize']) || isset($attr['mobileLineHeight'])) {
 			$css .= '@media (max-width: 767px) {';
-			$css .= '#amp-adv-heading' . $unique_id . ', #amp-adv-heading' . $unique_id . ' .wp-block-amp-advancedheading {';
+			$css .= '#h' . $unique_id . ', #h' . $unique_id . ' .hp {';
 			if (isset($attr['mobileSize'])) {
 				$css .= 'font-size:' . $attr['mobileSize'] . (!isset($attr['sizeType']) ? 'px' : $attr['sizeType']) . ';';
 			}
@@ -1431,7 +1431,7 @@ class Amp_Blocks_Frontend
 		}
 		if ((isset($attr['markSize']) && is_array($attr['markSize']) && !empty($attr['markSize'][2])) || isset($attr['markLineHeight']) && is_array($attr['markLineHeight']) && !empty($attr['markLineHeight'][2])) {
 			$css .= '@media (max-width: 767px) {';
-			$css .= '#amp-adv-heading' . $unique_id . ' mark, #amp-adv-heading' . $unique_id . ' .wp-block-amp-advancedheading mark {';
+			$css .= '#h' . $unique_id . ' mark, #h' . $unique_id . ' .hp mark {';
 			if (isset($attr['markSize']) && is_array($attr['markSize']) && !empty($attr['markSize'][2])) {
 				$css .= 'font-size:' . $attr['markSize'][2] . (!isset($attr['markSizeType']) ? 'px' : $attr['markSizeType']) . ';';
 			}
