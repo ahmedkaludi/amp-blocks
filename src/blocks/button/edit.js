@@ -172,11 +172,11 @@ class AmpAdvancedButton extends Component {
 				btnbg = ('transparent' === btns[index].background || undefined === btns[index].background ? undefined : hexToRGBA(btns[index].background, (btns[index].backgroundOpacity !== undefined ? btns[index].backgroundOpacity : 1)));
 			}
 			return (
-				<div className={`btn-area-wrap amp-btn-${index}-area`} style={{
+				<div className={`btn-area-wrap b-${index}-area`} style={{
 					marginRight: btns[index].gap + 'px',
 				}} >
-					<span className={`amp-button-wrap amp-btn-${index}-action amp-btn-svg-show-${(!btns[index].iconHover ? 'always' : 'hover')}`}>
-						<span className={`amp-button amp-button-${index} amp-btn-size-${(btns[index].btnSize ? btns[index].btnSize : btnSize)} amp-btn-style-${(btns[index].btnStyle ? btns[index].btnStyle : 'basic')}`} style={{
+					<span className={`b-wrap b-${index}-action b-svg-show-${(!btns[index].iconHover ? 'always' : 'hover')}`}>
+						<span className={`b b-${index} b-size-${(btns[index].btnSize ? btns[index].btnSize : btnSize)} b-style-${(btns[index].btnStyle ? btns[index].btnStyle : 'basic')}`} style={{
 							background: (undefined !== btnbg ? btnbg : undefined),
 							color: (undefined !== btns[index].color ? btns[index].color : undefined),
 							fontSize: (undefined !== btns[index].size ? btns[index].size + 'px' : undefined),
@@ -195,7 +195,7 @@ class AmpAdvancedButton extends Component {
 							boxShadow: (undefined !== btns[index].boxShadow && undefined !== btns[index].boxShadow[0] && btns[index].boxShadow[0] ? (undefined !== btns[index].boxShadow[7] && btns[index].boxShadow[7] ? 'inset ' : '') + (undefined !== btns[index].boxShadow[3] ? btns[index].boxShadow[3] : 1) + 'px ' + (undefined !== btns[index].boxShadow[4] ? btns[index].boxShadow[4] : 1) + 'px ' + (undefined !== btns[index].boxShadow[5] ? btns[index].boxShadow[5] : 2) + 'px ' + (undefined !== btns[index].boxShadow[6] ? btns[index].boxShadow[6] : 0) + 'px ' + hexToRGBA((undefined !== btns[index].boxShadow[1] ? btns[index].boxShadow[1] : '#000000'), (undefined !== btns[index].boxShadow[2] ? btns[index].boxShadow[2] : 1)) : undefined),
 						}} >
 							{btns[index].icon && 'left' === btns[index].iconSide && (
-								<GenIcon className={`amp-btn-svg-icon amp-btn-svg-icon-${btns[index].icon} amp-btn-side-${btns[index].iconSide}`} name={btns[index].icon} size={(!btns[index].size ? '14' : btns[index].size)} icon={('fa' === btns[index].icon.substring(0, 2) ? FaIco[btns[index].icon] : Ico[btns[index].icon])} />
+								<GenIcon className={`b-svg-icon b-svg-icon-${btns[index].icon} b-side-${btns[index].iconSide}`} name={btns[index].icon} size={(!btns[index].size ? '14' : btns[index].size)} icon={('fa' === btns[index].icon.substring(0, 2) ? FaIco[btns[index].icon] : Ico[btns[index].icon])} />
 							)}
 							<RichText
 								tagName="div"
@@ -218,11 +218,11 @@ class AmpAdvancedButton extends Component {
 									this.saveArrayUpdate({ text: value }, index);
 								}}
 								allowedFormats={['core/bold', 'core/italic', 'core/strikethrough']}
-								className={'amp-button-text'}
+								className={'b-text'}
 								keepPlaceholderOnFocus
 							/>
 							{btns[index].icon && 'left' !== btns[index].iconSide && (
-								<GenIcon className={`amp-btn-svg-icon amp-btn-svg-icon-${btns[index].icon} amp-btn-side-${btns[index].iconSide}`} name={btns[index].icon} size={(!btns[index].size ? '14' : btns[index].size)} icon={('fa' === btns[index].icon.substring(0, 2) ? FaIco[btns[index].icon] : Ico[btns[index].icon])} />
+								<GenIcon className={`b-svg-icon b-svg-icon-${btns[index].icon} b-side-${btns[index].iconSide}`} name={btns[index].icon} size={(!btns[index].size ? '14' : btns[index].size)} icon={('fa' === btns[index].icon.substring(0, 2) ? FaIco[btns[index].icon] : Ico[btns[index].icon])} />
 							)}
 						</span>
 					</span>
@@ -284,13 +284,13 @@ class AmpAdvancedButton extends Component {
 							this.saveArrayUpdate({ colorHover: value }, index);
 						}}
 					/>
-					<div className="amp-btn-size-settings-container">
+					<div className="b-size-settings-container">
 						<h2 className="amp-beside-btn-group">{__('Background Type', 'amp-blocks')}</h2>
-						<ButtonGroup className="amp-button-size-type-options" aria-label={__('Background Type', 'amp-blocks')}>
+						<ButtonGroup className="b-size-type-options" aria-label={__('Background Type', 'amp-blocks')}>
 							{map(bgType, ({ name, key }) => (
 								<Button
 									key={key}
-									className="amp-btn-size-btn"
+									className="b-size-btn"
 									isSmall
 									isPrimary={(undefined !== btns[index].backgroundHoverType ? btns[index].backgroundHoverType : 'solid') === key}
 									aria-pressed={(undefined !== btns[index].backgroundHoverType ? btns[index].backgroundHoverType : 'solid') === key}
@@ -361,13 +361,13 @@ class AmpAdvancedButton extends Component {
 								min={0}
 								max={100}
 							/>
-							<div className="amp-btn-size-settings-container">
+							<div className="b-size-settings-container">
 								<h2 className="amp-beside-btn-group">{__('Gradient Type', 'amp-blocks')}</h2>
-								<ButtonGroup className="amp-button-size-type-options" aria-label={__('Gradient Type', 'amp-blocks')}>
+								<ButtonGroup className="b-size-type-options" aria-label={__('Gradient Type', 'amp-blocks')}>
 									{map(gradTypes, ({ name, key }) => (
 										<Button
 											key={key}
-											className="amp-btn-size-btn"
+											className="b-size-btn"
 											isSmall
 											isPrimary={(btns[index].gradientHover && undefined !== btns[index].gradientHover[4] ? btns[index].gradientHover[4] : 'linear') === key}
 											aria-pressed={(btns[index].gradientHover && undefined !== btns[index].gradientHover[4] ? btns[index].gradientHover[4] : 'linear') === key}
@@ -478,13 +478,13 @@ class AmpAdvancedButton extends Component {
 							this.saveArrayUpdate({ color: value }, index);
 						}}
 					/>
-					<div className="amp-btn-size-settings-container">
+					<div className="b-size-settings-container">
 						<h2 className="amp-beside-btn-group">{__('Background Type', 'amp-blocks')}</h2>
-						<ButtonGroup className="amp-button-size-type-options" aria-label={__('Background Type', 'amp-blocks')}>
+						<ButtonGroup className="b-size-type-options" aria-label={__('Background Type', 'amp-blocks')}>
 							{map(bgType, ({ name, key }) => (
 								<Button
 									key={key}
-									className="amp-btn-size-btn"
+									className="b-size-btn"
 									isSmall
 									isPrimary={(undefined !== btns[index].backgroundType ? btns[index].backgroundType : 'solid') === key}
 									aria-pressed={(undefined !== btns[index].backgroundType ? btns[index].backgroundType : 'solid') === key}
@@ -555,13 +555,13 @@ class AmpAdvancedButton extends Component {
 								min={0}
 								max={100}
 							/>
-							<div className="amp-btn-size-settings-container">
+							<div className="b-size-settings-container">
 								<h2 className="amp-beside-btn-group">{__('Gradient Type', 'amp-blocks')}</h2>
-								<ButtonGroup className="amp-button-size-type-options" aria-label={__('Gradient Type', 'amp-blocks')}>
+								<ButtonGroup className="b-size-type-options" aria-label={__('Gradient Type', 'amp-blocks')}>
 									{map(gradTypes, ({ name, key }) => (
 										<Button
 											key={key}
-											className="amp-btn-size-btn"
+											className="b-size-btn"
 											isSmall
 											isPrimary={(btns[index].gradient && undefined !== btns[index].gradient[4] ? btns[index].gradient[4] : 'linear') === key}
 											aria-pressed={(btns[index].gradient && undefined !== btns[index].gradient[4] ? btns[index].gradient[4] : 'linear') === key}
@@ -700,12 +700,12 @@ class AmpAdvancedButton extends Component {
 				btnBox = 'none';
 			}
 			return (
-				`#b_${uniqueID} .amp-button-${index}:hover {
+				`#b_${uniqueID} .b-${index}:hover {
 					color: ${ btns[index].colorHover} !important;
 					border-color: ${ hexToRGBA((undefined === btns[index].borderHover ? '#444444' : btns[index].borderHover), (btns[index].borderHoverOpacity !== undefined ? btns[index].borderHoverOpacity : 1))} !important;
 					box-shadow: ${ btnBox} !important;
 				}
-				#b_${ uniqueID} .amp-button-${index}::before {
+				#b_${ uniqueID} .b-${index}::before {
 					background: ${ btnbg};
 					box-shadow: ${ btnBox2};
 					border-radius: ${ btnRad}px;
@@ -788,10 +788,10 @@ class AmpAdvancedButton extends Component {
 											}
 										</TabPanel>
 										<h2 className="side-h2-label">{__('Button Link', 'amp-blocks')}</h2>
-										<div className="amp-btn-link-group">
+										<div className="b-link-group">
 											<URLInput
 												value={btns[indexcountamp].link}
-												className="amp-btn-link-input"
+												className="b-link-input"
 												onChange={value => {
 													this.saveArrayUpdate({ link: value }, indexcountamp);
 												}}

@@ -301,7 +301,7 @@ class ampIcons extends Component {
 					<p className="components-base-control__label">{ __( 'Link' ) }</p>
 					<URLInput
 						value={ icons[ index ].link }
-						className="amp-btn-link-input"
+						className="b-link-input"
 						onChange={ value => {
 							this.saveArrayUpdate( { link: value }, index );
 						} }

@@ -2,7 +2,7 @@
  * #.# Styles
  */
  .bw {
-	.amp-button {
+	.b {
 		padding: 8px 16px;
 		z-index: 1;
 		position: relative;
@@ -19,25 +19,25 @@
 		background:transparent;
 		color:#555555;
 	}
-	.amp-button:hover, .amp-button:focus {
+	.b:hover, .b:focus {
 		border-color:#444444;
 		color:#ffffff;
 	}
-	.amp-btn-size-small {
+	.b-size-small {
 		font-size: 16px;
 		padding: 4px 8px;
 		border-width: 1px;
 	}
-	.amp-btn-size-large {
+	.b-size-large {
 		font-size: 20px;
 		padding: 12px 24px;
 		border-width: 3px;
 	}
 }
-.bp .bw a.amp-button:not(.link) {
+.bp .bw a.b:not(.link) {
     text-decoration: none;
 }
-.amp-button::before {
+.b::before {
     position: absolute;
 	content: "";
 	top: 0;
@@ -49,16 +49,16 @@
 	background:#444444;
 	transition: all .3s ease-in-out;
 }
-.amp-button:hover::before, .amp-button:focus::before {
+.b:hover::before, .b:focus::before {
 	opacity: 1;
 }
-.amp-btn-svg-icon.amp-btn-side-right {
+.b-svg-icon.b-side-right {
     padding-left: 5px;
 }
-.amp-btn-svg-icon.amp-btn-side-left {
+.b-svg-icon.b-side-left {
     padding-right: 5px;
 }
-.amp-btn-has-text-false .amp-btn-svg-icon {
+.b-has-text-false .b-svg-icon {
     padding-left:0;
     padding-right:0;
 }
@@ -88,7 +88,7 @@
     display: block;
     flex-grow: 1;
 }
-.amp-force-btn-fullwidth .bw .amp-button {
+.amp-force-btn-fullwidth .bw .b {
     justify-content: center;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
