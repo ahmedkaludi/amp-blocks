@@ -585,7 +585,7 @@ class AmpColumn extends Component {
 		const borderString = ( border ? hexToRGBA( border, borderOpacity ) : 'transparent' );
 		const hasChildBlocks = wp.data.select( 'core/block-editor' ).getBlockOrder( clientId ).length > 0;
 		return (
-			<div className={ `amp-column c-${ id } amp-column-${ uniqueID }` }>
+			<div className={ `amp-column c c-${ id } amp-column-${ uniqueID }` }>
 				{ ( textColor || linkColor || linkHoverColor ) && (
 					<style>
 						{ ( textColor ? `.amp-column-${ uniqueID }, .amp-column-${ uniqueID } p, .amp-column-${ uniqueID } h1, .amp-column-${ uniqueID } h2, .amp-column-${ uniqueID } h3, .amp-column-${ uniqueID } h4, .amp-column-${ uniqueID } h5, .amp-column-${ uniqueID } h6 { color: ${ textColor }; }` : '' ) }
