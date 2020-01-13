@@ -313,7 +313,7 @@ class AmpRowLayout extends Component {
 		const mobileLayoutClass = ( ! mobileLayout ? 'inherit' : mobileLayout );
 		const selectColLayout = ( columns && ( 2 === columns || 3 === columns ) ? widthString : colLayout );
 		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'amp-row-has-bg' : '' );
-		const classes = classnames( className, `ab${ columns } rl${ layoutClass } rv${ verticalAlignment } tl${ tabLayoutClass } m${ mobileLayoutClass } current-tab-${ currentTab } g${ columnGutter } gv${ collapseGutter } amp-custom-first-width-${ widthString } amp-custom-second-width-${ secondWidthString } amp-custom-third-width-${ thirdWidthString } ${ hasBG }${ ( columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
+		const classes = classnames( className, `cr ab${ columns } rl${ layoutClass } rv${ verticalAlignment } tl${ tabLayoutClass } m${ mobileLayoutClass } current-tab-${ currentTab } g${ columnGutter } gv${ collapseGutter } amp-custom-first-width-${ widthString } amp-custom-second-width-${ secondWidthString } amp-custom-third-width-${ thirdWidthString } ${ hasBG }${ ( columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		let layoutOptions;
 		let mobileLayoutOptions;
 		const startlayoutOptions = [
@@ -3483,8 +3483,8 @@ class AmpRowLayout extends Component {
 							} }
 							minHeight="15"
 							handleClasses={ {
-								top: 'wp-block-amp-rowlayout-handler-top',
-								bottom: 'wp-block-amp-rowlayout-handler-bottom',
+								top: 'cr-handler-top',
+								bottom: 'cr-handler-bottom',
 							} }
 							enable={ {
 								top: false,
@@ -3640,8 +3640,8 @@ class AmpRowLayout extends Component {
 							} }
 							minHeight="15"
 							handleClasses={ {
-								top: 'wp-block-amp-rowlayout-handler-top',
-								bottom: 'wp-block-amp-rowlayout-handler-bottom',
+								top: 'cr-handler-top',
+								bottom: 'cr-handler-bottom',
 							} }
 							enable={ {
 								top: false,

@@ -185,7 +185,7 @@ class AmpRowLayoutSave extends Component {
 		const classId = ( ! uniqueID ? 'notset' : uniqueID );
 		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'amp-row-has-bg' : '' );
 		const overlayType = ( ! currentOverlayTab || 'grad' !== currentOverlayTab ? 'normal' : 'gradient' );
-		const classes = classnames( `align${ ( blockAlignment ? blockAlignment : 'none' ) }` );
+		const classes = classnames( `cr align${ ( blockAlignment ? blockAlignment : 'none' ) }` );
 		const innerClasses = classnames( `ab ${ hasBG } amp-layout-id${ classId }${ bgImg && bgImgAttachment === 'parallax' ? ' amp-jarallax' : '' }` );
 		const innerColumnClasses = classnames( `cw ab${ columns } amp-gutter-${ columnGutter } gv${ ( collapseGutter ? collapseGutter : 'default' ) } rv${ verticalAlignment } rl${ layoutClass } tl${ tabLayoutClass } amp-m-colapse-${ collapseOrder } m${ mobileLayoutClass }${ firstColumnClass }${ secondColumnClass }${ thirdColumnClass }${ ( undefined !== columnsInnerHeight && true === columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		const renderSliderImages = ( index ) => {

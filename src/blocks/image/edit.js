@@ -42,8 +42,8 @@ class ampImage extends Component {
 							width,
 						}}
 						handleClasses={{
-							top: 'wp-block-amp-rowlayout-handler-top',
-							bottom: 'wp-block-amp-rowlayout-handler-bottom',
+							top: 'cr-handler-top',
+							bottom: 'cr-handler-bottom',
 						}}
 						enable={{
 							top: false,
