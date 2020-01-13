@@ -247,7 +247,7 @@ registerBlockType( 'amp/advancedheading', {
 			<RichText.Content
 				tagName={ tagName }
 				id={ tagId }
-				className={ `h${ uniqueID } ${ classes }` }
+				className={ `h${ uniqueID } pp ${ classes }` }
 				data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
 				data-aos-offset={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].offset ? ampAOSOptions[ 0 ].offset : undefined ) }
 				data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }

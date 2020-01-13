@@ -51,10 +51,16 @@ Essential Blocks
 ----> .amp-btn-inner-text      			===    .bt
 
 > Heading block 
-----> .wp-block-amp-advancedbtn 		===    .bp[Aditional Class]
+----> .wp-block-amp-advancedheading 	===    .hp[Aditional Class]
 ---->  amp-adv-heading(class/ID)		===     h
-amp-adv-heading
 
+
+> Text block 
+----> .wp-block-amp-advancedheading 	===    .pp[Aditional Class]
+---->  amp-adv-heading(class/ID)		===     h [right now it is taking 'h', need to change this]
 
 **************** Errors ***********************
+----> Proper registerBlockType names in blocks [Need to add proper names]
+
+
 1)Button block font family is not loading in AMP
