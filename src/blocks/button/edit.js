@@ -193,6 +193,7 @@ class AmpAdvancedButton extends Component {
 							fontSize: (undefined !== btns[index].size ? btns[index].size + 'px' : undefined),
 							fontWeight: fontWeight,
 							fontStyle: fontStyle,
+							textTransform : textTransform,
 							letterSpacing: letterSpacing + 'px',
 							fontFamily: (typography ? typography : ''),
 							borderRadius: (undefined !== btns[index].borderRadius ? btns[index].borderRadius + 'px' : undefined),
