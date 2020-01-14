@@ -134,12 +134,13 @@ class AmpAdvancedButton extends Component {
 
 			return item;
 		});
+
 		setAttributes({
 			btns: newItems,
 		});
 	}
 	render() {
-		const { attributes: { uniqueID, btnCount, btns, hAlign, letterSpacing, fontStyle, fontWeight, typography, googleFont, loadGoogleFont, fontSubset, fontVariant, forceFullwidth, thAlign, mhAlign, widthType, widthUnit, textTransform, ampAOSOptions, ampAnimation }, className, setAttributes, isSelected } = this.props;
+		const { attributes: { uniqueID, btnCount, btns, hAlign, letterSpacing, fontStyle, fontWeight, typography, googleFont, loadGoogleFont, fontSubset, fontVariant, forceFullwidth, thAlign, mhAlign, marginType, widthType, widthUnit, textTransform, ampAOSOptions, ampAnimation }, className, setAttributes, isSelected } = this.props;
 		const gconfig = {
 			google: {
 				families: [typography + (fontVariant ? ':' + fontVariant : '')],
@@ -153,7 +154,17 @@ class AmpAdvancedButton extends Component {
 			{ key: 'solid', name: __('Solid') },
 			{ key: 'gradient', name: __('Gradient') },
 		];
+		const marginTypes = [
+			{ key: 'px', name: __( 'px' ) },
+			{ key: 'em', name: __( 'em' ) },
+			{ key: '%', name: __( '%' ) },
+			{ key: 'vh', name: __( 'vh' ) },
+			{ key: 'rem', name: __( 'rem' ) },
+		];
 		const config = (googleFont ? gconfig : '');
+		const marginMin = ( marginType === 'em' || marginType === 'px' ? -40 : -100 );
+		const marginMax = ( marginType === 'em' || marginType === 'rem' ? 12 : 100 );
+		const marginStep = ( marginType === 'em' || marginType === 'rem' ? 0.1 : 1 );
 		const renderBtns = (index) => {
 			let btnSize;
 			btnSize = 'custom';
@@ -190,6 +201,8 @@ class AmpAdvancedButton extends Component {
 							paddingLeft: btns[index].paddingLR + 'px',
 							paddingRight: btns[index].paddingLR + 'px',
 							paddingTop: btns[index].paddingBT + 'px',
+							marginTop: btns[index].topMargin + 'px',
+							marginBottom: btns[index].bottomMargin + 'px',
 							paddingBottom: btns[index].paddingBT + 'px',
 							width: (undefined !== widthType && 'fixed' === widthType && undefined !== btns[index].width && undefined !== btns[index].width[0] ? btns[index].width[0] + (undefined !== widthUnit ? widthUnit : 'px') : undefined),
 							boxShadow: (undefined !== btns[index].boxShadow && undefined !== btns[index].boxShadow[0] && btns[index].boxShadow[0] ? (undefined !== btns[index].boxShadow[7] && btns[index].boxShadow[7] ? 'inset ' : '') + (undefined !== btns[index].boxShadow[3] ? btns[index].boxShadow[3] : 1) + 'px ' + (undefined !== btns[index].boxShadow[4] ? btns[index].boxShadow[4] : 1) + 'px ' + (undefined !== btns[index].boxShadow[5] ? btns[index].boxShadow[5] : 2) + 'px ' + (undefined !== btns[index].boxShadow[6] ? btns[index].boxShadow[6] : 0) + 'px ' + hexToRGBA((undefined !== btns[index].boxShadow[1] ? btns[index].boxShadow[1] : '#000000'), (undefined !== btns[index].boxShadow[2] ? btns[index].boxShadow[2] : 1)) : undefined),
@@ -1105,6 +1118,60 @@ class AmpAdvancedButton extends Component {
 											</TabPanel>
 										</PanelBody>
 									)}
+
+							{ this.showSettings( 'marginSettings' ) && (
+							<PanelBody
+								title={ __( 'Gapping' ) }
+								initialOpen={ false }
+							>
+								<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Margin Type' ) }>
+									{ map( marginTypes, ( { name, key } ) => (
+										<Button
+											key={ key }
+											className="amp-size-btn"
+											isSmall
+											isPrimary={ marginType === key }
+											aria-pressed={ marginType === key }
+											onClick={ () => setAttributes( { marginType: key } ) }
+										>
+											{ name }
+										</Button>
+									) ) }
+								</ButtonGroup>
+								<RangeControl
+									label={ __( 'Top Margin' ) }
+									value={btns[indexcountamp].topMargin}
+									onChange={ ( value ) =>{ this.saveArrayUpdate({ topMargin: value }, indexcountamp);} }
+									min={ marginMin }
+									max={ marginMax }
+									step={ marginStep }
+								/>
+								<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Margin Type' ) }>
+									{ map( marginTypes, ( { name, key } ) => (
+										<Button
+											key={ key }
+											className="amp-size-btn"
+											isSmall
+											isPrimary={ marginType === key }
+											aria-pressed={ marginType === key }
+											onClick={ () => setAttributes( { marginType: key } ) }
+										>
+											{ name }
+										</Button>
+									) ) }
+								</ButtonGroup>
+								<RangeControl
+									label={ __( 'Bottom Margin' ) }
+									//value={ ( undefined !== bottomMargin ? bottomMargin : '' ) }
+									value={btns[indexcountamp].bottomMargin}
+									//onChange={ ( value ) => setAttributes( { bottomMargin: value } ) }
+									onChange={ ( value ) =>{ this.saveArrayUpdate({ bottomMargin: value }, indexcountamp);} }
+									min={ marginMin }
+									max={ marginMax }
+									step={ marginStep }
+								/>
+							</PanelBody>
+						) }
 								</Fragment>
 							</InspectorControls>
 							<InspectorAdvancedControls>

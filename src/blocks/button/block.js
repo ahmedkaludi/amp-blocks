@@ -110,6 +110,12 @@ registerBlockType( 'amp/advancedbtn', {
 				responsivePaddingLR: [ '', '' ],
 				boxShadow: [ false, '#000000', 0.2, 1, 1, 2, 0, false ],
 				boxShadowHover: [ false, '#000000', 0.4, 2, 2, 3, 0, false ],
+				topMargin: 10,
+				bottomMargin: 10,
+				marginType: {
+					type: 'string',
+					default: 'px',
+				},
 			} ],
 		},
 		letterSpacing: {
@@ -163,6 +169,7 @@ registerBlockType( 'amp/advancedbtn', {
 	edit,
 	save: props => {
 		const { attributes: { btnCount, btns, hAlign, uniqueID, letterSpacing, forceFullwidth, thAlign, mhAlign } } = props;
+		
 		const renderSaveBtns = ( index ) => {
 			let relAttr;
 			if ( '_blank' === btns[ index ].target && true === btns[ index ].noFollow ) {
@@ -186,6 +193,8 @@ registerBlockType( 'amp/advancedbtn', {
 						borderRadius: ( undefined !== btns[ index ].borderRadius && '' !== btns[ index ].borderRadius ? btns[ index ].borderRadius + 'px' : undefined ),
 						borderWidth: ( undefined !== btns[ index ].borderWidth && '' !== btns[ index ].borderWidth ? btns[ index ].borderWidth + 'px' : undefined ),
 						letterSpacing: ( undefined !== letterSpacing && '' !== letterSpacing ? letterSpacing + 'px' : undefined ),
+						marginTop: btns[index].topMargin + 'px',
+						marginBottom: btns[index].bottomMargin + 'px',
 					} } >
 						{ btns[ index ].icon && 'left' === btns[ index ].iconSide && (
 							<GenIcon className={ `b-svg-icon b-svg-icon-${ btns[ index ].icon } b-side-${ btns[ index ].iconSide }` } name={ btns[ index ].icon } size={ ( ! btns[ index ].size ? '14' : btns[ index ].size ) } icon={ ( 'fa' === btns[ index ].icon.substring( 0, 2 ) ? FaIco[ btns[ index ].icon ] : Ico[ btns[ index ].icon ] ) } />
