@@ -187,7 +187,7 @@
 	left: 0;
 }
 
-.cr .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"] > .editor-block-list__block-edit > .amp-column > .amp-c-inner > .editor-inner-blocks > .editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit:before {
+.cr .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"] > .editor-block-list__block-edit > .cd > .amp-c-inner > .editor-inner-blocks > .editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit:before {
 	left: -5px;
 	right: -5px;
 }

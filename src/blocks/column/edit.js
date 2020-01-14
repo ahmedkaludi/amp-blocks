@@ -585,12 +585,12 @@ class AmpColumn extends Component {
 		const borderString = ( border ? hexToRGBA( border, borderOpacity ) : 'transparent' );
 		const hasChildBlocks = wp.data.select( 'core/block-editor' ).getBlockOrder( clientId ).length > 0;
 		return (
-			<div className={ `amp-column c c-${ id } amp-column-${ uniqueID }` }>
+			<div className={ `cd c c-${ id } cd-${ uniqueID }` }>
 				{ ( textColor || linkColor || linkHoverColor ) && (
 					<style>
-						{ ( textColor ? `.amp-column-${ uniqueID }, .amp-column-${ uniqueID } p, .amp-column-${ uniqueID } h1, .amp-column-${ uniqueID } h2, .amp-column-${ uniqueID } h3, .amp-column-${ uniqueID } h4, .amp-column-${ uniqueID } h5, .amp-column-${ uniqueID } h6 { color: ${ textColor }; }` : '' ) }
-						{ ( linkColor ? `.amp-column-${ uniqueID } a { color: ${ linkColor }; }` : '' ) }
-						{ ( linkHoverColor ? `.amp-column-${ uniqueID } a:hover { color: ${ linkHoverColor }; }` : '' ) }
+						{ ( textColor ? `.cd-${ uniqueID }, .cd-${ uniqueID } p, .cd-${ uniqueID } h1, .cd-${ uniqueID } h2, .cd-${ uniqueID } h3, .cd-${ uniqueID } h4, .cd-${ uniqueID } h5, .cd-${ uniqueID } h6 { color: ${ textColor }; }` : '' ) }
+						{ ( linkColor ? `.cd-${ uniqueID } a { color: ${ linkColor }; }` : '' ) }
+						{ ( linkHoverColor ? `.cd-${ uniqueID } a:hover { color: ${ linkHoverColor }; }` : '' ) }
 					</style>
 				) }
 				{ this.showSettings( 'allSettings' ) && (

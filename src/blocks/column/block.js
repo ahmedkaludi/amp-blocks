@@ -239,7 +239,7 @@ registerBlockType( 'amp/column', {
 		const bgImg = ( backgroundImg && backgroundImg[0] && backgroundImg[0].bgImg ? backgroundImg[0].bgImg : '' );
 		const backgroundString = ( background && '' === bgImg ? hexToRGBA( background, backgroundOpacity ) : undefined );
 		return (
-			<div className={ `c c-${ id } amp-column${ uniqueID }` }>
+			<div className={ `c c-${ id } cd${ uniqueID }` }>
 				<div className={ 'ci' } style={ {
 					background: backgroundString,
 				} }>

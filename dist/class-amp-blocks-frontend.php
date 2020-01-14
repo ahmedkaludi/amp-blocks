@@ -743,7 +743,7 @@ class Amp_Blocks_Frontend
 			$unique_id = rand(100, 10000);
 			$pos = strpos($content, 'c-');
 			if (false !== $pos) {
-				$content = substr_replace($content, 'amp-column' . $unique_id . ' c-', $pos, strlen('c-'));
+				$content = substr_replace($content, 'cd' . $unique_id . ' c-', $pos, strlen('c-'));
 			}
 		}
 		$style_id = 'amp-blocks' . esc_attr($unique_id);
@@ -813,7 +813,7 @@ class Amp_Blocks_Frontend
 	{
 		$css = '';
 		if (isset($attr['topPadding']) || isset($attr['bottomPadding']) || isset($attr['leftPadding']) || isset($attr['rightPadding']) || isset($attr['topMargin']) || isset($attr['bottomMargin']) || isset($attr['rightMargin']) || isset($attr['leftMargin']) || isset($attr['border']) || isset($attr['borderWidth'])) {
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' > .ci {';
 			if (isset($attr['topPadding'])) {
 				$css .= 'padding-top:' . $attr['topPadding'] . 'px;';
 			}
@@ -855,7 +855,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['backgroundImg']) && is_array($attr['backgroundImg']) && isset($attr['backgroundImg'][0]) && is_array($attr['backgroundImg'][0]) && isset($attr['backgroundImg'][0]['bgImg']) && !empty($attr['backgroundImg'][0]['bgImg'])) {
 			$bg_img = $attr['backgroundImg'][0];
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' > .ci {';
 			if (isset($attr['background']) && !empty($attr['background'])) {
 				$alpha = (isset($attr['backgroundOpacity']) && !empty($attr['backgroundOpacity']) ? $attr['backgroundOpacity'] : 1);
 				$css .= 'background-color:' . $this->hex2rgba($attr['background'], $alpha) . ';';
@@ -868,41 +868,41 @@ class Amp_Blocks_Frontend
 			$css .= '}';
 		}
 		if (isset($attr['textAlign']) && is_array($attr['textAlign']) && isset($attr['textAlign'][0]) && !empty($attr['textAlign'][0])) {
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' {';
 			$css .= 'text-align:' . $attr['textAlign'][0] . ';';
 			$css .= '}';
 		}
 		if (isset($attr['textColor'])) {
-			$css .= '.amp-column' . $unique_id . ', .amp-column' . $unique_id . ' h1, .amp-column' . $unique_id . ' h2, .amp-column' . $unique_id . ' h3, .amp-column' . $unique_id . ' h4, .amp-column' . $unique_id . ' h5, .amp-column' . $unique_id . ' h6 {';
+			$css .= '.cd' . $unique_id . ', .cd' . $unique_id . ' h1, .cd' . $unique_id . ' h2, .cd' . $unique_id . ' h3, .cd' . $unique_id . ' h4, .cd' . $unique_id . ' h5, .cd' . $unique_id . ' h6 {';
 			$css .= 'color:' . $attr['textColor'] . ';';
 			$css .= '}';
 		}
 		if (isset($attr['linkColor'])) {
-			$css .= '.amp-column' . $unique_id . ' a {';
+			$css .= '.cd' . $unique_id . ' a {';
 			$css .= 'color:' . $attr['linkColor'] . ';';
 			$css .= '}';
 		}
 		if (isset($attr['linkHoverColor'])) {
-			$css .= '.amp-column' . $unique_id . ' a:hover {';
+			$css .= '.cd' . $unique_id . ' a:hover {';
 			$css .= 'color:' . $attr['linkHoverColor'] . ';';
 			$css .= '}';
 		}
 		if (isset($attr['textAlign']) && is_array($attr['textAlign']) && isset($attr['textAlign'][1]) && !empty($attr['textAlign'][1])) {
 			$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' {';
 			$css .= 'text-align:' . $attr['textAlign'][1] . ';';
 			$css .= '}';
 			$css .= '}'; 
 		}
 		if (isset($attr['textAlign']) && is_array($attr['textAlign']) && isset($attr['textAlign'][2]) && !empty($attr['textAlign'][2])) {
 			$css .= '@media (max-width: 767px) {';
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' {';
 			$css .= 'text-align:' . $attr['textAlign'][2] . ';';
 			$css .= '}';
 			$css .= '}';
 		}
 		if (isset($attr['zIndex'])) {
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' {';
 			if (isset($attr['zIndex'])) {
 				$css .= 'z-index:' . $attr['zIndex'] . ';';
 			}
@@ -910,14 +910,14 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['collapseOrder'])) {
 			$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-			$css .= '.cw.tlthree-grid > .amp-column' . $unique_id . ', .cw.tltwo-grid > .amp-column' . $unique_id . ', .cw.tlrow > .amp-column' . $unique_id . ' {';
+			$css .= '.cw.tlthree-grid > .cd' . $unique_id . ', .cw.tltwo-grid > .cd' . $unique_id . ', .cw.tlrow > .cd' . $unique_id . ' {';
 			if (isset($attr['collapseOrder'])) {
 				$css .= 'order:' . $attr['collapseOrder'] . ';';
 			}
 			$css .= '}';
 			$css .= '}';
 			$css .= '@media (max-width: 767px) {';
-			$css .= '.cw.mthree-grid > .amp-column' . $unique_id . ', .cw.mtwo-grid > .amp-column' . $unique_id . ', .cw.mrow > .amp-column' . $unique_id . ' {';
+			$css .= '.cw.mthree-grid > .cd' . $unique_id . ', .cw.mtwo-grid > .cd' . $unique_id . ', .cw.mrow > .cd' . $unique_id . ' {';
 			if (isset($attr['collapseOrder'])) {
 				$css .= 'order:' . $attr['collapseOrder'] . ';';
 			}
@@ -926,7 +926,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['topPaddingT']) || isset($attr['bottomPaddingT']) || isset($attr['leftPaddingT']) || isset($attr['rightPaddingT']) || isset($attr['topMarginT']) || isset($attr['bottomMarginT']) || isset($attr['rightMarginT']) || isset($attr['leftMarginT'])) {
 			$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' > .ci {';
 			if (isset($attr['topPaddingT'])) {
 				$css .= 'padding-top:' . $attr['topPaddingT'] . 'px;';
 			}
@@ -956,7 +956,7 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['topPaddingM']) || isset($attr['bottomPaddingM']) || isset($attr['leftPaddingM']) || isset($attr['rightPaddingM']) || isset($attr['topMarginM']) || isset($attr['bottomMarginM']) || isset($attr['rightMarginM']) || isset($attr['leftMarginM'])) {
 			$css .= '@media (max-width: 767px) {';
-			$css .= '.ab > .cw > .amp-column' . $unique_id . ' > .ci {';
+			$css .= '.ab > .cw > .cd' . $unique_id . ' > .ci {';
 			if (isset($attr['topPaddingM'])) {
 				$css .= 'padding-top:' . $attr['topPaddingM'] . 'px;';
 			}
