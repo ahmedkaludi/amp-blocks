@@ -26,19 +26,18 @@ registerBlockType('ampblocks/image', {
 	category: 'amp-blocks', // Block category
 	keywords: [ //Keywords
 		__('photo'),
-		__('image')
+		__('image'),
+		__('pic'),
 	],
 	attributes: { //Attributes
-		width: { //image array
+		width: { 
 			type: 'number',
-			// default: "10"
 		},
-		height: { //image array
+		height: {
 			type: 'number',
-			// default: "10"
 		},
-		image: { //image array
-			type: 'json',
+		imageurl: { 
+			type: 'string',
 		},
 	},
 	/**
@@ -60,13 +59,13 @@ registerBlockType('ampblocks/image', {
 	 */
 	save({ attributes }) {
 		// console.log(attributes);
-		const { width, height, image } = attributes;
-		let displayimage = (image) => {
+		const { width, height, imageurl } = attributes;
+		let displayimage = (imageurl) => {
 			//Loops throug the image
-			if (typeof image !== 'undefined') {
+			if (typeof imageurl !== 'undefined') {
 				return (
 					<div className="imc">
-						<img className='im-t' width={width} height={height} src={image.url} />
+						<img className='im-t' width={width} height={height} src={imageurl} />
 					</div>
 				)
 			} else {
@@ -75,7 +74,7 @@ registerBlockType('ampblocks/image', {
 		};
 		return (
 			<div className="imw">
-				{displayimage(image)}
+				{displayimage(imageurl)}
 			</div>
 		)
 	},

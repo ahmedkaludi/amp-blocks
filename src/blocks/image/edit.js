@@ -24,17 +24,17 @@ class ampImage extends Component {
 	constructor() {
 		super(...arguments);
 		this.state = {
-			hideShowUploadButton: arguments[0].attributes.image ? false : true,
+			hideShowUploadButton: arguments[0].attributes.imageurl ? false : true,
 		};
 	}
 	render() {
 		const { attributes, setAttributes, toggleSelection } = this.props;
-		const { width, height, image, imageSource } = attributes;
+		const { width, height, imageurl, imageSource } = attributes;
 		const currentWidth = width || 20;
 		const currentHeight = height || 20;
-		let displayimage = (image) => {
+		let displayimage = (imageurl) => {
 			//Loops throug the image
-			if (typeof image !== 'undefined') {
+			if (typeof imageurl !== 'undefined') {
 				return (
 					<ResizableBox
 						size={{
@@ -71,7 +71,7 @@ class ampImage extends Component {
 						}}
 					>
 						<div className="imc">
-							<img width={width} height={height} className='im-t' src={image.url} />
+							<img width={width} height={height} className='im-t' src={imageurl} />
 						</div>
 					</ResizableBox>
 				)
@@ -82,7 +82,7 @@ class ampImage extends Component {
 		return (
 			<Fragment>
 				<div className="image-grid">
-					{displayimage(image)}
+					{displayimage(imageurl)}
 				</div>
 				<InspectorControls> {/* For left panel controls */}
 					<PanelBody title={__('image URL')}>
@@ -121,7 +121,7 @@ class ampImage extends Component {
 					<TextControl
 						label={__('Please Enter URL', 'amp-blocks')}
 						onChange={(value) => {
-							setAttributes({ image: value });
+							setAttributes({ imageurl: value.url });
 							this.setState({ hideShowUploadButton: false })
 						}}
 					/>
@@ -129,9 +129,9 @@ class ampImage extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => { setAttributes({ width: (media.width < 700)? media.width :700 , height:(media.height < 700)? media.width :700 , image: media }); this.setState({ hideShowUploadButton: false }) }}
+						onSelect={(media) => {setAttributes({ width: (media.width < 700)? media.width :700 , height:(media.height < 700)? media.width :700 , imageurl: media.url}); this.setState({ hideShowUploadButton: false }) }}
 						allowedTypes={'image'}
-						value={image}
+						value={imageurl}
 						render={({ open }) => (
 							<Button className="select-image-button is-button is-default is-large" onClick={open}>
 								Add image
