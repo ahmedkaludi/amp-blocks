@@ -186,7 +186,7 @@ class AmpRowLayoutSave extends Component {
 		const hasBG = ( bgColor || bgImg || overlay || overlayBgImg ? 'rb' : '' );
 		const overlayType = ( ! currentOverlayTab || 'grad' !== currentOverlayTab ? 'normal' : 'gradient' );
 		const classes = classnames( `cr align${ ( blockAlignment ? blockAlignment : 'none' ) }` );
-		const innerClasses = classnames( `ab ${ hasBG } amp-layout-id${ classId }` );
+		const innerClasses = classnames( `ab ${ hasBG } ri${ classId }` );
 		const innerColumnClasses = classnames( `cw ab${ columns } amp-gutter-${ columnGutter } gv${ ( collapseGutter ? collapseGutter : 'default' ) } rv${ verticalAlignment } rl${ layoutClass } tl${ tabLayoutClass } amp-m-colapse-${ collapseOrder } m${ mobileLayoutClass }${ firstColumnClass }${ secondColumnClass }${ thirdColumnClass }${ ( undefined !== columnsInnerHeight && true === columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		const renderSliderImages = ( index ) => {
 			let bgSlider;
@@ -306,7 +306,7 @@ class AmpRowLayoutSave extends Component {
 		};
 		return (
 			<HtmlTagOut className={ classes }>
-				<div id={ `amp-layout-id${ uniqueID }` } className={ innerClasses } style={ {
+				<div id={ `ri${ uniqueID }` } className={ innerClasses } style={ {
 					backgroundImage: ( 'slider' !== backgroundSettingTab && 'video' !== backgroundSettingTab && backgroundInline && undefined !== bgImg && '' !== bgImg ? 'url(' + bgImg + ')' : undefined ),
 				} }>
 					{ ( 'slider' === backgroundSettingTab ) && (

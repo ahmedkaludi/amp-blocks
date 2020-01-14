@@ -3342,20 +3342,20 @@ class AmpRowLayout extends Component {
 				) }
 				{ ( textColor || linkColor || linkHoverColor || columns ) && (
 					<style>
-						{ ( textColor ? `#amp-layout-id${ uniqueID }, #amp-layout-id${ uniqueID } p, #amp-layout-id${ uniqueID } h1, #amp-layout-id${ uniqueID } h2, #amp-layout-id${ uniqueID } h3, #amp-layout-id${ uniqueID } h4, #amp-layout-id${ uniqueID } h5, #amp-layout-id${ uniqueID } h6 { color: ${ textColor }; }` : '' ) }
-						{ ( linkColor ? `#amp-layout-id${ uniqueID } a { color: ${ linkColor }; }` : '' ) }
-						{ ( linkHoverColor ? `#amp-layout-id${ uniqueID } a:hover { color: ${ linkHoverColor }; }` : '' ) }
+						{ ( textColor ? `#ri${ uniqueID }, #ri${ uniqueID } p, #ri${ uniqueID } h1, #ri${ uniqueID } h2, #ri${ uniqueID } h3, #ri${ uniqueID } h4, #ri${ uniqueID } h5, #ri${ uniqueID } h6 { color: ${ textColor }; }` : '' ) }
+						{ ( linkColor ? `#ri${ uniqueID } a { color: ${ linkColor }; }` : '' ) }
+						{ ( linkHoverColor ? `#ri${ uniqueID } a:hover { color: ${ linkHoverColor }; }` : '' ) }
 						{ columns && columns === 2 && (
 							<Fragment>
-								{ ( firstColumnWidth || temporaryColumnWidth ? `#amp-layout-id${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${ parseFloat( widthString ) }%; }` : '' ) }
-								{ ( secondColumnWidth || temporarySecondColumnWidth ? `#amp-layout-id${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${ parseFloat( secondWidthString ) }%; }` : '' ) }
+								{ ( firstColumnWidth || temporaryColumnWidth ? `#ri${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${ parseFloat( widthString ) }%; }` : '' ) }
+								{ ( secondColumnWidth || temporarySecondColumnWidth ? `#ri${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${ parseFloat( secondWidthString ) }%; }` : '' ) }
 							</Fragment>
 						) }
 						{ columns && columns === 3 && (
 							<Fragment>
-								{ ( firstColumnWidth || temporaryColumnWidth ? `#amp-layout-id${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${ parseFloat( widthString ) }%; }` : '' ) }
-								{ ( secondColumnWidth || temporarySecondColumnWidth ? `#amp-layout-id${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${ parseFloat( secondWidthString ) }%; }` : '' ) }
-								{ ( secondColumnWidth || temporarySecondColumnWidth ? `#amp-layout-id${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(3) { flex: 0 1 ${ parseFloat( thirdWidthString ) }%; }` : '' ) }
+								{ ( firstColumnWidth || temporaryColumnWidth ? `#ri${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${ parseFloat( widthString ) }%; }` : '' ) }
+								{ ( secondColumnWidth || temporarySecondColumnWidth ? `#ri${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${ parseFloat( secondWidthString ) }%; }` : '' ) }
+								{ ( secondColumnWidth || temporarySecondColumnWidth ? `#ri${ uniqueID } > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(3) { flex: 0 1 ${ parseFloat( thirdWidthString ) }%; }` : '' ) }
 							</Fragment>
 						) }
 					</style>
@@ -3512,7 +3512,7 @@ class AmpRowLayout extends Component {
 						</ResizableBox>
 					) }
 					{ colLayout && (
-						<div className="innerblocks-wrap" id={ `amp-layout-id${ uniqueID }` } style={ {
+						<div className="innerblocks-wrap" id={ `ri${ uniqueID }` } style={ {
 							maxWidth: maxWidth + maxWidthUnit,
 							paddingLeft: leftPadding + 'px',
 							paddingRight: rightPadding + 'px',
