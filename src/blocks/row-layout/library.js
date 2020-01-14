@@ -22,22 +22,7 @@ const { compose } = wp.compose;
 import LazyLoad from 'react-lazy-load';
 
 const axios = require( 'axios' );
-let blockdata = {
-	'rootpath': 'https:\/\/raw.githubusercontent.com\/jasthilokesh\/sampletest\/master\/template\/',
-	'category': {
-		'CTA': [
-			'Design1',
-			'Design2',
-		],
-		'Button': [
-			'Design1',
-			'Design2',
-		],
-		'Testimonial': [
-			'Design1',
-		],
-	},
-};
+let blockdata = '';
 axios.get( 'https://raw.githubusercontent.com/jasthilokesh/sampletest/master/root.json' )
 	.then( response => {
 		blockdata = response.data;
