@@ -2126,6 +2126,10 @@ button.components-button.components-icon-button.amp-font-clear-btn {
   text-align: center;
   line-height: 40px;
   margin-top: -20px; }
+
+@media (max-width: 980px) {
+  img {
+    max-width: 100%; } }
 /**
  * #.# Common SCSS
  *

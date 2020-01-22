@@ -92,7 +92,9 @@ class ampImage extends Component {
 						className={'ih'}
 						onResize={(event, direction, elt, delta) => {
 							event.preventDefault();
-							document.getElementById('lcw' + uniqueID).innerHTML = currentWidth + delta.width + 'px';
+							let newwidth = currentWidth + delta.width ;
+							let widthinpercentage = Math.round( newwidth/maxwidth*100);
+							document.getElementById('lcw' + uniqueID).innerHTML = newwidth+ 'px  ' + widthinpercentage + "%";
 							document.getElementById('lcw' + uniqueID).style.opacity = 1;
 						}}
 						onResizeStop={(event, direction, elt, delta) => {

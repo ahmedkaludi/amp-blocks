@@ -1048,6 +1048,15 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+@media (max-width: 980px) {
+  img {
+    max-width: 100% !important; } }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 /**
  * #.# Styles
  *

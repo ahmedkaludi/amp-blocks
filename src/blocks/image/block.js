@@ -5,6 +5,7 @@
  * Simple block, renders and saves the same content without any interactivity.
  */
 import edit from './edit';
+import './style.scss';
 import './editor.scss';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
@@ -74,14 +75,14 @@ registerBlockType('ampblocks/image', {
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
 				let stylecontent = {};
-				if (borderRadius != 0) {
+				if (typeof borderRadius !== 'undefined' && borderRadius != 0) {
 					stylecontent['borderRadius'] = borderRadius + '%';
 				}
-				if (maxwidth < width) {
+				if (typeof width !== 'undefined' && maxwidth < width) {
 					stylecontent['maxWidth'] = width + 'px';
 					stylecontent['minHeight'] = height + 'px';
 				}
-				if (maxheight < height) {
+				if (typeof height !== 'undefined' && maxheight < height) {
 					stylecontent['minHeight'] = height + 'px';
 				}
 				return (

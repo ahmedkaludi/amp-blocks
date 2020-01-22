@@ -3389,7 +3389,8 @@ class Amp_Blocks_Frontend
 		}
 		// Lets register all the block styles.
 		wp_register_style( 'amp-blocks-btn', AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css', array(), AMP_BLOCKS_VERSION );
-		wp_register_style('amp-blocks-rowlayout', AMP_BLOCKS_DIR_URI . 'dist/blocks/row.style.build.css', array(), AMP_BLOCKS_VERSION);
+		//wp_register_style('amp-blocks-rowlayout', AMP_BLOCKS_DIR_URI . 'dist/blocks/row.style.build.css', array(), AMP_BLOCKS_VERSION);
+		wp_register_style('amp-blocks-rowlayout', AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css', array(), AMP_BLOCKS_VERSION);
 	}
 
 
@@ -3401,6 +3402,7 @@ class Amp_Blocks_Frontend
 		if (self::$ampcheck == 'amp'){
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/row.style.build.css');
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css');
+			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css');
 		}
 		if (function_exists('has_blocks') && has_blocks(get_the_ID())) {
 			global $post;
