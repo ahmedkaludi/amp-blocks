@@ -94,8 +94,10 @@ class ampImage extends Component {
 							event.preventDefault();
 							let newwidth = currentWidth + delta.width ;
 							let widthinpercentage = Math.round( newwidth/maxwidth*100);
-							document.getElementById('lcw' + uniqueID).innerHTML = newwidth+ 'px  ' + widthinpercentage + "%";
+							document.getElementById('lcw' + uniqueID).innerHTML = newwidth+ 'px'
 							document.getElementById('lcw' + uniqueID).style.opacity = 1;
+							document.getElementById('rcw' + uniqueID).innerHTML = widthinpercentage + "%";
+							document.getElementById('rcw' + uniqueID).style.opacity = 1;
 						}}
 						onResizeStop={(event, direction, elt, delta) => {
 							setAttributes({
@@ -104,6 +106,7 @@ class ampImage extends Component {
 							});
 							toggleSelection(true);
 							document.getElementById('lcw' + uniqueID).style.opacity = 0;
+							document.getElementById('rcw' + uniqueID).style.opacity = 0;
 						}}
 						onResizeStart={() => {
 							toggleSelection(false);
@@ -114,6 +117,10 @@ class ampImage extends Component {
 						</div>
 						<span id={`lcw` + uniqueID}
 							className="left-column-width-size lcw">
+							{(!currentWidth ? width : currentWidth + 'px')}
+						</span>
+						<span id={`rcw` + uniqueID}
+							className="right-column-width-size lcw">
 							{(!currentWidth ? width : currentWidth + 'px')}
 						</span>
 					</ResizableBox>
