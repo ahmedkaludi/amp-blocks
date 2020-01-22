@@ -54,10 +54,22 @@ class ampImage extends Component {
 			containerHeight: this.container && this.container.clientHeight,
 		};
 		const { attributes, setAttributes, toggleSelection } = this.props;
-		const { width, height, borderRadius, imageurl, imageSource, uniqueID } = attributes;
+		const { width, maxwidth, height, maxheight, borderRadius, imageurl, imageSource, uniqueID } = attributes;
 		const currentWidth = width || sizes.containerWidth;
 		const currentHeight = height || sizes.containerHeight;
 		let displayimage = (imageurl) => {
+			let stylecontent = {};
+			if (borderRadius != 0) {
+				stylecontent['borderRadius'] = borderRadius + '%';
+			}
+			if (maxwidth < width) {
+				stylecontent['maxWidth'] = width + 'px';
+			}
+			stylecontent['width'] = width + 'px';
+			if (maxheight < height) {
+				stylecontent['minHeight'] = height + 'px';
+			}
+			stylecontent['height'] = height + 'px';
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
 				return (
@@ -96,7 +108,7 @@ class ampImage extends Component {
 						}}
 					>
 						<div className="imc" ref={this.bindContainer}>
-							<img className='im-t' src={imageurl} style={{ borderRadius: (undefined !== borderRadius ? borderRadius + '%' : undefined)}}/>
+							<img className='im-t' src={imageurl} style={stylecontent} />
 						</div>
 						<span id={`lcw` + uniqueID}
 							className="left-column-width-size lcw">
@@ -135,21 +147,21 @@ class ampImage extends Component {
 							value={(typeof width !== 'undefined' ? width : '')}
 							onChange={(value) => { setAttributes({ width: value }); }}
 							min={0}
-							max={1000}
+							max={1500}
 						/>
 						<RangeControl
 							label={__('Height')}
 							value={(typeof height !== 'undefined' ? height : '')}
 							onChange={(value) => { setAttributes({ height: value }); }}
 							min={0}
-							max={1000}
+							max={1500}
 						/>
 						<RangeControl
 							label={__('Border Radius', 'amp-blocks')}
 							value={borderRadius}
 							onChange={(value) => { setAttributes({ borderRadius: value }); }}
 							min={0}
-							max={50}
+							max={100}
 						/>
 					</PanelBody>
 				</InspectorControls>
@@ -165,7 +177,7 @@ class ampImage extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => { setAttributes({ imageurl: media.url }); this.setState({ hideShowUploadButton: false }) }}
+						onSelect={(media) => { setAttributes({ imageurl: media.url,maxwidth: media.width }); this.setState({ hideShowUploadButton: false }) }}
 						allowedTypes={'image'}
 						value={imageurl}
 						render={({ open }) => (
