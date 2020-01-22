@@ -5,6 +5,7 @@
  * Simple block, renders and saves the same content without any interactivity.
  */
 import edit from './edit';
+import './editor.scss';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 /**
@@ -58,7 +59,6 @@ registerBlockType('ampblocks/image', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save({ attributes }) {
-		// console.log(attributes);
 		const { width, height, imageurl } = attributes;
 		let displayimage = (imageurl) => {
 			//Loops throug the image

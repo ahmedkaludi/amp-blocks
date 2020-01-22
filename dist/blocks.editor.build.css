@@ -1218,14 +1218,22 @@ button.components-button.amp-pre-sidebar-image {
   display: none; }
 
 [data-type="amp/column"] .editor-block-list__insertion-point {
-display: none;
- }
+  position: absolute;
+  width: 29px;
+  margin: auto; }
 
 [data-type="amp/rowlayout"] [data-type="amp/column"] .wp-block + .block-list-appender {
-  display: none; 
- }
+  width: 0px;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  margin-top: -27px; }
 
+[data-type="amp/rowlayout"] .block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+  padding: 0px; }
 
+.entry-title {
+  display: block; }
 
 .wp-block.is-hovered[data-type="amp/rowlayout"] .amp-resizeable-column-container .components-button.amp-fluid-grid-btn.is-button {
   opacity: 1;
@@ -2092,6 +2100,32 @@ button.components-button.components-icon-button.amp-font-clear-btn {
 .bp.amp-force-btn-fullwidth .b {
   -ms-flex-pack: center;
       justify-content: center; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.ih {
+  border: 2px solid transparent;
+  position: relative; }
+
+.ih:hover {
+  border: 2px dotted gray; }
+
+.lcw {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  width: 70px;
+  height: 40px;
+  color: #222;
+  text-align: center;
+  line-height: 40px;
+  margin-top: -20px; }
 /**
  * #.# Common SCSS
  *

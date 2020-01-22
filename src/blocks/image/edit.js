@@ -20,18 +20,43 @@ const {
 	TextControl,
 	RangeControl,
 } = wp.components;
+const rowUniqueIDs = [];
 class ampImage extends Component {
 	constructor() {
 		super(...arguments);
 		this.state = {
 			hideShowUploadButton: arguments[0].attributes.imageurl ? false : true,
 		};
+		this.bindContainer = this.bindContainer.bind( this );
+	}
+	bindContainer( ref ) {
+		this.container = ref;
+	}
+	componentDidMount() {
+		if (! this.props.attributes.uniqueID) {
+			this.props.setAttributes( {
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
+			} );
+			rowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
+		} else if (rowUniqueIDs.includes( this.props.attributes.uniqueID )) {
+			this.props.attributes.uniqueID = '_' + this.props.clientId.substr( 2, 3 );
+			this.props.setAttributes( {
+				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
+			} );
+			rowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
+		} else {
+			rowUniqueIDs.push( this.props.attributes.uniqueID );
+		}
 	}
 	render() {
+		const sizes = {
+			containerWidth: this.container && this.container.clientWidth,
+			containerHeight: this.container && this.container.clientHeight,
+		};
 		const { attributes, setAttributes, toggleSelection } = this.props;
-		const { width, height, imageurl, imageSource } = attributes;
-		const currentWidth = width || 20;
-		const currentHeight = height || 20;
+		const { width, height, imageurl, imageSource,uniqueID } = attributes;
+		const currentWidth = width || sizes.containerWidth;
+		const currentHeight = height || sizes.containerHeight;
 		let displayimage = (imageurl) => {
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
@@ -42,22 +67,21 @@ class ampImage extends Component {
 							width,
 						}}
 						handleClasses={{
-							top: 'cr-handler-top',
-							bottom: 'cr-handler-bottom',
+							top: 'iht',
+							bottom: 'ihb',
 						}}
+						lockAspectRatio
 						enable={{
-							top: false,
+							top: true,
 							right: true,
 							bottom: true,
-							left: false,
-							topRight: false,
-							bottomRight: false,
-							bottomLeft: false,
-							topLeft: false,
+							left: true,
 						}}
-						className={'components-resizable-box__container'}
+						className={'ih'}
 						onResize={(event, direction, elt, delta) => {
 							event.preventDefault();
+							document.getElementById( 'lcw' + uniqueID ).innerHTML = currentWidth+delta.width + 'px';
+							document.getElementById( 'lcw' + uniqueID ).style.opacity = 1;
 						}}
 						onResizeStop={(event, direction, elt, delta) => {
 							setAttributes({
@@ -65,14 +89,19 @@ class ampImage extends Component {
 								height: parseInt(currentHeight + delta.height, 10),
 							});
 							toggleSelection(true);
+							document.getElementById( 'lcw' + uniqueID ).style.opacity = 0;
 						}}
 						onResizeStart={() => {
 							toggleSelection(false);
 						}}
 					>
-						<div className="imc">
-							<img width={width} height={height} className='im-t' src={imageurl} />
+						<div className="imc" ref={ this.bindContainer }>
+							<img className='im-t' src={imageurl} />
 						</div>
+						<span id={`lcw`+uniqueID}
+							className="left-column-width-size lcw">
+							{(!currentWidth ? width : currentWidth + 'px')}
+						</span>
 					</ResizableBox>
 				)
 			} else {
@@ -103,14 +132,14 @@ class ampImage extends Component {
 					<PanelBody title={__('Image Size')}>
 						<RangeControl
 							label={__('Width')}
-							value={(typeof width !== 'undefined' ? width : 50)}
+							value={(typeof width !== 'undefined' ? width : '')}
 							onChange={(value) => { setAttributes({ width: value }); }}
 							min={0}
 							max={1000}
 						/>
 						<RangeControl
 							label={__('Height')}
-							value={(typeof height !== 'undefined' ? height : 50)}
+							value={(typeof height !== 'undefined' ? height : '')}
 							onChange={(value) => { setAttributes({ height: value }); }}
 							min={0}
 							max={1000}
@@ -129,7 +158,7 @@ class ampImage extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => {setAttributes({ width: (media.width < 700)? media.width :700 , height:(media.height < 700)? media.width :700 , imageurl: media.url}); this.setState({ hideShowUploadButton: false }) }}
+						onSelect={(media) => { setAttributes({imageurl: media.url }); this.setState({ hideShowUploadButton: false }) }}
 						allowedTypes={'image'}
 						value={imageurl}
 						render={({ open }) => (
