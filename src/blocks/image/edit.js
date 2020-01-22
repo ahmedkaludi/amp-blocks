@@ -27,25 +27,25 @@ class ampImage extends Component {
 		this.state = {
 			hideShowUploadButton: arguments[0].attributes.imageurl ? false : true,
 		};
-		this.bindContainer = this.bindContainer.bind( this );
+		this.bindContainer = this.bindContainer.bind(this);
 	}
-	bindContainer( ref ) {
+	bindContainer(ref) {
 		this.container = ref;
 	}
 	componentDidMount() {
-		if (! this.props.attributes.uniqueID) {
-			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
-			} );
-			rowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
-		} else if (rowUniqueIDs.includes( this.props.attributes.uniqueID )) {
-			this.props.attributes.uniqueID = '_' + this.props.clientId.substr( 2, 3 );
-			this.props.setAttributes( {
-				uniqueID: '_' + this.props.clientId.substr( 2, 3 ),
-			} );
-			rowUniqueIDs.push( '_' + this.props.clientId.substr( 2, 3 ) );
+		if (!this.props.attributes.uniqueID) {
+			this.props.setAttributes({
+				uniqueID: '_' + this.props.clientId.substr(2, 3),
+			});
+			rowUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
+		} else if (rowUniqueIDs.includes(this.props.attributes.uniqueID)) {
+			this.props.attributes.uniqueID = '_' + this.props.clientId.substr(2, 3);
+			this.props.setAttributes({
+				uniqueID: '_' + this.props.clientId.substr(2, 3),
+			});
+			rowUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
 		} else {
-			rowUniqueIDs.push( this.props.attributes.uniqueID );
+			rowUniqueIDs.push(this.props.attributes.uniqueID);
 		}
 	}
 	render() {
@@ -54,7 +54,7 @@ class ampImage extends Component {
 			containerHeight: this.container && this.container.clientHeight,
 		};
 		const { attributes, setAttributes, toggleSelection } = this.props;
-		const { width, height, imageurl, imageSource,uniqueID } = attributes;
+		const { width, height, borderRadius, imageurl, imageSource, uniqueID } = attributes;
 		const currentWidth = width || sizes.containerWidth;
 		const currentHeight = height || sizes.containerHeight;
 		let displayimage = (imageurl) => {
@@ -80,8 +80,8 @@ class ampImage extends Component {
 						className={'ih'}
 						onResize={(event, direction, elt, delta) => {
 							event.preventDefault();
-							document.getElementById( 'lcw' + uniqueID ).innerHTML = currentWidth+delta.width + 'px';
-							document.getElementById( 'lcw' + uniqueID ).style.opacity = 1;
+							document.getElementById('lcw' + uniqueID).innerHTML = currentWidth + delta.width + 'px';
+							document.getElementById('lcw' + uniqueID).style.opacity = 1;
 						}}
 						onResizeStop={(event, direction, elt, delta) => {
 							setAttributes({
@@ -89,16 +89,16 @@ class ampImage extends Component {
 								height: parseInt(currentHeight + delta.height, 10),
 							});
 							toggleSelection(true);
-							document.getElementById( 'lcw' + uniqueID ).style.opacity = 0;
+							document.getElementById('lcw' + uniqueID).style.opacity = 0;
 						}}
 						onResizeStart={() => {
 							toggleSelection(false);
 						}}
 					>
-						<div className="imc" ref={ this.bindContainer }>
-							<img className='im-t' src={imageurl} />
+						<div className="imc" ref={this.bindContainer}>
+							<img className='im-t' src={imageurl} style={{ borderRadius: (undefined !== borderRadius ? borderRadius + '%' : undefined)}}/>
 						</div>
-						<span id={`lcw`+uniqueID}
+						<span id={`lcw` + uniqueID}
 							className="left-column-width-size lcw">
 							{(!currentWidth ? width : currentWidth + 'px')}
 						</span>
@@ -144,6 +144,13 @@ class ampImage extends Component {
 							min={0}
 							max={1000}
 						/>
+						<RangeControl
+							label={__('Border Radius', 'amp-blocks')}
+							value={borderRadius}
+							onChange={(value) => { setAttributes({ borderRadius: value }); }}
+							min={0}
+							max={50}
+						/>
 					</PanelBody>
 				</InspectorControls>
 				{imageSource && (
@@ -158,7 +165,7 @@ class ampImage extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => { setAttributes({imageurl: media.url }); this.setState({ hideShowUploadButton: false }) }}
+						onSelect={(media) => { setAttributes({ imageurl: media.url }); this.setState({ hideShowUploadButton: false }) }}
 						allowedTypes={'image'}
 						value={imageurl}
 						render={({ open }) => (

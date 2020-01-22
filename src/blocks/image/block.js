@@ -37,6 +37,10 @@ registerBlockType('ampblocks/image', {
 		height: {
 			type: 'number',
 		},
+		borderRadius: {
+			type: 'number',
+			default: 0,
+		},
 		imageurl: { 
 			type: 'string',
 		},
@@ -59,13 +63,17 @@ registerBlockType('ampblocks/image', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save({ attributes }) {
-		const { width, height, imageurl } = attributes;
+		const { width, height, imageurl,borderRadius } = attributes;
 		let displayimage = (imageurl) => {
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
+				let stylecontent ='';
+				if(borderRadius != 0){
+					stylecontent ={borderRadius: borderRadius +'%'};
+				}
 				return (
 					<div className="imc">
-						<img className='im-t' width={width} height={height} src={imageurl} />
+						<img className='im-t' width={width} height={height} src={imageurl}  style={stylecontent}/>
 					</div>
 				)
 			} else {
