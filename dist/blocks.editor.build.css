@@ -1218,22 +1218,14 @@ button.components-button.amp-pre-sidebar-image {
   display: none; }
 
 [data-type="amp/column"] .editor-block-list__insertion-point {
-  position: absolute;
-  width: 29px;
-  margin: auto; }
+display: none;
+ }
 
 [data-type="amp/rowlayout"] [data-type="amp/column"] .wp-block + .block-list-appender {
-  width: 0px;
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  margin-top: -27px; }
+  display: none; 
+ }
 
-[data-type="amp/rowlayout"] .block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
-  padding: 0px; }
 
-.entry-title {
-  display: block; }
 
 .wp-block.is-hovered[data-type="amp/rowlayout"] .amp-resizeable-column-container .components-button.amp-fluid-grid-btn.is-button {
   opacity: 1;

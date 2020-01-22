@@ -106,7 +106,7 @@ class ampImage extends Component {
 							value={(typeof width !== 'undefined' ? width : 50)}
 							onChange={(value) => { setAttributes({ width: value }); }}
 							min={0}
-							max={1400}
+							max={1000}
 						/>
 						<RangeControl
 							label={__('Height')}
