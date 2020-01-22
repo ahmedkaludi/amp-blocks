@@ -1600,9 +1600,7 @@ button.components-button.amp-pre-sidebar-image {
 display: none;
 }
 [data-type="amp/column"]  .editor-block-list__insertion-point{
-  position: absolute;
-  width: 29px;
-  margin: auto;
+  display: none;
 }
 [data-type="amp/rowlayout"] [data-type="amp/column"]  .wp-block+.block-list-appender{
  display: none; 
