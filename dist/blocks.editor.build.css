@@ -850,10 +850,6 @@ button.components-button.amp-pre-sidebar-image {
   bottom: 0;
   top: 0; }
 
-.rb .innerblocks-wrap {
-  padding-left: 15px;
-  padding-right: 15px; }
-
 .editor-block-list__block[data-align="full"] .cr {
   padding-left: 15px;
   padding-right: 15px; }
@@ -1203,8 +1199,8 @@ button.components-button.amp-pre-sidebar-image {
   margin-right: -28px; }
 
 .cr .editor-block-list__layout .editor-block-list__block {
-  padding-left: 43px;
-  padding-right: 43px; }
+  padding-left: 27px;
+  padding-right: 27px; }
 
 [data-type="amp/rowlayout"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
 [data-type="amp/column"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,

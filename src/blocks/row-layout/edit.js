@@ -3527,8 +3527,8 @@ class AmpRowLayout extends Component {
 											<ResizableBox
 												className="editor-row-first-column__resizer"
 												size={ { width: ( ! firstColumnWidth ? widthNumber : firstColumnWidth + '%' ) } }
-												minWidth="10%"
-												maxWidth="90%"
+												minWidth="5%"
+												maxWidth="95%"
 												enable={ {
 													right: true,
 												} }
