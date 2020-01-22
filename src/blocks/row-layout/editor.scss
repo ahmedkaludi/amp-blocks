@@ -1605,11 +1605,7 @@ display: none;
   margin: auto;
 }
 [data-type="amp/rowlayout"] [data-type="amp/column"]  .wp-block+.block-list-appender{
-  width: 0px;
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  margin-top: -27px;
+ display: none; 
 }
 
 [data-type="amp/rowlayout"] .block-editor-default-block-appender textarea.block-editor-default-block-appender__content{
