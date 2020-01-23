@@ -49,6 +49,7 @@ class CustomComponent extends Component {
 				if (typeof clientId === 'undefined') {
 					let pageData = parse( response.data.content );
 					insertBlocks( pageData );
+					wp.element.unmountComponentAtNode( document.getElementById( 'prebuilt_modal_top_button' ) );
 				} else {
 					this.props.import( response.data.content );
 				}
