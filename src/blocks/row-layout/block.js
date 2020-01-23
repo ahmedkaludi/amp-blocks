@@ -54,6 +54,7 @@ registerBlockType( 'amp/rowlayout', {
 	],
 	supports: {
 		anchor: true,
+		align: true,
 		// Add EditorsKit block navigator toolbar
 		editorsKitBlockNavigator: true,
 	},

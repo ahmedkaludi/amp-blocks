@@ -37,7 +37,6 @@ const {
 	InnerBlocks,
 	InspectorControls,
 	BlockControls,
-	BlockAlignmentToolbar,
 } = wp.blockEditor;
 const {
 	Button,
@@ -173,7 +172,7 @@ class AmpRowLayout extends Component {
 	render() {
 		const {
 			attributes: {
-				uniqueID, columns, blockAlignment, mobileLayout, currentTab, colLayout, tabletLayout, columnGutter, collapseGutter, collapseOrder, topPadding, bottomPadding, leftPadding, rightPadding, topPaddingM, bottomPaddingM, leftPaddingM, rightPaddingM, topMargin, bottomMargin, topMarginM, bottomMarginM, bgColor, bgImg, bgImgAttachment, bgImgSize, bgImgPosition, bgImgRepeat, bgImgID, verticalAlignment, overlayOpacity, overlayBgImg, overlayBgImgAttachment, overlayBgImgID, overlayBgImgPosition, overlayBgImgRepeat, overlayBgImgSize, currentOverlayTab, overlayBlendMode, overlayGradAngle, overlayGradLoc, overlayGradLocSecond, overlayGradType, overlay, overlaySecond, htmlTag, minHeight, maxWidth, bottomSep, bottomSepColor, bottomSepHeight, bottomSepHeightMobile, bottomSepHeightTab, bottomSepWidth, bottomSepWidthMobile, bottomSepWidthTab, topSep, topSepColor, topSepHeight, topSepHeightMobile, topSepHeightTab, topSepWidth, topSepWidthMobile, topSepWidthTab, firstColumnWidth, secondColumnWidth, textColor, linkColor, linkHoverColor, tabletPadding, topMarginT, bottomMarginT, minHeightUnit, maxWidthUnit, marginUnit, columnsUnlocked, tabletBackground, tabletOverlay, mobileBackground, mobileOverlay, columnsInnerHeight, zIndex, backgroundInline, backgroundSettingTab, backgroundSliderCount, backgroundSlider, backgroundSliderSettings, backgroundVideo, backgroundVideoType, overlaySecondOpacity, overlayFirstOpacity,
+				uniqueID, columns, mobileLayout, currentTab, colLayout, tabletLayout, columnGutter, collapseGutter, collapseOrder, topPadding, bottomPadding, leftPadding, rightPadding, topPaddingM, bottomPaddingM, leftPaddingM, rightPaddingM, topMargin, bottomMargin, topMarginM, bottomMarginM, bgColor, bgImg, bgImgAttachment, bgImgSize, bgImgPosition, bgImgRepeat, bgImgID, verticalAlignment, overlayOpacity, overlayBgImg, overlayBgImgAttachment, overlayBgImgID, overlayBgImgPosition, overlayBgImgRepeat, overlayBgImgSize, currentOverlayTab, overlayBlendMode, overlayGradAngle, overlayGradLoc, overlayGradLocSecond, overlayGradType, overlay, overlaySecond, htmlTag, minHeight, maxWidth, bottomSep, bottomSepColor, bottomSepHeight, bottomSepHeightMobile, bottomSepHeightTab, bottomSepWidth, bottomSepWidthMobile, bottomSepWidthTab, topSep, topSepColor, topSepHeight, topSepHeightMobile, topSepHeightTab, topSepWidth, topSepWidthMobile, topSepWidthTab, firstColumnWidth, secondColumnWidth, textColor, linkColor, linkHoverColor, tabletPadding, topMarginT, bottomMarginT, minHeightUnit, maxWidthUnit, marginUnit, columnsUnlocked, tabletBackground, tabletOverlay, mobileBackground, mobileOverlay, columnsInnerHeight, zIndex, backgroundInline, backgroundSettingTab, backgroundSliderCount, backgroundSlider, backgroundSliderSettings, backgroundVideo, backgroundVideoType, overlaySecondOpacity, overlayFirstOpacity,
 			}, toggleSelection, className, setAttributes, clientId,
 		} = this.props;
 		const saveTabletBackground = ( value ) => {
@@ -333,16 +332,6 @@ class AmpRowLayout extends Component {
 			},
 			{ key: 'equal', col: 4, name: __( 'Four: Equal', 'amp-blocks' ), icon: icons.fourcol },
 			{ key: 'equal', col: 3, name: __( 'Three: Equal', 'amp-blocks' ), icon: icons.threecol },
-
-			// { key: 'right-golden', col: 2, name: __( 'Two: Right Heavy 33/66', 'amp-blocks' ), icon: icons.tworightgolden },
-			// { key: 'left-half', col: 3, name: __( 'Three: Left Heavy 50/25/25', 'amp-blocks' ), icon: icons.lefthalf },
-			// { key: 'center-half', col: 3, name: __( 'Three: Center Heavy 25/50/25', 'amp-blocks' ), icon: icons.centerhalf },
-			// { key: 'center-wide', col: 3, name: __( 'Three: Wide Center 20/60/20', 'amp-blocks' ), icon: icons.widecenter },
-			// { key: 'center-exwide', col: 3, name: __( 'Three: Wider Center 15/70/15', 'amp-blocks' ), icon: icons.exwidecenter },
-			// { key: 'left-forty', col: 4, name: __( 'Four: Left Heavy 40/20/20/20', 'amp-blocks' ), icon: icons.lfourforty },
-			// { key: 'right-forty', col: 4, name: __( 'Four: Right Heavy 20/20/20/40', 'amp-blocks' ), icon: icons.rfourforty },
-			// { key: 'equal', col: 5, name: __( 'Five: Equal', 'amp-blocks' ), icon: icons.fivecol },
-			// { key: 'equal', col: 6, name: __( 'Six: Equal', 'amp-blocks' ), icon: icons.sixcol },
 		];
 
 		function CustomNextArrow( props ) {
@@ -3144,11 +3133,6 @@ class AmpRowLayout extends Component {
 		return (
 			<Fragment>
 				<BlockControls>
-					<BlockAlignmentToolbar
-						value={ blockAlignment }
-						controls={ [ 'center', 'wide', 'full' ] }
-						onChange={ value => setAttributes( { blockAlignment: value } ) }
-					/>
 					{ this.showSettings( 'allSettings' ) && this.showSettings( 'background' ) && (
 						<Toolbar>
 							<MediaUpload
