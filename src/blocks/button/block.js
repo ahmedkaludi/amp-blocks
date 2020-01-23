@@ -168,7 +168,7 @@ registerBlockType( 'amp/advancedbtn', {
 	},
 	edit,
 	save: props => {
-		const { attributes: { btnCount, btns, hAlign, uniqueID, letterSpacing, forceFullwidth, thAlign, mhAlign } } = props;
+		const { attributes: { btnCount, btns, hAlign, uniqueID, textTransform, letterSpacing, forceFullwidth, thAlign, mhAlign } } = props;
 		
 		const renderSaveBtns = ( index ) => {
 			let relAttr;
@@ -194,6 +194,7 @@ registerBlockType( 'amp/advancedbtn', {
 						borderWidth: ( undefined !== btns[ index ].borderWidth && '' !== btns[ index ].borderWidth ? btns[ index ].borderWidth + 'px' : undefined ),
 						letterSpacing: ( undefined !== letterSpacing && '' !== letterSpacing ? letterSpacing + 'px' : undefined ),
 						marginTop: btns[index].topMargin + 'px',
+						textTransform : textTransform,
 						marginBottom: btns[index].bottomMargin + 'px',
 					} } >
 						{ btns[ index ].icon && 'left' === btns[ index ].iconSide && (
