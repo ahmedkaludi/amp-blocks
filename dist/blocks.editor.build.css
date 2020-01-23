@@ -4407,7 +4407,7 @@ i.fipicon-angle-left:before {
   content: "\f341";
   font-family: dashicons; }
 
-.isvg {
+.isvg-s-stacked .isvg {
   border-style: solid; }
 /**
  * #.# Common SCSS
