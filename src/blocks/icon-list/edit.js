@@ -17,6 +17,7 @@ import GenIcon from '../../genicon';
 import Ico from '../../svgicons';
 import FaIco from '../../faicons';
 import IcoNames from '../../svgiconsnames';
+import TypographyControls from '../../typography-control';
 
 /**
  * Import Css
@@ -100,6 +101,12 @@ class ampIcons extends Component {
 		const { attributes: { iconCount, icons, blockAlignment, textAlignment,uniqueID, align, level, content, color, size, sizeType, lineType, lineHeight, tabLineHeight, tabSize, mobileSize, mobileLineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, markSize, markSizeType, markLineHeight, markLineType, markLetterSpacing, markTypography, markGoogleFont, markLoadGoogleFont, markFontSubset, markFontVariant, markFontWeight, markFontStyle, markPadding, markPaddingControl, markColor, markBG, markBGOpacity, markBorder, markBorderWidth, markBorderOpacity, markBorderStyle, anchor, textTransform, markTextTransform, ampAnimation, ampAOSOptions }, className, setAttributes, clientId,mergeBlocks,onReplace } = this.props;
 
 		const { marginControl } = this.state;
+		const fontMin = ( sizeType === 'em' ? 0.2 : 5 );
+		const fontMax = ( sizeType === 'em' ? 12 : 200 );
+		const fontStep = ( sizeType === 'em' ? 0.1 : 1 );
+		const lineMin = ( lineType === 'em' ? 0.2 : 5 );
+		const lineMax = ( lineType === 'em' ? 12 : 200 );
+		const lineStep = ( lineType === 'em' ? 0.1 : 1 );
 		const controlTypes = [
 			{ key: 'linked', name: __( 'Linked' ), micon: editorIcons.linked },
 			{ key: 'individual', name: __( 'Individual' ), micon: editorIcons.individual },
@@ -392,6 +399,52 @@ class ampIcons extends Component {
 				</div>
 			);
 		};
+		const textcontrols = (
+			<PanelBody
+			title={ __( 'Typography Settings' ) }
+		>
+			<TypographyControls
+									letterSpacing={ letterSpacing }
+									onLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
+									fontFamily={ typography }
+									onFontFamily={ ( value ) => setAttributes( { typography: value } ) }
+									onFontChange={ ( select ) => {
+										setAttributes( {
+											typography: select.value,
+											googleFont: select.google,
+										} );
+									} }
+									googleFont={ googleFont }
+									onGoogleFont={ ( value ) => setAttributes( { googleFont: value } ) }
+									fontVariant={ fontVariant }
+									onFontVariant={ ( value ) => setAttributes( { fontVariant: value } ) }
+									fontWeight={ fontWeight }
+									onFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
+									fontStyle={ fontStyle }
+									onFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
+									fontSubset={ fontSubset }
+									onFontSubset={ ( value ) => setAttributes( { fontSubset: value } ) }
+									textTransform={ textTransform }
+									onTextTransform={ ( value ) => setAttributes( { textTransform: value } ) }
+								/>
+								<RangeControl
+					label={ __( 'Font Size' ) }
+					value={ ( size ? size : '' ) }
+					onChange={ ( value ) => setAttributes( { size: value } ) }
+					min={ fontMin }
+					max={ fontMax }
+					step={ fontStep }
+				/>
+				<RangeControl
+					label={ __( 'Line Height' ) }
+					value={ ( lineHeight ? lineHeight : '' ) }
+					onChange={ ( value ) => setAttributes( { lineHeight: value } ) }
+					min={ lineMin }
+					max={ lineMax }
+					step={ lineStep }
+				/>
+									</PanelBody>
+		);
 		return (
 			<div className={ className }>
 				<BlockControls>
@@ -405,6 +458,10 @@ class ampIcons extends Component {
 						onChange={ value => setAttributes( { textAlignment: value } ) }
 					/>
 				</BlockControls>
+				<InspectorControls>
+
+					{ textcontrols }
+				</InspectorControls>
 				<InspectorControls>
 
 					{ renderSettings }
