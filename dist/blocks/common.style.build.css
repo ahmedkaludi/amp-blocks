@@ -1,3 +1,7 @@
 .isvg-s-stacked .isvg{
   border-style: solid;
 } 
+.iclw{
+	display: inline-flex;
+    width: 100%;
+}
