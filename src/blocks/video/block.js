@@ -35,7 +35,13 @@ registerBlockType('ampblocks/video', {
         },
         video: {
             type: 'string',
-        }
+        },
+        width: {
+            type: 'number',
+        },
+        height: {
+            type: 'number',
+        },
     },
     edit,
     /**
@@ -47,7 +53,7 @@ registerBlockType('ampblocks/video', {
      * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
      */
     save({ attributes }) {
-        const { video, videoSource } = attributes;
+        const { video, videoSource, width, height } = attributes;
         const getId = (url) => {
             let name = 'v';
             if (!url) url = window.location.href;
@@ -70,7 +76,10 @@ registerBlockType('ampblocks/video', {
                 if (typeof video !== 'undefined') {
                     return (
                         <div className="v-c">
-                            <video controls width="100%" height="100%" className='video-item' src={video} />
+                            <video controls width="100%" height="100%" className=' video-item' src={video} style={{
+                            maxWidth: width + 'px',
+                            maxHeight: height + 'px',
+                        }} />
                         </div>
                     )
                 } else {

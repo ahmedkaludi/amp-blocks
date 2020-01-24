@@ -26,7 +26,7 @@ class ampAdvancedHeading extends Component {
 		};
 	}
 	youtubeVideoConvertor = (url) => {
-		if(typeof url !== 'undefined'){
+		if (typeof url !== 'undefined') {
 			url = url.replace("watch?v=", "embed/");
 			url = url.replace("youtu.be/", "youtube.com/embed/");
 		}
@@ -34,7 +34,7 @@ class ampAdvancedHeading extends Component {
 	}
 	render() {
 		const { attributes, setAttributes } = this.props;
-		const { video, videoSource } = attributes;
+		const { video, videoSource, width, height } = attributes;
 
 		let displayvideo = (video) => {
 			if (videoSource) {
@@ -48,7 +48,10 @@ class ampAdvancedHeading extends Component {
 				if (typeof video !== 'undefined') {
 					return (
 						<div className="v-c">
-							<video controls width="100%" height="100%" className='video-item' src={video} />
+							<video controls width="100%" height="100%" className='video-item' src={video} style={{
+							maxWidth: width + 'px',
+							maxHeight: height + 'px',
+						}} />
 						</div>
 					)
 				} else {
@@ -90,7 +93,7 @@ class ampAdvancedHeading extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => { setAttributes({ video: media.url }); this.setState({ hideShowUploadButton: false }) }}
+						onSelect={(media) => {setAttributes({ video: media.url,width:media.width,height:media.height }); this.setState({ hideShowUploadButton: false }) }}
 						value={video}
 						allowedTypes={'video'}
 						render={({ open }) => (
