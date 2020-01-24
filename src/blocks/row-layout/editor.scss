@@ -202,7 +202,7 @@ button.components-button.amp-pre-sidebar-image {
 
 .cr[class*=" amp-custom-first-width-1"]:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) {
   .components-resizable-box__handle.components-resizable-box__handle-right {
-	margin-right: -30px;
+	// margin-right: 0px;
   }
 
   .left-column-width-size, .amp-fluid-grid-btn {
@@ -1436,7 +1436,7 @@ button.components-button.amp-pre-sidebar-image {
   .components-resizable-box__handle {
 	width: 30px !important;
 	right: 0 !important;
-	margin-right: -15px;
+	margin-right: -30px;
 	padding: 0;
   }
 }

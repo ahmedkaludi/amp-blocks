@@ -177,9 +177,6 @@ button.components-button.amp-pre-sidebar-image {
   padding-top: 28px;
   padding-bottom: 28px; }
 
-.cr[class*=" amp-custom-first-width-1"]:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .components-resizable-box__handle.components-resizable-box__handle-right {
-  margin-right: -30px; }
-
 .cr[class*=" amp-custom-first-width-1"]:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-1"]:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: -25px; }
 
@@ -1111,7 +1108,7 @@ button.components-button.amp-pre-sidebar-image {
 .cr:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer .components-resizable-box__handle {
   width: 30px !important;
   right: 0 !important;
-  margin-right: -15px;
+  margin-right: -30px;
   padding: 0; }
 
 .left-column-width-size {

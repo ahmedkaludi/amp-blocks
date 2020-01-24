@@ -3390,7 +3390,10 @@ class Amp_Blocks_Frontend
 		// Lets register all the block styles.
 		wp_register_style( 'amp-blocks-btn', AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css', array(), AMP_BLOCKS_VERSION );
 		wp_register_style('amp-blocks-rowlayout', AMP_BLOCKS_DIR_URI . 'dist/blocks/row.style.build.css', array(), AMP_BLOCKS_VERSION);
-		wp_register_style('amp-blocks-rowlayout', AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css', array(), AMP_BLOCKS_VERSION);
+		wp_register_style('amp-blocks-image', AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css', array(), AMP_BLOCKS_VERSION);
+		wp_register_style('amp-blocks-common', AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css', array(), AMP_BLOCKS_VERSION);
+		wp_enqueue_style('amp-blocks-common');
+		// wp_enqueue_style('amp-blocks-common', AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css', array(), AMP_BLOCKS_VERSION);
 	}
 
 
