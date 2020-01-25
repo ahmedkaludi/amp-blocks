@@ -51,8 +51,6 @@ const {
 	Button,
 	ButtonGroup,
 	Tooltip,
-	Dropdown,
-	IconButton,
 } = wp.components;
 
 /**
@@ -100,7 +98,7 @@ class ampIcons extends Component {
 		});
 	}
 	render() {
-		const { attributes: { iconorder,iconCount, icons, blockAlignment, textAlignment, uniqueID, align, level, content, color, size, sizeType, lineType, lineHeight, tabLineHeight, tabSize, mobileSize, mobileLineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, markSize, markSizeType, markLineHeight, markLineType, markLetterSpacing, markTypography, markGoogleFont, markLoadGoogleFont, markFontSubset, markFontVariant, markFontWeight, markFontStyle, markPadding, markPaddingControl, markColor, markBG, markBGOpacity, markBorder, markBorderWidth, markBorderOpacity, markBorderStyle, anchor, textTransform, markTextTransform, ampAnimation, ampAOSOptions }, className, setAttributes, clientId, mergeBlocks, onReplace } = this.props;
+		const { attributes: { iconorder,iconCount, icons, blockAlignment, textAlignment, uniqueID, align, content, color, size, sizeType, lineType, lineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, textTransform }, className, setAttributes, clientId, mergeBlocks, onReplace } = this.props;
 		const { marginControl } = this.state;
 		const fontMin = (sizeType === 'em' ? 0.2 : 5);
 		const fontMax = (sizeType === 'em' ? 12 : 200);
@@ -453,7 +451,7 @@ class ampIcons extends Component {
 					<button
 						className="amp-popover-font-family-container components-dropdown-menu components-toolbar"
 						contentClassName="amp-popover-font-family"
-						onClick={value => { setAttributes({ iconorder: (iconorder) ? 0 : 1 })}}
+						onClick={() => { setAttributes({ iconorder: (iconorder) ? 0 : 1 })}}
 
 						position="top center"
 						> <span class="dashicons dashicons-sort"></span></button>
