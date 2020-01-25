@@ -37,21 +37,21 @@ const {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'ampblocks/icon-list', {
+registerBlockType('ampblocks/icon-list', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Icon List' ), // Block title.
+	title: __('Icon List'), // Block title.
 	icon: {
 		src: 'list-view',
 	},
 	category: 'amp-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'icon' ),
-		__( 'svg' ),
+		__('icon'),
+		__('svg'),
 	],
 	attributes: {
 		icons: {
 			type: 'array',
-			default: [ {
+			default: [{
 				icon: 'fe_aperture',
 				link: '',
 				target: '_self',
@@ -69,7 +69,7 @@ registerBlockType( 'ampblocks/icon-list', {
 				marginRight: 0,
 				marginBottom: 0,
 				marginLeft: 0,
-			} ],
+			}],
 		},
 		iconCount: {
 			type: 'number',
@@ -87,80 +87,85 @@ registerBlockType( 'ampblocks/icon-list', {
 			type: 'string',
 			default: 'center',
 		},
+		iconorder: {
+			type: 'number',
+			default: 0,
+		},
+
 	},
-	getEditWrapperProps( { blockAlignment } ) {
-		if ( 'left' === blockAlignment || 'right' === blockAlignment || 'center' === blockAlignment ) {
+	getEditWrapperProps({ blockAlignment }) {
+		if ('left' === blockAlignment || 'right' === blockAlignment || 'center' === blockAlignment) {
 			return { 'data-align': blockAlignment };
 		}
 	},
 	edit,
 
 	save: props => {
-		const { attributes: { icons, iconCount, blockAlignment, textAlignment, uniqueID,anchor, align, level,content, color,  letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } } = props;
+		const { attributes: { icons, iconCount, blockAlignment, textAlignment, uniqueID, anchor, align, level, content, color, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } } = props;
 		const htmlItem = (
 			<RichText.Content
-				tagName={ 'p' }
-				data-aos={ ( ampAnimation ? ampAnimation : undefined ) }
-				data-aos-offset={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].offset ? ampAOSOptions[ 0 ].offset : undefined ) }
-				data-aos-duration={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].duration ? ampAOSOptions[ 0 ].duration : undefined ) }
-				data-aos-delay={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].delay ? ampAOSOptions[ 0 ].delay : undefined ) }
-				data-aos-easing={ ( ampAOSOptions && ampAOSOptions[ 0 ] && ampAOSOptions[ 0 ].easing ? ampAOSOptions[ 0 ].easing : undefined ) }
-				data-aos-once={ ( ampAOSOptions && ampAOSOptions[ 0 ] && undefined !== ampAOSOptions[ 0 ].once && '' !== ampAOSOptions[ 0 ].once ? ampAOSOptions[ 0 ].once : undefined ) }
-				style={ {
+				tagName={'p'}
+				data-aos={(ampAnimation ? ampAnimation : undefined)}
+				data-aos-offset={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].offset ? ampAOSOptions[0].offset : undefined)}
+				data-aos-duration={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].duration ? ampAOSOptions[0].duration : undefined)}
+				data-aos-delay={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].delay ? ampAOSOptions[0].delay : undefined)}
+				data-aos-easing={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].easing ? ampAOSOptions[0].easing : undefined)}
+				data-aos-once={(ampAOSOptions && ampAOSOptions[0] && undefined !== ampAOSOptions[0].once && '' !== ampAOSOptions[0].once ? ampAOSOptions[0].once : undefined)}
+				style={{
 					textAlign: align,
 					color: color,
-					letterSpacing: ( letterSpacing ? letterSpacing + 'px' : undefined ),
-					marginTop: ( undefined !== topMargin && '' !== topMargin ? topMargin + mType : undefined ),
-					marginBottom: ( undefined !== bottomMargin && '' !== bottomMargin ? bottomMargin + mType : undefined ),
-				} }
-				value={ content }
+					letterSpacing: (letterSpacing ? letterSpacing + 'px' : undefined),
+					marginTop: (undefined !== topMargin && '' !== topMargin ? topMargin + mType : undefined),
+					marginBottom: (undefined !== bottomMargin && '' !== bottomMargin ? bottomMargin + mType : undefined),
+				}}
+				value={content}
 			/>
 		);
-		const renderSaveIcons = ( index ) => {
+		const renderSaveIcons = (index) => {
 			return (
-				<div className={ `iclw icl-s-${ icons[ index ].style } icl-w icl-i-${ index }` }>
-					{ icons[ index ].icon && icons[ index ].link && (
-						<a href={ icons[ index ].link } className={ 'icl-link' } target={ ( '_blank' === icons[ index ].target ? icons[ index ].target : undefined ) } rel={ '_blank' === icons[ index ].target ? 'noopener noreferrer' : undefined } style={ {
-							marginTop: ( icons[ index ].marginTop ? icons[ index ].marginTop + 'px' : undefined ),
-							marginRight: ( icons[ index ].marginRight ? icons[ index ].marginRight + 'px' : undefined ),
-							marginBottom: ( icons[ index ].marginBottom ? icons[ index ].marginBottom + 'px' : undefined ),
-							marginLeft: ( icons[ index ].marginLeft ? icons[ index ].marginLeft + 'px' : undefined ),
-						} }
+				<div className={`iclw icl-s-${icons[index].style} icl-w icl-i-${index}`}>
+					{icons[index].icon && icons[index].link && (
+						<a href={icons[index].link} className={'icl-link'} target={('_blank' === icons[index].target ? icons[index].target : undefined)} rel={'_blank' === icons[index].target ? 'noopener noreferrer' : undefined} style={{
+							marginTop: (icons[index].marginTop ? icons[index].marginTop + 'px' : undefined),
+							marginRight: (icons[index].marginRight ? icons[index].marginRight + 'px' : undefined),
+							marginBottom: (icons[index].marginBottom ? icons[index].marginBottom + 'px' : undefined),
+							marginLeft: (icons[index].marginLeft ? icons[index].marginLeft + 'px' : undefined),
+						}}
 						>
-							<GenIcon className={ `icl icl-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
-								color: ( icons[ index ].color ? icons[ index ].color : undefined ),
-								backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
-								padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
-								borderColor: ( icons[ index ].border && icons[ index ].style !== 'default' ? icons[ index ].border : undefined ),
-								borderWidth: ( icons[ index ].borderWidth && icons[ index ].style !== 'default' ? icons[ index ].borderWidth + 'px' : undefined ),
-								borderRadius: ( icons[ index ].borderRadius && icons[ index ].style !== 'default' ? icons[ index ].borderRadius + '%' : undefined ),
-							} } />
+							<GenIcon className={`icl icl-${icons[index].icon}`} name={icons[index].icon} size={icons[index].size} strokeWidth={('fe' === icons[index].icon.substring(0, 2) ? icons[index].width : undefined)} icon={('fa' === icons[index].icon.substring(0, 2) ? FaIco[icons[index].icon] : Ico[icons[index].icon])} title={(icons[index].title ? icons[index].title : '')} style={{
+								color: (icons[index].color ? icons[index].color : undefined),
+								backgroundColor: (icons[index].background && icons[index].style !== 'default' ? icons[index].background : undefined),
+								padding: (icons[index].padding && icons[index].style !== 'default' ? icons[index].padding + 'px' : undefined),
+								borderColor: (icons[index].border && icons[index].style !== 'default' ? icons[index].border : undefined),
+								borderWidth: (icons[index].borderWidth && icons[index].style !== 'default' ? icons[index].borderWidth + 'px' : undefined),
+								borderRadius: (icons[index].borderRadius && icons[index].style !== 'default' ? icons[index].borderRadius + '%' : undefined),
+							}} />
 						</a>
-					) }
-					{ icons[ index ].icon && ! icons[ index ].link && (
-						<GenIcon className={ `icl icl-${ icons[ index ].icon }` } name={ icons[ index ].icon } size={ icons[ index ].size } strokeWidth={ ( 'fe' === icons[ index ].icon.substring( 0, 2 ) ? icons[ index ].width : undefined ) } icon={ ( 'fa' === icons[ index ].icon.substring( 0, 2 ) ? FaIco[ icons[ index ].icon ] : Ico[ icons[ index ].icon ] ) } title={ ( icons[ index ].title ? icons[ index ].title : '' ) } style={ {
-							color: ( icons[ index ].color ? icons[ index ].color : undefined ),
-							backgroundColor: ( icons[ index ].background && icons[ index ].style !== 'default' ? icons[ index ].background : undefined ),
-							padding: ( icons[ index ].padding && icons[ index ].style !== 'default' ? icons[ index ].padding + 'px' : undefined ),
-							borderColor: ( icons[ index ].border && icons[ index ].style !== 'default' ? icons[ index ].border : undefined ),
-							borderWidth: ( icons[ index ].borderWidth && icons[ index ].style !== 'default' ? icons[ index ].borderWidth + 'px' : undefined ),
-							borderRadius: ( icons[ index ].borderRadius && icons[ index ].style !== 'default' ? icons[ index ].borderRadius + '%' : undefined ),
-							marginTop: ( icons[ index ].marginTop ? icons[ index ].marginTop + 'px' : undefined ),
-							marginRight: ( icons[ index ].marginRight ? icons[ index ].marginRight + 'px' : undefined ),
-							marginBottom: ( icons[ index ].marginBottom ? icons[ index ].marginBottom + 'px' : undefined ),
-							marginLeft: ( icons[ index ].marginLeft ? icons[ index ].marginLeft + 'px' : undefined ),
-						} } />
-					) }
-					{ htmlItem }
+					)}
+					{icons[index].icon && !icons[index].link && (
+						<GenIcon className={`icl icl-${icons[index].icon}`} name={icons[index].icon} size={icons[index].size} strokeWidth={('fe' === icons[index].icon.substring(0, 2) ? icons[index].width : undefined)} icon={('fa' === icons[index].icon.substring(0, 2) ? FaIco[icons[index].icon] : Ico[icons[index].icon])} title={(icons[index].title ? icons[index].title : '')} style={{
+							color: (icons[index].color ? icons[index].color : undefined),
+							backgroundColor: (icons[index].background && icons[index].style !== 'default' ? icons[index].background : undefined),
+							padding: (icons[index].padding && icons[index].style !== 'default' ? icons[index].padding + 'px' : undefined),
+							borderColor: (icons[index].border && icons[index].style !== 'default' ? icons[index].border : undefined),
+							borderWidth: (icons[index].borderWidth && icons[index].style !== 'default' ? icons[index].borderWidth + 'px' : undefined),
+							borderRadius: (icons[index].borderRadius && icons[index].style !== 'default' ? icons[index].borderRadius + '%' : undefined),
+							marginTop: (icons[index].marginTop ? icons[index].marginTop + 'px' : undefined),
+							marginRight: (icons[index].marginRight ? icons[index].marginRight + 'px' : undefined),
+							marginBottom: (icons[index].marginBottom ? icons[index].marginBottom + 'px' : undefined),
+							marginLeft: (icons[index].marginLeft ? icons[index].marginLeft + 'px' : undefined),
+						}} />
+					)}
+					{htmlItem}
 				</div>
 			);
 		};
 		return (
-			<div className={ `icli icli${ uniqueID } align${ ( blockAlignment ? blockAlignment : 'center' ) }` } style={ {
-				textAlign: ( textAlignment ? textAlignment : 'center' ),
-			} } >
-				{ times( iconCount, n => renderSaveIcons( n ) ) }
+			<div className={`icli icli${uniqueID} align${(blockAlignment ? blockAlignment : 'center')}`} style={{
+				textAlign: (textAlignment ? textAlignment : 'center'),
+			}} >
+				{times(iconCount, n => renderSaveIcons(n))}
 			</div>
 		);
 	},
-} );
+});
