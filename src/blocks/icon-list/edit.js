@@ -332,6 +332,17 @@ class ampIcons extends Component {
 							this.saveArrayUpdate({ title: value }, index);
 						}}
 					/>
+					<SelectControl
+						label={__('Icon Order')}
+						value={ iconorder}
+						options={[
+							{ value: '0', label: __('Left') },
+							{ value: '1', label: __('Right') },
+						]}
+						onChange={value => {
+							setAttributes({ iconorder : value })}
+						}
+					/>
 				</PanelBody>
 			);
 		};
@@ -346,7 +357,7 @@ class ampIcons extends Component {
 				allowedFormats={['core/bold', 'core/italic', 'core/link', 'amp/mark']}
 				wrapperClassName={className}
 				tagName={'p'}
-				value={(typeof content === 'undefined') ? 'Add your text.....' : content}
+				value={content}
 				onChange={(value) => setAttributes({ content: value })}
 				onMerge={mergeBlocks}
 				onSplit={(value) => {
@@ -372,6 +383,7 @@ class ampIcons extends Component {
 					fontFamily: (typography ? typography : ''),
 					marginTop: (undefined !== topMargin ? topMargin + marginType : ''),
 					marginBottom: (undefined !== bottomMargin ? bottomMargin + marginType : ''),
+					minWidth: '150px',
 				}}
 				className={`h${uniqueID}`}
 				placeholder={__('Add your text.....')}

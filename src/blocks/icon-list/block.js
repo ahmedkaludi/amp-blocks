@@ -91,6 +91,12 @@ registerBlockType('ampblocks/icon-list', {
 			type: 'number',
 			default: 0,
 		},
+		content: {
+			type: 'string',
+			source: 'html',
+			selector: 'p',
+			default: 'Add your text.....',
+		},
 
 	},
 	getEditWrapperProps({ blockAlignment }) {
@@ -101,22 +107,17 @@ registerBlockType('ampblocks/icon-list', {
 	edit,
 
 	save: props => {
-		const { attributes: { iconorder, icons, iconCount, blockAlignment, textAlignment, uniqueID, align, content, color, letterSpacing, topMargin, bottomMargin, ampAnimation, ampAOSOptions } } = props;
+		const { attributes: { iconorder, icons, iconCount, blockAlignment, textAlignment, uniqueID, align, content, color, letterSpacing, topMargin, bottomMargin } } = props;
 		const htmlItem = (
 			<RichText.Content
 				tagName={'p'}
-				data-aos={(ampAnimation ? ampAnimation : undefined)}
-				data-aos-offset={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].offset ? ampAOSOptions[0].offset : undefined)}
-				data-aos-duration={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].duration ? ampAOSOptions[0].duration : undefined)}
-				data-aos-delay={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].delay ? ampAOSOptions[0].delay : undefined)}
-				data-aos-easing={(ampAOSOptions && ampAOSOptions[0] && ampAOSOptions[0].easing ? ampAOSOptions[0].easing : undefined)}
-				data-aos-once={(ampAOSOptions && ampAOSOptions[0] && undefined !== ampAOSOptions[0].once && '' !== ampAOSOptions[0].once ? ampAOSOptions[0].once : undefined)}
-				style={{
+			style={{
 					textAlign: align,
 					color: color,
 					letterSpacing: (letterSpacing ? letterSpacing + 'px' : undefined),
 					marginTop: (undefined !== topMargin && '' !== topMargin ? topMargin + mType : undefined),
 					marginBottom: (undefined !== bottomMargin && '' !== bottomMargin ? bottomMargin + mType : undefined),
+					minWidth: '150px',
 				}}
 				value={content}
 			/>
