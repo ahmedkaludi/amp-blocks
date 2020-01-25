@@ -1196,8 +1196,21 @@ button.components-button.amp-pre-sidebar-image {
   margin-right: 0px; }
 
 .cr .editor-block-list__layout .editor-block-list__block {
-  padding-left: 27px;
-  padding-right: 27px; }
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.cr .editor-block-list__layout:last-child {
+  margin-right: 0px !important; }
+
+.cr .editor-block-list__layout:first-child {
+  margin-left: 5px !important; }
+
+.amp-resizeable-column-container {
+  margin-left: 0px !important;
+  margin-right: 0px !important; }
+
+.cr:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer .components-resizable-box__handle {
+  width: 50px !important; }
 
 [data-type="amp/rowlayout"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
 [data-type="amp/column"] > .editor-block-list__block-edit > .editor-block-list__breadcrumb,
@@ -1241,10 +1254,6 @@ button.components-button.amp-pre-sidebar-image {
 
 button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   display: none; }
-
-.editor-styles-wrapper [data-block] {
-  margin-top: 0px;
-  margin-bottom: 0px; }
 /**
  * #.# Common SCSS
  *
