@@ -101,7 +101,7 @@ registerBlockType('ampblocks/icon-list', {
 	edit,
 
 	save: props => {
-		const { attributes: { icons, iconCount, blockAlignment, textAlignment, uniqueID, anchor, align, level, content, color, letterSpacing, topMargin, bottomMargin, marginType, className, ampAnimation, ampAOSOptions } } = props;
+		const { attributes: { iconorder, icons, iconCount, blockAlignment, textAlignment, uniqueID, align, content, color, letterSpacing, topMargin, bottomMargin, ampAnimation, ampAOSOptions } } = props;
 		const htmlItem = (
 			<RichText.Content
 				tagName={'p'}
@@ -154,6 +154,7 @@ registerBlockType('ampblocks/icon-list', {
 							marginRight: (icons[index].marginRight ? icons[index].marginRight + 'px' : undefined),
 							marginBottom: (icons[index].marginBottom ? icons[index].marginBottom + 'px' : undefined),
 							marginLeft: (icons[index].marginLeft ? icons[index].marginLeft + 'px' : undefined),
+							order: iconorder,
 						}} />
 					)}
 					{htmlItem}
