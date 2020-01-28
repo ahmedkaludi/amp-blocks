@@ -1700,4 +1700,7 @@ padding: 0px;
 button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   display: none;
 }
+[data-type="amp/rowlayout"] [data-type="amp/column"]  .editor-styles-wrapper [data-block] {	
+  margin-top: 0px;	
+  margin-bottom: 0px; }
 

@@ -1254,6 +1254,10 @@ button.components-button.amp-pre-sidebar-image {
 
 button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   display: none; }
+
+[data-type="amp/rowlayout"] [data-type="amp/column"] .editor-styles-wrapper [data-block] {
+  margin-top: 0px;
+  margin-bottom: 0px; }
 /**
  * #.# Common SCSS
  *
@@ -2106,8 +2110,8 @@ button.components-button.components-icon-button.amp-font-clear-btn {
   border: 2px solid transparent;
   position: relative; }
 
-.ih:hover {
-  border: 2px dotted gray; }
+.ihr:hover, .ihr:active, .ihb:hover, .ihb:active {
+  background: #0085ba; }
 
 .lcw {
   opacity: 0;
@@ -2126,6 +2130,53 @@ button.components-button.components-icon-button.amp-font-clear-btn {
 @media (max-width: 980px) {
   img {
     max-width: 100%; } }
+
+.ihr:after, .ihb:after {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #0085ba;
+  cursor: inherit;
+  position: absolute;
+  top: calc(50% - 8px);
+  right: calc(50% - 8px); }
+
+.ihr {
+  height: 100%;
+  top: 0;
+  border-top: 0;
+  border-bottom: 0; }
+
+.ihb {
+  height: 100%;
+  bottom: 0;
+  border-top: 0;
+  border-bottom: 0; }
+
+.ihr:before, .ihb:before {
+  display: block;
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: 2px solid #fff;
+  background: #dadada;
+  cursor: inherit;
+  position: absolute;
+  top: calc(50% - 4px);
+  right: calc(50% - 4px);
+  -webkit-transition: -webkit-transform .1s ease-in;
+  transition: -webkit-transform .1s ease-in;
+  -o-transition: transform .1s ease-in;
+  transition: transform .1s ease-in;
+  transition: transform .1s ease-in, -webkit-transform .1s ease-in;
+  opacity: 0; }
+
+.wp-block-image.is-focused .ihr, .wp-block-image.is-focused .ihb {
+  display: block;
+  z-index: 1; }
 /**
  * #.# Common SCSS
  *

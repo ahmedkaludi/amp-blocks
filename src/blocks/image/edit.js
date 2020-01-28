@@ -86,12 +86,15 @@ class ampImage extends Component {
 						}}
 						maxWidth= {'100%'}
 						handleClasses={{
-							top: 'iht',
+						
+							left: 'ihl',
+							right: 'ihr',
 							bottom: 'ihb',
+
 						}}
 						lockAspectRatio
 						enable={{
-							top: true,
+							top: false,
 							right: true,
 							bottom: true,
 							left: true,
