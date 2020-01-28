@@ -44,6 +44,10 @@ registerBlockType('ampblocks/image', {
 		maxheight: {
 			type: 'number',
 		},
+		percentage: {
+			type: 'number',
+			default: 100,
+		},
 		borderRadius: {
 			type: 'number',
 			default: 0,
