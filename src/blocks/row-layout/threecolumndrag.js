@@ -193,7 +193,7 @@ export default function ThreeColumnDrag( {
 								right: true,
 							} }
 							handleClasses={ {
-								right: 'components-resizable-box__handle components-resizable-box__handle-right',
+								right: 'rr',
 							} }
 							grid={ ( columnsUnlocked ? [ width / 1000, 1 ] : [ width / 20, 1 ] ) }
 							onResize={ onResizeThirds }
@@ -262,7 +262,7 @@ export default function ThreeColumnDrag( {
 								right: true,
 							} }
 							handleClasses={ {
-								right: 'components-resizable-box__handle components-resizable-box__handle-right',
+								right: 'rr',
 							} }
 							grid={ ( columnsUnlocked ? [ width / 1000, 1 ] : [ width / 20, 1 ] ) }
 							onResize={ onResizeSecond }
