@@ -74,7 +74,7 @@ registerBlockType('ampblocks/image', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save({ attributes }) {
-		const { width, maxwidth, height, maxheight, imageurl, borderRadius } = attributes;
+		const { width, maxwidth, height, maxheight,percentage, imageurl, borderRadius } = attributes;
 		let displayimage = (imageurl) => {
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
@@ -82,13 +82,14 @@ registerBlockType('ampblocks/image', {
 				if (typeof borderRadius !== 'undefined' && borderRadius != 0) {
 					stylecontent['borderRadius'] = borderRadius + '%';
 				}
-				if (typeof width !== 'undefined' && maxwidth < width) {
-					stylecontent['maxWidth'] = width + 'px';
-					stylecontent['minHeight'] = height + 'px';
-				}
-				if (typeof height !== 'undefined' && maxheight < height) {
-					stylecontent['minHeight'] = height + 'px';
-				}
+				stylecontent['width'] = percentage + '%';
+				// if (typeof width !== 'undefined' && maxwidth < width) {
+				// 	stylecontent['maxWidth'] = width + 'px';
+					// stylecontent['minHeight'] = height + 'px';
+				// }
+				// if (typeof height !== 'undefined' && maxheight < height) {
+				// 	stylecontent['minHeight'] = height + 'px';
+				// }
 				return (
 					<div className="imc">
 						<img className='im-t' width={width} height={height} src={imageurl} style={stylecontent} />

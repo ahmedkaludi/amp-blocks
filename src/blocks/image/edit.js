@@ -68,22 +68,13 @@ class ampImage extends Component {
 			if (borderRadius != 0) {
 				stylecontent['borderRadius'] = borderRadius + '%';
 			}
-			if (maxwidth < width) {
-				stylecontent['maxWidth'] = width + 'px';
-			}
-			stylecontent['width'] = width + 'px';
-			if (maxheight < height) {
-				stylecontent['minHeight'] = height + 'px';
-			}
-			stylecontent['height'] = height + 'px';
+			stylecontent['width'] = percentage + '%';
+			let pec =percentage + '%';
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
 				return (
 					<ResizableBox
-						size={{
-							height,
-							width,
-						}}
+						
 						maxWidth= {'100%'}
 						handleClasses={{
 						
@@ -165,7 +156,7 @@ class ampImage extends Component {
 					</PanelBody>
 					<PanelBody title={__('Image Size')}>
 					<RangeControl
-							label={__('Percentage')}
+							label={__('Size')}
 							value={percentage}
 							onChange={(value) => { 
 							let	newwdith =(value*this.state.columnmaxwidth)/100;
@@ -177,20 +168,7 @@ class ampImage extends Component {
 							min={0}
 							max={100}
 						/>
-						<RangeControl
-							label={__('Width')}
-							value={(typeof width !== 'undefined' ? width : '')}
-							onChange={(value) => { setAttributes({ width: value }); }}
-							min={0}
-							max={1500}
-						/>
-						<RangeControl
-							label={__('Height')}
-							value={(typeof height !== 'undefined' ? height : '')}
-							onChange={(value) => { setAttributes({ height: value }); }}
-							min={0}
-							max={1500}
-						/>
+							<h2>{__('Width')} : {width} px  {__('Height')} : {height} px</h2>
 						<RangeControl
 							label={__('Border Radius', 'amp-blocks')}
 							value={borderRadius}
