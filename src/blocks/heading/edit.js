@@ -381,7 +381,17 @@ class ampAdvancedHeading extends Component {
 				placeholder={__('Write heading…')}
 			/>
 		);
-		let css = '.editor-block-list__layout .wp-block .h' + uniqueID + ' {font-size:' + size + sizeType + '; line-height:' + lineHeight + lineType + ';}';
+		let css = '';
+		if (typeof size !== 'undefined' || typeof lineHeight !== 'undefined') {
+			css += '.editor-block-list__layout .wp-block .h' + uniqueID + ' {';
+			if (typeof size !== 'undefined') {
+				css += 'font-size:' + size + sizeType + ';';
+			}
+			if (typeof lineHeight !== 'undefined') {
+				css += 'line-height:' + lineHeight + lineType + ';';
+			}
+			css += ' } ';
+		}
 		if (typeof tabSize !== 'undefined' || typeof tabLineHeight !== 'undefined') {
 
 			css += '@media (min-width: 767px) and (max-width: 1024px) {';
