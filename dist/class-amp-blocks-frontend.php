@@ -106,6 +106,14 @@ class Amp_Blocks_Frontend
 			)
 		);
 		register_block_type(
+			'amp/buttongroup',
+			array(
+				'render_callback' => array($this, 'render_advanced_btn_css'),
+				'editor_script' => 'amp-blocks-js',
+				'editor_style' => 'amp-blocks-editor-css',
+			)
+		);
+		register_block_type(
 			'amp/advancedheading',
 			array(
 				'render_callback' => array($this, 'render_advanced_heading_css'),
@@ -3440,7 +3448,7 @@ class Amp_Blocks_Frontend
 							$this->blocks_advanced_heading_gfont($blockattr);
 						}
 					}
-					if ('amp/advancedbtn' === $block['blockName']) {
+					if ('amp/advancedbtn' === $block['blockName'] || 'amp/buttongroup' === $block['blockName']) {
 						if (isset($block['attrs']) && is_array($block['attrs'])) {
 							$blockattr = $block['attrs'];
 							$this->render_advanced_btn_css_head($blockattr);
@@ -3702,7 +3710,7 @@ class Amp_Blocks_Frontend
 						$this->blocks_advanced_heading_gfont($blockattr);
 					}
 				}
-				if ('amp/advancedbtn' === $inner_block['blockName']) {
+				if ('amp/advancedbtn' === $inner_block['blockName'] || 'amp/buttongroup' === $inner_block['blockName']) {
 					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
 						$blockattr = $inner_block['attrs'];
 						$this->render_advanced_btn_css_head($blockattr);
