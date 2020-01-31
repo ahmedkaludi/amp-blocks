@@ -31,17 +31,17 @@ const {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'amp/buttongroup', {
-	title: __( 'Button Group', 'amp-blocks' ), // Block title.
-	description: __( 'Create an advanced button or a row of buttons. Style each one, including hover controls!', 'amp-blocks' ),
+registerBlockType('amp/buttongroup', {
+	title: __('Button Group', 'amp-blocks'), // Block title.
+	description: __('Create an advanced button or a row of buttons. Style each one, including hover controls!', 'amp-blocks'),
 	icon: {
 		src: icons.block,
 	},
 	category: 'amp-blocks',
 	keywords: [
-		__( 'Button', 'amp-blocks' ),
-		__( 'Icon', 'amp-blocks' ),
-		__( 'KB', 'amp-blocks' ),
+		__('Button', 'amp-blocks'),
+		__('Icon', 'amp-blocks'),
+		__('KB', 'amp-blocks'),
 	],
 	supports: {
 		ktanimate: true,
@@ -71,7 +71,7 @@ registerBlockType( 'amp/buttongroup', {
 		},
 		btns: {
 			type: 'array',
-			default: [ {
+			default: [{
 				text: '',
 				link: '',
 				target: '_self',
@@ -96,20 +96,20 @@ registerBlockType( 'amp/buttongroup', {
 				cssClass: '',
 				noFollow: false,
 				gap: 5,
-				responsiveSize: [ '', '' ],
-				gradient: [ '#999999', 1, 0, 100, 'linear', 180, 'center center' ],
-				gradientHover: [ '#777777', 1, 0, 100, 'linear', 180, 'center center' ],
+				responsiveSize: ['', ''],
+				gradient: ['#999999', 1, 0, 100, 'linear', 180, 'center center'],
+				gradientHover: ['#777777', 1, 0, 100, 'linear', 180, 'center center'],
 				btnStyle: 'basic',
 				btnSize: 'standard',
 				backgroundType: 'solid',
 				backgroundHoverType: 'solid',
-				width: [ '', '', '' ],
-				responsivePaddingBT: [ '', '' ],
-				responsivePaddingLR: [ '', '' ],
-				boxShadow: [ false, '#000000', 0.2, 1, 1, 2, 0, false ],
-				boxShadowHover: [ false, '#000000', 0.4, 2, 2, 3, 0, false ],
+				width: ['', '', ''],
+				responsivePaddingBT: ['', ''],
+				responsivePaddingLR: ['', ''],
+				boxShadow: [false, '#000000', 0.2, 1, 1, 2, 0, false],
+				boxShadowHover: [false, '#000000', 0.4, 2, 2, 3, 0, false],
 				sponsored: false,
-			} ],
+			}],
 		},
 		letterSpacing: {
 			type: 'number',
@@ -162,50 +162,50 @@ registerBlockType( 'amp/buttongroup', {
 	edit,
 	save: props => {
 		const { attributes: { btnCount, btns, hAlign, uniqueID, letterSpacing, forceFullwidth, thAlign, mhAlign } } = props;
-		const renderSaveBtns = ( index ) => {
+		const renderSaveBtns = (index) => {
 			let relAttr;
-			if ( '_blank' === btns[ index ].target ) {
+			if ('_blank' === btns[index].target) {
 				relAttr = 'noreferrer noopener';
 			}
-			if ( true === btns[ index ].noFollow ) {
-				relAttr = ( relAttr ? relAttr.concat( ' nofollow' ) : 'nofollow' );
+			if (true === btns[index].noFollow) {
+				relAttr = (relAttr ? relAttr.concat(' nofollow') : 'nofollow');
 			}
-			if ( undefined !== btns[ index ].sponsored && true === btns[ index ].sponsored ) {
-				relAttr = ( relAttr ? relAttr.concat( ' sponsored' ) : 'sponsored' );
+			if (undefined !== btns[index].sponsored && true === btns[index].sponsored) {
+				relAttr = (relAttr ? relAttr.concat(' sponsored') : 'sponsored');
 			}
 			let btnSize;
-			if ( undefined !== btns[ index ].paddingLR || undefined !== btns[ index ].paddingBT ) {
+			if (undefined !== btns[index].paddingLR || undefined !== btns[index].paddingBT) {
 				btnSize = 'custom';
 			} else {
 				btnSize = 'standard';
 			}
 			return (
-				<div className={ `bw bw-${ index }` }>
-					<a className={ `b button b-${ index }-action b-size-${ ( btns[ index ].btnSize ? btns[ index ].btnSize : btnSize ) } b-style-${ ( btns[ index ].btnStyle ? btns[ index ].btnStyle : 'basic' ) } b-svg-show-${ ( ! btns[ index ].iconHover ? 'always' : 'hover' ) } b-has-text-${ ( ! btns[ index ].text ? 'false' : 'true' ) } b-has-svg-${ ( ! btns[ index ].icon ? 'false' : 'true' ) }${ ( 'video' === btns[ index ].target ? ' ktblocksvideopop' : '' ) }${ ( btns[ index ].cssClass ? ' ' + btns[ index ].cssClass : '' ) }` } href={ ( ! btns[ index ].link ? '#' : btns[ index ].link ) } target={ ( '_blank' === btns[ index ].target ? btns[ index ].target : undefined ) } rel={ relAttr } style={ {
-						borderRadius: ( undefined !== btns[ index ].borderRadius && '' !== btns[ index ].borderRadius ? btns[ index ].borderRadius + 'px' : undefined ),
-						borderWidth: ( undefined !== btns[ index ].borderWidth && '' !== btns[ index ].borderWidth ? btns[ index ].borderWidth + 'px' : undefined ),
-						letterSpacing: ( undefined !== letterSpacing && '' !== letterSpacing ? letterSpacing + 'px' : undefined ),
-					} } >
-						{ btns[ index ].icon && 'left' === btns[ index ].iconSide && (
-							<IconRender className={ `b-svg-icon b-svg-icon-${ btns[ index ].icon } b-side-${ btns[ index ].iconSide }` } name={ btns[ index ].icon } size={ ( ! btns[ index ].size ? '14' : btns[ index ].size ) } />
-						) }
+				<div className={`bw bw-${index}`}>
+					<a className={`b button b-${index}-action b-size-${(btns[index].btnSize ? btns[index].btnSize : btnSize)} b-style-${(btns[index].btnStyle ? btns[index].btnStyle : 'basic')} b-svg-show-${(!btns[index].iconHover ? 'always' : 'hover')} b-has-text-${(!btns[index].text ? 'false' : 'true')} b-has-svg-${(!btns[index].icon ? 'false' : 'true')}${('video' === btns[index].target ? ' ktblocksvideopop' : '')}${(btns[index].cssClass ? ' ' + btns[index].cssClass : '')}`} href={(!btns[index].link ? '#' : btns[index].link)} target={('_blank' === btns[index].target ? btns[index].target : undefined)} rel={relAttr} style={{
+						borderRadius: (undefined !== btns[index].borderRadius && '' !== btns[index].borderRadius ? btns[index].borderRadius + 'px' : undefined),
+						borderWidth: (undefined !== btns[index].borderWidth && '' !== btns[index].borderWidth ? btns[index].borderWidth + 'px' : undefined),
+						letterSpacing: (undefined !== letterSpacing && '' !== letterSpacing ? letterSpacing + 'px' : undefined),
+					}} >
+						{btns[index].icon && 'left' === btns[index].iconSide && (
+							<IconRender className={`b-svg-icon b-svg-icon-${btns[index].icon} b-side-${btns[index].iconSide}`} name={btns[index].icon} size={(!btns[index].size ? '14' : btns[index].size)} />
+						)}
 						<RichText.Content
-							tagName={ 'span' }
+							tagName={'span'}
 							className="bt"
-							value={ btns[ index ].text }
+							value={btns[index].text}
 						/>
-						{ btns[ index ].icon && 'left' !== btns[ index ].iconSide && (
-							<IconRender className={ `b-svg-icon b-svg-icon-${ btns[ index ].icon } b-side-${ btns[ index ].iconSide }` } name={ btns[ index ].icon } size={ ( ! btns[ index ].size ? '14' : btns[ index ].size ) } />
-						) }
+						{btns[index].icon && 'left' !== btns[index].iconSide && (
+							<IconRender className={`b-svg-icon b-svg-icon-${btns[index].icon} b-side-${btns[index].iconSide}`} name={btns[index].icon} size={(!btns[index].size ? '14' : btns[index].size)} />
+						)}
 					</a>
 				</div>
 			);
 		};
 		return (
-			<div className={ `bgp b-align-${ hAlign } b-tablet-align-${ ( thAlign ? thAlign : 'inherit' ) } bm-align-${ ( mhAlign ? mhAlign : 'inherit' ) } bw b${ uniqueID }${ ( forceFullwidth ? ' amp-force-btn-fullwidth' : '' ) }` }>
-				{ times( btnCount, n => renderSaveBtns( n ) ) }
+			<div className={`bgp b-align-${hAlign} b-tablet-align-${(thAlign ? thAlign : 'inherit')} bm-align-${(mhAlign ? mhAlign : 'inherit')} bw b${uniqueID}${(forceFullwidth ? ' amp-force-btn-fullwidth' : '')}`}>
+				{times(btnCount, n => renderSaveBtns(n))}
 			</div>
 		);
 	},
-	
-} );
+
+});
