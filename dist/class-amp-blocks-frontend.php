@@ -1089,9 +1089,24 @@ class Amp_Blocks_Frontend
 		if (isset($attr['btns']) && is_array($attr['btns'])) {
 			foreach ($attr['btns'] as $btnkey => $btnvalue) {
 				if (is_array($btnvalue)) {
-					if (isset($btnvalue['gap']) && is_numeric($btnvalue['gap'])) {
+					if (isset($btnvalue['marginTop']) && is_numeric($btnvalue['marginTop'])) {
 						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin-right:' . $btnvalue['gap'] . 'px;';
+						$css .= 'margin-top:' . $btnvalue['marginTop'] . 'px;';
+						$css .= '}';
+					}
+					if (isset($btnvalue['marginRight']) && is_numeric($btnvalue['marginRight'])) {
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
+						$css .= 'margin-right:' . $btnvalue['marginRight'] . 'px;';
+						$css .= '}';
+					}
+					if (isset($btnvalue['marginBottom']) && is_numeric($btnvalue['marginBottom'])) {
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
+						$css .= 'margin-bottom:' . $btnvalue['marginBottom'] . 'px;';
+						$css .= '}';
+					}
+					if (isset($btnvalue['marginLeft']) && is_numeric($btnvalue['marginLeft'])) {
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
+						$css .= 'margin-left:' . $btnvalue['marginLeft'] . 'px;';
 						$css .= '}';
 					}
 					if (isset($btnvalue['backgroundType']) && 'gradient' === $btnvalue['backgroundType'] || isset($btnvalue['backgroundHoverType']) && 'gradient' === $btnvalue['backgroundHoverType']) {

@@ -95,7 +95,6 @@ registerBlockType('amp/buttongroup', {
 				iconHover: false,
 				cssClass: '',
 				noFollow: false,
-				gap: 5,
 				responsiveSize: ['', ''],
 				gradient: ['#999999', 1, 0, 100, 'linear', 180, 'center center'],
 				gradientHover: ['#777777', 1, 0, 100, 'linear', 180, 'center center'],
@@ -109,6 +108,10 @@ registerBlockType('amp/buttongroup', {
 				boxShadow: [false, '#000000', 0.2, 1, 1, 2, 0, false],
 				boxShadowHover: [false, '#000000', 0.4, 2, 2, 3, 0, false],
 				sponsored: false,
+				marginTop: 0,
+				marginRight: 0,
+				marginBottom: 0,
+				marginLeft: 0,
 			}],
 		},
 		letterSpacing: {

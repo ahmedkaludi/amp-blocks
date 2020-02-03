@@ -5,6 +5,7 @@
  */
 import times from 'lodash/times';
 import map from 'lodash/map';
+import editorIcons from '../../icons';
 import IconControl from '../../icon-control';
 import IconRender from '../../icon-render';
 import TypographyControls from '../../typography-control';
@@ -43,6 +44,7 @@ const {
 	ButtonGroup,
 	SelectControl,
 	ToggleControl,
+	Tooltip,
 } = wp.components;
 
 /**
@@ -57,6 +59,7 @@ class ampAdvancedButton extends Component {
 		this.saveArrayUpdate = this.saveArrayUpdate.bind(this);
 		this.state = {
 			btnFocused: 'false',
+			marginControl: 'linked',
 			btnLink: false,
 			user: (amp_blocks_params.userrole ? amp_blocks_params.userrole : 'admin'),
 			settings: {},
@@ -155,6 +158,11 @@ class ampAdvancedButton extends Component {
 				families: [typography + (fontVariant ? ':' + fontVariant : '')],
 			},
 		};
+		const controlTypes = [
+			{ key: 'linked', name: __( 'Linked' ), micon: editorIcons.linked },
+			{ key: 'individual', name: __( 'Individual' ), micon: editorIcons.individual },
+		];
+		const { marginControl } = this.state;
 		const btnSizes = [
 			{ key: 'small', name: __('S') },
 			{ key: 'standard', name: __('M') },
@@ -202,7 +210,10 @@ class ampAdvancedButton extends Component {
 			}
 			return (
 				<div className={`btn-area-wrap b-${index}-area`} style={{
-					marginRight: btns[index].gap + 'px',
+					marginTop: ( btns[ index ].marginTop ? btns[ index ].marginTop + 'px' : undefined ),
+					marginRight: ( btns[ index ].marginRight ? btns[ index ].marginRight + 'px' : undefined ),
+					marginBottom: ( btns[ index ].marginBottom ? btns[ index ].marginBottom + 'px' : undefined ),
+					marginLeft: ( btns[ index ].marginLeft ? btns[ index ].marginLeft + 'px' : undefined ),
 				}} >
 					<span className={`b-wrap b-${index}-action lokeshs b-svg-show-${(!btns[index].iconHover ? 'always' : 'hover')}`}>
 						<span className={`b b-${index} b-size-${(btns[index].btnSize ? btns[index].btnSize : btnSize)} b-style-${(btns[index].btnStyle ? btns[index].btnStyle : 'basic')}`} style={{
@@ -742,15 +753,90 @@ class ampAdvancedButton extends Component {
 						value={(btns[index].cssClass ? btns[index].cssClass : '')}
 						onChange={(value) => this.saveArrayUpdate({ cssClass: value }, index)}
 					/>
-					<RangeControl
-						label={__('Space Between Next Button', 'amp-blocks')}
-						value={btns[index].gap}
-						onChange={value => {
-							this.saveArrayUpdate({ gap: value }, index);
-						}}
-						min={0}
-						max={50}
-					/>
+
+
+<ButtonGroup className="amp-size-type-options amp-outline-control" aria-label={ __( 'Margin Control Type' ) }>
+						{ map( controlTypes, ( { name, key, micon } ) => (
+							<Tooltip text={ name }>
+								<Button
+									key={ key }
+									className="amp-size-btn"
+									isSmall
+									isPrimary={ marginControl === key }
+									aria-pressed={ marginControl === key }
+									onClick={ () => this.setState( { marginControl: key } ) }
+								>
+									{ micon }
+								</Button>
+							</Tooltip>
+						) ) }
+					</ButtonGroup>
+					{ marginControl && marginControl !== 'individual' && (
+						<RangeControl
+							label={ __( 'Margin (px)' ) }
+							value={ ( btns[ index ].marginTop ? btns[ index ].marginTop : 0 ) }
+							onChange={ ( value ) => {
+								this.saveArrayUpdate( {
+									marginTop: value,
+									marginRight: value,
+									marginBottom: value,
+									marginLeft: value,
+								}, index );
+							} }
+							min={ 0 }
+							max={ 180 }
+							step={ 1 }
+						/>
+					) }
+					{ marginControl && marginControl === 'individual' && (
+						<Fragment>
+							<p>{ __( 'Margin (px)' ) }</p>
+							<RangeControl
+								className="amp-icon-rangecontrol"
+								label={ editorIcons.outlinetop }
+								value={ ( btns[ index ].marginTop ? btns[ index ].marginTop : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginTop: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
+							/>
+							<RangeControl
+								className="amp-icon-rangecontrol"
+								label={ editorIcons.outlineright }
+								value={ ( btns[ index ].marginRight ? btns[ index ].marginRight : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginRight: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
+							/>
+							<RangeControl
+								className="amp-icon-rangecontrol"
+								label={ editorIcons.outlinebottom }
+								value={ ( btns[ index ].marginBottom ? btns[ index ].marginBottom : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginBottom: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
+							/>
+							<RangeControl
+								className="amp-icon-rangecontrol"
+								label={ editorIcons.outlineleft }
+								value={ ( btns[ index ].marginLeft ? btns[ index ].marginLeft : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginLeft: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
+							/>
+						</Fragment>
+					) }
 				</PanelBody>
 			);
 		};
@@ -1246,7 +1332,6 @@ class ampAdvancedButton extends Component {
 																iconHover: newbtns[0].iconHover,
 																cssClass: (newbtns[0].cssClass ? newbtns[0].cssClass : ''),
 																noFollow: (newbtns[0].noFollow ? newbtns[0].noFollow : false),
-																gap: (newbtns[0].gap ? newbtns[0].gap : 5),
 																responsiveSize: (newbtns[0].responsiveSize ? newbtns[0].responsiveSize : ['', '']),
 																gradient: (newbtns[0].gradient ? newbtns[0].gradient : ['#999999', 1, 0, 100, 'linear', 180, 'center center']),
 																gradientHover: (newbtns[0].gradientHover ? newbtns[0].gradientHover : ['#777777', 1, 0, 100, 'linear', 180, 'center center']),
@@ -1260,6 +1345,10 @@ class ampAdvancedButton extends Component {
 																boxShadow: (newbtns[0].boxShadow ? newbtns[0].boxShadow : [false, '#000000', 0.2, 1, 1, 2, 0, false]),
 																boxShadowHover: (newbtns[0].boxShadowHover ? newbtns[0].boxShadowHover : [false, '#000000', 0.4, 2, 2, 3, 0, false]),
 																sponsored: (newbtns[0].sponsored ? newbtns[0].sponsored : false),
+																marginTop: ( newbtns[ index ].marginTop ? newbtns[ index ].marginTop + 'px' : undefined ),
+																marginRight: ( newbtns[ index ].marginRight ? newbtns[ index ].marginRight + 'px' : undefined ),
+																marginBottom: ( newbtns[ index ].marginBottom ? newbtns[ index ].marginBottom + 'px' : undefined ),
+																marginLeft: ( newbtns[ index ].marginLeft ? newbtns[ index ].marginLeft + 'px' : undefined ),
 															});
 														});
 													}
