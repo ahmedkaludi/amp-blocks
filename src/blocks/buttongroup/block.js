@@ -112,6 +112,10 @@ registerBlockType('amp/buttongroup', {
 				marginRight: 0,
 				marginBottom: 0,
 				marginLeft: 0,
+				responsivemarginTop: ['', ''],
+				responsivemarginRight: ['', ''],
+				responsivemarginBottom: ['', ''],
+				responsivemarginLeft: ['', ''],
 			}],
 		},
 		letterSpacing: {
