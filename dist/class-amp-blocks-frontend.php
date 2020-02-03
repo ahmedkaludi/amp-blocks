@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Enqueue CSS/JS of all the blocks.
  *
@@ -47,17 +48,17 @@ class Amp_Blocks_Frontend
 	{
 		add_action('init', array($this, 'on_init'), 20);
 		add_action('enqueue_block_assets', array($this, 'blocks_assets'));
-		
+
 
 		$siteUrl = filter_input(INPUT_SERVER, 'REQUEST_URI');
 		$amp_end_query = explode('/', $siteUrl);
 		if (function_exists('ampforwp_generate_endpoint') && (in_array('amp', $amp_end_query) || in_array('?amp', $amp_end_query))) {
 			add_action('amp_post_template_css', array($this, 'frontend_inline_css'), 20);
-			add_action( 'amp_post_template_css', array( $this, 'frontend_gfonts' ), 90 );
+			add_action('amp_post_template_css', array($this, 'frontend_gfonts'), 90);
 			self::$ampcheck = 'amp';
 		} else {
 			add_action('wp_enqueue_scripts', array($this, 'frontend_inline_css'), 20);
-			add_action( 'wp_head', array( $this, 'frontend_gfonts' ), 90 );
+			add_action('wp_head', array($this, 'frontend_gfonts'), 90);
 		}
 	}
 
@@ -299,7 +300,7 @@ class Amp_Blocks_Frontend
 			}
 			if (isset($attr['bgImg']) && !empty($attr['bgImg']) && (!isset($attr['backgroundSettingTab']) || empty($attr['backgroundSettingTab']) || 'normal' === $attr['backgroundSettingTab'])) {
 				if (isset($attr['bgImgAttachment'])) {
-						$bg_attach = $attr['bgImgAttachment'];
+					$bg_attach = $attr['bgImgAttachment'];
 				} else {
 					$bg_attach = 'scroll';
 				}
@@ -468,7 +469,7 @@ class Amp_Blocks_Frontend
 				}
 				if (isset($attr['overlayBgImg'])) {
 					if (isset($attr['overlayBgImgAttachment'])) {
-							$overbg_attach = $attr['overlayBgImgAttachment'];
+						$overbg_attach = $attr['overlayBgImgAttachment'];
 					} else {
 						$overbg_attach = 'scroll';
 					}
@@ -521,7 +522,7 @@ class Amp_Blocks_Frontend
 				}
 				if (!empty($tablet_background['bgImg'])) {
 					if (!empty($tablet_background['bgImgAttachment'])) {
-							$bg_attach = $tablet_background['bgImgAttachment'];
+						$bg_attach = $tablet_background['bgImgAttachment'];
 					} else {
 						$bg_attach = 'scroll';
 					}
@@ -770,45 +771,46 @@ class Amp_Blocks_Frontend
 	/**
 	 * Load the front end Google Fonts
 	 */
-	public function frontend_gfonts() {
-		if ( empty( self::$gfonts ) ) {
+	public function frontend_gfonts()
+	{
+		if (empty(self::$gfonts)) {
 			return;
 		}
-		$print_google_fonts = apply_filters( 'amp_blocks_print_google_fonts', true );
-		if ( ! $print_google_fonts ) {
+		$print_google_fonts = apply_filters('amp_blocks_print_google_fonts', true);
+		if (!$print_google_fonts) {
 			return;
 		}
 		$link    = '';
 		$subsets = array();
-		foreach ( self::$gfonts as $key => $gfont_values ) {
-			if ( ! empty( $link ) ) {
+		foreach (self::$gfonts as $key => $gfont_values) {
+			if (!empty($link)) {
 				$link .= '%7C'; // Append a new font to the string.
 			}
 			$link .= $gfont_values['fontfamily'];
-			if ( ! empty( $gfont_values['fontvariants'] ) ) {
+			if (!empty($gfont_values['fontvariants'])) {
 				$link .= ':';
-				$link .= implode( ',', $gfont_values['fontvariants'] );
+				$link .= implode(',', $gfont_values['fontvariants']);
 			}
-			if ( ! empty( $gfont_values['fontsubsets'] ) ) {
-				foreach ( $gfont_values['fontsubsets'] as $subset ) {
-					if ( ! in_array( $subset, $subsets ) ) {
-						array_push( $subsets, $subset );
+			if (!empty($gfont_values['fontsubsets'])) {
+				foreach ($gfont_values['fontsubsets'] as $subset) {
+					if (!in_array($subset, $subsets)) {
+						array_push($subsets, $subset);
 					}
 				}
 			}
 		}
-		if ( ! empty( $subsets ) ) {
-			$link .= '&amp;subset=' . implode( ',', $subsets );
+		if (!empty($subsets)) {
+			$link .= '&amp;subset=' . implode(',', $subsets);
 		}
-		if (self::$ampcheck == 'amp'){
-			$google_font_path=  'https://fonts.googleapis.com/css?family=' . esc_attr( str_replace( '|', '%7C', $link ) );
+		if (self::$ampcheck == 'amp') {
+			$google_font_path =  'https://fonts.googleapis.com/css?family=' . esc_attr(str_replace('|', '%7C', $link));
 			echo file_get_contents($google_font_path);
-		}else{
-			echo '<link href="//fonts.googleapis.com/css?family=' . esc_attr( str_replace( '|', '%7C', $link ) ) . '" rel="stylesheet">';
+		} else {
+			echo '<link href="//fonts.googleapis.com/css?family=' . esc_attr(str_replace('|', '%7C', $link)) . '" rel="stylesheet">';
 		}
 	}
-	public function allow_ampBlock_css_inamp(){
-		
+	public function allow_ampBlock_css_inamp()
+	{
 	}
 
 	/**
@@ -900,7 +902,7 @@ class Amp_Blocks_Frontend
 			$css .= '.ab > .cw > .cd' . $unique_id . ' {';
 			$css .= 'text-align:' . $attr['textAlign'][1] . ';';
 			$css .= '}';
-			$css .= '}'; 
+			$css .= '}';
 		}
 		if (isset($attr['textAlign']) && is_array($attr['textAlign']) && isset($attr['textAlign'][2]) && !empty($attr['textAlign'][2])) {
 			$css .= '@media (max-width: 767px) {';
@@ -1088,74 +1090,100 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['btns']) && is_array($attr['btns'])) {
 			foreach ($attr['btns'] as $btnkey => $btnvalue) {
+				$btns_group_margin = '';
 				if (is_array($btnvalue)) {
 					if (isset($btnvalue['marginTop']) && is_numeric($btnvalue['marginTop'])) {
-						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin-top:' . $btnvalue['marginTop'] . 'px;';
-						$css .= '}';
+						$btns_group_margin .=  $btnvalue['marginTop'] . 'px ';
+					} else {
+						$btns_group_margin .=  '0px ';
 					}
 					if (isset($btnvalue['marginRight']) && is_numeric($btnvalue['marginRight'])) {
-						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin-right:' . $btnvalue['marginRight'] . 'px;';
-						$css .= '}';
+						$btns_group_margin .=  $btnvalue['marginRight'] . 'px ';
+					} else {
+						$btns_group_margin .=  '0px ';
 					}
 					if (isset($btnvalue['marginBottom']) && is_numeric($btnvalue['marginBottom'])) {
-						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin-bottom:' . $btnvalue['marginBottom'] . 'px;';
-						$css .= '}';
+						$btns_group_margin .=  $btnvalue['marginBottom'] . 'px ';
+					} else {
+						$btns_group_margin .=  '0px ';
 					}
 					if (isset($btnvalue['marginLeft']) && is_numeric($btnvalue['marginLeft'])) {
+						$btns_group_margin .=  $btnvalue['marginLeft'] . 'px; ';
+					} else {
+						$btns_group_margin .=  '0px ';
+					}
+					if (!empty($btns_group_margin)) {
 						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin-left:' . $btnvalue['marginLeft'] . 'px;';
+						$css .= 'margin:' . $btns_group_margin;
 						$css .= '}';
 					}
-					if ((isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][0]) && is_numeric($btnvalue['responsivemarginTop'][0])) || 
-						(isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][0]) && is_numeric($btnvalue['responsivemarginRight'][0])) || 
-						(isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][0]) && is_numeric($btnvalue['responsivemarginBottom'][0])) || 
-						(isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][0]) && is_numeric($btnvalue['responsivemarginLeft'][0])) ) {
+					if ((isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][0]) && is_numeric($btnvalue['responsivemarginTop'][0])) ||
+						(isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][0]) && is_numeric($btnvalue['responsivemarginRight'][0])) ||
+						(isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][0]) && is_numeric($btnvalue['responsivemarginBottom'][0])) ||
+						(isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][0]) && is_numeric($btnvalue['responsivemarginLeft'][0]))
+					) {
+						$btns_margin_responsive = '';
 
-						$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
-							$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
 						if (isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][0]) && is_numeric($btnvalue['responsivemarginTop'][0])) {
-							$css .= 'margin-top:' . $btnvalue['responsivemarginTop'][0] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginTop'][0] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
 						if (isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][0]) && is_numeric($btnvalue['responsivemarginRight'][0])) {
-							$css .= 'margin-right:' . $btnvalue['responsivemarginRight'][0] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginRight'][0] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
 						if (isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][0]) && is_numeric($btnvalue['responsivemarginBottom'][0])) {
-							$css .= 'margin-bottom:' . $btnvalue['responsivemarginBottom'][0] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginBottom'][0] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
 						if (isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][0]) && is_numeric($btnvalue['responsivemarginLeft'][0])) {
-							$css .= 'margin-left:' . $btnvalue['responsivemarginLeft'][0] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginLeft'][0] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
-						
-						$css .= '}';
-						$css .= '}';
 
+						$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
+						$css .= 'margin :' . $btns_margin_responsive . ';';
+						$css .= '}';
+						$css .= '}';
 					}
-					if ((isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][1]) && is_numeric($btnvalue['responsivemarginTop'][1])) || 
-						(isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][1]) && is_numeric($btnvalue['responsivemarginRight'][1])) || 
-						(isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][1]) && is_numeric($btnvalue['responsivemarginBottom'][1])) || 
-						(isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][1]) && is_numeric($btnvalue['responsivemarginLeft'][1])) ) {
+					if ((isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][1]) && is_numeric($btnvalue['responsivemarginTop'][1])) ||
+						(isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][1]) && is_numeric($btnvalue['responsivemarginRight'][1])) ||
+						(isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][1]) && is_numeric($btnvalue['responsivemarginBottom'][1])) ||
+						(isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][1]) && is_numeric($btnvalue['responsivemarginLeft'][1]))
+					) {
+						$btns_margin_responsive = '';
 
-						$css .= '@media (max-width: 767px) {';
-							$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
 						if (isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][1]) && is_numeric($btnvalue['responsivemarginTop'][1])) {
-							$css .= 'margin-top:' . $btnvalue['responsivemarginTop'][1] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginTop'][1] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
 						if (isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][1]) && is_numeric($btnvalue['responsivemarginRight'][1])) {
-							$css .= 'margin-right:' . $btnvalue['responsivemarginRight'][1] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginRight'][1] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
 						if (isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][1]) && is_numeric($btnvalue['responsivemarginBottom'][1])) {
-							$css .= 'margin-bottom:' . $btnvalue['responsivemarginBottom'][1] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginBottom'][1] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
 						if (isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][1]) && is_numeric($btnvalue['responsivemarginLeft'][1])) {
-							$css .= 'margin-left:' . $btnvalue['responsivemarginLeft'][1] . 'px;';
+							$btns_margin_responsive .= $btnvalue['responsivemarginLeft'][1] . 'px ';
+						} else {
+							$btns_margin_responsive .=  '0px ';
 						}
-						
-						$css .= '}';
-						$css .= '}';
 
+						$css .= '@media (max-width: 767px) {';
+						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
+						$css .= 'margin :' . $btns_margin_responsive . ';';
+						$css .= '}';
+						$css .= '}';
 					}
 					if (isset($btnvalue['backgroundType']) && 'gradient' === $btnvalue['backgroundType'] || isset($btnvalue['backgroundHoverType']) && 'gradient' === $btnvalue['backgroundHoverType']) {
 						$bgtype = 'gradient';
@@ -3459,7 +3487,7 @@ class Amp_Blocks_Frontend
 			return;
 		}
 		// Lets register all the block styles.
-		wp_register_style( 'amp-blocks-btn', AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css', array(), AMP_BLOCKS_VERSION );
+		wp_register_style('amp-blocks-btn', AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css', array(), AMP_BLOCKS_VERSION);
 		wp_register_style('amp-blocks-rowlayout', AMP_BLOCKS_DIR_URI . 'dist/blocks/row.style.build.css', array(), AMP_BLOCKS_VERSION);
 		wp_register_style('amp-blocks-image', AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css', array(), AMP_BLOCKS_VERSION);
 		wp_register_style('amp-blocks-common', AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css', array(), AMP_BLOCKS_VERSION);
@@ -3473,7 +3501,7 @@ class Amp_Blocks_Frontend
 	 */
 	public function frontend_inline_css()
 	{
-		if (self::$ampcheck == 'amp'){
+		if (self::$ampcheck == 'amp') {
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/row.style.build.css');
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css');
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css');
@@ -3766,7 +3794,7 @@ class Amp_Blocks_Frontend
 						$this->render_column_layout_css_head($blockattr);
 					}
 				}
-				if ('amp/advancedheading' === $inner_block['blockName']|| 'ampblocks/heading' === $inner_block['blockName']) {
+				if ('amp/advancedheading' === $inner_block['blockName'] || 'ampblocks/heading' === $inner_block['blockName']) {
 					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
 						$blockattr = $inner_block['attrs'];
 						$this->render_advanced_heading_css_head($blockattr);
