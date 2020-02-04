@@ -111,6 +111,20 @@ registerBlockType('ampblocks/icon-list', {
 			type: 'string',
 			default: 'normal',
 		},
+		size: {
+			type: 'number',
+		},
+		sizeType: {
+			type: 'string',
+			default: 'px',
+		},
+		lineHeight: {
+			type: 'number',
+		},
+		lineType: {
+			type: 'string',
+			default: 'px',
+		},
 		markGoogleFont: {
 			type: 'boolean',
 			default: false,
@@ -121,6 +135,10 @@ registerBlockType('ampblocks/icon-list', {
 		},
 		textcolor: {
 			type: 'string',
+		},
+		textTransform: {
+			type: 'string',
+			default: '',
 		},
 		iconorder: {
 			type: 'number',
@@ -143,7 +161,7 @@ registerBlockType('ampblocks/icon-list', {
 
 	save: props => {
 		const { attributes: { iconorder, icons, iconCount, blockAlignment, textAlignment, uniqueID, align, content, color, letterSpacing, topMargin, bottomMargin,textcolor,anchor } } = props;
-		let tagId = ( anchor ? anchor : `h${ uniqueID }` );
+		let tagId =  `h${ uniqueID }` ;
 
 
 		const htmlItem = (

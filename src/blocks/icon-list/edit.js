@@ -362,7 +362,6 @@ class ampIcons extends Component {
 				{times(iconCount, n => renderIconSettings(n))}
 			</div>
 		);
-		console.log(typography);
 		const headingContent = (
 			<RichText
 				formattingControls={['bold', 'italic', 'link', 'mark']}
@@ -475,8 +474,23 @@ class ampIcons extends Component {
 				/>
 			</PanelBody>
 		);
+		let css = '';
+		if (typeof size !== 'undefined' || typeof lineHeight !== 'undefined') {
+			css += '.editor-block-list__layout .wp-block .h' + uniqueID + ' {';
+			if (typeof size !== 'undefined') {
+				css += 'font-size:' + size + sizeType + ';';
+			}
+			if (typeof lineHeight !== 'undefined') {
+				css += 'line-height:' + lineHeight + lineType + ';';
+			}
+			css += ' } ';
+		}
 		return (
+			
 			<div className={className}>
+				<style>
+			{css}
+			</style>
 				<BlockControls>
 					<button
 						className="amp-popover-font-family-container components-dropdown-menu components-toolbar"
