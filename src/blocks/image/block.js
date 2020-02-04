@@ -74,7 +74,7 @@ registerBlockType('ampblocks/image', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save({ attributes }) {
-		const { width, maxwidth, height, maxheight,percentage, imageurl, borderRadius } = attributes;
+		const { width, maxwidth, height, maxheight, percentage, imageurl, borderRadius } = attributes;
 		let displayimage = (imageurl) => {
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
@@ -83,18 +83,23 @@ registerBlockType('ampblocks/image', {
 					stylecontent['borderRadius'] = borderRadius + '%';
 				}
 				stylecontent['width'] = percentage + '%';
-				// if (typeof width !== 'undefined' && maxwidth < width) {
-				// 	stylecontent['maxWidth'] = width + 'px';
-					// stylecontent['minHeight'] = height + 'px';
-				// }
-				// if (typeof height !== 'undefined' && maxheight < height) {
-				// 	stylecontent['minHeight'] = height + 'px';
-				// }
-				return (
-					<div className="imc">
-						<img className='im-t' width={width} height={height} src={imageurl} style={stylecontent} />
-					</div>
-				)
+				let stylecontentmain = {};
+				stylecontentmain['max-width'] = maxwidth + 'px';
+				if (percentage == '100') {
+					delete stylecontent['width'];
+					return (
+						<div className="imc" >
+							<img className='im-t' src={imageurl} style={stylecontent} />
+						</div>
+					)
+
+				} else {
+					return (
+						<div className="imc" style={stylecontentmain}>
+							<img className='im-t' src={imageurl} style={stylecontent} />
+						</div>
+					)
+				}
 			} else {
 				return ("");
 			}

@@ -26,8 +26,8 @@ class ampImage extends Component {
 		super(...arguments);
 		this.state = {
 			hideShowUploadButton: arguments[0].attributes.imageurl ? false : true,
-			columnmaxwidth : 0,
-			columnmaxheight : 0
+			columnmaxwidth: 0,
+			columnmaxheight: 0
 		};
 		this.bindContainer = this.bindContainer.bind(this);
 	}
@@ -55,29 +55,31 @@ class ampImage extends Component {
 			containerWidth: this.container && this.container.clientWidth,
 			containerHeight: this.container && this.container.clientHeight,
 		};
-		if(this.state.columnmaxwidth == "0" && typeof sizes.containerWidth !=='undefined'){
-			this.setState({ columnmaxwidth: sizes.containerWidth,columnmaxheight: sizes.containerHeight })
+		if (this.state.columnmaxwidth == "0" && typeof sizes.containerWidth !== 'undefined') {
+			this.setState({ columnmaxwidth: sizes.containerWidth, columnmaxheight: sizes.containerHeight })
 		}
-	
-		const { attributes, setAttributes, toggleSelection } = this.props;	
-		const { width, maxwidth, height, percentage,maxheight, borderRadius, imageurl, imageSource, uniqueID } = attributes;
-		const currentWidth = width || sizes.containerWidth;
-		const currentHeight = height || sizes.containerHeight;
+
+		const { attributes, setAttributes, toggleSelection } = this.props;
+		const { width, maxwidth, height, percentage, maxheight, borderRadius, imageurl, imageSource, uniqueID } = attributes;
+		const currentWidth = width || maxwidth;
+		const currentHeight = height || maxheight;
 		let displayimage = (imageurl) => {
 			let stylecontent = {};
 			if (borderRadius != 0) {
 				stylecontent['borderRadius'] = borderRadius + '%';
 			}
 			stylecontent['width'] = percentage + '%';
-			let pec =percentage + '%';
+			let stylecontentmain = {};
+			stylecontentmain['max-width'] = maxwidth + 'px';
+			let pec = percentage + '%';
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
 				return (
 					<ResizableBox
-						
-						maxWidth= {'100%'}
+
+						maxWidth={'100%'}
 						handleClasses={{
-						
+
 							left: 'ihl',
 							right: 'ihr',
 							bottom: 'ihb',
@@ -93,18 +95,19 @@ class ampImage extends Component {
 						className={'ih'}
 						onResize={(event, direction, elt, delta) => {
 							let newwidth = currentWidth + delta.width;
-							let widthinpercentage = Math.round( newwidth/this.state.columnmaxwidth*100);
+							let widthinpercentage = Math.round(newwidth / this.state.columnmaxwidth * 100);
 							event.preventDefault();
-							document.getElementById('lcw' + uniqueID).innerHTML = newwidth+ 'px'
+							document.getElementById('lcw' + uniqueID).innerHTML = newwidth + 'px'
 							document.getElementById('lcw' + uniqueID).style.opacity = 1;
 							document.getElementById('rcw' + uniqueID).innerHTML = widthinpercentage + "%";
 							document.getElementById('rcw' + uniqueID).style.opacity = 1;
-							
+
 						}}
 						onResizeStop={(event, direction, elt, delta) => {
 							let newwidth = currentWidth + delta.width;
-							let widthinpercentage = Math.round( newwidth/this.state.columnmaxwidth*100);
-							setAttributes({	percentage: parseInt(widthinpercentage),
+							let widthinpercentage = Math.round(newwidth / this.state.columnmaxwidth * 100);
+							setAttributes({
+								percentage: parseInt(widthinpercentage),
 								width: parseInt(currentWidth + delta.width, 10),
 								height: parseInt(currentHeight + delta.height, 10),
 							});
@@ -116,7 +119,7 @@ class ampImage extends Component {
 							toggleSelection(false);
 						}}
 					>
-						<div className="imc" ref={this.bindContainer}>
+						<div className="imc" ref={this.bindContainer} style={stylecontentmain}>
 							<img className='im-t' src={imageurl} style={stylecontent} />
 						</div>
 						<span id={`lcw` + uniqueID}
@@ -155,20 +158,22 @@ class ampImage extends Component {
 						/>
 					</PanelBody>
 					<PanelBody title={__('Image Size')}>
-					<RangeControl
+						<RangeControl
 							label={__('Size')}
 							value={percentage}
-							onChange={(value) => { 
-							let	newwdith =(value*this.state.columnmaxwidth)/100;
-							let newheight =	(this.state.columnmaxheight / this.state.columnmaxwidth) * newwdith;
-								setAttributes({	percentage: parseInt(value),
+							onChange={(value) => {
+								let newwdith = (value * this.state.columnmaxwidth) / 100;
+								let newheight = (value * this.state.columnmaxheight) / 100;
+								setAttributes({
+									percentage: parseInt(value),
 									width: parseInt(newwdith, 10),
 									height: parseInt(newheight, 10),
-								}); }}
-							min={0}
+								});
+							}}
+							min={2}
 							max={100}
 						/>
-							<h2>{__('Width')} : {width} px  {__('Height')} : {height} px</h2>
+						<h2>{__('Width')} : {currentWidth} px  {__('Height')} : {currentHeight} px</h2>
 						<RangeControl
 							label={__('Border Radius', 'amp-blocks')}
 							value={borderRadius}
@@ -190,7 +195,7 @@ class ampImage extends Component {
 				{/* content to display on block slected START */}
 				{this.state.hideShowUploadButton && (
 					<MediaUpload
-						onSelect={(media) => { setAttributes({ imageurl: media.url,maxwidth: media.width }); this.setState({ hideShowUploadButton: false }) }}
+						onSelect={(media) => { setAttributes({ imageurl: media.url, maxwidth: media.width, maxheight: media.height }); this.setState({ hideShowUploadButton: false }) }}
 						allowedTypes={'image'}
 						value={imageurl}
 						render={({ open }) => (
