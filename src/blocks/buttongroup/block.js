@@ -209,7 +209,7 @@ registerBlockType('amp/buttongroup', {
 			);
 		};
 		return (
-			<div className={`bgp b-align-${hAlign} b-tablet-align-${(thAlign ? thAlign : 'inherit')} bm-align-${(mhAlign ? mhAlign : 'inherit')} bw b${uniqueID}${(forceFullwidth ? ' amp-force-btn-fullwidth' : '')}`}>
+			<div className={`bgp b-align-${hAlign} b-tablet-align-${(thAlign ? thAlign : 'inherit')} bm-align-${(mhAlign ? mhAlign : 'inherit')} b${uniqueID}${(forceFullwidth ? ' amp-force-btn-fullwidth' : '')}`}>
 				{times(btnCount, n => renderSaveBtns(n))}
 			</div>
 		);
