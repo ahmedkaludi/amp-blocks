@@ -3532,7 +3532,7 @@ class Amp_Blocks_Frontend
 							$this->render_column_layout_css_head($blockattr);
 						}
 					}
-					if ('amp/advancedheading' === $block['blockName'] || 'ampblocks/heading' === $block['blockName']) {
+					if ('amp/advancedheading' === $block['blockName'] || 'ampblocks/heading' === $block['blockName'] || 'ampblocks/icon-list' == $block['blockName']) {
 						if (isset($block['attrs']) && is_array($block['attrs'])) {
 							$blockattr = $block['attrs'];
 							$this->render_advanced_heading_css_head($blockattr);
@@ -3794,7 +3794,7 @@ class Amp_Blocks_Frontend
 						$this->render_column_layout_css_head($blockattr);
 					}
 				}
-				if ('amp/advancedheading' === $inner_block['blockName'] || 'ampblocks/heading' === $inner_block['blockName']) {
+				if ('amp/advancedheading' === $inner_block['blockName'] || 'ampblocks/heading' === $inner_block['blockName'] || 'ampblocks/icon-list' == $inner_block['blockName']) {
 					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
 						$blockattr = $inner_block['attrs'];
 						$this->render_advanced_heading_css_head($blockattr);

@@ -18,6 +18,9 @@ import Ico from '../../svgicons';
 import FaIco from '../../faicons';
 import IcoNames from '../../svgiconsnames';
 import TypographyControls from '../../typography-control';
+import AdvancedColorControl from '../../advanced-color-control';
+import WebfontLoader from '../../fontloader';
+
 
 /**
  * Import Css
@@ -98,7 +101,7 @@ class ampIcons extends Component {
 		});
 	}
 	render() {
-		const { attributes: { iconorder,iconCount, icons, blockAlignment, textAlignment, uniqueID, align, content, color, size, sizeType, lineType, lineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, textTransform }, className, setAttributes, clientId, mergeBlocks, onReplace } = this.props;
+		const { attributes: { iconorder, iconCount, icons, blockAlignment,markGoogleFont, textAlignment, uniqueID, align, content, color, size, sizeType, lineType, lineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, textTransform,textcolor }, className, setAttributes, clientId, mergeBlocks, onReplace } = this.props;
 		const { marginControl } = this.state;
 		const fontMin = (sizeType === 'em' ? 0.2 : 5);
 		const fontMax = (sizeType === 'em' ? 12 : 200);
@@ -113,6 +116,13 @@ class ampIcons extends Component {
 		const renderSVG = svg => (
 			<GenIcon name={svg} icon={('fa' === svg.substring(0, 2) ? FaIco[svg] : Ico[svg])} />
 		);
+		const gconfig = {
+			google: {
+				families: [typography + (fontVariant ? ':' + fontVariant : '')],
+			},
+		};
+		const config = (googleFont ? gconfig : '');
+		const sconfig = (markGoogleFont ? sgconfig : '');
 		const renderIconSettings = (index) => {
 			return (
 				<PanelBody
@@ -334,13 +344,14 @@ class ampIcons extends Component {
 					/>
 					<SelectControl
 						label={__('Icon Order')}
-						value={ iconorder}
+						value={iconorder}
 						options={[
 							{ value: '0', label: __('Left') },
 							{ value: '1', label: __('Right') },
 						]}
 						onChange={value => {
-							setAttributes({ iconorder : value })}
+							setAttributes({ iconorder: value })
+						}
 						}
 					/>
 				</PanelBody>
@@ -351,6 +362,7 @@ class ampIcons extends Component {
 				{times(iconCount, n => renderIconSettings(n))}
 			</div>
 		);
+		console.log(typography);
 		const headingContent = (
 			<RichText
 				formattingControls={['bold', 'italic', 'link', 'mark']}
@@ -373,7 +385,7 @@ class ampIcons extends Component {
 				onRemove={() => onReplace([])}
 				style={{
 					textAlign: align,
-					color: color,
+					color: textcolor,
 					fontWeight: fontWeight,
 					fontStyle: fontStyle,
 					fontSize: size + sizeType,
@@ -404,7 +416,7 @@ class ampIcons extends Component {
 							marginRight: (icons[index].marginRight ? icons[index].marginRight + 'px' : undefined),
 							marginBottom: (icons[index].marginBottom ? icons[index].marginBottom + 'px' : undefined),
 							marginLeft: (icons[index].marginLeft ? icons[index].marginLeft + 'px' : undefined),
-							order : iconorder
+							order: iconorder
 						}} />
 					)}
 					{headingContent}
@@ -455,6 +467,12 @@ class ampIcons extends Component {
 					max={lineMax}
 					step={lineStep}
 				/>
+				<AdvancedColorControl
+					label={__('Text Color')}
+					colorValue={(textcolor ? textcolor : '')}
+					colorDefault={''}
+					onColorChange={value => setAttributes({ textcolor: value })}
+				/>
 			</PanelBody>
 		);
 		return (
@@ -463,10 +481,10 @@ class ampIcons extends Component {
 					<button
 						className="amp-popover-font-family-container components-dropdown-menu components-toolbar"
 						contentClassName="amp-popover-font-family"
-						onClick={() => { setAttributes({ iconorder: (iconorder) ? 0 : 1 })}}
+						onClick={() => { setAttributes({ iconorder: (iconorder) ? 0 : 1 }) }}
 
 						position="top center"
-						> <span class="dashicons dashicons-sort"></span></button>
+					> <span class="dashicons dashicons-sort"></span></button>
 					<BlockAlignmentToolbar
 						value={blockAlignment}
 						controls={['center', 'left', 'right']}
@@ -485,13 +503,36 @@ class ampIcons extends Component {
 
 					{renderSettings}
 				</InspectorControls>
+				
+
+
+<Fragment>
+				{googleFont && (
+					<WebfontLoader config={config}>
+					</WebfontLoader>
+				)}
+				{markGoogleFont && (
+					<WebfontLoader config={sconfig}>
+					</WebfontLoader>
+				)}
+			</Fragment>
+	
+
+
+
+
+
+
+
 				<div className={`icli ${clientId}`} style={{
 					textAlign: (textAlignment ? textAlignment : 'center'),
 				}} >
 					{times(iconCount, n => renderIconsPreview(n))}
 				</div>
 			</div>
+			
 		);
+		
 	}
 }
 export default (ampIcons);

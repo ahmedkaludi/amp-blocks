@@ -87,6 +87,41 @@ registerBlockType('ampblocks/icon-list', {
 			type: 'string',
 			default: 'center',
 		},
+		typography: {
+			type: 'string',
+			default: '',
+		},
+		googleFont: {
+			type: 'boolean',
+			default: false,
+		},
+		fontSubset: {
+			type: 'string',
+			default: '',
+		},
+		fontVariant: {
+			type: 'string',
+			default: '',
+		},
+		fontWeight: {
+			type: 'string',
+			default: 'regular',
+		},
+		fontStyle: {
+			type: 'string',
+			default: 'normal',
+		},
+		markGoogleFont: {
+			type: 'boolean',
+			default: false,
+		},
+		markLoadGoogleFont: {
+			type: 'boolean',
+			default: true,
+		},
+		textcolor: {
+			type: 'string',
+		},
 		iconorder: {
 			type: 'number',
 			default: 0,
@@ -107,13 +142,17 @@ registerBlockType('ampblocks/icon-list', {
 	edit,
 
 	save: props => {
-		const { attributes: { iconorder, icons, iconCount, blockAlignment, textAlignment, uniqueID, align, content, color, letterSpacing, topMargin, bottomMargin } } = props;
+		const { attributes: { iconorder, icons, iconCount, blockAlignment, textAlignment, uniqueID, align, content, color, letterSpacing, topMargin, bottomMargin,textcolor,anchor } } = props;
+		let tagId = ( anchor ? anchor : `h${ uniqueID }` );
+
+
 		const htmlItem = (
 			<RichText.Content
 				tagName={'p'}
+				id={ tagId }
 			style={{
 					textAlign: align,
-					color: color,
+					color: textcolor,
 					letterSpacing: (letterSpacing ? letterSpacing + 'px' : undefined),
 					marginTop: (undefined !== topMargin && '' !== topMargin ? topMargin + mType : undefined),
 					marginBottom: (undefined !== bottomMargin && '' !== bottomMargin ? bottomMargin + mType : undefined),
