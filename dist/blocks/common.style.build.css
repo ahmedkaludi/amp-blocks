@@ -3,7 +3,11 @@
 } 
 .iclw{
 	display: inline-flex;
-    width: 100%;
+	width: 100%;
+	align-items: center;
+}
+.iclw p{
+	margin: 0;
 }
 .alignfull {
 	margin: 32px calc(50% - 50vw);

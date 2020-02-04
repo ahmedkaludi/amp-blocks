@@ -66,9 +66,9 @@ registerBlockType('ampblocks/icon-list', {
 				padding: 20,
 				style: 'default',
 				marginTop: 0,
-				marginRight: 0,
+				marginRight: 5,
 				marginBottom: 0,
-				marginLeft: 0,
+				marginLeft: 5,
 			}],
 		},
 		iconCount: {
