@@ -1090,98 +1090,98 @@ class Amp_Blocks_Frontend
 		}
 		if (isset($attr['btns']) && is_array($attr['btns'])) {
 			foreach ($attr['btns'] as $btnkey => $btnvalue) {
-				$btns_group_margin = '';
+				$btns_group_padding = '';
 				if (is_array($btnvalue)) {
-					if (isset($btnvalue['marginTop']) && is_numeric($btnvalue['marginTop'])) {
-						$btns_group_margin .=  $btnvalue['marginTop'] . 'px ';
+					if (isset($btnvalue['paddingTop']) && is_numeric($btnvalue['paddingTop'])) {
+						$btns_group_padding .=  $btnvalue['paddingTop'] . 'px ';
 					} else {
-						$btns_group_margin .=  '0px ';
+						$btns_group_padding .=  '0px ';
 					}
-					if (isset($btnvalue['marginRight']) && is_numeric($btnvalue['marginRight'])) {
-						$btns_group_margin .=  $btnvalue['marginRight'] . 'px ';
+					if (isset($btnvalue['paddingRight']) && is_numeric($btnvalue['paddingRight'])) {
+						$btns_group_padding .=  $btnvalue['paddingRight'] . 'px ';
 					} else {
-						$btns_group_margin .=  '0px ';
+						$btns_group_padding .=  '0px ';
 					}
-					if (isset($btnvalue['marginBottom']) && is_numeric($btnvalue['marginBottom'])) {
-						$btns_group_margin .=  $btnvalue['marginBottom'] . 'px ';
+					if (isset($btnvalue['paddingBottom']) && is_numeric($btnvalue['paddingBottom'])) {
+						$btns_group_padding .=  $btnvalue['paddingBottom'] . 'px ';
 					} else {
-						$btns_group_margin .=  '0px ';
+						$btns_group_padding .=  '0px ';
 					}
-					if (isset($btnvalue['marginLeft']) && is_numeric($btnvalue['marginLeft'])) {
-						$btns_group_margin .=  $btnvalue['marginLeft'] . 'px; ';
+					if (isset($btnvalue['paddingLeft']) && is_numeric($btnvalue['paddingLeft'])) {
+						$btns_group_padding .=  $btnvalue['paddingLeft'] . 'px; ';
 					} else {
-						$btns_group_margin .=  '0px ';
+						$btns_group_padding .=  '0px ';
 					}
-					if (!empty($btns_group_margin)) {
+					if (!empty($btns_group_padding)) {
 						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin:' . $btns_group_margin;
+						$css .= 'padding:' . $btns_group_padding;
 						$css .= '}';
 					}
-					if ((isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][0]) && is_numeric($btnvalue['responsivemarginTop'][0])) ||
-						(isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][0]) && is_numeric($btnvalue['responsivemarginRight'][0])) ||
-						(isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][0]) && is_numeric($btnvalue['responsivemarginBottom'][0])) ||
-						(isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][0]) && is_numeric($btnvalue['responsivemarginLeft'][0]))
+					if ((isset($btnvalue['responsivepaddingTop']) && is_array($btnvalue['responsivepaddingTop']) && isset($btnvalue['responsivepaddingTop'][0]) && is_numeric($btnvalue['responsivepaddingTop'][0])) ||
+						(isset($btnvalue['responsivepaddingRight']) && is_array($btnvalue['responsivepaddingRight']) && isset($btnvalue['responsivepaddingRight'][0]) && is_numeric($btnvalue['responsivepaddingRight'][0])) ||
+						(isset($btnvalue['responsivepaddingBottom']) && is_array($btnvalue['responsivepaddingBottom']) && isset($btnvalue['responsivepaddingBottom'][0]) && is_numeric($btnvalue['responsivepaddingBottom'][0])) ||
+						(isset($btnvalue['responsivepaddingLeft']) && is_array($btnvalue['responsivepaddingLeft']) && isset($btnvalue['responsivepaddingLeft'][0]) && is_numeric($btnvalue['responsivepaddingLeft'][0]))
 					) {
-						$btns_margin_responsive = '';
+						$btns_padding_responsive = '';
 
-						if (isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][0]) && is_numeric($btnvalue['responsivemarginTop'][0])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginTop'][0] . 'px ';
+						if (isset($btnvalue['responsivepaddingTop']) && is_array($btnvalue['responsivepaddingTop']) && isset($btnvalue['responsivepaddingTop'][0]) && is_numeric($btnvalue['responsivepaddingTop'][0])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingTop'][0] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
-						if (isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][0]) && is_numeric($btnvalue['responsivemarginRight'][0])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginRight'][0] . 'px ';
+						if (isset($btnvalue['responsivepaddingRight']) && is_array($btnvalue['responsivepaddingRight']) && isset($btnvalue['responsivepaddingRight'][0]) && is_numeric($btnvalue['responsivepaddingRight'][0])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingRight'][0] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
-						if (isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][0]) && is_numeric($btnvalue['responsivemarginBottom'][0])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginBottom'][0] . 'px ';
+						if (isset($btnvalue['responsivepaddingBottom']) && is_array($btnvalue['responsivepaddingBottom']) && isset($btnvalue['responsivepaddingBottom'][0]) && is_numeric($btnvalue['responsivepaddingBottom'][0])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingBottom'][0] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
-						if (isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][0]) && is_numeric($btnvalue['responsivemarginLeft'][0])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginLeft'][0] . 'px ';
+						if (isset($btnvalue['responsivepaddingLeft']) && is_array($btnvalue['responsivepaddingLeft']) && isset($btnvalue['responsivepaddingLeft'][0]) && is_numeric($btnvalue['responsivepaddingLeft'][0])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingLeft'][0] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
 
 						$css .= '@media (min-width: 768px) and (max-width: 1024px) {';
 						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin :' . $btns_margin_responsive . ';';
+						$css .= 'padding :' . $btns_padding_responsive . ';';
 						$css .= '}';
 						$css .= '}';
 					}
-					if ((isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][1]) && is_numeric($btnvalue['responsivemarginTop'][1])) ||
-						(isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][1]) && is_numeric($btnvalue['responsivemarginRight'][1])) ||
-						(isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][1]) && is_numeric($btnvalue['responsivemarginBottom'][1])) ||
-						(isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][1]) && is_numeric($btnvalue['responsivemarginLeft'][1]))
+					if ((isset($btnvalue['responsivepaddingTop']) && is_array($btnvalue['responsivepaddingTop']) && isset($btnvalue['responsivepaddingTop'][1]) && is_numeric($btnvalue['responsivepaddingTop'][1])) ||
+						(isset($btnvalue['responsivepaddingRight']) && is_array($btnvalue['responsivepaddingRight']) && isset($btnvalue['responsivepaddingRight'][1]) && is_numeric($btnvalue['responsivepaddingRight'][1])) ||
+						(isset($btnvalue['responsivepaddingBottom']) && is_array($btnvalue['responsivepaddingBottom']) && isset($btnvalue['responsivepaddingBottom'][1]) && is_numeric($btnvalue['responsivepaddingBottom'][1])) ||
+						(isset($btnvalue['responsivepaddingLeft']) && is_array($btnvalue['responsivepaddingLeft']) && isset($btnvalue['responsivepaddingLeft'][1]) && is_numeric($btnvalue['responsivepaddingLeft'][1]))
 					) {
-						$btns_margin_responsive = '';
+						$btns_padding_responsive = '';
 
-						if (isset($btnvalue['responsivemarginTop']) && is_array($btnvalue['responsivemarginTop']) && isset($btnvalue['responsivemarginTop'][1]) && is_numeric($btnvalue['responsivemarginTop'][1])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginTop'][1] . 'px ';
+						if (isset($btnvalue['responsivepaddingTop']) && is_array($btnvalue['responsivepaddingTop']) && isset($btnvalue['responsivepaddingTop'][1]) && is_numeric($btnvalue['responsivepaddingTop'][1])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingTop'][1] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
-						if (isset($btnvalue['responsivemarginRight']) && is_array($btnvalue['responsivemarginRight']) && isset($btnvalue['responsivemarginRight'][1]) && is_numeric($btnvalue['responsivemarginRight'][1])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginRight'][1] . 'px ';
+						if (isset($btnvalue['responsivepaddingRight']) && is_array($btnvalue['responsivepaddingRight']) && isset($btnvalue['responsivepaddingRight'][1]) && is_numeric($btnvalue['responsivepaddingRight'][1])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingRight'][1] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
-						if (isset($btnvalue['responsivemarginBottom']) && is_array($btnvalue['responsivemarginBottom']) && isset($btnvalue['responsivemarginBottom'][1]) && is_numeric($btnvalue['responsivemarginBottom'][1])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginBottom'][1] . 'px ';
+						if (isset($btnvalue['responsivepaddingBottom']) && is_array($btnvalue['responsivepaddingBottom']) && isset($btnvalue['responsivepaddingBottom'][1]) && is_numeric($btnvalue['responsivepaddingBottom'][1])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingBottom'][1] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
-						if (isset($btnvalue['responsivemarginLeft']) && is_array($btnvalue['responsivemarginLeft']) && isset($btnvalue['responsivemarginLeft'][1]) && is_numeric($btnvalue['responsivemarginLeft'][1])) {
-							$btns_margin_responsive .= $btnvalue['responsivemarginLeft'][1] . 'px ';
+						if (isset($btnvalue['responsivepaddingLeft']) && is_array($btnvalue['responsivepaddingLeft']) && isset($btnvalue['responsivepaddingLeft'][1]) && is_numeric($btnvalue['responsivepaddingLeft'][1])) {
+							$btns_padding_responsive .= $btnvalue['responsivepaddingLeft'][1] . 'px ';
 						} else {
-							$btns_margin_responsive .=  '0px ';
+							$btns_padding_responsive .=  '0px ';
 						}
 
 						$css .= '@media (max-width: 767px) {';
 						$css .= '.b' . $unique_id . ' .bw-' . $btnkey . ' {';
-						$css .= 'margin :' . $btns_margin_responsive . ';';
+						$css .= 'padding :' . $btns_padding_responsive . ';';
 						$css .= '}';
 						$css .= '}';
 					}

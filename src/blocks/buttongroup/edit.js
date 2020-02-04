@@ -59,7 +59,7 @@ class ampAdvancedButton extends Component {
 		this.saveArrayUpdate = this.saveArrayUpdate.bind(this);
 		this.state = {
 			btnFocused: 'false',
-			marginControl: 'linked',
+			paddingControl: 'linked',
 			btnLink: false,
 			user: (amp_blocks_params.userrole ? amp_blocks_params.userrole : 'admin'),
 			settings: {},
@@ -162,7 +162,7 @@ class ampAdvancedButton extends Component {
 			{ key: 'linked', name: __('Linked'), micon: editorIcons.linked },
 			{ key: 'individual', name: __('Individual'), micon: editorIcons.individual },
 		];
-		const { marginControl } = this.state;
+		const { paddingControl } = this.state;
 		const btnSizes = [
 			{ key: 'small', name: __('S') },
 			{ key: 'standard', name: __('M') },
@@ -210,10 +210,10 @@ class ampAdvancedButton extends Component {
 			}
 			return (
 				<div className={`btn-area-wrap b-${index}-area`} style={{
-					marginTop: (btns[index].marginTop ? btns[index].marginTop + 'px' : undefined),
-					marginRight: (btns[index].marginRight ? btns[index].marginRight + 'px' : undefined),
-					marginBottom: (btns[index].marginBottom ? btns[index].marginBottom + 'px' : undefined),
-					marginLeft: (btns[index].marginLeft ? btns[index].marginLeft + 'px' : undefined),
+					paddingTop: (btns[index].paddingTop ? btns[index].paddingTop + 'px' : undefined),
+					paddingRight: (btns[index].paddingRight ? btns[index].paddingRight + 'px' : undefined),
+					paddingBottom: (btns[index].paddingBottom ? btns[index].paddingBottom + 'px' : undefined),
+					paddingLeft: (btns[index].paddingLeft ? btns[index].paddingLeft + 'px' : undefined),
 				}} >
 					<span className={`b-wrap b-${index}-action lokeshs b-svg-show-${(!btns[index].iconHover ? 'always' : 'hover')}`}>
 						<span className={`b b-${index} b-size-${(btns[index].btnSize ? btns[index].btnSize : btnSize)} b-style-${(btns[index].btnStyle ? btns[index].btnStyle : 'basic')}`} style={{
@@ -426,13 +426,13 @@ class ampAdvancedButton extends Component {
 															min={4}
 															max={100}
 														/>
-														<p>{__('Margin (px)')}</p>
+														<p>{__('Padding (px)')}</p>
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlinetop}
-															value={(undefined !== btns[index].responsivemarginTop && undefined !== btns[index].responsivemarginTop[1] ? btns[index].responsivemarginTop[1] : '')}
+															value={(undefined !== btns[index].responsivepaddingTop && undefined !== btns[index].responsivepaddingTop[1] ? btns[index].responsivepaddingTop[1] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginTop: [(undefined !== btns[index].responsivemarginTop && undefined !== btns[index].responsivemarginTop[0] ? btns[index].responsivemarginTop[0] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingTop: [(undefined !== btns[index].responsivepaddingTop && undefined !== btns[index].responsivepaddingTop[0] ? btns[index].responsivepaddingTop[0] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -441,9 +441,9 @@ class ampAdvancedButton extends Component {
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlineright}
-															value={(undefined !== btns[index].responsivemarginRight && undefined !== btns[index].responsivemarginRight[1] ? btns[index].responsivemarginRight[1] : '')}
+															value={(undefined !== btns[index].responsivepaddingRight && undefined !== btns[index].responsivepaddingRight[1] ? btns[index].responsivepaddingRight[1] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginRight: [(undefined !== btns[index].responsivemarginRight && undefined !== btns[index].responsivemarginRight[0] ? btns[index].responsivemarginRight[0] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingRight: [(undefined !== btns[index].responsivepaddingRight && undefined !== btns[index].responsivepaddingRight[0] ? btns[index].responsivepaddingRight[0] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -452,9 +452,9 @@ class ampAdvancedButton extends Component {
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlinebottom}
-															value={(undefined !== btns[index].responsivemarginBottom && undefined !== btns[index].responsivemarginBottom[1] ? btns[index].responsivemarginBottom[1] : '')}
+															value={(undefined !== btns[index].responsivepaddingBottom && undefined !== btns[index].responsivepaddingBottom[1] ? btns[index].responsivepaddingBottom[1] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginBottom: [(undefined !== btns[index].responsivemarginBottom && undefined !== btns[index].responsivemarginBottom[0] ? btns[index].responsivemarginBottom[0] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingBottom: [(undefined !== btns[index].responsivepaddingBottom && undefined !== btns[index].responsivepaddingBottom[0] ? btns[index].responsivepaddingBottom[0] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -463,9 +463,9 @@ class ampAdvancedButton extends Component {
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlineleft}
-															value={(undefined !== btns[index].responsivemarginLeft && undefined !== btns[index].responsivemarginLeft[1] ? btns[index].responsivemarginLeft[1] : '')}
+															value={(undefined !== btns[index].responsivepaddingLeft && undefined !== btns[index].responsivepaddingLeft[1] ? btns[index].responsivepaddingLeft[1] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginLeft: [(undefined !== btns[index].responsivemarginLeft && undefined !== btns[index].responsivemarginLeft[0] ? btns[index].responsivemarginLeft[0] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingLeft: [(undefined !== btns[index].responsivepaddingLeft && undefined !== btns[index].responsivepaddingLeft[0] ? btns[index].responsivepaddingLeft[0] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -489,13 +489,13 @@ class ampAdvancedButton extends Component {
 															min={4}
 															max={100}
 														/>
-														<p>{__('Margin (px)')}</p>
+														<p>{__('padding (px)')}</p>
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlinetop}
-															value={(undefined !== btns[index].responsivemarginTop && undefined !== btns[index].responsivemarginTop[0] ? btns[index].responsivemarginTop[0] : '')}
+															value={(undefined !== btns[index].responsivepaddingTop && undefined !== btns[index].responsivepaddingTop[0] ? btns[index].responsivepaddingTop[0] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginTop: [(undefined !== btns[index].responsivemarginTop && undefined !== btns[index].responsivemarginTop[1] ? btns[index].responsivemarginTop[1] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingTop: [(undefined !== btns[index].responsivepaddingTop && undefined !== btns[index].responsivepaddingTop[1] ? btns[index].responsivepaddingTop[1] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -504,9 +504,9 @@ class ampAdvancedButton extends Component {
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlineright}
-															value={(undefined !== btns[index].responsivemarginRight && undefined !== btns[index].responsivemarginRight[0] ? btns[index].responsivemarginRight[0] : '')}
+															value={(undefined !== btns[index].responsivepaddingRight && undefined !== btns[index].responsivepaddingRight[0] ? btns[index].responsivepaddingRight[0] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginRight: [(undefined !== btns[index].responsivemarginRight && undefined !== btns[index].responsivemarginRight[1] ? btns[index].responsivemarginRight[1] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingRight: [(undefined !== btns[index].responsivepaddingRight && undefined !== btns[index].responsivepaddingRight[1] ? btns[index].responsivepaddingRight[1] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -515,9 +515,9 @@ class ampAdvancedButton extends Component {
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlinebottom}
-															value={(undefined !== btns[index].responsivemarginBottom && undefined !== btns[index].responsivemarginBottom[0] ? btns[index].responsivemarginBottom[0] : '')}
+															value={(undefined !== btns[index].responsivepaddingBottom && undefined !== btns[index].responsivepaddingBottom[0] ? btns[index].responsivepaddingBottom[0] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginBottom: [(undefined !== btns[index].responsivemarginBottom && undefined !== btns[index].responsivemarginBottom[1] ? btns[index].responsivemarginBottom[1] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingBottom: [(undefined !== btns[index].responsivepaddingBottom && undefined !== btns[index].responsivepaddingBottom[1] ? btns[index].responsivepaddingBottom[1] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -526,9 +526,9 @@ class ampAdvancedButton extends Component {
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlineleft}
-															value={(undefined !== btns[index].responsivemarginLeft && undefined !== btns[index].responsivemarginLeft[0] ? btns[index].responsivemarginLeft[0] : '')}
+															value={(undefined !== btns[index].responsivepaddingLeft && undefined !== btns[index].responsivepaddingLeft[0] ? btns[index].responsivepaddingLeft[0] : '')}
 															onChange={value => {
-																this.saveArrayUpdate({ responsivemarginLeft: [(undefined !== btns[index].responsivemarginLeft && undefined !== btns[index].responsivemarginLeft[1] ? btns[index].responsivemarginLeft[1] : ''), value] }, index);
+																this.saveArrayUpdate({ responsivepaddingLeft: [(undefined !== btns[index].responsivepaddingLeft && undefined !== btns[index].responsivepaddingLeft[1] ? btns[index].responsivepaddingLeft[1] : ''), value] }, index);
 															}}
 															min={0}
 															max={180}
@@ -550,13 +550,13 @@ class ampAdvancedButton extends Component {
 															min={4}
 															max={100}
 														/>
-														<p>{__('Margin (px)')}</p>
+														<p>{__('padding (px)')}</p>
 														<RangeControl
 								className="amp-icon-rangecontrol"
 								label={editorIcons.outlinetop}
-								value={(btns[index].marginTop ? btns[index].marginTop : 0)}
+								value={(btns[index].paddingTop ? btns[index].paddingTop : 0)}
 								onChange={value => {
-									this.saveArrayUpdate({ marginTop: value }, index);
+									this.saveArrayUpdate({ paddingTop: value }, index);
 								}}
 								min={0}
 								max={180}
@@ -565,9 +565,9 @@ class ampAdvancedButton extends Component {
 							<RangeControl
 								className="amp-icon-rangecontrol"
 								label={editorIcons.outlineright}
-								value={(btns[index].marginRight ? btns[index].marginRight : 0)}
+								value={(btns[index].paddingRight ? btns[index].paddingRight : 10)}
 								onChange={value => {
-									this.saveArrayUpdate({ marginRight: value }, index);
+									this.saveArrayUpdate({ paddingRight: value }, index);
 								}}
 								min={0}
 								max={180}
@@ -576,9 +576,9 @@ class ampAdvancedButton extends Component {
 							<RangeControl
 								className="amp-icon-rangecontrol"
 								label={editorIcons.outlinebottom}
-								value={(btns[index].marginBottom ? btns[index].marginBottom : 0)}
+								value={(btns[index].paddingBottom ? btns[index].paddingBottom : 10)}
 								onChange={value => {
-									this.saveArrayUpdate({ marginBottom: value }, index);
+									this.saveArrayUpdate({ paddingBottom: value }, index);
 								}}
 								min={0}
 								max={180}
@@ -587,9 +587,9 @@ class ampAdvancedButton extends Component {
 							<RangeControl
 								className="amp-icon-rangecontrol"
 								label={editorIcons.outlineleft}
-								value={(btns[index].marginLeft ? btns[index].marginLeft : 0)}
+								value={(btns[index].paddingLeft ? btns[index].paddingLeft : 10)}
 								onChange={value => {
-									this.saveArrayUpdate({ marginLeft: value }, index);
+									this.saveArrayUpdate({ paddingLeft: value }, index);
 								}}
 								min={0}
 								max={180}
@@ -1363,6 +1363,7 @@ class ampAdvancedButton extends Component {
 											value={btnCount}
 											onChange={(newcount) => {
 												const newbtns = btns;
+												console.log(newbtns[0]);
 												if (newbtns.length < newcount) {
 													const amount = Math.abs(newcount - newbtns.length);
 													{
@@ -1404,15 +1405,16 @@ class ampAdvancedButton extends Component {
 																boxShadow: (newbtns[0].boxShadow ? newbtns[0].boxShadow : [false, '#000000', 0.2, 1, 1, 2, 0, false]),
 																boxShadowHover: (newbtns[0].boxShadowHover ? newbtns[0].boxShadowHover : [false, '#000000', 0.4, 2, 2, 3, 0, false]),
 																sponsored: (newbtns[0].sponsored ? newbtns[0].sponsored : false),
-																marginTop: (newbtns[0].marginTop ? newbtns[0].marginTop + 'px' : undefined),
-																marginRight: (newbtns[0].marginRight ? newbtns[0].marginRight + 'px' : undefined),
-																marginBottom: (newbtns[0].marginBottom ? newbtns[0].marginBottom + 'px' : undefined),
-																marginLeft: (newbtns[0].marginLeft ? newbtns[0].marginLeft + 'px' : undefined),
+																paddingTop: (newbtns[0].paddingTop ? newbtns[0].paddingTop  : undefined),
+																paddingRight: (newbtns[0].paddingRight ? newbtns[0].paddingRight  : 10),
+																paddingBottom: (newbtns[0].paddingBottom ? newbtns[0].paddingBottom  : 10),
+																paddingLeft: (newbtns[0].paddingLeft ? newbtns[0].paddingLeft  : 10),
 															});
 														});
 													}
 													setAttributes({ btns: newbtns });
 													this.saveArrayUpdate({ iconSide: btns[0].iconSide }, 0);
+											
 												}
 												setAttributes({ btnCount: newcount });
 											}}
