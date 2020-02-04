@@ -1404,10 +1404,10 @@ class ampAdvancedButton extends Component {
 																boxShadow: (newbtns[0].boxShadow ? newbtns[0].boxShadow : [false, '#000000', 0.2, 1, 1, 2, 0, false]),
 																boxShadowHover: (newbtns[0].boxShadowHover ? newbtns[0].boxShadowHover : [false, '#000000', 0.4, 2, 2, 3, 0, false]),
 																sponsored: (newbtns[0].sponsored ? newbtns[0].sponsored : false),
-																marginTop: (newbtns[index].marginTop ? newbtns[index].marginTop + 'px' : undefined),
-																marginRight: (newbtns[index].marginRight ? newbtns[index].marginRight + 'px' : undefined),
-																marginBottom: (newbtns[index].marginBottom ? newbtns[index].marginBottom + 'px' : undefined),
-																marginLeft: (newbtns[index].marginLeft ? newbtns[index].marginLeft + 'px' : undefined),
+																marginTop: (newbtns[0].marginTop ? newbtns[0].marginTop + 'px' : undefined),
+																marginRight: (newbtns[0].marginRight ? newbtns[0].marginRight + 'px' : undefined),
+																marginBottom: (newbtns[0].marginBottom ? newbtns[0].marginBottom + 'px' : undefined),
+																marginLeft: (newbtns[0].marginLeft ? newbtns[0].marginLeft + 'px' : undefined),
 															});
 														});
 													}
