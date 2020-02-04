@@ -383,7 +383,7 @@ class ampIcons extends Component {
 					fontFamily: (typography ? typography : ''),
 					marginTop: (undefined !== topMargin ? topMargin + marginType : ''),
 					marginBottom: (undefined !== bottomMargin ? bottomMargin + marginType : ''),
-					minWidth: '150px',
+					// minWidth: '150px',
 				}}
 				className={`h${uniqueID}`}
 				placeholder={__('Add your text.....')}

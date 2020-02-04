@@ -117,7 +117,7 @@ registerBlockType('ampblocks/icon-list', {
 					letterSpacing: (letterSpacing ? letterSpacing + 'px' : undefined),
 					marginTop: (undefined !== topMargin && '' !== topMargin ? topMargin + mType : undefined),
 					marginBottom: (undefined !== bottomMargin && '' !== bottomMargin ? bottomMargin + mType : undefined),
-					minWidth: '150px',
+					// minWidth: '150px',
 				}}
 				value={content}
 			/>
