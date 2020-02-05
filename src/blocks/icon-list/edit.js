@@ -72,6 +72,7 @@ class ampIcons extends Component {
 	}
 	componentDidMount() {
 		if (!this.props.attributes.uniqueID) {
+			console.log('11111111');
 			const oldBlockConfig = amp_blocks_params.config['amp/icon-list'];
 			const blockConfigObject = (amp_blocks_params.configuration ? JSON.parse(amp_blocks_params.configuration) : []);
 			if (blockConfigObject['amp/icon-list'] !== undefined && typeof blockConfigObject['amp/icon-list'] === 'object') {
@@ -83,16 +84,20 @@ class ampIcons extends Component {
 					this.props.attributes[attribute] = oldBlockConfig[attribute];
 				});
 			}
+			console.log(this.props.clientId);
+			console.log(this.props.clientId.substr(2, 3));
 			this.props.setAttributes({
 				uniqueID: '_' + this.props.clientId.substr(2, 3),
 			});
 			iconUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
 		} else if (iconUniqueIDs.includes(this.props.attributes.uniqueID)) {
+			console.log('2222222222');
 			this.props.setAttributes({
 				uniqueID: '_' + this.props.clientId.substr(2, 3),
 			});
 			iconUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
 		} else {
+			console.log('3333333333');
 			iconUniqueIDs.push(this.props.attributes.uniqueID);
 		}
 	}
@@ -413,7 +418,7 @@ class ampIcons extends Component {
 		);
 		const renderIconsPreview = (index) => {
 			return (
-				<div className={`iclw icl-s-${icons[index].style} icl-w icl-i-${index}`} >
+				<div className={`iclw ${uniqueID} icl-s-${icons[index].style} icl-w icl-i-${index}`} >
 					{icons[index].icon && (
 						<GenIcon className={`icl icl-${icons[index].icon}`} name={icons[index].icon} size={icons[index].size} icon={('fa' === icons[index].icon.substring(0, 2) ? FaIco[icons[index].icon] : Ico[icons[index].icon])} strokeWidth={('fe' === icons[index].icon.substring(0, 2) ? icons[index].width : undefined)} title={(icons[index].title ? icons[index].title : '')} style={{
 							color: (icons[index].color ? icons[index].color : undefined),
