@@ -77,7 +77,6 @@ registerBlockType('ampblocks/icon-list', {
 		},
 		uniqueID: {
 			type: 'string',
-			default: '',
 		},
 		blockAlignment: {
 			type: 'string',

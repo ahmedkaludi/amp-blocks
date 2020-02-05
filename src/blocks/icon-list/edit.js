@@ -72,6 +72,17 @@ class ampIcons extends Component {
 	}
 	componentDidMount() {
 		if (!this.props.attributes.uniqueID) {
+			const oldBlockConfig = amp_blocks_params.config['amp/icon-list'];
+			const blockConfigObject = (amp_blocks_params.configuration ? JSON.parse(amp_blocks_params.configuration) : []);
+			if (blockConfigObject['amp/icon-list'] !== undefined && typeof blockConfigObject['amp/icon-list'] === 'object') {
+				Object.keys(blockConfigObject['amp/icon-list']).map((attribute) => {
+					this.props.attributes[attribute] = blockConfigObject['amp/icon-list'][attribute];
+				});
+			} else if (oldBlockConfig !== undefined && typeof oldBlockConfig === 'object') {
+				Object.keys(oldBlockConfig).map((attribute) => {
+					this.props.attributes[attribute] = oldBlockConfig[attribute];
+				});
+			}
 			this.props.setAttributes({
 				uniqueID: '_' + this.props.clientId.substr(2, 3),
 			});
