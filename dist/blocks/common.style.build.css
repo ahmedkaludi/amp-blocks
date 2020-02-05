@@ -18,3 +18,8 @@
 	max-width: 100%;
 	width: 100%;
 }
+@media (max-width: 767px){
+	.imc img {
+		margin: 0 auto;
+	}
+	}
