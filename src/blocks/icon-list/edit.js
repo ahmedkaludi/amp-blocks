@@ -72,38 +72,22 @@ class ampIcons extends Component {
 	}
 	componentDidMount() {
 		if (!this.props.attributes.uniqueID) {
-			console.log('11111111');
-			const oldBlockConfig = amp_blocks_params.config['amp/icon-list'];
-			const blockConfigObject = (amp_blocks_params.configuration ? JSON.parse(amp_blocks_params.configuration) : []);
-			if (blockConfigObject['amp/icon-list'] !== undefined && typeof blockConfigObject['amp/icon-list'] === 'object') {
-				Object.keys(blockConfigObject['amp/icon-list']).map((attribute) => {
-					this.props.attributes[attribute] = blockConfigObject['amp/icon-list'][attribute];
-				});
-			} else if (oldBlockConfig !== undefined && typeof oldBlockConfig === 'object') {
-				Object.keys(oldBlockConfig).map((attribute) => {
-					this.props.attributes[attribute] = oldBlockConfig[attribute];
-				});
-			}
-			console.log(this.props.clientId);
-			console.log(this.props.clientId.substr(2, 3));
 			this.props.setAttributes({
 				uniqueID: '_' + this.props.clientId.substr(2, 3),
 			});
 			iconUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
 		} else if (iconUniqueIDs.includes(this.props.attributes.uniqueID)) {
-			console.log('2222222222');
 			this.props.setAttributes({
 				uniqueID: '_' + this.props.clientId.substr(2, 3),
 			});
 			iconUniqueIDs.push('_' + this.props.clientId.substr(2, 3));
 		} else {
-			console.log('3333333333');
 			iconUniqueIDs.push(this.props.attributes.uniqueID);
 		}
 	}
 	saveArrayUpdate(value, index) {
 		const { attributes, setAttributes } = this.props;
-		const { icons } = attributes;
+		const { icons, uniqueID } = attributes;
 
 		const newItems = icons.map((item, thisIndex) => {
 			if (index === thisIndex) {
@@ -112,12 +96,19 @@ class ampIcons extends Component {
 
 			return item;
 		});
-		setAttributes({
-			icons: newItems,
-		});
+		if (uniqueID == '') {
+			setAttributes({
+				icons: newItems,
+				uniqueID: '_' + this.props.clientId.substr(2, 3),
+			});
+		} else {
+			setAttributes({
+				icons: newItems,
+			});
+		}
 	}
 	render() {
-		const { attributes: { iconorder, iconCount, icons, blockAlignment,markGoogleFont, textAlignment, uniqueID, align, content, color, size, sizeType, lineType, lineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, textTransform,textcolor }, className, setAttributes, clientId, mergeBlocks, onReplace } = this.props;
+		const { attributes: { iconorder, iconCount, icons, blockAlignment, markGoogleFont, textAlignment, uniqueID, align, content, color, size, sizeType, lineType, lineHeight, letterSpacing, typography, fontVariant, fontWeight, fontStyle, fontSubset, googleFont, marginType, topMargin, bottomMargin, textTransform, textcolor }, className, setAttributes, clientId, mergeBlocks, onReplace } = this.props;
 		const { marginControl } = this.state;
 		const fontMin = (sizeType === 'em' ? 0.2 : 5);
 		const fontMax = (sizeType === 'em' ? 12 : 200);
@@ -418,7 +409,7 @@ class ampIcons extends Component {
 		);
 		const renderIconsPreview = (index) => {
 			return (
-				<div className={`iclw ${uniqueID} icl-s-${icons[index].style} icl-w icl-i-${index}`} >
+				<div className={`iclw icl-s-${icons[index].style} icl-w icl-i-${index}`} >
 					{icons[index].icon && (
 						<GenIcon className={`icl icl-${icons[index].icon}`} name={icons[index].icon} size={icons[index].size} icon={('fa' === icons[index].icon.substring(0, 2) ? FaIco[icons[index].icon] : Ico[icons[index].icon])} strokeWidth={('fe' === icons[index].icon.substring(0, 2) ? icons[index].width : undefined)} title={(icons[index].title ? icons[index].title : '')} style={{
 							color: (icons[index].color ? icons[index].color : undefined),
@@ -502,11 +493,11 @@ class ampIcons extends Component {
 			css += ' } ';
 		}
 		return (
-			
+
 			<div className={className}>
 				<style>
-			{css}
-			</style>
+					{css}
+				</style>
 				<BlockControls>
 					<button
 						className="amp-popover-font-family-container components-dropdown-menu components-toolbar"
@@ -533,20 +524,20 @@ class ampIcons extends Component {
 
 					{renderSettings}
 				</InspectorControls>
-				
 
 
-<Fragment>
-				{googleFont && (
-					<WebfontLoader config={config}>
-					</WebfontLoader>
-				)}
-				{markGoogleFont && (
-					<WebfontLoader config={sconfig}>
-					</WebfontLoader>
-				)}
-			</Fragment>
-	
+
+				<Fragment>
+					{googleFont && (
+						<WebfontLoader config={config}>
+						</WebfontLoader>
+					)}
+					{markGoogleFont && (
+						<WebfontLoader config={sconfig}>
+						</WebfontLoader>
+					)}
+				</Fragment>
+
 
 
 
@@ -560,9 +551,9 @@ class ampIcons extends Component {
 					{times(iconCount, n => renderIconsPreview(n))}
 				</div>
 			</div>
-			
+
 		);
-		
+
 	}
 }
 export default (ampIcons);
