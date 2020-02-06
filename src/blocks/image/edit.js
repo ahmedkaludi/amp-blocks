@@ -76,7 +76,10 @@ class ampImage extends Component {
 			if (typeof imageurl !== 'undefined') {
 				return (
 					<ResizableBox
-
+					size={ {
+						width: currentWidth,
+						// height: currentHeight,
+					} }
 						maxWidth={'100%'}
 						handleClasses={{
 
