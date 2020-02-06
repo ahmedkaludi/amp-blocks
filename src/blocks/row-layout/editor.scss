@@ -230,7 +230,7 @@ button.components-button.amp-pre-sidebar-image {
 
 .cr[class*=" amp-custom-first-width-3"]:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) {
   .rr {
-	margin-right: -22px;
+	margin-right: 0px;
   }
 
   .left-column-width-size, .amp-fluid-grid-btn {
@@ -244,7 +244,7 @@ button.components-button.amp-pre-sidebar-image {
 
 .cr[class*=" amp-custom-first-width-4"]:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) {
   .rr {
-	margin-right: -18px;
+	margin-right: 0px;
   }
 
   .left-column-width-size, .amp-fluid-grid-btn {
@@ -358,7 +358,7 @@ button.components-button.amp-pre-sidebar-image {
 
 .cr[class*=" amp-custom-third-width-3"]:not(.gskinny):not(.gnarrow):not(.gnone) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer {
   .rr {
-	margin-right: -25px;
+	margin-right: 0px;
   }
 
   .left-column-width-size, .amp-fluid-grid-btn {
@@ -1701,4 +1701,9 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
 .editor-styles-wrapper .amp-c-inner [data-block] {	
   margin-top: 0px;	
   margin-bottom: 0px; }
-
+  @media (min-width: 600px){
+.block-editor-block-list__layout {
+   padding-left: 0px; 
+   padding-right: 0px; 
+}
+}
