@@ -45,6 +45,7 @@ const {
 	SelectControl,
 	ToggleControl,
 	Tooltip,
+	Toolbar,
 } = wp.components;
 
 /**
@@ -268,15 +269,17 @@ class ampAdvancedButton extends Component {
 						</span>
 					</span>
 					{isSelected && ((this.state.btnFocused && 'btn' + [index] === this.state.btnFocused) || (this.state.btnFocused && 'false' === this.state.btnFocused && '0' === index)) && (
-						<div><BlockControls>
-
+					<BlockControls>
+<Toolbar>
 							<URLInputButton
+							
 								url={btns[index].link}
 								onChange={url => {
 									this.saveArrayUpdate({ link: url }, index);
 								}}
 							/>
-						</BlockControls></div>
+							</Toolbar>
+						</BlockControls>
 					)}
 				</div>
 			);
