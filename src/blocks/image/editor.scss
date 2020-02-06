@@ -72,3 +72,10 @@
     z-index: 1;
     
 }
+[data-align="center"] .imc{
+    margin: 0 auto;
+}
+
+[data-align="right"] .imc{
+    float: right;
+}

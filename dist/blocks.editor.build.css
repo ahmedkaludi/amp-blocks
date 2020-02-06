@@ -2187,6 +2187,12 @@ button.components-button.components-icon-button.amp-font-clear-btn {
 .wp-block-image.is-focused .ihr, .wp-block-image.is-focused .ihb {
   display: block;
   z-index: 1; }
+
+[data-align="center"] .imc {
+  margin: 0 auto; }
+
+[data-align="right"] .imc {
+  float: right; }
 /**
  * #.# Common SCSS
  *

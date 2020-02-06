@@ -55,6 +55,10 @@ registerBlockType('ampblocks/image', {
 		imageurl: {
 			type: 'string',
 		},
+		blockAlignment: {
+			type: 'string',
+			default: 'center',
+		},
 	},
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
@@ -74,7 +78,7 @@ registerBlockType('ampblocks/image', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save({ attributes }) {
-		const { width, maxwidth, height, maxheight, percentage, imageurl, borderRadius } = attributes;
+		const { width, maxwidth, height, maxheight, percentage, imageurl, borderRadius,blockAlignment } = attributes;
 		let displayimage = (imageurl) => {
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
@@ -84,18 +88,26 @@ registerBlockType('ampblocks/image', {
 				}
 				stylecontent['width'] = percentage + '%';
 				let stylecontentmain = {};
+				let alignment ='';
 				stylecontentmain['max-width'] = maxwidth + 'px';
+				if(blockAlignment == 'center' ){
+					alignment  = 'aligncenter';
+				}else if(blockAlignment=='right' ){
+					alignment  = 'alignright';
+				}else if(blockAlignment=='left' ){
+					alignment  ='alignleft';
+				}
 				if (percentage == '100') {
 					delete stylecontent['width'];
 					return (
-						<div className="imc" >
+						<div className={`imc ${alignment}`} >
 							<img className='im-t' src={imageurl} style={stylecontent} />
 						</div>
 					)
 
 				} else {
 					return (
-						<div className="imc" style={stylecontentmain}>
+						<div className={`imc ${alignment}`}  style={stylecontentmain}>
 							<img className='im-t' src={imageurl} style={stylecontent} />
 						</div>
 					)

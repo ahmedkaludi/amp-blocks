@@ -8,6 +8,8 @@ const { __ } = wp.i18n;
 const { MediaUpload } = wp.editor; //Import MediaUpload from wp.editor
 const {
 	InspectorControls,
+	BlockControls,
+	BlockAlignmentToolbar,
 } = wp.blockEditor;
 const {
 	Component,
@@ -54,7 +56,7 @@ class ampImage extends Component {
 			containerHeight: this.container && this.container.clientHeight,
 		};
 		const { attributes, setAttributes, toggleSelection } = this.props;
-		const { width, maxwidth, height, percentage, maxheight, borderRadius, imageurl, imageSource, uniqueID } = attributes;
+		const { width, maxwidth, height, percentage, maxheight, borderRadius, imageurl, imageSource, uniqueID,blockAlignment } = attributes;
 		
 
 		const calmaxWidth = sizes.containerWidth;
@@ -142,11 +144,18 @@ class ampImage extends Component {
 		stylecontentmain['max-width'] = maxwidth + 'px';
 		return (
 			<Fragment>
-				<div className="image-grid" ref={this.bindContainer}>
+				<div className="image-grid" data-align={ blockAlignment } ref={this.bindContainer}>
 				<div className="imc"  style={stylecontentmain}>
 					{displayimage(imageurl)}
 					</div>
 				</div>
+				<BlockControls>
+				<BlockAlignmentToolbar
+						value={blockAlignment}
+						controls={['center', 'left', 'right']}
+						onChange={value => setAttributes({ blockAlignment: value })}
+					/>
+					</BlockControls>
 				<InspectorControls> {/* For left panel controls */}
 					<PanelBody title={__('image URL')}>
 						<SelectControl
