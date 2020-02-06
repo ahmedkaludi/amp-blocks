@@ -26,8 +26,6 @@ class ampImage extends Component {
 		super(...arguments);
 		this.state = {
 			hideShowUploadButton: arguments[0].attributes.imageurl ? false : true,
-			columnmaxwidth: 0,
-			columnmaxheight: 0
 		};
 		this.bindContainer = this.bindContainer.bind(this);
 	}
@@ -55,22 +53,18 @@ class ampImage extends Component {
 			containerWidth: this.container && this.container.clientWidth,
 			containerHeight: this.container && this.container.clientHeight,
 		};
-		if (this.state.columnmaxwidth == "0" && typeof sizes.containerWidth !== 'undefined') {
-			this.setState({ columnmaxwidth: sizes.containerWidth, columnmaxheight: sizes.containerHeight })
-		}
-
 		const { attributes, setAttributes, toggleSelection } = this.props;
 		const { width, maxwidth, height, percentage, maxheight, borderRadius, imageurl, imageSource, uniqueID } = attributes;
-		const currentWidth = width || maxwidth;
-		const currentHeight = height || maxheight;
+		
+
+		const calmaxWidth = sizes.containerWidth;
+		const calexceedMaxWidth = maxwidth > calmaxWidth;
+		const calratio = maxheight / maxwidth;
+		const calwidth = calexceedMaxWidth ? calmaxWidth : maxwidth;
+		const calheight = calexceedMaxWidth ? calmaxWidth * calratio : maxheight;
+		const currentWidth = width || calwidth;
+		const currentHeight = height || calheight;
 		let displayimage = (imageurl) => {
-			let stylecontent = {};
-			if (borderRadius != 0) {
-				stylecontent['borderRadius'] = borderRadius + '%';
-			}
-			stylecontent['width'] = percentage + '%';
-			let stylecontentmain = {};
-			stylecontentmain['max-width'] = maxwidth + 'px';
 			let pec = percentage + '%';
 			//Loops throug the image
 			if (typeof imageurl !== 'undefined') {
@@ -78,7 +72,7 @@ class ampImage extends Component {
 					<ResizableBox
 					size={ {
 						width: currentWidth,
-						// height: currentHeight,
+						height: currentHeight,
 					} }
 						maxWidth={'100%'}
 						handleClasses={{
@@ -98,7 +92,7 @@ class ampImage extends Component {
 						className={'ih'}
 						onResize={(event, direction, elt, delta) => {
 							let newwidth = currentWidth + delta.width;
-							let widthinpercentage = Math.round(newwidth / this.state.columnmaxwidth * 100);
+							let widthinpercentage = Math.round(newwidth / calwidth * 100);
 							event.preventDefault();
 							document.getElementById('lcw' + uniqueID).innerHTML = newwidth + 'px'
 							document.getElementById('lcw' + uniqueID).style.opacity = 1;
@@ -108,7 +102,7 @@ class ampImage extends Component {
 						}}
 						onResizeStop={(event, direction, elt, delta) => {
 							let newwidth = currentWidth + delta.width;
-							let widthinpercentage = Math.round(newwidth / this.state.columnmaxwidth * 100);
+							let widthinpercentage = Math.round(newwidth / calwidth * 100);
 							setAttributes({
 								percentage: parseInt(widthinpercentage),
 								width: parseInt(currentWidth + delta.width, 10),
@@ -122,9 +116,9 @@ class ampImage extends Component {
 							toggleSelection(false);
 						}}
 					>
-						<div className="imc" ref={this.bindContainer} style={stylecontentmain}>
-							<img className='im-t' src={imageurl} style={stylecontent} />
-						</div>
+					
+							<img className='im-t' src={imageurl}/>
+					
 						<span id={`lcw` + uniqueID}
 							className="left-column-width-size lcw">
 							{(!currentWidth ? width : currentWidth + 'px')}
@@ -139,10 +133,19 @@ class ampImage extends Component {
 				return ("");
 			}
 		};
+		let stylecontent = {};
+		if (borderRadius != 0) {
+			stylecontent['borderRadius'] = borderRadius + '%';
+		}
+		stylecontent['width'] = percentage + '%';
+		let stylecontentmain = {};
+		stylecontentmain['max-width'] = maxwidth + 'px';
 		return (
 			<Fragment>
-				<div className="image-grid">
+				<div className="image-grid" ref={this.bindContainer}>
+				<div className="imc"  style={stylecontentmain}>
 					{displayimage(imageurl)}
+					</div>
 				</div>
 				<InspectorControls> {/* For left panel controls */}
 					<PanelBody title={__('image URL')}>
@@ -165,8 +168,8 @@ class ampImage extends Component {
 							label={__('Size')}
 							value={percentage}
 							onChange={(value) => {
-								let newwdith = (value * this.state.columnmaxwidth) / 100;
-								let newheight = (value * this.state.columnmaxheight) / 100;
+								let newwdith = (value * calwidth) / 100;
+								let newheight = (value * calheight) / 100;
 								setAttributes({
 									percentage: parseInt(value),
 									width: parseInt(newwdith, 10),
