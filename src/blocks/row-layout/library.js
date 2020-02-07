@@ -130,7 +130,7 @@ class CustomComponent extends Component {
 								</Tooltip>
 							</div>
 						);
-					} ) };
+					} ) }
 
 
 				</ButtonGroup>
