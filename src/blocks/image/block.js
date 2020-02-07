@@ -57,7 +57,6 @@ registerBlockType('ampblocks/image', {
 		},
 		blockAlignment: {
 			type: 'string',
-			default: 'center',
 		},
 	},
 	/**
