@@ -91,7 +91,7 @@ function canvasbutton(e) {
 			document.getElementsByClassName('edit-post-sidebar')[0].style.cssText = null;
 			document.getElementsByClassName('edit-post-layout__content')[0].style.margin = null;
 		}
-
+		wp.data.dispatch('core/edit-post').toggleFeature('fullscreenMode');
 		self.setAttribute('data-action', 'Enter');
 		document.getElementById("ampblockCanvasbutton").innerText = 'Enter Canvas Mode';
 	}
