@@ -429,7 +429,7 @@ class ampAdvancedButton extends Component {
 															min={4}
 															max={100}
 														/>
-														<p>{__('Padding (px)')}</p>
+														{/* <p>{__('Padding (px)')}</p>
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlinetop}
@@ -473,7 +473,7 @@ class ampAdvancedButton extends Component {
 															min={0}
 															max={180}
 															step={1}
-														/>
+														/> */}
 
 													</div>
 
@@ -492,7 +492,7 @@ class ampAdvancedButton extends Component {
 															min={4}
 															max={100}
 														/>
-														<p>{__('padding (px)')}</p>
+														{/* <p>{__('padding (px)')}</p>
 														<RangeControl
 															className="amp-icon-rangecontrol"
 															label={editorIcons.outlinetop}
@@ -536,7 +536,7 @@ class ampAdvancedButton extends Component {
 															min={0}
 															max={180}
 															step={1}
-														/>
+														/> */}
 													</div>
 												);
 											} else {

@@ -42,7 +42,7 @@ const { registerBlockType } = wp.blocks;
  *                             registered; otherwise `undefined`.
  */
 registerBlockType( 'amp/rowlayout', {
-	title: __( 'Row Layout', 'amp-blocks' ), // Block title.
+	title: __( 'Columns', 'amp-blocks' ), // Block title.
 	icon: {
 		src: icons.blockRow,
 	},
@@ -50,7 +50,8 @@ registerBlockType( 'amp/rowlayout', {
 	keywords: [
 		__( 'row' ),
 		__( 'layout' ),
-		__( 'KB' ),
+		__( 'columns' ),
+		__( 'column' ),
 	],
 	supports: {
 		anchor: true,

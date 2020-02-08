@@ -36,7 +36,7 @@ function appendImportButton() {
 	let node = document.querySelector('.edit-post-header-toolbar');
 	let newElem = document.createElement('div');
 	let html = '<div class="amp-block-defaults-modal">';
-	html += `<button class="button button-primary" id="ampblockCanvasbutton" data-action="Enter">Enter Canvas Mode</button><button class="button button-primary" id="AMPBlocksImportLayoutBtn" > AMP Blocks Prebuilt Library</button>`;
+	html += `<button class="button button-primary" id="ampblockCanvasbutton" data-action="Enter">Enter Canvas Mode</button><button class="button button-primary" id="AMPBlocksImportLayoutBtn" style="margin-left: 5px;"> AMP Blocks Prebuilt Library</button>`;
 	html += '</div>';
 	newElem.innerHTML = html;
 	node.appendChild(newElem);
