@@ -444,7 +444,7 @@
   .cw.tlrow {
 	flex-direction: column;
   }
-  .cw.tlrow.amp-m-colapse-right-to-left {
+  .cw.tlrow.rmc-r-l {
 	flex-direction: column-reverse;
   }
   .cw.tlrow > .c {
@@ -638,7 +638,7 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 
-	&.amp-m-colapse-right-to-left {
+	&.rmc-r-l {
 	  flex-direction: row-reverse;
 	  flex-wrap: wrap-reverse;
 	}
@@ -671,47 +671,47 @@
 	  flex: 0 0 50%;
 	}
 
-	&.cw:not(.gnone):not(.amp-m-colapse-right-to-left) > .c.c-2 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-2 {
 	  margin-right: 0;
 	}
 
-	&.cw:not(.gnone):not(.amp-m-colapse-right-to-left) > .c.c-4 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-5 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-5 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-3 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gdefault > .c:last-child {
+	&.cw.rmc-r-l.gdefault > .c:last-child {
 	  margin-right: 30px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gskinny > .c:last-child {
+	&.cw.rmc-r-l.gskinny > .c:last-child {
 	  margin-right: 10px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gnarrow > .c:last-child {
+	&.cw.rmc-r-l.gnarrow > .c:last-child {
 	  margin-right: 20px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gwide > .c:last-child {
+	&.cw.rmc-r-l.gwide > .c:last-child {
 	  margin-right: 40px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gwider > .c:last-child {
+	&.cw.rmc-r-l.gwider > .c:last-child {
 	  margin-right: 60px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gwidest > .c:last-child {
+	&.cw.rmc-r-l.gwidest > .c:last-child {
 	  margin-right: 80px;
 	}
   }
@@ -720,7 +720,7 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 
-	&.amp-m-colapse-right-to-left {
+	&.rmc-r-l {
 	  flex-direction: row-reverse;
 	  flex-wrap: wrap-reverse;
 	}
@@ -753,39 +753,39 @@
 	  flex: 0 0 33.33%
 	}
 
-	&.cw:not(.gnone):not(.amp-m-colapse-right-to-left) > .c.c-3 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-4 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gdefault > .c:last-child {
+	&.cw.rmc-r-l.gdefault > .c:last-child {
 	  margin-right: 30px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gskinny > .c:last-child {
+	&.cw.rmc-r-l.gskinny > .c:last-child {
 	  margin-right: 10px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gnarrow > .c:last-child {
+	&.cw.rmc-r-l.gnarrow > .c:last-child {
 	  margin-right: 20px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gwide > .c:last-child {
+	&.cw.rmc-r-l.gwide > .c:last-child {
 	  margin-right: 40px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gwider > .c:last-child {
+	&.cw.rmc-r-l.gwider > .c:last-child {
 	  margin-right: 60px;
 	}
 
-	&.cw.amp-m-colapse-right-to-left.gwidest > .c:last-child {
+	&.cw.rmc-r-l.gwidest > .c:last-child {
 	  margin-right: 80px;
 	}
   }
@@ -799,7 +799,7 @@
   .cw.mrow {
 	flex-direction: column;
   }
-  .cw.mrow.amp-m-colapse-right-to-left {
+  .cw.mrow.rmc-r-l {
 	flex-direction: column-reverse;
   }
   .cw.mrow > .c {
@@ -994,7 +994,7 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 
-	&.amp-m-colapse-right-to-left {
+	&.rmc-r-l {
 	  flex-direction: row-reverse;
 	  flex-wrap: wrap-reverse;
 	}
@@ -1027,23 +1027,23 @@
 	  flex: 0 0 50%;
 	}
 
-	&.cw:not(.gnone):not(.amp-m-colapse-right-to-left) > .c.c-2 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-2 {
 	  margin-right: 0;
 	}
 
-	&.cw:not(.gnone):not(.amp-m-colapse-right-to-left) > .c.c-4 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-5 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-5 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-3 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
   }
@@ -1052,7 +1052,7 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 
-	&.amp-m-colapse-right-to-left {
+	&.rmc-r-l {
 	  flex-direction: row-reverse;
 	  flex-wrap: wrap-reverse;
 	}
@@ -1085,15 +1085,15 @@
 	  flex: 0 0 33.33%
 	}
 
-	&.cw:not(.gnone):not(.amp-m-colapse-right-to-left) > .c.c-3 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-4 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.amp-m-colapse-right-to-left:not(.gnone) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
   }
@@ -1115,7 +1115,7 @@
   .gwidest:not(.mrow) > .c {
 	margin-right: 80px;
   }
-  .cw:not(.gnone):not(.mrow):not(.amp-m-colapse-right-to-left) > .c:last-child {
+  .cw:not(.gnone):not(.mrow):not(.rmc-r-l) > .c:last-child {
 	margin-right: 0px;
   }
 }

@@ -758,8 +758,8 @@ class AmpRowLayout extends Component {
 								label={ __( 'Collapse Order' ) }
 								value={ collapseOrder }
 								options={ [
-									{ value: 'left-to-right', label: __( 'Left to Right', 'amp-blocks' ) },
-									{ value: 'right-to-left', label: __( 'Right to Left', 'amp-blocks' ) },
+									{ value: 'l-r', label: __( 'Left to Right', 'amp-blocks' ) },
+									{ value: 'r-l', label: __( 'Right to Left', 'amp-blocks' ) },
 								] }
 								onChange={ value => setAttributes( { collapseOrder: value } ) }
 							/>
