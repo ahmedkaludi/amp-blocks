@@ -330,25 +330,7 @@ button.components-button.components-icon-button.amp-font-clear-btn {
 		font-style: italic;
 		font-weight: normal;
 	}
-    .select-search-box input::-webkit-input-placeholder {
-        color: #ccc;
-        font-style: italic;
-        font-weight: normal;
-    }
-
-    .select-search-box input::-moz-placeholder {
-        color: #ccc;
-        font-style: italic;
-        font-weight: normal;
-    }
-
-    .select-search-box input:-moz-placeholder {
-        color: #ccc;
-        font-style: italic;
-        font-weight: normal;
-    }
-
-    .select-search-box input:-ms-input-placeholder {
+    .select-search-box input::placeholder {
         color: #ccc;
         font-style: italic;
         font-weight: normal;

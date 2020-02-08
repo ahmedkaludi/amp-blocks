@@ -58,8 +58,7 @@
   z-index: 0; }
 
 .ci {
-  border: 0 solid transparent;
-  -ms-flex-negative: 0; }
+  border: 0 solid transparent; }
 
 .rvmiddle > .c {
   -ms-flex-pack: center;
