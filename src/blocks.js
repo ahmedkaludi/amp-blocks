@@ -36,7 +36,7 @@ function appendImportButton() {
 	let node = document.querySelector('.edit-post-header-toolbar');
 	let newElem = document.createElement('div');
 	let html = '<div class="amp-block-defaults-modal">';
-	html += `<button class="button button-primary" id="ampblockCanvasbutton" data-action="Enter">Enter Canvas Mode</button><button class="button button-primary" id="AMPBlocksImportLayoutBtn" style="margin-left: 5px;"> AMP Blocks Prebuilt Library</button>`;
+	html += `<button class="button button-primary" id="ampblockCanvasbutton" data-action="Enter">Enter Canvas Mode</button><button class="button button-primary" id="AMPBlocksImportLayoutBtn" style="margin-left: 5px;">Design Library</button>`;
 	html += '</div>';
 	newElem.innerHTML = html;
 	node.appendChild(newElem);
@@ -54,7 +54,7 @@ function appendImportButton() {
 						el.style.cursor = 'all-scroll';
 					}
 				}
-				addListeners();
+				sidebarMomemntListener();
 			}, 1000);
 		}
 	});
@@ -82,7 +82,7 @@ function canvasbutton(e) {
 					el.style.cursor = 'all-scroll';
 				}
 			}
-			addListeners();
+			sidebarMomemntListener();
 		}, 1000);
 		self.setAttribute('data-action', 'Exit');
 		document.getElementById("ampblockCanvasbutton").innerText = 'Exit Canvas Mode';
@@ -109,20 +109,20 @@ function ampBlockImportPrebuiltLibrary(e) {
 
 }
 
-function addListeners() {
+function sidebarMomemntListener() {
 	var el = jQuery('.components-panel__header.edit-post-sidebar-header.edit-post-sidebar__panel-tabs')[0];
 	if (el) {
-		el.addEventListener('mousedown', mouseDown, false);
+		el.addEventListener('mousedown', sidebarmouseDown, false);
 	}
-	window.addEventListener('mouseup', mouseUp, false);
+	window.addEventListener('mouseup', sidebarmouseUp, false);
 
 }
 
-function mouseUp() {
+function sidebarmouseUp() {
 	window.removeEventListener('mousemove', moveEditPostSidebar, true);
 }
 
-function mouseDown(e) {
+function sidebarmouseDown(e) {
 	window.addEventListener('mousemove', moveEditPostSidebar, true);
 }
 
@@ -130,8 +130,8 @@ function moveEditPostSidebar(e) {
 	if (document.getElementById('ampblockCanvasbutton').getAttribute('data-action') == 'Exit') {
 		var editPostSidebar = document.getElementsByClassName('edit-post-sidebar')[0];
 		editPostSidebar.style.position = 'absolute';
-		editPostSidebar.style.top = e.clientY + 'px';
-		editPostSidebar.style.left = e.clientX + 'px';
+		editPostSidebar.style.top = e.clientY-25 + 'px';
+		editPostSidebar.style.left = e.clientX-160 + 'px';
 	}
 }
 
