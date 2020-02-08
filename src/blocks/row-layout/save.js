@@ -187,7 +187,7 @@ class AmpRowLayoutSave extends Component {
 		const overlayType = ( ! currentOverlayTab || 'grad' !== currentOverlayTab ? 'normal' : 'gradient' );
 		const classes = classnames( `cr align${ ( blockAlignment ? blockAlignment : 'none' ) }` );
 		const innerClasses = classnames( `ab ${ hasBG } ri${ classId }` );
-		const innerColumnClasses = classnames( `cw ab${ columns } g${ columnGutter } gv${ ( collapseGutter ? collapseGutter : 'default' ) } rv${ verticalAlignment } rl${ layoutClass } tl${ tabLayoutClass } rmc-${ collapseOrder } m${ mobileLayoutClass }${ firstColumnClass }${ secondColumnClass }${ thirdColumnClass }${ ( undefined !== columnsInnerHeight && true === columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
+		const innerColumnClasses = classnames( `cw ab${ columns } g${ columnGutter } gv${ ( collapseGutter ? collapseGutter : 'd' ) } rv${ verticalAlignment } rl${ layoutClass } tl${ tabLayoutClass } rmc-${ collapseOrder } m${ mobileLayoutClass }${ firstColumnClass }${ secondColumnClass }${ thirdColumnClass }${ ( undefined !== columnsInnerHeight && true === columnsInnerHeight ? ' amp-c-height-full' : '' ) }` );
 		const renderSliderImages = ( index ) => {
 			let bgSlider;
 			if (undefined === backgroundSlider || ( undefined !== backgroundSlider && undefined === backgroundSlider[0] )) {
