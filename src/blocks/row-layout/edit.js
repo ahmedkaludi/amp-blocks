@@ -742,13 +742,13 @@ class AmpRowLayout extends Component {
 								label={ __( 'Column Collapse Vertical Gutter' ) }
 								value={ collapseGutter }
 								options={ [
-									{ value: 'd', label: __( 'Standard: 30px', 'amp-blocks' ) },
-									{ value: 'n', label: __( 'No Gutter', 'amp-blocks' ) },
-									{ value: 's', label: __( 'Skinny: 10px', 'amp-blocks' ) },
-									{ value: 'a', label: __( 'Narrow: 20px', 'amp-blocks' ) },
-									{ value: 'w', label: __( 'Wide: 40px', 'amp-blocks' ) },
-									{ value: 'wr', label: __( 'Wider: 60px', 'amp-blocks' ) },
-									{ value: 'wst', label: __( 'Widest: 80px', 'amp-blocks' ) },
+									{ value: 'default', label: __( 'Standard: 30px', 'amp-blocks' ) },
+									{ value: 'none', label: __( 'No Gutter', 'amp-blocks' ) },
+									{ value: 'skinny', label: __( 'Skinny: 10px', 'amp-blocks' ) },
+									{ value: 'narrow', label: __( 'Narrow: 20px', 'amp-blocks' ) },
+									{ value: 'wide', label: __( 'Wide: 40px', 'amp-blocks' ) },
+									{ value: 'wider', label: __( 'Wider: 60px', 'amp-blocks' ) },
+									{ value: 'widest', label: __( 'Widest: 80px', 'amp-blocks' ) },
 								] }
 								onChange={ ( value ) => setAttributes( { collapseGutter: value } ) }
 							/>
@@ -1394,13 +1394,13 @@ class AmpRowLayout extends Component {
 								label={ __( 'Column Gutter', 'amp-blocks' ) }
 								value={ columnGutter }
 								options={ [
-									{ value: 'd', label: __( 'Standard: 30px', 'amp-blocks' ) },
-									{ value: 'n', label: __( 'No Gutter', 'amp-blocks' ) },
-									{ value: 's', label: __( 'Skinny: 10px', 'amp-blocks' ) },
-									{ value: 'a', label: __( 'Narrow: 20px', 'amp-blocks' ) },
-									{ value: 'w', label: __( 'Wide: 40px', 'amp-blocks' ) },
-									{ value: 'wr', label: __( 'Wider: 60px', 'amp-blocks' ) },
-									{ value: 'wst', label: __( 'Widest: 80px', 'amp-blocks' ) },
+									{ value: 'default', label: __( 'Standard: 30px', 'amp-blocks' ) },
+									{ value: 'none', label: __( 'No Gutter', 'amp-blocks' ) },
+									{ value: 'skinny', label: __( 'Skinny: 10px', 'amp-blocks' ) },
+									{ value: 'narrow', label: __( 'Narrow: 20px', 'amp-blocks' ) },
+									{ value: 'wide', label: __( 'Wide: 40px', 'amp-blocks' ) },
+									{ value: 'wider', label: __( 'Wider: 60px', 'amp-blocks' ) },
+									{ value: 'widest', label: __( 'Widest: 80px', 'amp-blocks' ) },
 								] }
 								onChange={ ( value ) => setAttributes( { columnGutter: value } ) }
 							/>

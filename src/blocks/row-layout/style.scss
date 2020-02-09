@@ -87,56 +87,56 @@
 	  margin-right: 0;
 	}
 
-	&.gvd > .c {
+	&.gvdefault > .c {
 	  margin-bottom: 30px;
 	}
 
-	&.gvs > .c {
+	&.gvskinny > .c {
 	  margin-bottom: 10px;
 	}
 
-	&.gva > .c {
+	&.gvnarrow > .c {
 	  margin-bottom: 20px;
 	}
 
-	&.gvw > .c {
+	&.gvwide > .c {
 	  margin-bottom: 40px;
 	}
 
-	&.gvwr > .c {
+	&.gvwider > .c {
 	  margin-bottom: 60px;
 	}
 
-	&.gvwst > .c {
+	&.gvwidest > .c {
 	  margin-bottom: 80px;
 	}
 
-	&:not(.gvn) > .c:last-child {
+	&:not(.gvnone) > .c:last-child {
 	  margin-bottom: 0px;
 	}
   }
-  .gd > .c {
+  .gdefault > .c {
 	margin-right: 30px;
   }
-  .gs > .c {
+  .gskinny > .c {
 	margin-right: 10px;
   }
-  .ga > .c {
+  .gnarrow > .c {
 	margin-right: 20px;
   }
-  .gw > .c {
+  .gwide > .c {
 	margin-right: 40px;
   }
-  .gwr > .c {
+  .gwider > .c {
 	margin-right: 60px;
   }
-  .gwst > .c {
+  .gwidest > .c {
 	margin-right: 80px;
   }
-  .cw:not(.gn) > .c:last-child {
+  .cw:not(.gnone) > .c:last-child {
 	margin-right: 0px;
   }
-  .gs {
+  .gskinny {
 	&.rlleft-golden > .c.c-1 {
 	  flex-basis: 10px;
 	}
@@ -145,7 +145,7 @@
 	  flex-basis: 10px;
 	}
   }
-  .ga {
+  .gnarrow {
 	&.rlleft-golden > .c.c-1 {
 	  flex-basis: 20px;
 	}
@@ -154,7 +154,7 @@
 	  flex-basis: 20px;
 	}
   }
-  .gd {
+  .gdefault {
 	&.rlleft-golden > .c.c-1 {
 	  flex-basis: 30px;
 	}
@@ -163,7 +163,7 @@
 	  flex-basis: 30px;
 	}
   }
-  .gw {
+  .gwide {
 	&.rlleft-golden > .c.c-1 {
 	  flex-basis: 40px;
 	}
@@ -172,7 +172,7 @@
 	  flex-basis: 40px;
 	}
   }
-  .gwr {
+  .gwider {
 	&.rlleft-golden > .c.c-1 {
 	  flex-basis: 60px;
 	}
@@ -181,7 +181,7 @@
 	  flex-basis: 60px;
 	}
   }
-  .gwst {
+  .gwidest {
 	&.rlleft-golden > .c.c-1 {
 	  flex-basis: 80px;
 	}
@@ -455,25 +455,25 @@
   .ab1.tlrow > .c.c-1 {
 	flex: 1;
   }
-  .tlrow.gvd > .c {
+  .tlrow.gvdefault > .c {
 	margin-bottom: 30px;
   }
-  .tlrow.gvs > .c {
+  .tlrow.gvskinny > .c {
 	margin-bottom: 10px;
   }
-  .tlrow.gva > .c {
+  .tlrow.gvnarrow > .c {
 	margin-bottom: 20px;
   }
-  .tlrow.gvw > .c {
+  .tlrow.gvwide > .c {
 	margin-bottom: 40px;
   }
-  .tlrow.gvwr > .c {
+  .tlrow.gvwider > .c {
 	margin-bottom: 60px;
   }
-  .tlrow.gvwst > .c {
+  .tlrow.gvwidest > .c {
 	margin-bottom: 80px;
   }
-  .tlrow:not(.gvn) > .c:last-child {
+  .tlrow:not(.gvnone) > .c:last-child {
 	margin-bottom: 0px;
   }
   .tlleft-golden {
@@ -556,27 +556,27 @@
 	  }
 	}
 
-	&.gvd > .c.c-1 {
+	&.gvdefault > .c.c-1 {
 	  margin-bottom: 30px;
 	}
 
-	&.gvs > .c.c-1 {
+	&.gvskinny > .c.c-1 {
 	  margin-bottom: 10px;
 	}
 
-	&.gva > .c.c-1 {
+	&.gvnarrow > .c.c-1 {
 	  margin-bottom: 20px;
 	}
 
-	&.gvw > .c.c-1 {
+	&.gvwide > .c.c-1 {
 	  margin-bottom: 40px;
 	}
 
-	&.gvwr > .c.c-1 {
+	&.gvwider > .c.c-1 {
 	  margin-bottom: 60px;
 	}
 
-	&.gvwst > .c.c-1 {
+	&.gvwidest > .c.c-1 {
 	  margin-bottom: 80px;
 	}
   }
@@ -592,27 +592,27 @@
 	  }
 	}
 
-	&.gvd > .c.c-3 {
+	&.gvdefault > .c.c-3 {
 	  margin-top: 30px;
 	}
 
-	&.gvs > .c.c-3 {
+	&.gvskinny > .c.c-3 {
 	  margin-top: 10px;
 	}
 
-	&.gva > .c.c-3 {
+	&.gvnarrow > .c.c-3 {
 	  margin-top: 20px;
 	}
 
-	&.gvw > .c.c-3 {
+	&.gvwide > .c.c-3 {
 	  margin-top: 40px;
 	}
 
-	&.gvwr > .c.c-3 {
+	&.gvwider > .c.c-3 {
 	  margin-top: 60px;
 	}
 
-	&.gvwst > .c.c-3 {
+	&.gvwidest > .c.c-3 {
 	  margin-top: 80px;
 	}
   }
@@ -643,75 +643,75 @@
 	  flex-wrap: wrap-reverse;
 	}
 
-	&.gd > .c {
+	&.gdefault > .c {
 	  flex: 0 0 calc(50% - 15px)
 	}
 
-	&.gs > .c {
+	&.gskinny > .c {
 	  flex: 0 0 calc(50% - 5px)
 	}
 
-	&.ga > .c {
+	&.gnarrow > .c {
 	  flex: 0 0 calc(50% - 10px)
 	}
 
-	&.gw > .c {
+	&.gwide > .c {
 	  flex: 0 0 calc(50% - 20px)
 	}
 
-	&.gwr > .c {
+	&.gwider > .c {
 	  flex: 0 0 calc(50% - 30px)
 	}
 
-	&.gwst > .c {
+	&.gwidest > .c {
 	  flex: 0 0 calc(50% - 40px)
 	}
 
-	&.gn > .c {
+	&.gnone > .c {
 	  flex: 0 0 50%;
 	}
 
-	&.cw:not(.gn):not(.rmc-r-l) > .c.c-2 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-2 {
 	  margin-right: 0;
 	}
 
-	&.cw:not(.gn):not(.rmc-r-l) > .c.c-4 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-5 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-5 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-3 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l.gd > .c:last-child {
+	&.cw.rmc-r-l.gdefault > .c:last-child {
 	  margin-right: 30px;
 	}
 
-	&.cw.rmc-r-l.gs > .c:last-child {
+	&.cw.rmc-r-l.gskinny > .c:last-child {
 	  margin-right: 10px;
 	}
 
-	&.cw.rmc-r-l.ga > .c:last-child {
+	&.cw.rmc-r-l.gnarrow > .c:last-child {
 	  margin-right: 20px;
 	}
 
-	&.cw.rmc-r-l.gw > .c:last-child {
+	&.cw.rmc-r-l.gwide > .c:last-child {
 	  margin-right: 40px;
 	}
 
-	&.cw.rmc-r-l.gwr > .c:last-child {
+	&.cw.rmc-r-l.gwider > .c:last-child {
 	  margin-right: 60px;
 	}
 
-	&.cw.rmc-r-l.gwst > .c:last-child {
+	&.cw.rmc-r-l.gwidest > .c:last-child {
 	  margin-right: 80px;
 	}
   }
@@ -725,67 +725,67 @@
 	  flex-wrap: wrap-reverse;
 	}
 
-	&.gd > .c {
+	&.gdefault > .c {
 	  flex: 0 0 calc(33.33% - 20px)
 	}
 
-	&.gs > .c {
+	&.gskinny > .c {
 	  flex: 0 0 calc(33.33% - 8px)
 	}
 
-	&.ga > .c {
+	&.gnarrow > .c {
 	  flex: 0 0 calc(33.33% - 14px)
 	}
 
-	&.gw > .c {
+	&.gwide > .c {
 	  flex: 0 0 calc(33.33% - 28px)
 	}
 
-	&.gwr > .c {
+	&.gwider > .c {
 	  flex: 0 0 calc(33.33% - 40px)
 	}
 
-	&.gwst > .c {
+	&.gwidest > .c {
 	  flex: 0 0 calc(33.33% - 54px)
 	}
 
-	&.gn > .c {
+	&.gnone > .c {
 	  flex: 0 0 33.33%
 	}
 
-	&.cw:not(.gn):not(.rmc-r-l) > .c.c-3 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-4 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l.gd > .c:last-child {
+	&.cw.rmc-r-l.gdefault > .c:last-child {
 	  margin-right: 30px;
 	}
 
-	&.cw.rmc-r-l.gs > .c:last-child {
+	&.cw.rmc-r-l.gskinny > .c:last-child {
 	  margin-right: 10px;
 	}
 
-	&.cw.rmc-r-l.ga > .c:last-child {
+	&.cw.rmc-r-l.gnarrow > .c:last-child {
 	  margin-right: 20px;
 	}
 
-	&.cw.rmc-r-l.gw > .c:last-child {
+	&.cw.rmc-r-l.gwide > .c:last-child {
 	  margin-right: 40px;
 	}
 
-	&.cw.rmc-r-l.gwr > .c:last-child {
+	&.cw.rmc-r-l.gwider > .c:last-child {
 	  margin-right: 60px;
 	}
 
-	&.cw.rmc-r-l.gwst > .c:last-child {
+	&.cw.rmc-r-l.gwidest > .c:last-child {
 	  margin-right: 80px;
 	}
   }
@@ -807,25 +807,25 @@
 	width: 100%;
 	margin-right: 0;
   }
-  .mrow.gvd > .c {
+  .mrow.gvdefault > .c {
 	margin-bottom: 30px;
   }
-  .mrow.gvs > .c {
+  .mrow.gvskinny > .c {
 	margin-bottom: 10px;
   }
-  .mrow.gva > .c {
+  .mrow.gvnarrow > .c {
 	margin-bottom: 20px;
   }
-  .mrow.gvw > .c {
+  .mrow.gvwide > .c {
 	margin-bottom: 40px;
   }
-  .mrow.gvwr > .c {
+  .mrow.gvwider > .c {
 	margin-bottom: 60px;
   }
-  .mrow.gvwst > .c {
+  .mrow.gvwidest > .c {
 	margin-bottom: 80px;
   }
-  .mrow:not(.gvn) > .c:last-child {
+  .mrow:not(.gvnone) > .c:last-child {
 	margin-bottom: 0px;
   }
   .ab1.mrow > .c.c-1 {
@@ -911,27 +911,27 @@
 	  }
 	}
 
-	&.gvd > .c.c-1 {
+	&.gvdefault > .c.c-1 {
 	  margin-bottom: 30px;
 	}
 
-	&.gvs > .c.c-1 {
+	&.gvskinny > .c.c-1 {
 	  margin-bottom: 10px;
 	}
 
-	&.gva > .c.c-1 {
+	&.gvnarrow > .c.c-1 {
 	  margin-bottom: 20px;
 	}
 
-	&.gvw > .c.c-1 {
+	&.gvwide > .c.c-1 {
 	  margin-bottom: 40px;
 	}
 
-	&.gvwr > .c.c-1 {
+	&.gvwider > .c.c-1 {
 	  margin-bottom: 60px;
 	}
 
-	&.gvwst > .c.c-1 {
+	&.gvwidest > .c.c-1 {
 	  margin-bottom: 80px;
 	}
   }
@@ -947,27 +947,27 @@
 	  }
 	}
 
-	&.gvd > .c.c-3 {
+	&.gvdefault > .c.c-3 {
 	  margin-top: 30px;
 	}
 
-	&.gvs > .c.c-3 {
+	&.gvskinny > .c.c-3 {
 	  margin-top: 10px;
 	}
 
-	&.gva > .c.c-3 {
+	&.gvnarrow > .c.c-3 {
 	  margin-top: 20px;
 	}
 
-	&.gvw > .c.c-3 {
+	&.gvwide > .c.c-3 {
 	  margin-top: 40px;
 	}
 
-	&.gvwr > .c.c-3 {
+	&.gvwider > .c.c-3 {
 	  margin-top: 60px;
 	}
 
-	&.gvwst > .c.c-3 {
+	&.gvwidest > .c.c-3 {
 	  margin-top: 80px;
 	}
   }
@@ -999,51 +999,51 @@
 	  flex-wrap: wrap-reverse;
 	}
 
-	&.gd > .c {
+	&.gdefault > .c {
 	  flex: 0 0 calc(50% - 15px)
 	}
 
-	&.gs > .c {
+	&.gskinny > .c {
 	  flex: 0 0 calc(50% - 5px)
 	}
 
-	&.ga > .c {
+	&.gnarrow > .c {
 	  flex: 0 0 calc(50% - 10px)
 	}
 
-	&.gw > .c {
+	&.gwide > .c {
 	  flex: 0 0 calc(50% - 20px)
 	}
 
-	&.gwr > .c {
+	&.gwider > .c {
 	  flex: 0 0 calc(50% - 30px)
 	}
 
-	&.gwst > .c {
+	&.gwidest > .c {
 	  flex: 0 0 calc(50% - 40px)
 	}
 
-	&.gn > .c {
+	&.gnone > .c {
 	  flex: 0 0 50%;
 	}
 
-	&.cw:not(.gn):not(.rmc-r-l) > .c.c-2 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-2 {
 	  margin-right: 0;
 	}
 
-	&.cw:not(.gn):not(.rmc-r-l) > .c.c-4 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-5 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-5 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-3 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
   }
@@ -1057,65 +1057,65 @@
 	  flex-wrap: wrap-reverse;
 	}
 
-	&.gd > .c {
+	&.gdefault > .c {
 	  flex: 0 0 calc(33.33% - 20px)
 	}
 
-	&.gs > .c {
+	&.gskinny > .c {
 	  flex: 0 0 calc(33.33% - 8px)
 	}
 
-	&.ga > .c {
+	&.gnarrow > .c {
 	  flex: 0 0 calc(33.33% - 14px)
 	}
 
-	&.gw > .c {
+	&.gwide > .c {
 	  flex: 0 0 calc(33.33% - 28px)
 	}
 
-	&.gwr > .c {
+	&.gwider > .c {
 	  flex: 0 0 calc(33.33% - 40px)
 	}
 
-	&.gwst > .c {
+	&.gwidest > .c {
 	  flex: 0 0 calc(33.33% - 54px)
 	}
 
-	&.gn > .c {
+	&.gnone > .c {
 	  flex: 0 0 33.33%
 	}
 
-	&.cw:not(.gn):not(.rmc-r-l) > .c.c-3 {
+	&.cw:not(.gnone):not(.rmc-r-l) > .c.c-3 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-4 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-4 {
 	  margin-right: 0;
 	}
 
-	&.cw.rmc-r-l:not(.gn) > .c.c-1 {
+	&.cw.rmc-r-l:not(.gnone) > .c.c-1 {
 	  margin-right: 0;
 	}
   }
-  .gd:not(.mrow) > .c {
+  .gdefault:not(.mrow) > .c {
 	margin-right: 30px;
   }
-  .gs:not(.mrow) > .c {
+  .gskinny:not(.mrow) > .c {
 	margin-right: 10px;
   }
-  .ga:not(.mrow) > .c {
+  .gnarrow:not(.mrow) > .c {
 	margin-right: 20px;
   }
-  .gw:not(.mrow) > .c {
+  .gwide:not(.mrow) > .c {
 	margin-right: 40px;
   }
-  .gwr:not(.mrow) > .c {
+  .gwider:not(.mrow) > .c {
 	margin-right: 60px;
   }
-  .gwst:not(.mrow) > .c {
+  .gwidest:not(.mrow) > .c {
 	margin-right: 80px;
   }
-  .cw:not(.gn):not(.mrow):not(.rmc-r-l) > .c:last-child {
+  .cw:not(.gnone):not(.mrow):not(.rmc-r-l) > .c:last-child {
 	margin-right: 0px;
   }
 }
