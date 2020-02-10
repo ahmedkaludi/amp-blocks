@@ -24,11 +24,11 @@ const attributes = {
 	},
 	collapseGutter: {
 		type: 'string',
-		default: 'default',
+		default: 'd',
 	},
 	columnGutter: {
 		type: 'string',
-		default: 'default',
+		default: 'd',
 	},
 	colLayout: {
 		type: 'string',
