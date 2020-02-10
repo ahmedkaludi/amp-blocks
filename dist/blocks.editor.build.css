@@ -1260,6 +1260,9 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
 [data-type="amp/rowlayout"] .block-editor-block-list__layout .block-editor-block-list__block .block-editor-block-list__block-edit:before {
   left: 0;
   right: 0; }
+
+.rr {
+  right: -5% !important; }
 /**
  * #.# Common SCSS
  *
