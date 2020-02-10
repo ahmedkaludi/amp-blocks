@@ -19,7 +19,8 @@
   -ms-flex-pack: justify;
       justify-content: space-between;
   position: relative;
-  z-index: 10; }
+  z-index: 10; 
+}
 
 .rb > .cw {
   padding-left: 15px;
@@ -29,14 +30,15 @@
   padding-left: 15px;
   padding-right: 15px; }
 
-.c {
+/* .c {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
   z-index: 1;
   min-width: 0;
-  min-height: 0; }
+  min-height: 0; 
+} */
 
 .amp-c-height-full > .c > .ci {
   height: 100%; }
