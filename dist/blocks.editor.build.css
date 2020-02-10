@@ -1220,19 +1220,6 @@ button.components-button.amp-pre-sidebar-image {
 button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   display: none; }
 
-.rr:after {
-  display: block;
-  content: "";
-  width: 15px;
-  height: 15px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: #e41b4d;
-  cursor: inherit;
-  position: absolute;
-  top: calc(50% - 8px);
-  right: calc(50% - 8px); }
-
 .rr {
   height: 100%;
   top: 0;
@@ -2140,19 +2127,6 @@ button.components-button.components-icon-button.amp-font-clear-btn {
 @media (max-width: 980px) {
   img {
     max-width: 100%; } }
-
-.ihr:after, .ihb:after {
-  display: block;
-  content: "";
-  width: 15px;
-  height: 15px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: #0085ba;
-  cursor: inherit;
-  position: absolute;
-  top: calc(50% - 8px);
-  right: calc(50% - 8px); }
 
 .ihr {
   height: 100%;

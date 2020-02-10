@@ -1661,19 +1661,6 @@ padding: 0px;
 button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   display: none;
 }
-.rr:after {
-  display: block;
-  content: "";
-  width: 15px;
-  height: 15px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: #e41b4d;
-  cursor: inherit;
-  position: absolute;
-  top: calc(50% - 8px);
-  right: calc(50% - 8px);
-}
 .rr{
   height :100%;
   top: 0;
