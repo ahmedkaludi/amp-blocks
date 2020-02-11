@@ -130,8 +130,8 @@ function moveEditPostSidebar(e) {
 	if (document.getElementById('ampblockCanvasbutton').getAttribute('data-action') == 'Exit') {
 		var editPostSidebar = document.getElementsByClassName('edit-post-sidebar')[0];
 		editPostSidebar.style.position = 'absolute';
-		editPostSidebar.style.top = e.clientY-25 + 'px';
-		editPostSidebar.style.left = e.clientX-160 + 'px';
+		editPostSidebar.style.top = e.clientY - 25 + 'px';
+		editPostSidebar.style.left = e.clientX - 160 + 'px';
 	}
 }
 

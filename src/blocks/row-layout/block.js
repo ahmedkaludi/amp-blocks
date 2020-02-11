@@ -41,17 +41,17 @@ const { registerBlockType } = wp.blocks;
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'amp/rowlayout', {
-	title: __( 'Columns', 'amp-blocks' ), // Block title.
+registerBlockType('amp/rowlayout', {
+	title: __('Columns', 'amp-blocks'), // Block title.
 	icon: {
 		src: icons.blockRow,
 	},
 	category: 'amp-blocks',
 	keywords: [
-		__( 'row' ),
-		__( 'layout' ),
-		__( 'columns' ),
-		__( 'column' ),
+		__('row'),
+		__('layout'),
+		__('columns'),
+		__('column'),
 	],
 	supports: {
 		anchor: true,
@@ -60,7 +60,7 @@ registerBlockType( 'amp/rowlayout', {
 		editorsKitBlockNavigator: true,
 	},
 	attributes,
-	getEditWrapperProps( { blockAlignment } ) {
+	getEditWrapperProps({ blockAlignment }) {
 		if ('full' === blockAlignment || 'wide' === blockAlignment || 'center' === blockAlignment) {
 			return { 'data-align': blockAlignment };
 		}
@@ -68,4 +68,4 @@ registerBlockType( 'amp/rowlayout', {
 	edit,
 
 	save,
-} );
+});
