@@ -3459,10 +3459,10 @@ class AmpRowLayout extends Component {
 					<div style={{ height: '1px' }}></div>
 					{colLayout && this.showSettings('allSettings') && this.showSettings('paddingMargin') && (
 						<ResizableBox
-							size={{
-								height: topPadding,
+							style={{
+								paddingTop: topPadding,
 							}}
-							minHeight="15"
+							minHeight="0"
 							handleClasses={{
 								top: 'cr-handler-top',
 								bottom: 'cr-handler-bottom',
@@ -3484,7 +3484,8 @@ class AmpRowLayout extends Component {
 							}}
 							onResizeStop={(event, direction, elt, delta) => {
 								setAttributes({
-									topPadding: parseInt(topPadding + delta.height, 10),
+									topPadding:  parseInt(document.getElementById('row-top-' + uniqueID).innerHTML),
+									// topPadding: parseInt(topPadding + delta.height, 10),
 								});
 								toggleSelection(true);
 							}}
@@ -3616,10 +3617,10 @@ class AmpRowLayout extends Component {
 					{colLayout && this.showSettings('allSettings') && this.showSettings('paddingMargin') && (
 
 						<ResizableBox
-							size={{
-								height: bottomPadding,
+							style={{
+								paddingBottom: bottomPadding,
 							}}
-							minHeight="15"
+							minHeight="0"
 							handleClasses={{
 								top: 'cr-handler-top',
 								bottom: 'cr-handler-bottom',
@@ -3640,11 +3641,10 @@ class AmpRowLayout extends Component {
 							}}
 							onResizeStop={(event, direction, elt, delta) => {
 								setAttributes({
-									bottomPadding: parseInt(bottomPadding + delta.height, 10),
+									bottomPadding:  parseInt(document.getElementById('row-bottom-' + uniqueID).innerHTML),
 								});
 							}}
 							onResizeStart={() => {
-								console.log(this.showSettings('paddingMargin'));
 							}}
 						>
 							{uniqueID && (

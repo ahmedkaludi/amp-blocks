@@ -762,14 +762,14 @@ button.components-button.amp-pre-sidebar-image {
   }
 }
 
-// Controls
-.amp-top-padding-resize {
-  top: -14px;
-}
+// // Controls
+// .amp-top-padding-resize {
+//   top: -14px;
+// }
 
-.amp-bottom-padding-resize {
-  bottom: -14px;
-}
+// .amp-bottom-padding-resize {
+//   bottom: -14px;
+// }
 
 .rltop-sep {
   position: absolute;
@@ -964,7 +964,7 @@ button.components-button.amp-pre-sidebar-image {
 .amp-row-padding {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 0px;
   justify-content: center;
   align-items: center;
   color: #777;
@@ -973,7 +973,7 @@ button.components-button.amp-pre-sidebar-image {
 
   span {
 	background: rgba(255, 255, 255, .7);
-	padding: 0 6px;
+	// padding: 0 6px;
   }
 }
 
@@ -1148,8 +1148,8 @@ button.components-button.amp-pre-sidebar-image {
 		word-break: break-word;
 		overflow-wrap: break-word;
 		max-width: none;
-		margin-top: -14px;
-		margin-bottom: -14px;
+		margin-top: 0px;
+		margin-bottom: 0px;
 
 		.editor-block-list__block-edit {
 		  flex-basis: 100%;
@@ -1296,8 +1296,8 @@ button.components-button.amp-pre-sidebar-image {
 
 // Overlay
 .rloverlay, .rlbackground {
-  top: -16px;
-  bottom: -16px;
+  top: 0;
+  bottom: 0;
   left: 0;
   position: absolute;
   height: auto;
@@ -1668,7 +1668,7 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   border-bottom: 0;
   z-index: 99;
 }
-.rr:hover,.rr:active{
+.rr{
   background: #e41b4d;
 }
 .rr:before{
@@ -1685,9 +1685,7 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   transition: transform .1s ease-in;
   opacity: 0;
 }
-.editor-styles-wrapper .amp-c-inner [data-block] {	
-  margin-top: 0px;	
-  margin-bottom: 0px; }
+
   @media (min-width: 600px){
 .block-editor-block-list__layout {
    padding-left: 0px; 
@@ -1695,11 +1693,21 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
 }
 }
 
-
-[data-type="amp/rowlayout"] .block-editor-block-list__layout .block-editor-block-list__block .block-editor-block-list__block-edit:before{
+.editor-styles-wrapper p {
+  margin: 0px !important;
+}
+.block-editor-block-list__layout .block-editor-block-list__block .block-editor-block-list__block-edit:before{
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
 }
-.rr{
-  right: 0 !important;
+
+.editor-styles-wrapper .amp-c-inner [data-block] {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.editor-styles-wrapper [data-block]{
+  margin-top: 0px;
+    margin-bottom: 0px;
 }

@@ -22,10 +22,12 @@
   z-index: 10; 
 }
 
-.rb > .cw {
+/* .rb > .cw {
   padding-left: 15px;
-  padding-right: 15px; }
-
+  padding-right: 15px; } */
+p{
+  margin: 0;
+}
 .alignfull .cw {
   padding-left: 15px;
   padding-right: 15px; }
