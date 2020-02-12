@@ -44,19 +44,19 @@ registerBlockType( 'amp/column', {
 		},
 		topPadding: {
 			type: 'number',
-			default: '',
+			default: '5',
 		},
 		bottomPadding: {
 			type: 'number',
-			default: '',
+			default: '5',
 		},
 		leftPadding: {
 			type: 'number',
-			default: '',
+			default: '15',
 		},
 		rightPadding: {
 			type: 'number',
-			default: '',
+			default: '15',
 		},
 		topPaddingM: {
 			type: 'number',

@@ -3462,7 +3462,7 @@ class AmpRowLayout extends Component {
 							style={{
 								paddingTop: topPadding,
 							}}
-							minHeight="0"
+							minHeight="15"
 							handleClasses={{
 								top: 'cr-handler-top',
 								bottom: 'cr-handler-bottom',
@@ -3620,7 +3620,7 @@ class AmpRowLayout extends Component {
 							style={{
 								paddingBottom: bottomPadding,
 							}}
-							minHeight="0"
+							minHeight="15"
 							handleClasses={{
 								top: 'cr-handler-top',
 								bottom: 'cr-handler-bottom',

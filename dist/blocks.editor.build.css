@@ -183,8 +183,95 @@ button.components-button.amp-pre-sidebar-image {
 .cr[class*=" amp-custom-first-width-1"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: 5px; }
 
-.cr[class*=" amp-custom-first-width-2"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+.cr[class*="amp-custom-first-width-10"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: -20px; }
+
+.cr[class*="amp-custom-first-width-15"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: -15px; }
+
+.cr[class*="amp-custom-first-width-20"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: -10px; }
+
+.cr[class*="amp-custom-first-width-25"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: -5px; }
+
+.cr[class*="amp-custom-first-width-30"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
   margin-right: 0px; }
+
+.cr[class*="amp-custom-first-width-35"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 5px; }
+
+.cr[class*="amp-custom-first-width-40"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 10px; }
+
+.cr[class*="amp-custom-first-width-45"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 15px; }
+
+.cr[class*="amp-custom-first-width-50"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 20px; }
+
+.cr[class*="amp-custom-first-width-55"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 25px; }
+
+.cr[class*="amp-custom-first-width-60"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 30px; }
+
+.cr[class*="amp-custom-first-width-65"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 35px; }
+
+.cr[class*="amp-custom-first-width-70"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 40px; }
+
+.cr[class*="amp-custom-first-width-80"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 45px; }
+
+.cr[class*="amp-custom-first-width-85"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
+  margin-right: 50px; }
+
+.cr[class*="amp-custom-third-width-10"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: 25px; }
+
+.cr[class*="amp-custom-third-width-15"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: 20px; }
+
+.cr[class*="amp-custom-third-width-20"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: 10px; }
+
+.cr[class*="amp-custom-third-width-25"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: 5px; }
+
+.cr[class*="amp-custom-third-width-30"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: 0px; }
+
+.cr[class*="amp-custom-third-width-35"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -5px; }
+
+.cr[class*="amp-custom-third-width-40"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -10px; }
+
+.cr[class*="amp-custom-third-width-45"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -15px; }
+
+.cr[class*="amp-custom-third-width-50"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -20px; }
+
+.cr[class*="amp-custom-third-width-55"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -25px; }
+
+.cr[class*="amp-custom-third-width-60"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -30px; }
+
+.cr[class*="amp-custom-third-width-65"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -65px; }
+
+.cr[class*="amp-custom-third-width-70"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -75px; }
+
+.cr[class*="amp-custom-third-width-75"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -85px; }
+
+.cr[class*="amp-custom-third-width-80"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
+  margin-right: -50px; }
 
 .cr[class*=" amp-custom-first-width-2"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-2"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: -20px; }
@@ -192,17 +279,11 @@ button.components-button.amp-pre-sidebar-image {
 .cr[class*=" amp-custom-first-width-2"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: 0px; }
 
-.cr[class*=" amp-custom-first-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
-  margin-right: 0px; }
-
 .cr[class*=" amp-custom-first-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: -17px; }
 
 .cr[class*=" amp-custom-first-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: -3px; }
-
-.cr[class*=" amp-custom-first-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
-  margin-right: 0px; }
 
 .cr[class*=" amp-custom-first-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: -13px; }
@@ -210,17 +291,11 @@ button.components-button.amp-pre-sidebar-image {
 .cr[class*=" amp-custom-first-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: -7px; }
 
-.cr[class*=" amp-custom-first-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
-  margin-right: -12px; }
-
 .cr[class*=" amp-custom-first-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: -7px; }
 
 .cr[class*=" amp-custom-first-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: -13px; }
-
-.cr[class*=" amp-custom-first-width-7"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
-  margin-right: -8px; }
 
 .cr[class*=" amp-custom-first-width-7"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-7"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: -3px; }
@@ -228,17 +303,11 @@ button.components-button.amp-pre-sidebar-image {
 .cr[class*=" amp-custom-first-width-7"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: -17px; }
 
-.cr[class*=" amp-custom-first-width-8"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
-  margin-right: -5px; }
-
 .cr[class*=" amp-custom-first-width-8"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-8"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: 0px; }
 
 .cr[class*=" amp-custom-first-width-8"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: -20px; }
-
-.cr[class*=" amp-custom-first-width-9"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .rr {
-  margin-right: 0px; }
 
 .cr[class*=" amp-custom-first-width-9"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .left-column-width-size, .cr[class*=" amp-custom-first-width-9"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .amp-fluid-grid-btn {
   right: 5px; }
@@ -246,17 +315,11 @@ button.components-button.amp-pre-sidebar-image {
 .cr[class*=" amp-custom-first-width-9"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer:not(.second_resizer) .right-column-width-size {
   margin-left: -25px; }
 
-.cr[class*=" amp-custom-third-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
-  margin-right: -40px; }
-
 .cr[class*=" amp-custom-third-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .left-column-width-size, .cr[class*=" amp-custom-third-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .amp-fluid-grid-btn {
   right: -35px; }
 
 .cr[class*=" amp-custom-third-width-6"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .right-column-width-size {
   margin-left: 15px; }
-
-.cr[class*=" amp-custom-third-width-5"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr, .cr.amp-custom-third-width-right-half:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
-  margin-right: -35px; }
 
 .cr[class*=" amp-custom-third-width-5"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .left-column-width-size, .cr[class*=" amp-custom-third-width-5"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .amp-fluid-grid-btn, .cr.amp-custom-third-width-right-half:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .left-column-width-size, .cr.amp-custom-third-width-right-half:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .amp-fluid-grid-btn {
   right: -30px; }
@@ -264,26 +327,17 @@ button.components-button.amp-pre-sidebar-image {
 .cr[class*=" amp-custom-third-width-5"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .right-column-width-size, .cr.amp-custom-third-width-right-half:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .right-column-width-size {
   margin-left: 10px; }
 
-.cr[class*=" amp-custom-third-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
-  margin-right: -30px; }
-
 .cr[class*=" amp-custom-third-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .left-column-width-size, .cr[class*=" amp-custom-third-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .amp-fluid-grid-btn {
   right: -25px; }
 
 .cr[class*=" amp-custom-third-width-4"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .right-column-width-size {
   margin-left: 5px; }
 
-.cr[class*=" amp-custom-third-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
-  margin-right: 0px; }
-
 .cr[class*=" amp-custom-third-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .left-column-width-size, .cr[class*=" amp-custom-third-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .amp-fluid-grid-btn {
   right: -20px; }
 
 .cr[class*=" amp-custom-third-width-3"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .right-column-width-size {
   margin-left: 0px; }
-
-.cr[class*=" amp-custom-third-width-2"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .rr {
-  margin-right: -20px; }
 
 .cr[class*=" amp-custom-third-width-2"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .left-column-width-size, .cr[class*=" amp-custom-third-width-2"]:not(.gs):not(.ga):not(.gn) > .innerblocks-wrap > .amp-resizeable-column-container .editor-row-first-column__resizer.second_resizer .amp-fluid-grid-btn {
   right: -15px; }
@@ -1215,31 +1269,10 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
 
 .rr {
   height: 100%;
-  top: 0;
-  border-top: 0;
-  border-bottom: 0;
   z-index: 99; }
 
 .rr {
   background: #e41b4d; }
-
-.rr:before {
-  display: block;
-  content: "";
-  width: 20px;
-  height: 7px;
-  border: 2px solid #fff;
-  background: #dadada;
-  cursor: inherit;
-  position: absolute;
-  top: calc(50% - 4px);
-  right: calc(50% - 4px);
-  -webkit-transition: -webkit-transform .1s ease-in;
-  transition: -webkit-transform .1s ease-in;
-  -o-transition: transform .1s ease-in;
-  transition: transform .1s ease-in;
-  transition: transform .1s ease-in, -webkit-transform .1s ease-in;
-  opacity: 0; }
 
 @media (min-width: 600px) {
   .block-editor-block-list__layout {
