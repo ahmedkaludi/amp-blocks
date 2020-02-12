@@ -260,8 +260,8 @@ class AmpRowLayout extends Component {
 			});
 			document.getElementById('left-column-width-' + uniqueID).innerHTML = firstCol + '%';
 			document.getElementById('right-column-width-' + uniqueID).innerHTML = secondCol + '%';
-			document.getElementById('left-column-width-' + uniqueID).style.opacity = 1;
-			document.getElementById('right-column-width-' + uniqueID).style.opacity = 1;
+			document.getElementById('left-column-width-' + uniqueID).style.cssText= 'opacity:1;z-index:100';
+			document.getElementById('right-column-width-' + uniqueID).style.cssText= 'opacity:1;z-index:100';
 		};
 		const onResizeStop = (event, direction, elt) => {
 			let firstCol;
@@ -279,8 +279,8 @@ class AmpRowLayout extends Component {
 				firstWidth: null,
 				secondWidth: null,
 			});
-			document.getElementById('left-column-width-' + uniqueID).style.opacity = 0;
-			document.getElementById('right-column-width-' + uniqueID).style.opacity = 0;
+			document.getElementById('left-column-width-' + uniqueID).style.cssText= 'opacity:0;z-index:0';
+			document.getElementById('right-column-width-' + uniqueID).style.cssText= 'opacity:0;z-index:0';
 		};
 		const temporaryColumnWidth = this.state.firstWidth;
 		const temporarySecondColumnWidth = this.state.secondWidth;
