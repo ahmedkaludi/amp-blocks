@@ -18,7 +18,7 @@ import LazyLoad from 'react-lazy-load';
 
 const axios = require('axios');
 let blockdata = '';
-axios.get('https://raw.githubusercontent.com/jasthilokesh/sampletest/master/root.json')
+axios.get('https://raw.githubusercontent.com/ahmedkaludi/amp-blocks-designs/master/root.json')
 	.then(response => {
 		blockdata = response.data;
 	});

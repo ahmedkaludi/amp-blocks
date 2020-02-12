@@ -216,7 +216,7 @@ class ampAdvancedButton extends Component {
 					paddingBottom: (btns[index].paddingBottom ? btns[index].paddingBottom + 'px' : undefined),
 					paddingLeft: (btns[index].paddingLeft ? btns[index].paddingLeft + 'px' : undefined),
 				}} >
-					<span className={`b-wrap b-${index}-action lokeshs b-svg-show-${(!btns[index].iconHover ? 'always' : 'hover')}`}>
+					<span className={`b-wrap b-${index}-action  b-svg-show-${(!btns[index].iconHover ? 'always' : 'hover')}`}>
 						<span className={`b b-${index} b-size-${(btns[index].btnSize ? btns[index].btnSize : btnSize)} b-style-${(btns[index].btnStyle ? btns[index].btnStyle : 'basic')}`} style={{
 							background: (undefined !== btnbg ? btnbg : undefined),
 							color: (undefined !== btns[index].color ? btns[index].color : undefined),
