@@ -80,16 +80,14 @@ function amp_gutenberg_editor_assets()
 		array(
 			'sidebar_size' => $sidebar_size,
 			'nosidebar_size' => $nosidebar_size,
-			'default_size' => $jssize,
+			'userrole' => $jssize,
 			'config' => get_option('amp_blocks_config_blocks'),
 			'configuration' => get_option('amp_blocks_config_blocks'),
-			'settings' => get_option('amp_blocks_settings_blocks'),
+			'userrole' => get_option('amp_blocks_settings_blocks'),
 			'userrole' => $userrole,
-			'pro' => (class_exists('Amp_Blocks_Pro') ? 'true' : 'false'),
-			'colors' => get_option('amp_blocks_colors'),
-			'gutenberg' => (function_exists('gutenberg_menu') ? 'true' : 'false'),
-			'privacy_link' => get_privacy_policy_url(),
-			'privacy_title' => (get_option('wp_page_for_privacy_policy') ? get_the_title(get_option('wp_page_for_privacy_policy')) : ''),
+			'design_library_status' => get_transient( 'amp_blocks_design_library' ),
+			'AMP_BLOCKS_DIR_URI' => AMP_BLOCKS_DIR_URI,
+			'amp_blocks_nonce' => wp_create_nonce('amp_blocks_nonce')
 		)
 	);
 	// Styles.

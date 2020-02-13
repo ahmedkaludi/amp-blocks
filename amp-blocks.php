@@ -38,8 +38,15 @@ function amp_blocks_init()
     require_once AMP_BLOCKS_DIR_PATH . 'dist/init.php';
     require_once AMP_BLOCKS_DIR_PATH . 'dist/class-amp-blocks-frontend.php';
 }
-
 add_action('plugins_loaded', 'amp_blocks_init');
 
+add_action( 'wp_ajax_amp_blocks_set_transient', 'amp_blocks_set_transient' );
+add_action( 'wp_ajax_nopriv_amp_blocks_set_transient', 'amp_blocks_set_transient' );
 
-
+function amp_blocks_set_transient (){
+    $amp_blocks_nonce = $_REQUEST['security'];
+	if ( wp_verify_nonce( $amp_blocks_nonce, 'amp_blocks_nonce' )){
+        set_transient('amp_blocks_design_library',$_REQUEST['status']);
+    }
+	
+}

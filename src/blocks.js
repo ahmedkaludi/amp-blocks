@@ -42,6 +42,9 @@ function appendImportButton() {
 	node.appendChild(newElem);
 	document.getElementById('ampblockCanvasbutton').addEventListener('click', canvasbutton);
 	document.getElementById('AMPBlocksImportLayoutBtn').addEventListener('click', ampBlockImportPrebuiltLibrary);
+	if(amp_blocks_params.design_library_status == '1'){
+		canvasbutton('','frombackend');
+	}
 	jQuery('[aria-label="Settings"]').click(function () {
 		var canvasstate = document.getElementById('ampblockCanvasbutton').getAttribute('data-action');
 		if (canvasstate == 'Exit') {
@@ -62,10 +65,17 @@ function appendImportButton() {
 }
 
 
-function canvasbutton(e) {
-	var self = e.target;
+function canvasbutton(e = '',frombackend='') {
+	if(e == ''){
+		var self =	document.getElementById('ampblockCanvasbutton');
+	}else{
+		var self = e.target;
+
+	}
 	var canvasStats = self.getAttribute('data-action');
-	if (canvasStats == 'Enter') {
+	if (canvasStats == 'Enter' || frombackend == 'frombackend') {
+		if(frombackend != 'frombackend')
+		designLibraryajax(1);
 		var isFullScreenMode = wp.data.select('core/edit-post').isFeatureActive('fullscreenMode');
 		if (!isFullScreenMode) {
 			wp.data.dispatch('core/edit-post').toggleFeature('fullscreenMode');
@@ -87,6 +97,8 @@ function canvasbutton(e) {
 		self.setAttribute('data-action', 'Exit');
 		document.getElementById("ampblockCanvasbutton").innerText = 'Exit Canvas Mode';
 	} else {
+		if(frombackend != 'frombackend')
+		designLibraryajax(0);
 		if (document.getElementsByClassName('edit-post-sidebar')[0]) {
 			document.getElementsByClassName('edit-post-sidebar')[0].style.cssText = null;
 			document.getElementsByClassName('edit-post-layout__content')[0].style.margin = null;
@@ -136,3 +148,15 @@ function moveEditPostSidebar(e) {
 }
 
 
+function designLibraryajax(status = 0){
+	jQuery.ajax({
+		method: 'post',
+		security: 'automattic_wizard_nonce',
+		url: ajaxurl,
+		data: {
+			status: status,
+			security: amp_blocks_params.amp_blocks_nonce,
+			action:'amp_blocks_set_transient',
+		}
+	})
+}
