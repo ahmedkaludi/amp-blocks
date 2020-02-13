@@ -1263,7 +1263,18 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   z-index: 999; }
 
 .is-selected .rr, .is-hovered ~ .rr, .is-hovered .rr, .rr:hover {
-  background: #e41b4d; }
+  width: 2px !important;
+  background: #555d66; }
+
+.rr:before {
+  content: "";
+  background: #555d66;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 80px;
+  top: 50%;
+  left: -3px; }
 
 @media (min-width: 600px) {
   .block-editor-block-list__layout {

@@ -60,6 +60,14 @@
 .ci {
   border: 0 solid transparent; }
 
+.rvmiddle {
+  -ms-flex-align: center;
+      align-items: center; }
+
+.rvbottom {
+  -ms-flex-align: end;
+      align-items: flex-end; }
+
 .rvmiddle > .c {
   -ms-flex-pack: center;
       justify-content: center; }
@@ -920,6 +928,9 @@
   background: transparent;
   border-style: solid;
   border-width: 0; }
+
+p {
+  text-align: left; }
 /**
  * #.# Common SCSS
  *

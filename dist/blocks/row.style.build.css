@@ -62,7 +62,12 @@ p{
 .ci {
   border: 0 solid transparent;
   -ms-flex-negative: 0; }
-
+  .rvmiddle{
+    align-items: center;
+  }
+  .rvbottom{
+    align-items: flex-end;
+  }
 .rvmiddle > .c {
   -ms-flex-pack: center;
       justify-content: center; }

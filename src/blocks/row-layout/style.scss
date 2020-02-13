@@ -59,7 +59,12 @@
 .ci {
   border: 0 solid transparent;
 }
-
+.rvmiddle{
+	align-items: center;
+}
+.rvbottom{
+	align-items: flex-end;
+}
 .rvmiddle > .c {
   justify-content: center;
 }
