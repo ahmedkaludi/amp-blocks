@@ -1780,7 +1780,7 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
   background: #555d66;
 }
 
- .rr:before {
+.is-selected .rr:before,.is-hovered ~ .rr:before,.is-hovered .rr:before,.rr:hover:before{
   content: "";
   background: #555d66;
   position: absolute;
