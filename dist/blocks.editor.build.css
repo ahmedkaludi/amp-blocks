@@ -1260,7 +1260,8 @@ button.components-button.amp-fluid-grid-btn.is-button.is-default.is-small {
 
 .rr {
   height: 100%;
-  z-index: 999; }
+  z-index: 999;
+  width: 2px !important; }
 
 .is-selected .rr, .is-hovered ~ .rr, .is-hovered .rr, .rr:hover {
   width: 2px !important;
