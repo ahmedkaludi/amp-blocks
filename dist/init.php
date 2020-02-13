@@ -325,3 +325,16 @@ function amp_blocks_locate_template($template_name, $template_path = '', $defaul
 	// Return what we found.
 	return apply_filters('amp_blocks_locate_template', $template, $template_name, $template_path);
 }
+add_filter("theme_templates", function($default_template){
+    $default_template['dist/template.php'] = "Amp Block";
+    return $default_template;
+  });
+
+  add_filter("template_include", function($template_name){
+    $object = get_queried_object();
+	$template = get_page_template_slug( $object );
+    if($template=='dist/template.php'){
+      $template_name = AMP_BLOCKS_DIR_PATH.$template;
+    }
+    return $template_name;
+  },99);
