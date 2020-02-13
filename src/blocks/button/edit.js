@@ -29,6 +29,7 @@ const {
 	BlockControls,
 	AlignmentToolbar,
 	InspectorAdvancedControls,
+	URLInputButton,
 } = wp.blockEditor;
 const {
 	Component,
@@ -45,6 +46,7 @@ const {
 	ButtonGroup,
 	SelectControl,
 	ToggleControl,
+	Toolbar
 } = wp.components;
 
 /**
@@ -155,16 +157,16 @@ class AmpAdvancedButton extends Component {
 			{ key: 'gradient', name: __('Gradient') },
 		];
 		const marginTypes = [
-			{ key: 'px', name: __( 'px' ) },
-			{ key: 'em', name: __( 'em' ) },
-			{ key: '%', name: __( '%' ) },
-			{ key: 'vh', name: __( 'vh' ) },
-			{ key: 'rem', name: __( 'rem' ) },
+			{ key: 'px', name: __('px') },
+			{ key: 'em', name: __('em') },
+			{ key: '%', name: __('%') },
+			{ key: 'vh', name: __('vh') },
+			{ key: 'rem', name: __('rem') },
 		];
 		const config = (googleFont ? gconfig : '');
-		const marginMin = ( marginType === 'em' || marginType === 'px' ? -40 : -100 );
-		const marginMax = ( marginType === 'em' || marginType === 'rem' ? 12 : 100 );
-		const marginStep = ( marginType === 'em' || marginType === 'rem' ? 0.1 : 1 );
+		const marginMin = (marginType === 'em' || marginType === 'px' ? -40 : -100);
+		const marginMax = (marginType === 'em' || marginType === 'rem' ? 12 : 100);
+		const marginStep = (marginType === 'em' || marginType === 'rem' ? 0.1 : 1);
 		const renderBtns = (index) => {
 			let btnSize;
 			btnSize = 'custom';
@@ -193,7 +195,7 @@ class AmpAdvancedButton extends Component {
 							fontSize: (undefined !== btns[index].size ? btns[index].size + 'px' : undefined),
 							fontWeight: fontWeight,
 							fontStyle: fontStyle,
-							textTransform : textTransform,
+							textTransform: textTransform,
 							letterSpacing: letterSpacing + 'px',
 							fontFamily: (typography ? typography : ''),
 							borderRadius: (undefined !== btns[index].borderRadius ? btns[index].borderRadius + 'px' : undefined),
@@ -241,22 +243,17 @@ class AmpAdvancedButton extends Component {
 						</span>
 					</span>
 					{isSelected && ((this.state.btnFocused && 'btn' + [index] === this.state.btnFocused) || (this.state.btnFocused && 'false' === this.state.btnFocused && '0' === index)) && (
-						<form
-							key={'form-link'}
-							onSubmit={(event) => event.preventDefault()}
-							className="blocks-button__inline-link">
-							<URLInput
-								value={btns[index].link}
-								onChange={value => {
-									this.saveArrayUpdate({ link: value }, index);
-								}}
-							/>
-							<IconButton
-								icon={'editor-break'}
-								label={__('Apply', 'amp-blocks')}
-								type={'submit'}
-							/>
-						</form>
+						<BlockControls>
+							<Toolbar>
+								<URLInputButton
+
+									url={btns[index].link}
+									onChange={url => {
+										this.saveArrayUpdate({ link: url }, index);
+									}}
+								/>
+							</Toolbar>
+						</BlockControls>
 					)}
 				</div>
 			);
@@ -1120,59 +1117,59 @@ class AmpAdvancedButton extends Component {
 										</PanelBody>
 									)}
 
-							{ this.showSettings( 'marginSettings' ) && (
-							<PanelBody
-								title={ __( 'Gapping' ) }
-								initialOpen={ false }
-							>
-								<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Margin Type' ) }>
-									{ map( marginTypes, ( { name, key } ) => (
-										<Button
-											key={ key }
-											className="amp-size-btn"
-											isSmall
-											isPrimary={ marginType === key }
-											aria-pressed={ marginType === key }
-											onClick={ () => setAttributes( { marginType: key } ) }
+									{this.showSettings('marginSettings') && (
+										<PanelBody
+											title={__('Gapping')}
+											initialOpen={false}
 										>
-											{ name }
-										</Button>
-									) ) }
-								</ButtonGroup>
-								<RangeControl
-									label={ __( 'Top Margin' ) }
-									value={btns[indexcountamp].topMargin}
-									onChange={ ( value ) =>{ this.saveArrayUpdate({ topMargin: value }, indexcountamp);} }
-									min={ marginMin }
-									max={ marginMax }
-									step={ marginStep }
-								/>
-								<ButtonGroup className="amp-size-type-options" aria-label={ __( 'Margin Type' ) }>
-									{ map( marginTypes, ( { name, key } ) => (
-										<Button
-											key={ key }
-											className="amp-size-btn"
-											isSmall
-											isPrimary={ marginType === key }
-											aria-pressed={ marginType === key }
-											onClick={ () => setAttributes( { marginType: key } ) }
-										>
-											{ name }
-										</Button>
-									) ) }
-								</ButtonGroup>
-								<RangeControl
-									label={ __( 'Bottom Margin' ) }
-									//value={ ( undefined !== bottomMargin ? bottomMargin : '' ) }
-									value={btns[indexcountamp].bottomMargin}
-									//onChange={ ( value ) => setAttributes( { bottomMargin: value } ) }
-									onChange={ ( value ) =>{ this.saveArrayUpdate({ bottomMargin: value }, indexcountamp);} }
-									min={ marginMin }
-									max={ marginMax }
-									step={ marginStep }
-								/>
-							</PanelBody>
-						) }
+											<ButtonGroup className="amp-size-type-options" aria-label={__('Margin Type')}>
+												{map(marginTypes, ({ name, key }) => (
+													<Button
+														key={key}
+														className="amp-size-btn"
+														isSmall
+														isPrimary={marginType === key}
+														aria-pressed={marginType === key}
+														onClick={() => setAttributes({ marginType: key })}
+													>
+														{name}
+													</Button>
+												))}
+											</ButtonGroup>
+											<RangeControl
+												label={__('Top Margin')}
+												value={btns[indexcountamp].topMargin}
+												onChange={(value) => { this.saveArrayUpdate({ topMargin: value }, indexcountamp); }}
+												min={marginMin}
+												max={marginMax}
+												step={marginStep}
+											/>
+											<ButtonGroup className="amp-size-type-options" aria-label={__('Margin Type')}>
+												{map(marginTypes, ({ name, key }) => (
+													<Button
+														key={key}
+														className="amp-size-btn"
+														isSmall
+														isPrimary={marginType === key}
+														aria-pressed={marginType === key}
+														onClick={() => setAttributes({ marginType: key })}
+													>
+														{name}
+													</Button>
+												))}
+											</ButtonGroup>
+											<RangeControl
+												label={__('Bottom Margin')}
+												//value={ ( undefined !== bottomMargin ? bottomMargin : '' ) }
+												value={btns[indexcountamp].bottomMargin}
+												//onChange={ ( value ) => setAttributes( { bottomMargin: value } ) }
+												onChange={(value) => { this.saveArrayUpdate({ bottomMargin: value }, indexcountamp); }}
+												min={marginMin}
+												max={marginMax}
+												step={marginStep}
+											/>
+										</PanelBody>
+									)}
 								</Fragment>
 							</InspectorControls>
 							<InspectorAdvancedControls>
