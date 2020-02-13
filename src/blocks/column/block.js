@@ -34,7 +34,7 @@ const {
  */
 registerBlockType( 'amp/column', {
 	title: __( 'Column' ),
-	icon: icons.blockColumn,
+	icon: 'screenoptions',
 	category: 'amp-blocks',
 	parent: [ 'amp/rowlayout' ],
 	attributes: {
