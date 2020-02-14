@@ -1,4 +1,4 @@
-=== Gutenberg Blocks for AMP & WP ===
+=== Gutenberg Blocks for AMP with Design Library ===
 Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
@@ -17,19 +17,17 @@ AMP Blocks give you the capability to easily create great websites with just a f
 ### Features 
 
 <h4>AMP Blocks</h4>
-* <strong>CTA</strong>
-* <strong>Button</strong>
-* <strong>Testimonial Slider</strong>
-* <strong>Team</strong>
-* <strong>Posts</strong>
-* <strong>Upcoming Blocks</strong>
-
+* <strong>Design library</strong> - Get professionally designed Web elements with 1 click! Just import them, edit them and make them yours
+* <strong>Canvas Mode</strong> - Allows you to edit in full screen which gives you an ultimate web design experience. First Time ever in the Gutenberg niche to have such feature!
+* <strong>New Designs Every week</strong> - The Design library will get updated when there are new designs available. We are planning to release few designs every week. 
+* <strong>AMP Support</strong> - The designs looks exactly the same in AMP as it does in the non-AMP. This is the only plugin which has the deepest AMP integration available. 
+* <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 == Frequently Asked Questions ==
 
 = How to install and use this AMP Blocks plugin? =
 
-After you Active this plugin, just go to Dashboard > CLick on Post (or) Page, and Select the AMP Blocks and Add the Block as per your need and change the content as you like. 
+After you Active this plugin, just go to Dashboard > CLick on Post (or) Page, and Click on 'Enter Canvas Mode' and then click 'Design Library' to import the design. 
  
 
 = How do I report bugs and suggest new features? =
