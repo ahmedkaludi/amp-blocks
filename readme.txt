@@ -1,3 +1,4 @@
+=== Gutenberg Blocks for AMP & WP ===
 Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
