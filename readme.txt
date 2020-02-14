@@ -1,8 +1,7 @@
-=== AMP Blocks ===
 Contributors: magazine3
-Tags: block, gutenberg, AMP
+Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
-Tested up to: 5.3
+Tested up to: 5.3.2
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,6 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 AMP Blocks is a collection of page building blocks for the Gutenberg.
 AMP Blocks give you the capability to easily create great websites with just a few clicks, whick will show in both AMP and Non AMP Pages.
+
 
 ### Features 
 
@@ -40,7 +40,7 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
-= 1.0 (13 Jan 2020) =
+= 1.0 (13 Feb 2020) =
 * New Feature Design BLocks are added in the AMP blocks, We introduce Column Block which will show, Row and Section module and is easy for drag and drop the designs, which you feel like a Design tool for Gutenberg and the designs are Fully compatible with AMP.
 * New Canvas mode, which will show full width Template in the page.
 * New Block: Heading
