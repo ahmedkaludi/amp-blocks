@@ -69,6 +69,7 @@ registerBlockType('ampblocks/icon-list', {
 				marginRight: 5,
 				marginBottom: 0,
 				marginLeft: 5,
+				content:'Add your text.....',
 			}],
 		},
 		iconCount: {
@@ -162,23 +163,6 @@ registerBlockType('ampblocks/icon-list', {
 	save: props => {
 		const { attributes: { iconorder, icons, iconCount, blockAlignment, textAlignment, uniqueID, align, content, color, letterSpacing, topMargin, bottomMargin,textcolor,anchor } } = props;
 		let tagId =  `h${ uniqueID }` ;
-
-
-		const htmlItem = (
-			<RichText.Content
-				tagName={'p'}
-				id={ tagId }
-			style={{
-					textAlign: align,
-					color: textcolor,
-					letterSpacing: (letterSpacing ? letterSpacing + 'px' : undefined),
-					marginTop: (undefined !== topMargin && '' !== topMargin ? topMargin + mType : undefined),
-					marginBottom: (undefined !== bottomMargin && '' !== bottomMargin ? bottomMargin + mType : undefined),
-					// minWidth: '150px',
-				}}
-				value={content}
-			/>
-		);
 		const renderSaveIcons = (index) => {
 			return (
 				<div className={`iclw icl-s-${icons[index].style} icl-w icl-i-${index}`}>
@@ -215,7 +199,19 @@ registerBlockType('ampblocks/icon-list', {
 							order: iconorder,
 						}} />
 					)}
-					{htmlItem}
+					<RichText.Content
+				tagName={'p'}
+				id={ tagId }
+			style={{
+					textAlign: align,
+					color: textcolor,
+					letterSpacing: (letterSpacing ? letterSpacing + 'px' : undefined),
+					marginTop: (undefined !== topMargin && '' !== topMargin ? topMargin + mType : undefined),
+					marginBottom: (undefined !== bottomMargin && '' !== bottomMargin ? bottomMargin + mType : undefined),
+					// minWidth: '150px',
+				}}
+				value={icons[index].content}
+			/>
 				</div>
 			);
 		};

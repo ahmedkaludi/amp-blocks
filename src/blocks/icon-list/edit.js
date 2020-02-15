@@ -13,6 +13,7 @@ import editorIcons from '../../icons';
 import times from 'lodash/times';
 import map from 'lodash/map';
 import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
+import IconControl from '../../icon-control';
 import GenIcon from '../../genicon';
 import Ico from '../../svgicons';
 import FaIco from '../../faicons';
@@ -20,6 +21,7 @@ import IcoNames from '../../svgiconsnames';
 import TypographyControls from '../../typography-control';
 import AdvancedColorControl from '../../advanced-color-control';
 import WebfontLoader from '../../fontloader';
+import StepControl from '../../step-control';
 
 
 /**
@@ -54,6 +56,7 @@ const {
 	Button,
 	ButtonGroup,
 	Tooltip,
+	TabPanel,
 } = wp.components;
 
 /**
@@ -130,236 +133,258 @@ class ampIcons extends Component {
 		};
 		const config = (googleFont ? gconfig : '');
 		const sconfig = (markGoogleFont ? sgconfig : '');
-		const renderIconSettings = (index) => {
+		const normalSettings = ( index ) => {
 			return (
-				<PanelBody
-					title={__('Icon Settings')}
-					initialOpen={(1 === iconCount ? true : false)}
-				>
-					<FontIconPicker
-						icons={IcoNames}
-						value={icons[index].icon}
-						onChange={value => {
-							this.saveArrayUpdate({ icon: value }, index);
-						}}
-						appendTo="body"
-						renderFunc={renderSVG}
-						theme="default"
-						isMulti={false}
-					/>
-					<RangeControl
-						label={__('Icon Size')}
-						value={icons[index].size}
-						onChange={value => {
-							this.saveArrayUpdate({ size: value }, index);
-						}}
-						min={5}
-						max={250}
-					/>
-					{icons[index].icon && 'fe' === icons[index].icon.substring(0, 2) && (
-						<RangeControl
-							label={__('Line Width')}
-							value={icons[index].width}
-							onChange={value => {
-								this.saveArrayUpdate({ width: value }, index);
-							}}
-							step={0.5}
-							min={0.5}
-							max={4}
-						/>
-					)}
-					<p className="amp-setting-label">{__('Icon Color')}</p>
-					<ColorPalette
-						value={icons[index].color}
-						onChange={value => {
-							this.saveArrayUpdate({ color: value }, index);
-						}}
+				<Fragment>
+					<AdvancedColorControl
+						label={ __( 'Icon Color' ) }
+						colorValue={ ( icons[ index ].color ? icons[ index ].color : '' ) }
+						colorDefault={ '' }
+						onColorChange={ value => {
+							this.saveArrayUpdate( { color: value }, index );
+						} }
 					/>
 					<SelectControl
-						label={__('Icon Style')}
-						value={icons[index].style}
-						options={[
-							{ value: 'default', label: __('Default') },
-							{ value: 'stacked', label: __('Stacked') },
-						]}
-						onChange={value => {
-							this.saveArrayUpdate({ style: value }, index);
-						}}
+						label={ __( 'Icon Style' ) }
+						value={ icons[ index ].style }
+						options={ [
+							{ value: 'default', label: __( 'Default' ) },
+							{ value: 'stacked', label: __( 'Stacked' ) },
+						] }
+						onChange={ value => {
+							this.saveArrayUpdate( { style: value }, index );
+						} }
 					/>
-					{icons[index].style !== 'default' && (
+					{ icons[ index ].style !== 'default' && (
 						<Fragment>
-							<p className="amp-setting-label">{__('Icon Background')}</p>
-							<ColorPalette
-								value={icons[index].background}
-								onChange={value => {
-									this.saveArrayUpdate({ background: value }, index);
-								}}
+							<AdvancedColorControl
+								label={ __( 'background Color' ) }
+								colorValue={ ( icons[ index ].background ? icons[ index ].background : '' ) }
+								colorDefault={ '' }
+								onColorChange={ value => {
+									this.saveArrayUpdate( { background: value }, index );
+								} }
 							/>
 						</Fragment>
-					)}
-					{icons[index].style !== 'default' && (
+					) }
+					{ icons[ index ].style !== 'default' && (
 						<Fragment>
-							<p className="amp-setting-label">{__('Border Color')}</p>
-							<ColorPalette
-								value={icons[index].border}
-								onChange={value => {
-									this.saveArrayUpdate({ border: value }, index);
-								}}
+							<AdvancedColorControl
+								label={ __( 'Border Color' ) }
+								colorValue={ ( icons[ index ].border ? icons[ index ].border : '' ) }
+								colorDefault={ '' }
+								onColorChange={ value => {
+									this.saveArrayUpdate( { border: value }, index );
+								} }
 							/>
 						</Fragment>
-					)}
-					{icons[index].style !== 'default' && (
+					) }
+				</Fragment>
+			);
+		};
+		const renderIconSettings = ( index ) => {
+			return (
+				<PanelBody
+					title={ __( 'Icon' ) + ' ' + ( index + 1 ) + ' ' + __( 'Settings' ) }
+					initialOpen={ ( 1 === iconCount ? true : false ) }
+				>
+					<IconControl
+						value={ icons[ index ].icon }
+						onChange={ value => {
+							this.saveArrayUpdate( { icon: value }, index );
+						} }
+					/>
+					<RangeControl
+						label={ __( 'Icon Size' ) }
+						value={ icons[ index ].size }
+						onChange={ value => {
+							this.saveArrayUpdate( { size: value }, index );
+						} }
+						min={ 5 }
+						max={ 250 }
+					/>
+					{ icons[ index ].icon && 'fe' === icons[ index ].icon.substring( 0, 2 ) && (
 						<RangeControl
-							label={__('Border Size (px)')}
-							value={icons[index].borderWidth}
-							onChange={value => {
-								this.saveArrayUpdate({ borderWidth: value }, index);
-							}}
-							min={0}
-							max={20}
+							label={ __( 'Line Width' ) }
+							value={ icons[ index ].width }
+							onChange={ value => {
+								this.saveArrayUpdate( { width: value }, index );
+							} }
+							step={ 0.5 }
+							min={ 0.5 }
+							max={ 4 }
 						/>
-					)}
-					{icons[index].style !== 'default' && (
+					) }
+					<h2 className="kt-tab-wrap-title kt-color-settings-title">{ __( 'Color Settings', 'kadence-blocks' ) }</h2>
+					<TabPanel className="kt-inspect-tabs kt-hover-tabs"
+						activeClass="active-tab"
+						tabs={ [
+							{
+								name: 'normal' + index,
+								title: __( 'Normal' ),
+								className: 'kt-normal-tab',
+							},
+							{
+								name: 'hover' + index,
+								title: __( 'Hover' ),
+								className: 'kt-hover-tab',
+							},
+						] }>
+						{
+							( tab ) => {
+								let tabout;
+								if ( tab.name ) {
+									if ( 'hover' + index === tab.name ) {
+										tabout = hoverSettings( index );
+									} else {
+										tabout = normalSettings( index );
+									}
+								}
+								return <div>{ tabout }</div>;
+							}
+						}
+					</TabPanel>
+					{ icons[ index ].style !== 'default' && (
 						<RangeControl
-							label={__('Border Radius (%)')}
-							value={icons[index].borderRadius}
-							onChange={value => {
-								this.saveArrayUpdate({ borderRadius: value }, index);
-							}}
-							min={0}
-							max={50}
+							label={ __( 'Border Size (px)' ) }
+							value={ icons[ index ].borderWidth }
+							onChange={ value => {
+								this.saveArrayUpdate( { borderWidth: value }, index );
+							} }
+							min={ 0 }
+							max={ 20 }
 						/>
-					)}
-					{icons[index].style !== 'default' && (
+					) }
+					{ icons[ index ].style !== 'default' && (
 						<RangeControl
-							label={__('Padding (px)')}
-							value={icons[index].padding}
-							onChange={value => {
-								this.saveArrayUpdate({ padding: value }, index);
-							}}
-							min={0}
-							max={180}
+							label={ __( 'Border Radius (%)' ) }
+							value={ icons[ index ].borderRadius }
+							onChange={ value => {
+								this.saveArrayUpdate( { borderRadius: value }, index );
+							} }
+							min={ 0 }
+							max={ 50 }
 						/>
-					)}
-					<ButtonGroup className="amp-size-type-options amp-outline-control" aria-label={__('Margin Control Type')}>
-						{map(controlTypes, ({ name, key, micon }) => (
-							<Tooltip text={name}>
+					) }
+					{ icons[ index ].style !== 'default' && (
+						<RangeControl
+							label={ __( 'Padding (px)' ) }
+							value={ icons[ index ].padding }
+							onChange={ value => {
+								this.saveArrayUpdate( { padding: value }, index );
+							} }
+							min={ 0 }
+							max={ 180 }
+						/>
+					) }
+					<ButtonGroup className="kt-size-type-options kt-outline-control" aria-label={ __( 'Margin Control Type' ) }>
+						{ map( controlTypes, ( { name, key, micon } ) => (
+							<Tooltip text={ name }>
 								<Button
-									key={key}
-									className="amp-size-btn"
+									key={ key }
+									className="kt-size-btn"
 									isSmall
-									isPrimary={marginControl === key}
-									aria-pressed={marginControl === key}
-									onClick={() => this.setState({ marginControl: key })}
+									isPrimary={ marginControl === key }
+									aria-pressed={ marginControl === key }
+									onClick={ () => this.setState( { marginControl: key } ) }
 								>
-									{micon}
+									{ micon }
 								</Button>
 							</Tooltip>
-						))}
+						) ) }
 					</ButtonGroup>
-					{marginControl && marginControl !== 'individual' && (
+					{ marginControl && marginControl !== 'individual' && (
 						<RangeControl
-							label={__('Margin (px)')}
-							value={(icons[index].marginTop ? icons[index].marginTop : 0)}
-							onChange={(value) => {
-								this.saveArrayUpdate({
+							label={ __( 'Margin (px)' ) }
+							value={ ( icons[ index ].marginTop ? icons[ index ].marginTop : 0 ) }
+							onChange={ ( value ) => {
+								this.saveArrayUpdate( {
 									marginTop: value,
 									marginRight: value,
 									marginBottom: value,
 									marginLeft: value,
-								}, index);
-							}}
-							min={0}
-							max={180}
-							step={1}
+								}, index );
+							} }
+							min={ 0 }
+							max={ 180 }
+							step={ 1 }
 						/>
-					)}
-					{marginControl && marginControl === 'individual' && (
+					) }
+					{ marginControl && marginControl === 'individual' && (
 						<Fragment>
-							<p>{__('Margin (px)')}</p>
+							<p>{ __( 'Margin (px)' ) }</p>
 							<RangeControl
-								className="amp-icon-rangecontrol"
-								label={editorIcons.outlinetop}
-								value={(icons[index].marginTop ? icons[index].marginTop : 0)}
-								onChange={value => {
-									this.saveArrayUpdate({ marginTop: value }, index);
-								}}
-								min={0}
-								max={180}
-								step={1}
+								className="kt-icon-rangecontrol"
+								label={ editorIcons.outlinetop }
+								value={ ( icons[ index ].marginTop ? icons[ index ].marginTop : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginTop: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
 							/>
 							<RangeControl
-								className="amp-icon-rangecontrol"
-								label={editorIcons.outlineright}
-								value={(icons[index].marginRight ? icons[index].marginRight : 0)}
-								onChange={value => {
-									this.saveArrayUpdate({ marginRight: value }, index);
-								}}
-								min={0}
-								max={180}
-								step={1}
+								className="kt-icon-rangecontrol"
+								label={ editorIcons.outlineright }
+								value={ ( icons[ index ].marginRight ? icons[ index ].marginRight : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginRight: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
 							/>
 							<RangeControl
-								className="amp-icon-rangecontrol"
-								label={editorIcons.outlinebottom}
-								value={(icons[index].marginBottom ? icons[index].marginBottom : 0)}
-								onChange={value => {
-									this.saveArrayUpdate({ marginBottom: value }, index);
-								}}
-								min={0}
-								max={180}
-								step={1}
+								className="kt-icon-rangecontrol"
+								label={ editorIcons.outlinebottom }
+								value={ ( icons[ index ].marginBottom ? icons[ index ].marginBottom : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginBottom: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
 							/>
 							<RangeControl
-								className="amp-icon-rangecontrol"
-								label={editorIcons.outlineleft}
-								value={(icons[index].marginLeft ? icons[index].marginLeft : 0)}
-								onChange={value => {
-									this.saveArrayUpdate({ marginLeft: value }, index);
-								}}
-								min={0}
-								max={180}
-								step={1}
+								className="kt-icon-rangecontrol"
+								label={ editorIcons.outlineleft }
+								value={ ( icons[ index ].marginLeft ? icons[ index ].marginLeft : 0 ) }
+								onChange={ value => {
+									this.saveArrayUpdate( { marginLeft: value }, index );
+								} }
+								min={ 0 }
+								max={ 180 }
+								step={ 1 }
 							/>
 						</Fragment>
-					)}
-					<p className="components-base-control__label">{__('Link')}</p>
+					) }
+					<p className="components-base-control__label">{ __( 'Link' ) }</p>
 					<URLInput
-						value={icons[index].link}
-						className="b-link-input"
-						onChange={value => {
-							this.saveArrayUpdate({ link: value }, index);
-						}}
+						autoFocus={ false }
+						value={ icons[ index ].link }
+						className="kt-btn-link-input"
+						onChange={ value => {
+							this.saveArrayUpdate( { link: value }, index );
+						} }
 					/>
 					<SelectControl
-						label={__('Link Target')}
-						value={icons[index].target}
-						options={[
-							{ value: '_self', label: __('Same Window') },
-							{ value: '_blank', label: __('New Window') },
-						]}
-						onChange={value => {
-							this.saveArrayUpdate({ target: value }, index);
-						}}
+						label={ __( 'Link Target' ) }
+						value={ icons[ index ].target }
+						options={ [
+							{ value: '_self', label: __( 'Same Window' ) },
+							{ value: '_blank', label: __( 'New Window' ) },
+						] }
+						onChange={ value => {
+							this.saveArrayUpdate( { target: value }, index );
+						} }
 					/>
 					<TextControl
-						label={__('Title for Accessibility')}
-						value={icons[index].title}
-						onChange={value => {
-							this.saveArrayUpdate({ title: value }, index);
-						}}
-					/>
-					<SelectControl
-						label={__('Icon Order')}
-						value={iconorder}
-						options={[
-							{ value: '0', label: __('Left') },
-							{ value: '1', label: __('Right') },
-						]}
-						onChange={value => {
-							setAttributes({ iconorder: value })
-						}
-						}
+						label={ __( 'Title for Accessibility' ) }
+						value={ icons[ index ].title }
+						onChange={ value => {
+							this.saveArrayUpdate( { title: value }, index );
+						} }
 					/>
 				</PanelBody>
 			);
@@ -369,14 +394,33 @@ class ampIcons extends Component {
 				{times(iconCount, n => renderIconSettings(n))}
 			</div>
 		);
-		const headingContent = (
-			<RichText
+		const renderIconsPreview = (index) => {
+			return (
+				<div className={`iclw icl-s-${icons[index].style} icl-w icl-i-${index}`} >
+					{icons[index].icon && (
+						<GenIcon className={`icl icl-${icons[index].icon}`} name={icons[index].icon} size={icons[index].size} icon={('fa' === icons[index].icon.substring(0, 2) ? FaIco[icons[index].icon] : Ico[icons[index].icon])} strokeWidth={('fe' === icons[index].icon.substring(0, 2) ? icons[index].width : undefined)} title={(icons[index].title ? icons[index].title : '')} style={{
+							color: (icons[index].color ? icons[index].color : undefined),
+							backgroundColor: (icons[index].background && icons[index].style !== 'default' ? icons[index].background : undefined),
+							padding: (icons[index].padding && icons[index].style !== 'default' ? icons[index].padding + 'px' : undefined),
+							borderColor: (icons[index].border && icons[index].style !== 'default' ? icons[index].border : undefined),
+							borderWidth: (icons[index].borderWidth && icons[index].style !== 'default' ? icons[index].borderWidth + 'px' : undefined),
+							borderRadius: (icons[index].borderRadius && icons[index].style !== 'default' ? icons[index].borderRadius + '%' : undefined),
+							marginTop: (icons[index].marginTop ? icons[index].marginTop + 'px' : undefined),
+							marginRight: (icons[index].marginRight ? icons[index].marginRight + 'px' : undefined),
+							marginBottom: (icons[index].marginBottom ? icons[index].marginBottom + 'px' : undefined),
+							marginLeft: (icons[index].marginLeft ? icons[index].marginLeft + 'px' : undefined),
+							order: iconorder
+						}} />
+					)}
+				<RichText
 				formattingControls={['bold', 'italic', 'link', 'mark']}
 				allowedFormats={['core/bold', 'core/italic', 'core/link', 'amp/mark']}
 				wrapperClassName={className}
 				tagName={'p'}
-				value={content}
-				onChange={(value) => setAttributes({ content: value })}
+				value={icons[index].content}
+				onChange={ value => {
+					this.saveArrayUpdate( { content: value }, index );
+				} }
 				onMerge={mergeBlocks}
 				onSplit={(value) => {
 					if (!value) {
@@ -406,26 +450,6 @@ class ampIcons extends Component {
 				className={`h${uniqueID}`}
 				placeholder={__('Add your text.....')}
 			/>
-		);
-		const renderIconsPreview = (index) => {
-			return (
-				<div className={`iclw icl-s-${icons[index].style} icl-w icl-i-${index}`} >
-					{icons[index].icon && (
-						<GenIcon className={`icl icl-${icons[index].icon}`} name={icons[index].icon} size={icons[index].size} icon={('fa' === icons[index].icon.substring(0, 2) ? FaIco[icons[index].icon] : Ico[icons[index].icon])} strokeWidth={('fe' === icons[index].icon.substring(0, 2) ? icons[index].width : undefined)} title={(icons[index].title ? icons[index].title : '')} style={{
-							color: (icons[index].color ? icons[index].color : undefined),
-							backgroundColor: (icons[index].background && icons[index].style !== 'default' ? icons[index].background : undefined),
-							padding: (icons[index].padding && icons[index].style !== 'default' ? icons[index].padding + 'px' : undefined),
-							borderColor: (icons[index].border && icons[index].style !== 'default' ? icons[index].border : undefined),
-							borderWidth: (icons[index].borderWidth && icons[index].style !== 'default' ? icons[index].borderWidth + 'px' : undefined),
-							borderRadius: (icons[index].borderRadius && icons[index].style !== 'default' ? icons[index].borderRadius + '%' : undefined),
-							marginTop: (icons[index].marginTop ? icons[index].marginTop + 'px' : undefined),
-							marginRight: (icons[index].marginRight ? icons[index].marginRight + 'px' : undefined),
-							marginBottom: (icons[index].marginBottom ? icons[index].marginBottom + 'px' : undefined),
-							marginLeft: (icons[index].marginLeft ? icons[index].marginLeft + 'px' : undefined),
-							order: iconorder
-						}} />
-					)}
-					{headingContent}
 				</div>
 			);
 		};
@@ -499,6 +523,53 @@ class ampIcons extends Component {
 					{css}
 				</style>
 				<BlockControls>
+				<InspectorControls>
+					<PanelBody
+						title={ __( 'Icon Count' ) }
+						initialOpen={ true }
+					>
+						<StepControl
+							label={ __( 'Number of Icons' ) }
+							value={ iconCount }
+							onChange={ newcount => {
+								const newicons = icons;
+								if ( newicons.length < newcount ) {
+									const amount = Math.abs( newcount - newicons.length );
+									{ times( amount, n => {
+										newicons.push( {
+											icon: newicons[ 0 ].icon,
+											link: newicons[ 0 ].link,
+											target: newicons[ 0 ].target,
+											size: newicons[ 0 ].size,
+											width: newicons[ 0 ].width,
+											title: newicons[ 0 ].title,
+											color: newicons[ 0 ].color,
+											background: newicons[ 0 ].background,
+											border: newicons[ 0 ].border,
+											borderRadius: newicons[ 0 ].borderRadius,
+											borderWidth: newicons[ 0 ].borderWidth,
+											padding: newicons[ 0 ].padding,
+											style: newicons[ 0 ].style,
+											marginTop: ( newicons[ 0 ].marginTop ? newicons[ 0 ].marginTop : 0 ),
+											marginRight: ( newicons[ 0 ].marginRight ? newicons[ 0 ].marginRight : 0 ),
+											marginBottom: ( newicons[ 0 ].marginBottom ? newicons[ 0 ].marginBottom : 0 ),
+											marginLeft: ( newicons[ 0 ].marginLeft ? newicons[ 0 ].marginLeft : 0 ),
+											hColor: ( newicons[ 0 ].hColor ? newicons[ 0 ].hColor : '' ),
+											hBackground: ( newicons[ 0 ].hBackground ? newicons[ 0 ].hBackground : '' ),
+											hBorder: ( newicons[ 0 ].hBorder ? newicons[ 0 ].hBorder : '' ),
+										} );
+									} ); }
+									setAttributes( { icons: newicons } );
+									this.saveArrayUpdate( { title: icons[ 0 ].title }, 0 );
+								}
+								setAttributes( { iconCount: newcount } );
+							} }
+							min={ 1 }
+							max={ 10 }
+						/>
+					</PanelBody>
+					{ renderSettings }
+				</InspectorControls>
 					<button
 						className="amp-popover-font-family-container components-dropdown-menu components-toolbar"
 						contentClassName="amp-popover-font-family"
@@ -520,13 +591,6 @@ class ampIcons extends Component {
 
 					{textcontrols}
 				</InspectorControls>
-				<InspectorControls>
-
-					{renderSettings}
-				</InspectorControls>
-
-
-
 				<Fragment>
 					{googleFont && (
 						<WebfontLoader config={config}>
