@@ -1,0 +1,40 @@
+<wpml-config>
+	<gutenberg-blocks>
+		<gutenberg-block type="amp/spacer" translate="0"></gutenberg-block>
+		<gutenberg-block type="amp/rowlayout" translate="0"></gutenberg-block>
+		<gutenberg-block type="amp/column" translate="0"></gutenberg-block>
+		<gutenberg-block type="amp/icon" translate="1">
+			<xpath>//div/a/@href</xpath>
+		</gutenberg-block>
+		<gutenberg-block type="amp/tab" translate="0"></gutenberg-block>
+		<gutenberg-block type="amp/accordion" translate="0"></gutenberg-block>
+		<gutenberg-block type="amp/advancedheading" translate="1">
+			<xpath>//div/h1</xpath>
+			<xpath>//div/h2</xpath>
+			<xpath>//div/h3</xpath>
+			<xpath>//div/h4</xpath>
+			<xpath>//div/h5</xpath>
+			<xpath>//div/h6</xpath>
+		</gutenberg-block>
+		<gutenberg-block type="amp/advancedbtn" translate="1">
+			<xpath>//div/a/span</xpath>
+			<xpath>//div/a/@href</xpath>
+		</gutenberg-block>
+		<gutenberg-block type="amp/tabs" translate="1">
+			<xpath>//span[@class="amp-title-text"]</xpath>
+		</gutenberg-block>
+		<gutenberg-block type="amp/infobox" translate="1">
+			<xpath>//div/h1</xpath>
+			<xpath>//div/h2</xpath>
+			<xpath>//div/h3</xpath>
+			<xpath>//div/h4</xpath>
+			<xpath>//div/h5</xpath>
+			<xpath>//div/h6</xpath>
+			<xpath>//div/p</xpath>
+			<xpath>//div/a/@href</xpath>
+		</gutenberg-block>
+		<gutenberg-block type="amp/pane" translate="1">
+			<xpath>//span[@class="amp-blocks-accordion-title"]</xpath>
+		</gutenberg-block>
+	</gutenberg-blocks>
+</wpml-config>

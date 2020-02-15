@@ -1,0 +1,120 @@
+XXX .amp-row-layout-inner = 			.ab
+XXX .amp-row-column-wrap = 				.cw
+FAILED .wp-block-amp-column = 			.c
+XXX .inner-column-1 = 					.c-1
+XXX .inner-column-2 = 					.c-2
+XXX .amp-has-2-columns = 				.ab2
+XXX .amp-has-1-columns = 				.ab1
+XXX .amp-has-3-columns = 				.ab3
+XXX .amp-gutter- = 						.g
+XXX .amp-v-gutter- = 					.gv
+XXX .amp-row-valign- = 					.rv
+XXX .amp-row-valign-top = 				.rvt
+XXX .amp-row-valign-middle =			.rvm
+XXX .amp-row-valign-bottom =			.rvb
+XXX .amp-row-layout- =					.rl
+XXX .amp-tab-layout- =					.tl
+XXX .amp-m-colapse-left-to-right = 		.mcltr
+XXX .amp-mobile-layout- = 				.m
+XXX .amp-inside-inner-col = 			.ci
+Essential Modules
+Row Sub classes
+
+=== 2 (Lokesh) ===
+wp-block-amp- 780
+XXX wp-block-amp-column 472 = 			.c
+XXX .wp-block-amp-rowlayout 252 = 			.cr
+XXX kadence = amp
+XXX jarallax
+-o-
+-webkit-
+-ms
+XXX amp-row-has-bg	 =  rb
+gvskinny =gvs
+gvdefault = gvd
+gvnone =gvn
+gvnarrow =gva
+gvwide =gvw
+gvwider =gvwr
+gvwidest =gvwst
+
+
+
+
+gskinny =gs
+gdefault = gd
+gnone =gn
+gnarrow =ga
+gwide =gw
+gwider =gwr
+gwidest =gwst
+Static + Dynamic Class 
+XXX amp-layout-id		=					ri
+XXX amp-column		=					cd
+XXX amp-m-colapse-right-to-left = rmc-l-r
+dynamic class 
+@media mergeup
+Padding merge
+margin merge
+minimize dynamic class
+dynamic class + -00 
+components-resizable-box__handle components-resizable-box__handle-right = rr
+
+=== 3 (Raju) ===
+
+Essential Blocks
+
+> Button block  
+----> .wp-block-amp-advancedbtn 		===    .bp[Aditional Class]
+----> .amp-btn-align-center     		===    .b-align
+----> .amp-btn-tablet-align     		===    .bt-align
+----> .amp-btn-mobile-align     		===    .bm-align
+----> .amp-btn-wrap             		===    .bw
+----> .amp-button               		===    .b
+----> .amp-btn-              			===    .b-
+----> .amp-btn-size-custom      		===    .bsc
+----> .amp-btn-style-basic      		===    .bs-basic
+----> .amp-btn-inner-text      			===    .bt
+
+> Heading block 
+----> .wp-block-amp-advancedheading 	===    .hp[Aditional Class]
+---->  amp-adv-heading(class/ID)		===     h
+
+
+
+> Text block 
+----> .wp-block-amp-advancedheading 	===    .pp[Aditional Class]
+---->  amp-adv-heading(class/ID)		===     h [right now it is taking 'h', need to change this]
+
+
+
+> Image block 
+----> .amp-image-block 					===    .imw
+----> .amp-img-block-container			===    .imc
+----> .amp-img-item						===    .im-t
+
+
+
+> Icon block 
+----> .amp-svg-icon  			===    .isvg
+----> .amp-svg-icon-  			===    .isvg-
+----> .amp-svg-icons  			===    .isvgi
+----> .amp-svg-icon-wrap  		===    .isvg-w
+----> .amp-svg-style  			===    .isvg-s
+----> .amp-svg-item  			===    .isvg-i
+----> .amp-svg-icon-link  		===    .isvg-link
+
+
+
+> Video  block 
+----> .video-grid  					===    .v
+----> .video-item-container  		===    .vc
+
+
+
+**************** Errors ***********************
+----> Proper registerBlockType names in blocks [Need to add proper names]
+
+
+1)Button block font family is not loading in AMP [Default font family]
+2)Text transform uppercase option is not working
