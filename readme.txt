@@ -3,7 +3,7 @@ Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
 Tested up to: 5.3.2
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 AMP Blocks is a collection of page building blocks for the Gutenberg.
 AMP Blocks give you the capability to easily create great websites with just a few clicks, whick will show in both AMP and Non AMP Pages.
 
+<a href="https://blocks.ampforwp.com/demo/" target="_blank" style="color: #ffff;background: #0085ba;font-size: 15px;padding: 6px 16px;display: inline-block;line-height: 1.3;border-radius: 3px;text-decoration:none;">Demo</a>
 
 ### Features 
 
@@ -22,6 +23,32 @@ AMP Blocks give you the capability to easily create great websites with just a f
 * <strong>New Designs Every week</strong> - The Design library will get updated when there are new designs available. We are planning to release few designs every week. 
 * <strong>AMP Support</strong> - The designs looks exactly the same in AMP as it does in the non-AMP. This is the only plugin which has the deepest AMP integration available. 
 * <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
+
+<h4>Design Demos</h4>
+<ul>
+<li><strong>Team 3</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/team-design-3/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Team 2</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/team-design-2/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Team 1</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/team-design-1/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<hr style="margin: 12px auto;">
+<li><strong>Project 7</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/project-design-7/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Project 6</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/project-design-6/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Project 5</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/project-design-5/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Project 4</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/project-design-4/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Project 3</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/project-design-3/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Project 2</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/project-design-2/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Project 1</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/project-design-1/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<hr style="margin: 12px auto;">
+<li><strong>Featured 9</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-9/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 8</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-8/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 7</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-7/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 6</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-6/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 5</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-5/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 4</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-4/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 3</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-3/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 2</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-2/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small><br></li>
+<li><strong>Featured 1</strong> &nbsp;&nbsp;&nbsp; <a href="https://blocks.ampforwp.com/demo/featured-1/">Demo</a>  &nbsp;&nbsp;&nbsp; -  <small>(Released on 17-Feb-2020)</small></li>
+</ul>
+
 
 == Frequently Asked Questions ==
 
