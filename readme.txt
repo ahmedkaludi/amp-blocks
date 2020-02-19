@@ -28,9 +28,18 @@ AMP Blocks give you the capability to easily create great websites with just a f
 **✨ <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 <h4>Design Demos</h4>
-<ul>
-<li><strong>Team 3</strong> - [Demo](https://blocks.ampforwp.com/demo/team-design-3/) - <small>(Released on 17 Feb 2020)</small><br></li>
-<li><strong>Team 2</strong> - [Demo](https://blocks.ampforwp.com/demo/team-design-2/) - <small>(Released on 17 Feb 2020)</small><br></li>
+<li><strong>Text 10</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-10/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 9</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-9/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 8</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-8/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 7</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-7/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 6</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-6/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 5</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-5/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 4</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-4/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 3</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-3/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li><strong>Text 2</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-2/) - <small>(Released on 19 Feb 2020)</small><br></li>
+<li>**Text 1** - [Demo](https://blocks.ampforwp.com/demo/text-design-1/) - <small>(Released on 19 Feb 2020)</small></li>
+<li><strong>Team 3</strong> - [Demo](https://blocks.ampforwp.com/demo/team-design-3/) - (Released on 17 Feb 2020)</li>
+<li><strong>Team 2</strong> - [Demo](https://blocks.ampforwp.com/demo/team-design-2/) - (Released on 17 Feb 2020)</li>
 <li><strong>Team 1</strong> - [Demo](https://blocks.ampforwp.com/demo/team-design-1/) - <small>(Released on 17 Feb 2020)</small><br></li>
 <li><strong>Project 7</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-7/) - <small>(Released on 17 Feb 2020)</small><br></li>
 <li><strong>Project 6</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-6/) - <small>(Released on 17-Feb-2020)</small><br></li>
@@ -47,8 +56,7 @@ AMP Blocks give you the capability to easily create great websites with just a f
 <li><strong>Featured 4</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-4/) - <small>(Released on 17 Feb 2020)</small><br></li>
 <li><strong>Featured 3</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-3/) - <small>(Released on 17 Feb 2020)</small><br></li>
 <li><strong>Featured 2</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-2/) - <small>(Released on 17 Feb 2020)</small><br></li>
-<li><strong>Featured 1</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-1/) - <small>(Released on 17-Feb-2020)</small></li>
-</ul>
+<li><strong>Featured 1</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-1/) - <small>(Released on 17 Feb 2020)</small></li>
 
 
 == Frequently Asked Questions ==
@@ -68,7 +76,7 @@ Yes, Absolutely! We would suggest you send your feature request by creating an i
 
 == Changelog ==
 
-= 1.2 (18 Feb 2020) =
+= 1.2 (19 Feb 2020) =
 * New Text Block Designs are added 
 * New Block: Text - 10 Design Blocks
 
