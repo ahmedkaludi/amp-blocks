@@ -48,6 +48,7 @@ class Amp_Blocks_Frontend
 	{
 		add_action('init', array($this, 'on_init'), 20);
 		add_action('enqueue_block_assets', array($this, 'blocks_assets'));
+		add_action('after_setup_theme', array($this,'ampforwp_template_mode_is_activate'), 999);
 
 
 		$siteUrl = filter_input(INPUT_SERVER, 'REQUEST_URI');
@@ -59,6 +60,15 @@ class Amp_Blocks_Frontend
 		} else {
 			add_action('wp_enqueue_scripts', array($this, 'frontend_inline_css'), 20);
 			add_action('wp_head', array($this, 'frontend_gfonts'), 90);
+		}
+	}
+
+	function ampforwp_template_mode_is_activate(){
+		if(get_theme_support('amp-template-mode') && !is_customize_preview()){
+			add_action('amp_post_template_css', array($this, 'frontend_inline_css'), 20);
+			add_action('amp_post_template_css', array($this, 'frontend_gfonts'), 90);
+			self::$ampcheck = 'amp'; 
+			add_filter('ampforwp_the_content_last_filter','ampforwp_tree_shaking_purify_amphtml',11);
 		}
 	}
 

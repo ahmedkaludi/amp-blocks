@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Enqueue admin CSS/JS and edit width functions
  *
@@ -10,7 +11,7 @@
 if (!defined('ABSPATH')) {
 	exit;
 }
-add_theme_support( 'align-wide' );
+add_theme_support('align-wide');
 /**
  * Enqueue Gutenberg block assets for backend editor.
  *
@@ -85,7 +86,7 @@ function amp_gutenberg_editor_assets()
 			'configuration' => get_option('amp_blocks_config_blocks'),
 			'userrole' => get_option('amp_blocks_settings_blocks'),
 			'userrole' => $userrole,
-			'design_library_status' => get_transient( 'amp_blocks_design_library' ),
+			'design_library_status' => get_transient('amp_blocks_design_library'),
 			'AMP_BLOCKS_DIR_URI' => AMP_BLOCKS_DIR_URI,
 			'amp_blocks_nonce' => wp_create_nonce('amp_blocks_nonce')
 		)
@@ -247,7 +248,7 @@ add_filter('admin_body_class', 'amp_blocks_admin_body_class');
 function amp_blocks_get_template($template_name, $args = array(), $template_path = '', $default_path = '')
 {
 	$cache_key = sanitize_key(implode('-', array('template', $template_name, $template_path, $default_path, AMP_BLOCKS_VERSION)));
-	$template = (string)wp_cache_get($cache_key, 'amp-blocks');
+	$template = (string) wp_cache_get($cache_key, 'amp-blocks');
 
 	if (!$template) {
 		$template = amp_blocks_locate_template($template_name, $template_path, $default_path);
@@ -325,16 +326,35 @@ function amp_blocks_locate_template($template_name, $template_path = '', $defaul
 	// Return what we found.
 	return apply_filters('amp_blocks_locate_template', $template, $template_name, $template_path);
 }
-add_filter("theme_templates", function($default_template){
-    $default_template['dist/template.php'] = "Amp Block";
-    return $default_template;
-  });
-
-  add_filter("template_include", function($template_name){
-    $object = get_queried_object();
-	$template = get_page_template_slug( $object );
-    if($template=='dist/template.php'){
-      $template_name = AMP_BLOCKS_DIR_PATH.$template;
-    }
-    return $template_name;
-  },99);
+add_filter("theme_templates", function ($default_template) {
+	$default_template['dist/template.php'] = "Amp Block";
+	return $default_template;
+});
+if (has_filter('amp_post_template_file')) {
+	add_filter('amp_post_template_file',  function ($template_name) {
+		$object = get_queried_object();
+		$template = get_page_template_slug($object);
+		if (function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()) {
+			if (strpos($template_name, "level-up/single.php")) {
+				if ($template == 'dist/template.php') {
+					$template_name = AMP_BLOCKS_DIR_PATH . $template;
+				}
+			} else if ($template == 'dist/template.php') {
+				add_filter('ampforwp_pagebuilder_status_modify', 'amp_template_fullscreen', 10, 2);
+			}
+		}
+		return $template_name;
+	}, 99);
+}
+function amp_template_fullscreen($response, $post_id)
+{
+	return true;
+}
+add_filter("template_include", function ($template_name) {
+	$object = get_queried_object();
+	$template = get_page_template_slug($object);
+	if ($template == 'dist/template.php') {
+		$template_name = AMP_BLOCKS_DIR_PATH . $template;
+	}
+	return $template_name;
+}, 99);
