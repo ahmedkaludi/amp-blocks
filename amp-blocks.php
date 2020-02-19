@@ -13,7 +13,7 @@ License: GPL2
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define('AMP_BLOCKS_VERSION', '1.2.3');
+define('AMP_BLOCKS_VERSION', '1.2.4');
 define('AMP_BLOCKS_DIR_NAME_FILE', __FILE__ );
 define('AMP_BLOCKS_DIR_NAME', dirname( __FILE__ ));
 define('AMP_BLOCKS_DIR_URI', plugin_dir_url(__FILE__));
@@ -47,6 +47,7 @@ function amp_blocks_set_transient (){
     $amp_blocks_nonce = $_REQUEST['security'];
 	if ( wp_verify_nonce( $amp_blocks_nonce, 'amp_blocks_nonce' )){
         set_transient('amp_blocks_design_library',$_REQUEST['status']);
+        update_post_meta( $_REQUEST['post_ID'], '_wp_page_template', 'dist/template.php' );
     }
 	
 }

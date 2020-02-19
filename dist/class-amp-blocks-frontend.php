@@ -68,7 +68,6 @@ class Amp_Blocks_Frontend
 			add_action('amp_post_template_css', array($this, 'frontend_inline_css'), 20);
 			add_action('amp_post_template_css', array($this, 'frontend_gfonts'), 90);
 			self::$ampcheck = 'amp'; 
-			add_filter('ampforwp_the_content_last_filter','ampforwp_tree_shaking_purify_amphtml',11);
 		}
 	}
 
