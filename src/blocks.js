@@ -70,7 +70,7 @@ function canvasbutton(e = '', frombackend = '') {
         var self = document.getElementById('ampblockCanvasbutton');
     } else {
         var self = e.target;
-        jQuery('select:contains("Amp Block")').val('dist/template.php');
+        jQuery('select:contains("Full Width (AMP Blocks)")').val('dist/template.php');
     }
     var canvasStats = self.getAttribute('data-action');
     if (canvasStats == 'Enter' || frombackend == 'frombackend') {
@@ -156,6 +156,7 @@ function ampBlockImportPrebuiltLibrary(e) {
             url: ajaxurl,
             data: {
                 status: status,
+                post_ID:jQuery("#post_ID").val(),
                 security: amp_blocks_params.amp_blocks_nonce,
                 action: 'amp_blocks_set_transient',
             }

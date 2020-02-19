@@ -327,7 +327,7 @@ function amp_blocks_locate_template($template_name, $template_path = '', $defaul
 	return apply_filters('amp_blocks_locate_template', $template, $template_name, $template_path);
 }
 add_filter("theme_templates", function ($default_template) {
-	$default_template['dist/template.php'] = "Amp Block";
+	$default_template['dist/template.php'] = "Full Width (AMP Blocks)";
 	return $default_template;
 });
 if (has_filter('amp_post_template_file')) {
