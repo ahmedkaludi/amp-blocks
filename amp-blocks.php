@@ -13,7 +13,7 @@ License: GPL2
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define('AMP_BLOCKS_VERSION', '1.2');
+define('AMP_BLOCKS_VERSION', '1.2.1');
 define('AMP_BLOCKS_DIR_NAME_FILE', __FILE__ );
 define('AMP_BLOCKS_DIR_NAME', dirname( __FILE__ ));
 define('AMP_BLOCKS_DIR_URI', plugin_dir_url(__FILE__));
