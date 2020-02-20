@@ -2,7 +2,7 @@
 /*
 Plugin Name: AMP Blocks
 Description: AMP Blocks is a professional page building content blocks for the WordPress Gutenberg block editor which shows the Design in AMP and Non AMP Pages.
-Version: 1.2
+Version: 1.2.1
 Text Domain: amp-blocks
 Domain Path: /languages
 Author: Magazine3

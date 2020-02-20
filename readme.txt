@@ -75,6 +75,8 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.2.1 (19 Feb 2020) =
+* Made compatible with Level Up Theme 
 
 = 1.2 (19 Feb 2020) =
 * New Text Block Designs are added 
