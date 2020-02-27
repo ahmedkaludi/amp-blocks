@@ -3,7 +3,7 @@ Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
 Tested up to: 5.3.2
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.2.3 (27 Feb 2020) =
+* Small Bugs fixed and compatible with Level Up Theme
+
 = 1.2.2 (26 Feb 2020) =
 * New Block Designs are added 
 * New Block: Pricing - 1 Design
