@@ -1,7 +1,12 @@
 <?php
 get_header();
 if(class_exists('AMPFORWP_Content') && get_theme_support('amp-template-mode') && !is_customize_preview()){
-	$content = get_the_content();
+if (have_posts()) :
+ while (have_posts()) :
+ the_post();
+ 	$content =the_content();
+ endwhile;
+endif;
 	$sanitizer_obj = new AMPFORWP_Content( $content,
 				 apply_filters( 'amp_content_embed_handlers_template_mode', array(
 					'AMP_Core_Block_Handler' => array(),
@@ -37,6 +42,12 @@ if(class_exists('AMPFORWP_Content') && get_theme_support('amp-template-mode') &&
 			);
 		 echo $sanitizer_obj->get_amp_content();
 }else{
-echo get_the_content();
+if (have_posts()) :
+ while (have_posts()) :
+ the_post();
+ the_content();
+ endwhile;
+endif;
+
 }
 get_footer();
