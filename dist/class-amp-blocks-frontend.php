@@ -64,7 +64,7 @@ class Amp_Blocks_Frontend
 	}
 
 	function ampforwp_template_mode_is_activate(){
-		if(get_theme_support('amp-template-mode') && !is_customize_preview()){
+		if(function_exists('ampforwp_generate_endpoint') && get_theme_support('amp-template-mode') && !is_customize_preview()){
 			add_action('amp_post_template_css', array($this, 'frontend_inline_css'), 20);
 			add_action('amp_post_template_css', array($this, 'frontend_gfonts'), 90);
 			self::$ampcheck = 'amp'; 
