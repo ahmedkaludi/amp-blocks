@@ -335,7 +335,7 @@ if (has_filter('amp_post_template_file')) {
 		$object = get_queried_object();
 		$template = get_page_template_slug($object);
 		if (function_exists('ampforwp_is_amp_endpoint') && ampforwp_is_amp_endpoint()) {
-			if (strpos($template_name, "level-up/single.php")) {
+			if (strpos($template_name, "level-up/single.php")|| strpos($template_name, "level-up/page.php")) {
 				if ($template == 'dist/template.php') {
 					$template_name = AMP_BLOCKS_DIR_PATH . $template;
 				}
