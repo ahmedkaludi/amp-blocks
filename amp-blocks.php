@@ -27,9 +27,24 @@ define('AMP_BLOCKS_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 define('AMP_BLOCKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 
 //Module files load
-require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/class-gutenberg.php';
-require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/service.php';
-require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/aq_resizer.php';
+// require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/class-gutenberg.php';
+// require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/service.php';
+// require_once AMP_BLOCKS_DIR_NAME.'/modules/gutenberg/includes/aq_resizer.php';
+add_filter( 'block_categories', 'ampblocks_add_blocks_categories' );  
+/**
+ * Function to register schema blocks category in Gutenberg block's categories list
+ * @param array $categories
+ * @return array
+ * @since version 1.0
+ */
+function ampblocks_add_blocks_categories($categories)
+{
+    $categories[] = array(
+        'slug'  => 'amp-blocks',
+        'title' => esc_html__('AMP Blocks', 'amp-blocks')
+    );
+    return $categories;
+}
 /**
  * Load Plugin
  */
