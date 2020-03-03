@@ -28,6 +28,8 @@ AMP Blocks give you the capability to easily create great websites with just a f
 **✨ <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 <h4>Design Demos</h4>
+<li><strong>Pricing 3</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-3/) - <small>(Released on 28 Feb 2020)</small><br></li>
+<li><strong>Pricing 2</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-2/) - <small>(Released on 28 Feb 2020)</small><br></li>
 <li><strong>Pricing 1</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-1/) - <small>(Released on 26 Feb 2020)</small><br></li>
 <li><strong>Project 8</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-8/) - <small>(Released on 26 Feb 2020)</small><br></li>
 <li><strong>Project 9</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-9/) - <small>(Released on 26 Feb 2020)</small><br></li>
@@ -79,6 +81,10 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.2.4 (28 Feb 2020) =
+* Stabilizing Level up Theme Compatability with AMP Support
+* New Block: Pricing - 2 Designs
+
 = 1.2.3 (27 Feb 2020) =
 * Small Bugs fixed and compatible with Level Up Theme
 
