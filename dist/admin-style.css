@@ -1,0 +1,50 @@
+.compoent-panel-amp{
+    padding: 1px 0px 1px 0px;
+}
+
+.is-opened .ampblockIn {
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 10px;
+    line-height: 24px;
+    text-align: center;
+}
+.ampblockIn{
+    display: none;
+}
+
+.ampblockIn .block-editor-block-types-list__list-item button {
+    width: 90%;
+    margin: 0% 5% 0% 5%;
+    cursor: pointer;
+    padding: 10px 0;
+    background: #f7f7f7;
+    position: relative;
+    color: #191e23;
+    outline: 0px solid transparent;
+    border: 1px solid #eaeaea;
+}
+.ampblockIn .block-editor-block-types-list__list-item button .editor-block-types-list__item-icon {
+    display: block;
+    color: #007cba;
+    margin-bottom: 5px;
+}
+
+.ampblockIn  span.editor-block-types-list__item-title.block-editor-block-types-list__item-title {
+    font-size: 15px;
+}
+
+.compoent-panel-amp.ampblockIn h2{
+    text-align: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    padding-bottom: 2px;
+    font-size: 14px;
+}
+
+.ampblockIn .openDesignLibrary .dashicons {
+    font-size: 24px;
+}
+.compoent-panel-amp.ampblockIn {
+border-bottom: 1px solid#ddd;
+}

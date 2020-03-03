@@ -33,7 +33,7 @@ class CustomComponent extends Component {
 		super(...arguments);
 
 		this.state = {
-			category: 'all',
+			category:  (typeof this.props.category !== 'undefined') ? this.props.category : 'all',
 		};
 	}
 
