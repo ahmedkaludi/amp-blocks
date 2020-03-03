@@ -3,7 +3,7 @@ Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
 Tested up to: 5.3.2
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,12 @@ AMP Blocks give you the capability to easily create great websites with just a f
 **✨ <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 <h4>Design Demos</h4>
+<li><strong>Testimonial 1</strong> - [Demo](https://blocks.ampforwp.com/demo/testimonial-design-1/) - <small>(Released on 03 March 2020)</small></li>
+<li><strong>Featured 10</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-10/) - <small>(Released on 03 March 2020)</small></li>
+<li><strong>Featured 11</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-11/) - <small>(Released on 03 March 2020)</small></li>
+<li><strong>Featured 12</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-12/) - <small>(Released on 03 March 2020)</small></li>
+
+
 <li><strong>Pricing 3</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-3/) - <small>(Released on 28 Feb 2020)</small><br></li>
 <li><strong>Pricing 2</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-2/) - <small>(Released on 28 Feb 2020)</small><br></li>
 <li><strong>Pricing 1</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-1/) - <small>(Released on 26 Feb 2020)</small><br></li>
@@ -81,6 +87,13 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.2.5 (03 March 2020) =
+* AMP Blocks User friendly Design changes are added.
+* Removed unwanted Modules From AMP Blocks
+* New Block: Testimonial - 1 Design
+* New Block: Feature - 3 Designs
+
+
 = 1.2.4 (28 Feb 2020) =
 * Stabilizing Level up Theme Compatability with AMP Support
 * New Block: Pricing - 2 Designs
