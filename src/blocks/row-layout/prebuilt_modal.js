@@ -73,6 +73,7 @@ class CustomComponent extends Component {
 											tabout = (
 												<Library
 													clientId={this.props.clientId}
+													category={(typeof this.props.category !== 'undefined') ? this.props.category : 'all'}
 												/>
 											);
 										}

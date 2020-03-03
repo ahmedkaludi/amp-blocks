@@ -11,3 +11,15 @@ $white: #f4f4f4;
 $gray: #dedede;
 $green: #bada55;
 $red: orangered;
+
+.compoent-panel-amp{
+    background:red;
+    padding: 1px 0px 1px 0px;
+}
+
+.is-opened .ampblockIn{
+    display: flex;
+}
+.ampblockIn{
+    display: none;
+}
