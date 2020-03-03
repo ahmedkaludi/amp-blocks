@@ -358,3 +358,9 @@ add_filter("template_include", function ($template_name) {
 	}
 	return $template_name;
 }, 99);
+
+add_action('admin_enqueue_scripts', 'amp_blocks_load_admin_style');
+function amp_blocks_load_admin_style()
+{
+	wp_enqueue_style('admin_css', AMP_BLOCKS_DIR_URI . 'dist/admin-style.css', false, AMP_BLOCKS_VERSION);
+}
