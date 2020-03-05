@@ -3524,6 +3524,7 @@ class Amp_Blocks_Frontend
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/btn.style.build.css');
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css');
 			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css');
+			echo file_get_contents(AMP_BLOCKS_DIR_URI . 'dist/blocks/form.style.build.css');
 		}
 		if (function_exists('has_blocks') && has_blocks(get_the_ID())) {
 			global $post;

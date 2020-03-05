@@ -403,7 +403,7 @@ registerBlockType( 'ampblocks/form', {
 		} );
 		return (
 			<div className={ `kadence-form-${ uniqueID } ampblocks-form-wrap${ ( hAlign ? ' ampblocks-form-align-' + hAlign : '' ) }` }>
-				<form className="ampblocks-form" action="" method="post">
+				<form className="ampblocks-form ampforwp-form-allow" action="" method="post">
 					{ renderFieldOutput }
 					<input type="hidden" name="_ampblocks_form_id" value={ uniqueID } />
 					<input type="hidden" name="_ampblocks_form_post_id" value={ postID } />
