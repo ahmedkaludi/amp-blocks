@@ -15,6 +15,7 @@ import './blocks/video/block.js';
 import './blocks/heading/block.js';
 import './blocks/icon-list/block.js';
 import './blocks/buttongroup/block.js';
+import './blocks/form/block.js';
 import Prebuilt_Modal from './blocks/row-layout/prebuilt_modal';
 const axios = require('axios');
 let blockdata = '';

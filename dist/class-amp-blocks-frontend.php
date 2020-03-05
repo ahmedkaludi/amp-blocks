@@ -139,6 +139,14 @@ class Amp_Blocks_Frontend
 				'editor_style' => 'amp-blocks-editor-css',
 			)
 		);
+		register_block_type(
+			'ampblocks/form',
+			array(
+				'render_callback' => array( $this, 'render_form_css' ),
+				'editor_script'   => 'amp-blocks-js',
+				'editor_style'    => 'amp-blocks-editor-css',
+			)
+		);
 
 		add_filter('excerpt_allowed_blocks', array($this, 'add_blocks_to_excerpt'), 20);
 	}
@@ -3501,6 +3509,7 @@ class Amp_Blocks_Frontend
 		wp_register_style('amp-blocks-image', AMP_BLOCKS_DIR_URI . 'dist/blocks/image.style.build.css', array(), AMP_BLOCKS_VERSION);
 		wp_register_style('amp-blocks-common', AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css', array(), AMP_BLOCKS_VERSION);
 		wp_enqueue_style('amp-blocks-common');
+		wp_register_style( 'amp-blocks-form', AMP_BLOCKS_DIR_URI . 'dist/blocks/form.style.build.css', array(), AMP_BLOCKS_VERSION );
 		// wp_enqueue_style('amp-blocks-common', AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css', array(), AMP_BLOCKS_VERSION);
 	}
 
@@ -3559,6 +3568,13 @@ class Amp_Blocks_Frontend
 						if (isset($block['attrs']) && is_array($block['attrs'])) {
 							$blockattr = $block['attrs'];
 							$this->render_icon_css_head($blockattr);
+						}
+					}
+					if ( 'ampblocks/form' === $block['blockName'] ) {
+						if ( isset( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
+							$blockattr = $block['attrs'];
+							$this->blocks_form_scripts_check( $blockattr );
+							$this->render_form_css_head( $blockattr );
 						}
 					}
 					if ('core/block' === $block['blockName']) {
@@ -3823,6 +3839,13 @@ class Amp_Blocks_Frontend
 						$this->render_icon_css_head($blockattr);
 					}
 				}
+				if ( 'ampblocks/form' === $inner_block['blockName'] ) {
+					if ( isset( $inner_block['attrs'] ) && is_array( $inner_block['attrs'] ) ) {
+						$blockattr = $inner_block['attrs'];
+						$this->render_form_css_head( $blockattr );
+						$this->blocks_form_scripts_check( $blockattr );
+					}
+				}
 				if ('core/block' === $inner_block['blockName']) {
 					if (isset($inner_block['attrs']) && is_array($inner_block['attrs'])) {
 						$blockattr = $inner_block['attrs'];
@@ -3842,6 +3865,95 @@ class Amp_Blocks_Frontend
 		}
 	}
 
+		/**
+	 * Render form CSS In Head
+	 *
+	 * @param array $attributes the blocks attributes.
+	 */
+	public function render_form_css_head( $attributes ) {
+	
+		if ( ! wp_style_is( 'amp-blocks-form', 'enqueued' ) ) {
+			wp_enqueue_style( 'amp-blocks-form' );
+		}
+		if ( isset( $attributes['uniqueID'] ) ) {
+			$unique_id = $attributes['uniqueID'];
+			$style_id = 'amp-blocks' . esc_attr( $unique_id );
+			if ( ! wp_style_is( $style_id, 'enqueued' ) ) {
+				$css = $this->blocks_form_array( $attributes, $unique_id );
+				if ( ! empty( $css ) ) {
+					$this->render_inline_css( $css, $style_id );
+				}
+			}
+		}
+	}
+	/**
+	 * Grabs the scripts that are needed so we can load in the head.
+	 *
+	 * @param array $attr the blocks attr.
+	 */
+	public function blocks_form_scripts_check( $attr ) {
+		wp_enqueue_script( 'amp-blocks-form' );
+		if ( isset( $attr['recaptcha'] ) && $attr['recaptcha'] ) {
+			wp_enqueue_script( 'google-recaptcha-v3' );
+		}
+		if ( isset( $attr['labelFont'] ) && is_array( $attr['labelFont'] ) && isset( $attr['labelFont'][0] ) && is_array( $attr['labelFont'][0] ) && isset( $attr['labelFont'][0]['google'] ) && $attr['labelFont'][0]['google'] && ( ! isset( $attr['labelFont'][0]['loadGoogle'] ) || true === $attr['labelFont'][0]['loadGoogle'] ) && isset( $attr['labelFont'][0]['family'] ) ) {
+			$label_font = $attr['labelFont'][0];
+			// Check if the font has been added yet.
+			if ( ! array_key_exists( $label_font['family'], self::$gfonts ) ) {
+				$add_font = array(
+					'fontfamily'   => $label_font['family'],
+					'fontvariants' => ( isset( $label_font['variant'] ) && ! empty( $label_font['variant'] ) ? array( $label_font['variant'] ) : array() ),
+					'fontsubsets'  => ( isset( $label_font['subset'] ) && ! empty( $label_font['subset'] ) ? array( $label_font['subset'] ) : array() ),
+				);
+				self::$gfonts[ $label_font['family'] ] = $add_font;
+			} else {
+				if ( ! in_array( $label_font['variant'], self::$gfonts[ $label_font['family'] ]['fontvariants'], true ) ) {
+					array_push( self::$gfonts[ $label_font['family'] ]['fontvariants'], $label_font['variant'] );
+				}
+				if ( ! in_array( $label_font['subset'], self::$gfonts[ $label_font['family'] ]['fontsubsets'], true ) ) {
+					array_push( self::$gfonts[ $label_font['family'] ]['fontsubsets'], $label_font['subset'] );
+				}
+			}
+		}
+		if ( isset( $attr['submitFont'] ) && is_array( $attr['submitFont'] ) && isset( $attr['submitFont'][0] ) && is_array( $attr['submitFont'][0] ) && isset( $attr['submitFont'][0]['google'] ) && $attr['submitFont'][0]['google'] && ( ! isset( $attr['submitFont'][0]['loadGoogle'] ) || true === $attr['submitFont'][0]['loadGoogle'] ) && isset( $attr['submitFont'][0]['family'] ) ) {
+			$submit_font = $attr['submitFont'][0];
+			// Check if the font has been added yet.
+			if ( ! array_key_exists( $submit_font['family'], self::$gfonts ) ) {
+				$add_font = array(
+					'fontfamily' => $submit_font['family'],
+					'fontvariants' => ( isset( $submit_font['variant'] ) && ! empty( $submit_font['variant'] ) ? array( $submit_font['variant'] ) : array() ),
+					'fontsubsets' => ( isset( $submit_font['subset'] ) && ! empty( $submit_font['subset'] ) ? array( $submit_font['subset'] ) : array() ),
+				);
+				self::$gfonts[ $submit_font['family'] ] = $add_font;
+			} else {
+				if ( ! in_array( $submit_font['variant'], self::$gfonts[ $submit_font['family'] ]['fontvariants'], true ) ) {
+					array_push( self::$gfonts[ $submit_font['family'] ]['fontvariants'], $submit_font['variant'] );
+				}
+				if ( ! in_array( $submit_font['subset'], self::$gfonts[ $submit_font['family'] ]['fontsubsets'], true ) ) {
+					array_push( self::$gfonts[ $submit_font['family'] ]['fontsubsets'], $submit_font['subset'] );
+				}
+			}
+		}
+		if ( isset( $attr['messageFont'] ) && is_array( $attr['messageFont'] ) && isset( $attr['messageFont'][0] ) && is_array( $attr['messageFont'][0] ) && isset( $attr['messageFont'][0]['google'] ) && $attr['messageFont'][0]['google'] && ( ! isset( $attr['messageFont'][0]['loadGoogle'] ) || true === $attr['messageFont'][0]['loadGoogle'] ) && isset( $attr['messageFont'][0]['family'] ) ) {
+			$message_font = $attr['messageFont'][0];
+			// Check if the font has been added yet.
+			if ( ! array_key_exists( $message_font['family'], self::$gfonts ) ) {
+				$add_font = array(
+					'fontfamily' => $message_font['family'],
+					'fontvariants' => ( isset( $message_font['variant'] ) && ! empty( $message_font['variant'] ) ? array( $message_font['variant'] ) : array() ),
+					'fontsubsets' => ( isset( $message_font['subset'] ) && ! empty( $message_font['subset'] ) ? array( $message_font['subset'] ) : array() ),
+				);
+				self::$gfonts[ $message_font['family'] ] = $add_font;
+			} else {
+				if ( ! in_array( $message_font['variant'], self::$gfonts[ $message_font['family'] ]['fontvariants'], true ) ) {
+					array_push( self::$gfonts[ $message_font['family'] ]['fontvariants'], $message_font['variant'] );
+				}
+				if ( ! in_array( $message_font['subset'], self::$gfonts[ $message_font['family'] ]['fontsubsets'], true ) ) {
+					array_push( self::$gfonts[ $message_font['family'] ]['fontsubsets'], $message_font['subset'] );
+				}
+			}
+		}
+	}
 	/**
 	 * Builds CSS for column layout block.
 	 *
