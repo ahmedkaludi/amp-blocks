@@ -3510,7 +3510,22 @@ class Amp_Blocks_Frontend
 		wp_register_style('amp-blocks-common', AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css', array(), AMP_BLOCKS_VERSION);
 		wp_enqueue_style('amp-blocks-common');
 		wp_register_style( 'amp-blocks-form', AMP_BLOCKS_DIR_URI . 'dist/blocks/form.style.build.css', array(), AMP_BLOCKS_VERSION );
+		wp_register_script( 'amp-blocks-form', AMP_BLOCKS_DIR_URI . 'dist/assets/js/amp-form.js', array( 'jquery' ), AMP_BLOCKS_VERSION, true );
 		// wp_enqueue_style('amp-blocks-common', AMP_BLOCKS_DIR_URI . 'dist/blocks/common.style.build.css', array(), AMP_BLOCKS_VERSION);
+		wp_localize_script(
+			'amp-blocks-form',
+			'amp_blocks_form_params',
+			array(
+				'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+				'error_message' => __( 'Please fix the errors to proceed', 'amp-blocks' ),
+				'nonce'         => wp_create_nonce( 'amp_form_nonce' ),
+				'required'      => __( 'is required', 'amp-blocks' ),
+				'mismatch'      => __( 'does not match', 'amp-blocks' ),
+				'validation'    => __( 'is not valid', 'amp-blocks' ),
+				'duplicate'     => __( 'requires a unique entry and this value has already been used', 'amp-blocks' ),
+				'item'          => __( 'Item', 'amp-blocks' ),
+			)
+		);
 	}
 
 

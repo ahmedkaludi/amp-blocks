@@ -4,7 +4,7 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
- .wp-block-kadence-form {
+ .wp-block-amp-form {
     margin-bottom: 30px; }
   
   .ampblocks-form-align-center .ampblocks-form {

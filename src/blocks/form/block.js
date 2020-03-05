@@ -1,5 +1,5 @@
 /**
- * BLOCK: Kadence Form Block
+ * BLOCK: ampblocks Form Block
  *
  * Registering a basic block with Gutenberg.
  */
@@ -327,12 +327,12 @@ registerBlockType( 'ampblocks/form', {
 		const { attributes: { uniqueID, fields, submit, style, postID, hAlign, recaptcha, honeyPot } } = props;
 		const fieldOutput = ( index ) => {
 			const fieldClassName = classnames( {
-				'amp-blocks-form-field': true,
-				[ `ampblocks-form-field-${ index }` ]: index,
-				[ `ampblocks-field-desk-width-${ fields[ index ].width[ 0 ] }` ]: fields[ index ].width && fields[ index ].width[ 0 ],
-				[ `ampblocks-field-tablet-width-${ fields[ index ].width[ 1 ] }` ]: fields[ index ].width && fields[ index ].width[ 1 ],
-				[ `ampblocks-field-mobile-width-${ fields[ index ].width[ 2 ] }` ]: fields[ index ].width && fields[ index ].width[ 2 ],
-				[ `ampblocks-input-size-${ style[ 0 ].size }` ]: style[ 0 ].size,
+				'ampblocks-blocks-form-field': true,
+				[ `amp-form-field-${ index }` ]: index,
+				[ `amp-field-desk-width-${ fields[ index ].width[ 0 ] }` ]: fields[ index ].width && fields[ index ].width[ 0 ],
+				[ `amp-field-tablet-width-${ fields[ index ].width[ 1 ] }` ]: fields[ index ].width && fields[ index ].width[ 1 ],
+				[ `amp-field-mobile-width-${ fields[ index ].width[ 2 ] }` ]: fields[ index ].width && fields[ index ].width[ 2 ],
+				[ `amp-input-size-${ style[ 0 ].size }` ]: style[ 0 ].size,
 			} );
 			let acceptLabel;
 			let acceptLabelBefore;
@@ -342,7 +342,7 @@ registerBlockType( 'ampblocks/form', {
 				acceptLabelAfter = fields[ index ].label.split( '}' )[ 1 ];
 				acceptLabel = (
 					<Fragment>
-						{ acceptLabelBefore }<a href={ ( undefined !== amp_blocks_params .privacy_link && '' !== amp_blocks_params .privacy_link ? amp_blocks_params .privacy_link : '#' ) } target="blank" rel="noopener noreferrer">{ ( undefined !== amp_blocks_params .privacy_title && '' !== amp_blocks_params .privacy_title ? amp_blocks_params .privacy_title : 'Privacy policy' ) }</a>{ acceptLabelAfter }
+						{ acceptLabelBefore }<a href={ ( undefined !== ampblocks_blocks_params.privacy_link && '' !== ampblocks_blocks_params.privacy_link ? ampblocks_blocks_params.privacy_link : '#' ) } target="blank" rel="noopener noreferrer">{ ( undefined !== ampblocks_blocks_params.privacy_title && '' !== ampblocks_blocks_params.privacy_title ? ampblocks_blocks_params.privacy_title : 'Privacy policy' ) }</a>{ acceptLabelAfter }
 					</Fragment>
 				);
 			} else {
@@ -353,22 +353,22 @@ registerBlockType( 'ampblocks/form', {
 					{ 'accept' === fields[ index ].type && (
 						<Fragment>
 							{ fields[ index ].showLink && (
-								<a href={ ( undefined !== fields[ index ].default && '' !== fields[ index ].default ? fields[ index ].default : '#' ) } target="_blank" rel="noopener noreferrer" className={ 'ampblocks-accept-link' }>{ ( undefined !== fields[ index ].placeholder && '' !== fields[ index ].placeholder ? fields[ index ].placeholder : 'View Privacy Policy' ) }</a>
+								<a href={ ( undefined !== fields[ index ].default && '' !== fields[ index ].default ? fields[ index ].default : '#' ) } target="_blank" rel="noopener noreferrer" className={ 'amp-accept-link' }>{ ( undefined !== fields[ index ].placeholder && '' !== fields[ index ].placeholder ? fields[ index ].placeholder : 'View Privacy Policy' ) }</a>
 							) }
-							<input type="checkbox" name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ uniqueID }_${ index }` } className={ `ampblocks-field ampblocks-checkbox-style ampblocks-${ fields[ index ].type }` } value={ 'accept' } checked={ fields[ index ].inline ? true : false } data-type={ fields[ index ].type } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
-							<label htmlFor={ `ampblocks_field_${ uniqueID }_${ index }` }>{ ( fields[ index ].label ? acceptLabel : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
+							<input type="checkbox" name={ `amp_field_${ index }` } id={ `amp_field_${ uniqueID }_${ index }` } className={ `amp-field amp-checkbox-style amp-${ fields[ index ].type }` } value={ 'accept' } checked={ fields[ index ].inline ? true : false } data-type={ fields[ index ].type } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+							<label htmlFor={ `amp_field_${ uniqueID }_${ index }` }>{ ( fields[ index ].label ? acceptLabel : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
 						</Fragment>
 					) }
 					{ 'accept' !== fields[ index ].type && (
 						<Fragment>
 							{ fields[ index ].showLabel && (
-								<label htmlFor={ `ampblocks_field_${ uniqueID }_${ index }` }>{ ( fields[ index ].label ? fields[ index ].label : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
+								<label htmlFor={ `amp_field_${ uniqueID }_${ index }` }>{ ( fields[ index ].label ? fields[ index ].label : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
 							) }
 							{ 'textarea' === fields[ index ].type && (
-								<textarea name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ uniqueID }_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-text-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } rows={ fields[ index ].rows } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+								<textarea name={ `amp_field_${ index }` } id={ `amp_field_${ uniqueID }_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-text-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } rows={ fields[ index ].rows } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
 							) }
 							{ 'select' === fields[ index ].type && (
-								<select name={ ( fields[ index ].multiSelect ? `ampblocks_field_${ index }[]` : `ampblocks_field_${ index }` ) } id={ `ampblocks_field_${ uniqueID }_${ index }` } multiple={ ( fields[ index ].multiSelect ? true : false ) } data-label={ fields[ index ].label } type={ fields[ index ].type } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-select-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } data-required={ ( fields[ index ].required ? 'yes' : undefined ) }>
+								<select name={ ( fields[ index ].multiSelect ? `amp_field_${ index }[]` : `amp_field_${ index }` ) } id={ `amp_field_${ uniqueID }_${ index }` } multiple={ ( fields[ index ].multiSelect ? true : false ) } data-label={ fields[ index ].label } type={ fields[ index ].type } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-select-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } data-required={ ( fields[ index ].required ? 'yes' : undefined ) }>
 									{ times( fields[ index ].options.length, n => (
 										<option
 											key={ n }
@@ -379,12 +379,12 @@ registerBlockType( 'ampblocks/form', {
 								</select>
 							) }
 							{ 'textarea' !== fields[ index ].type && 'select' !== fields[ index ].type && (
-								<input name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ uniqueID }_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-text-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } autoComplete={ ( '' !== fields[ index ].auto ? fields[ index ].auto : undefined ) } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+								<input name={ `amp_field_${ index }` } id={ `amp_field_${ uniqueID }_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-text-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } autoComplete={ ( '' !== fields[ index ].auto ? fields[ index ].auto : undefined ) } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
 							) }
 						</Fragment>
 					) }
 					{ undefined !== fields[ index ].description && '' !== fields[ index ].description && (
-						<span className={ 'ampblocks-field-help' }>{ ( fields[ index ].description ? fields[ index ].description : '' ) }</span>
+						<span className={ 'amp-field-help' }>{ ( fields[ index ].description ? fields[ index ].description : '' ) }</span>
 					) }
 				</div>
 			);
@@ -395,30 +395,30 @@ registerBlockType( 'ampblocks/form', {
 			</Fragment>
 		);
 		const submitClassName = classnames( {
-			'amp-blocks-form-field': true,
-			'ampblocks-submit-field': true,
-			[ `ampblocks-field-desk-width-${ submit[ 0 ].width[ 0 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 0 ],
-			[ `ampblocks-field-tablet-width-${ submit[ 0 ].width[ 1 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 1 ],
-			[ `ampblocks-field-mobile-width-${ submit[ 0 ].width[ 2 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 2 ],
+			'ampblocks-blocks-form-field': true,
+			'amp-submit-field': true,
+			[ `amp-field-desk-width-${ submit[ 0 ].width[ 0 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 0 ],
+			[ `amp-field-tablet-width-${ submit[ 0 ].width[ 1 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 1 ],
+			[ `amp-field-mobile-width-${ submit[ 0 ].width[ 2 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 2 ],
 		} );
 		return (
-			<div className={ `kadence-form-${ uniqueID } ampblocks-form-wrap${ ( hAlign ? ' ampblocks-form-align-' + hAlign : '' ) }` }>
-				<form className="ampblocks-form ampforwp-form-allow" action="" method="post">
+			<div className={ `ampblocks-form-${ uniqueID } amp-form-wrap${ ( hAlign ? ' amp-form-align-' + hAlign : '' ) }` }>
+				<form className="amp-form ampforwp-form-allow" action="" method="post">
 					{ renderFieldOutput }
-					<input type="hidden" name="_ampblocks_form_id" value={ uniqueID } />
-					<input type="hidden" name="_ampblocks_form_post_id" value={ postID } />
-					<input type="hidden" name="action" value="ampblocks_process_ajax_submit" />
+					<input type="hidden" name="_amp_form_id" value={ uniqueID } />
+					<input type="hidden" name="_amp_form_post_id" value={ postID } />
+					<input type="hidden" name="action" value="amp_process_ajax_submit" />
 					{ recaptcha && (
-						<input type="hidden" name="recaptcha_response" className={ `ampblocks_recaptcha_response ampblocks_recaptcha_${ uniqueID }` } />
+						<input type="hidden" name="recaptcha_response" className={ `amp_recaptcha_response amp_recaptcha_${ uniqueID }` } />
 					) }
 					{ honeyPot && (
-						<input className="amp-blocks-field verify" type="email" name="_ampblocks_verify_email" autoComplete="off" placeholder="Email" tabIndex="-1" />
+						<input className="ampblocks-blocks-field verify" type="email" name="_amp_verify_email" autoComplete="off" placeholder="Email" tabIndex="-1" />
 					) }
 					<div className={ submitClassName }>
 						<RichText.Content
 							tagName="button"
 							value={ ( '' !== submit[ 0 ].label ? submit[ 0 ].label : 'Submit' ) }
-							className={ `ampblocks-forms-submit button ampblocks-button-size-${ ( submit[ 0 ].size ? submit[ 0 ].size : 'standard' ) } ampblocks-button-width-${ ( submit[ 0 ].widthType ? submit[ 0 ].widthType : 'auto' ) }` }
+							className={ `amp-forms-submit button amp-button-size-${ ( submit[ 0 ].size ? submit[ 0 ].size : 'standard' ) } amp-button-width-${ ( submit[ 0 ].widthType ? submit[ 0 ].widthType : 'auto' ) }` }
 						/>
 					</div>
 				</form>
@@ -693,12 +693,12 @@ registerBlockType( 'ampblocks/form', {
 				const { uniqueID, fields, submit, style, postID, hAlign, recaptcha, honeyPot } = attributes;
 				const fieldOutput = ( index ) => {
 					const fieldClassName = classnames( {
-						'amp-blocks-form-field': true,
-						[ `ampblocks-form-field-${ index }` ]: index,
-						[ `ampblocks-field-desk-width-${ fields[ index ].width[ 0 ] }` ]: fields[ index ].width && fields[ index ].width[ 0 ],
-						[ `ampblocks-field-tablet-width-${ fields[ index ].width[ 1 ] }` ]: fields[ index ].width && fields[ index ].width[ 1 ],
-						[ `ampblocks-field-mobile-width-${ fields[ index ].width[ 2 ] }` ]: fields[ index ].width && fields[ index ].width[ 2 ],
-						[ `ampblocks-input-size-${ style[ 0 ].size }` ]: style[ 0 ].size,
+						'ampblocks-blocks-form-field': true,
+						[ `amp-form-field-${ index }` ]: index,
+						[ `amp-field-desk-width-${ fields[ index ].width[ 0 ] }` ]: fields[ index ].width && fields[ index ].width[ 0 ],
+						[ `amp-field-tablet-width-${ fields[ index ].width[ 1 ] }` ]: fields[ index ].width && fields[ index ].width[ 1 ],
+						[ `amp-field-mobile-width-${ fields[ index ].width[ 2 ] }` ]: fields[ index ].width && fields[ index ].width[ 2 ],
+						[ `amp-input-size-${ style[ 0 ].size }` ]: style[ 0 ].size,
 					} );
 					let acceptLabel;
 					let acceptLabelBefore;
@@ -708,7 +708,7 @@ registerBlockType( 'ampblocks/form', {
 						acceptLabelAfter = fields[ index ].label.split( '}' )[ 1 ];
 						acceptLabel = (
 							<Fragment>
-								{ acceptLabelBefore }<a href={ ( undefined !== amp_blocks_params .privacy_link && '' !== amp_blocks_params .privacy_link ? amp_blocks_params .privacy_link : '#' ) } target="blank" rel="noopener noreferrer">{ ( undefined !== amp_blocks_params .privacy_title && '' !== amp_blocks_params .privacy_title ? amp_blocks_params .privacy_title : 'Privacy policy' ) }</a>{ acceptLabelAfter }
+								{ acceptLabelBefore }<a href={ ( undefined !== ampblocks_blocks_params.privacy_link && '' !== ampblocks_blocks_params.privacy_link ? ampblocks_blocks_params.privacy_link : '#' ) } target="blank" rel="noopener noreferrer">{ ( undefined !== ampblocks_blocks_params.privacy_title && '' !== ampblocks_blocks_params.privacy_title ? ampblocks_blocks_params.privacy_title : 'Privacy policy' ) }</a>{ acceptLabelAfter }
 							</Fragment>
 						);
 					} else {
@@ -719,22 +719,22 @@ registerBlockType( 'ampblocks/form', {
 							{ 'accept' === fields[ index ].type && (
 								<Fragment>
 									{ fields[ index ].showLink && (
-										<a href={ ( undefined !== fields[ index ].default && '' !== fields[ index ].default ? fields[ index ].default : '#' ) } target="_blank" rel="noopener noreferrer" className={ 'ampblocks-accept-link' }>{ ( undefined !== fields[ index ].placeholder && '' !== fields[ index ].placeholder ? fields[ index ].placeholder : 'View Privacy Policy' ) }</a>
+										<a href={ ( undefined !== fields[ index ].default && '' !== fields[ index ].default ? fields[ index ].default : '#' ) } target="_blank" rel="noopener noreferrer" className={ 'amp-accept-link' }>{ ( undefined !== fields[ index ].placeholder && '' !== fields[ index ].placeholder ? fields[ index ].placeholder : 'View Privacy Policy' ) }</a>
 									) }
-									<input type="checkbox" name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ index }` } className={ `ampblocks-field ampblocks-checkbox-style ampblocks-${ fields[ index ].type }` } value={ 'accept' } checked={ fields[ index ].inline ? true : false } data-type={ fields[ index ].type } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
-									<label htmlFor={ `ampblocks_field_${ index }` }>{ ( fields[ index ].label ? acceptLabel : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
+									<input type="checkbox" name={ `amp_field_${ index }` } id={ `amp_field_${ index }` } className={ `amp-field amp-checkbox-style amp-${ fields[ index ].type }` } value={ 'accept' } checked={ fields[ index ].inline ? true : false } data-type={ fields[ index ].type } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+									<label htmlFor={ `amp_field_${ index }` }>{ ( fields[ index ].label ? acceptLabel : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
 								</Fragment>
 							) }
 							{ 'accept' !== fields[ index ].type && (
 								<Fragment>
 									{ fields[ index ].showLabel && (
-										<label htmlFor={ `ampblocks_field_${ index }` }>{ ( fields[ index ].label ? fields[ index ].label : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
+										<label htmlFor={ `amp_field_${ index }` }>{ ( fields[ index ].label ? fields[ index ].label : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
 									) }
 									{ 'textarea' === fields[ index ].type && (
-										<textarea name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-text-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } rows={ fields[ index ].rows } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+										<textarea name={ `amp_field_${ index }` } id={ `amp_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-text-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } rows={ fields[ index ].rows } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
 									) }
 									{ 'select' === fields[ index ].type && (
-										<select name={ ( fields[ index ].multiSelect ? `ampblocks_field_${ index }[]` : `ampblocks_field_${ index }` ) } id={ `ampblocks_field_${ index }` } multiple={ ( fields[ index ].multiSelect ? true : false ) } data-label={ fields[ index ].label } type={ fields[ index ].type } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-select-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } data-required={ ( fields[ index ].required ? 'yes' : undefined ) }>
+										<select name={ ( fields[ index ].multiSelect ? `amp_field_${ index }[]` : `amp_field_${ index }` ) } id={ `amp_field_${ index }` } multiple={ ( fields[ index ].multiSelect ? true : false ) } data-label={ fields[ index ].label } type={ fields[ index ].type } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-select-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } data-required={ ( fields[ index ].required ? 'yes' : undefined ) }>
 											{ times( fields[ index ].options.length, n => (
 												<option
 													key={ n }
@@ -745,12 +745,12 @@ registerBlockType( 'ampblocks/form', {
 										</select>
 									) }
 									{ 'textarea' !== fields[ index ].type && 'select' !== fields[ index ].type && (
-										<input name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-text-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } autoComplete={ ( '' !== fields[ index ].auto ? fields[ index ].auto : undefined ) } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+										<input name={ `amp_field_${ index }` } id={ `amp_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-text-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } autoComplete={ ( '' !== fields[ index ].auto ? fields[ index ].auto : undefined ) } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
 									) }
 								</Fragment>
 							) }
 							{ undefined !== fields[ index ].description && '' !== fields[ index ].description && (
-								<span className={ 'ampblocks-field-help' }>{ ( fields[ index ].description ? fields[ index ].description : '' ) }</span>
+								<span className={ 'amp-field-help' }>{ ( fields[ index ].description ? fields[ index ].description : '' ) }</span>
 							) }
 						</div>
 					);
@@ -761,30 +761,30 @@ registerBlockType( 'ampblocks/form', {
 					</Fragment>
 				);
 				const submitClassName = classnames( {
-					'amp-blocks-form-field': true,
-					'ampblocks-submit-field': true,
-					[ `ampblocks-field-desk-width-${ submit[ 0 ].width[ 0 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 0 ],
-					[ `ampblocks-field-tablet-width-${ submit[ 0 ].width[ 1 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 1 ],
-					[ `ampblocks-field-mobile-width-${ submit[ 0 ].width[ 2 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 2 ],
+					'ampblocks-blocks-form-field': true,
+					'amp-submit-field': true,
+					[ `amp-field-desk-width-${ submit[ 0 ].width[ 0 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 0 ],
+					[ `amp-field-tablet-width-${ submit[ 0 ].width[ 1 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 1 ],
+					[ `amp-field-mobile-width-${ submit[ 0 ].width[ 2 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 2 ],
 				} );
 				return (
-					<div className={ `kadence-form-${ uniqueID } ampblocks-form-wrap${ ( hAlign ? ' ampblocks-form-align-' + hAlign : '' ) }` }>
-						<form className="ampblocks-form" action="" method="post">
+					<div className={ `ampblocks-form-${ uniqueID } amp-form-wrap${ ( hAlign ? ' amp-form-align-' + hAlign : '' ) }` }>
+						<form className="amp-form ampforwp-form-allow" action="" method="post">
 							{ renderFieldOutput }
-							<input type="hidden" name="_ampblocks_form_id" value={ uniqueID } />
-							<input type="hidden" name="_ampblocks_form_post_id" value={ postID } />
-							<input type="hidden" name="action" value="ampblocks_process_ajax_submit" />
+							<input type="hidden" name="_amp_form_id" value={ uniqueID } />
+							<input type="hidden" name="_amp_form_post_id" value={ postID } />
+							<input type="hidden" name="action" value="amp_process_ajax_submit" />
 							{ recaptcha && (
-								<input type="hidden" name="recaptcha_response" className="ampblocks_recaptcha_response" />
+								<input type="hidden" name="recaptcha_response" className="amp_recaptcha_response" />
 							) }
 							{ honeyPot && (
-								<input className="amp-blocks-field verify" type="email" name="_ampblocks_verify_email" autoComplete="off" placeholder="Email" tabIndex="-1" />
+								<input className="ampblocks-blocks-field verify" type="email" name="_amp_verify_email" autoComplete="off" placeholder="Email" tabIndex="-1" />
 							) }
 							<div className={ submitClassName }>
 								<RichText.Content
 									tagName="button"
 									value={ ( '' !== submit[ 0 ].label ? submit[ 0 ].label : 'Submit' ) }
-									className={ `ampblocks-forms-submit button ampblocks-button-size-${ ( submit[ 0 ].size ? submit[ 0 ].size : 'standard' ) } ampblocks-button-width-${ ( submit[ 0 ].widthType ? submit[ 0 ].widthType : 'auto' ) }` }
+									className={ `amp-forms-submit button amp-button-size-${ ( submit[ 0 ].size ? submit[ 0 ].size : 'standard' ) } amp-button-width-${ ( submit[ 0 ].widthType ? submit[ 0 ].widthType : 'auto' ) }` }
 								/>
 							</div>
 						</form>
@@ -1055,12 +1055,12 @@ registerBlockType( 'ampblocks/form', {
 				const { uniqueID, fields, submit, style, postID, hAlign, recaptcha } = attributes;
 				const fieldOutput = ( index ) => {
 					const fieldClassName = classnames( {
-						'amp-blocks-form-field': true,
-						[ `ampblocks-form-field-${ index }` ]: index,
-						[ `ampblocks-field-desk-width-${ fields[ index ].width[ 0 ] }` ]: fields[ index ].width && fields[ index ].width[ 0 ],
-						[ `ampblocks-field-tablet-width-${ fields[ index ].width[ 1 ] }` ]: fields[ index ].width && fields[ index ].width[ 1 ],
-						[ `ampblocks-field-mobile-width-${ fields[ index ].width[ 2 ] }` ]: fields[ index ].width && fields[ index ].width[ 2 ],
-						[ `ampblocks-input-size-${ style[ 0 ].size }` ]: style[ 0 ].size,
+						'ampblocks-blocks-form-field': true,
+						[ `amp-form-field-${ index }` ]: index,
+						[ `amp-field-desk-width-${ fields[ index ].width[ 0 ] }` ]: fields[ index ].width && fields[ index ].width[ 0 ],
+						[ `amp-field-tablet-width-${ fields[ index ].width[ 1 ] }` ]: fields[ index ].width && fields[ index ].width[ 1 ],
+						[ `amp-field-mobile-width-${ fields[ index ].width[ 2 ] }` ]: fields[ index ].width && fields[ index ].width[ 2 ],
+						[ `amp-input-size-${ style[ 0 ].size }` ]: style[ 0 ].size,
 					} );
 					let acceptLabel;
 					let acceptLabelBefore;
@@ -1070,7 +1070,7 @@ registerBlockType( 'ampblocks/form', {
 						acceptLabelAfter = fields[ index ].label.split( '}' )[ 1 ];
 						acceptLabel = (
 							<Fragment>
-								{ acceptLabelBefore }<a href={ ( undefined !== amp_blocks_params .privacy_link && '' !== amp_blocks_params .privacy_link ? amp_blocks_params .privacy_link : '#' ) } target="blank" rel="noopener noreferrer">{ ( undefined !== amp_blocks_params .privacy_title && '' !== amp_blocks_params .privacy_title ? amp_blocks_params .privacy_title : 'Privacy policy' ) }</a>{ acceptLabelAfter }
+								{ acceptLabelBefore }<a href={ ( undefined !== ampblocks_blocks_params.privacy_link && '' !== ampblocks_blocks_params.privacy_link ? ampblocks_blocks_params.privacy_link : '#' ) } target="blank" rel="noopener noreferrer">{ ( undefined !== ampblocks_blocks_params.privacy_title && '' !== ampblocks_blocks_params.privacy_title ? ampblocks_blocks_params.privacy_title : 'Privacy policy' ) }</a>{ acceptLabelAfter }
 							</Fragment>
 						);
 					} else {
@@ -1081,22 +1081,22 @@ registerBlockType( 'ampblocks/form', {
 							{ 'accept' === fields[ index ].type && (
 								<Fragment>
 									{ fields[ index ].showLink && (
-										<a href={ ( undefined !== fields[ index ].default && '' !== fields[ index ].default ? fields[ index ].default : '#' ) } target="_blank" rel="noopener noreferrer" className={ 'ampblocks-accept-link' }>{ ( undefined !== fields[ index ].placeholder && '' !== fields[ index ].placeholder ? fields[ index ].placeholder : 'View Privacy Policy' ) }</a>
+										<a href={ ( undefined !== fields[ index ].default && '' !== fields[ index ].default ? fields[ index ].default : '#' ) } target="_blank" rel="noopener noreferrer" className={ 'amp-accept-link' }>{ ( undefined !== fields[ index ].placeholder && '' !== fields[ index ].placeholder ? fields[ index ].placeholder : 'View Privacy Policy' ) }</a>
 									) }
-									<input type="checkbox" name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ index }` } className={ `ampblocks-field ampblocks-checkbox-style ampblocks-${ fields[ index ].type }` } value={ 'accept' } checked={ fields[ index ].inline ? true : false } data-type={ fields[ index ].type } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
-									<label htmlFor={ `ampblocks_field_${ index }` }>{ ( fields[ index ].label ? acceptLabel : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
+									<input type="checkbox" name={ `amp_field_${ index }` } id={ `amp_field_${ index }` } className={ `amp-field amp-checkbox-style amp-${ fields[ index ].type }` } value={ 'accept' } checked={ fields[ index ].inline ? true : false } data-type={ fields[ index ].type } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+									<label htmlFor={ `amp_field_${ index }` }>{ ( fields[ index ].label ? acceptLabel : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
 								</Fragment>
 							) }
 							{ 'accept' !== fields[ index ].type && (
 								<Fragment>
 									{ fields[ index ].showLabel && (
-										<label htmlFor={ `ampblocks_field_${ index }` }>{ ( fields[ index ].label ? fields[ index ].label : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
+										<label htmlFor={ `amp_field_${ index }` }>{ ( fields[ index ].label ? fields[ index ].label : '' ) }{ ( fields[ index ].required && style[ 0 ].showRequired ? <span className="required">*</span> : '' ) }</label>
 									) }
 									{ 'textarea' === fields[ index ].type && (
-										<textarea name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-text-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } rows={ fields[ index ].rows } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+										<textarea name={ `amp_field_${ index }` } id={ `amp_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-text-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } rows={ fields[ index ].rows } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
 									) }
 									{ 'select' === fields[ index ].type && (
-										<select name={ ( fields[ index ].multiSelect ? `ampblocks_field_${ index }[]` : `ampblocks_field_${ index }` ) } id={ `ampblocks_field_${ index }` } multiple={ ( fields[ index ].multiSelect ? true : false ) } data-label={ fields[ index ].label } type={ fields[ index ].type } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-select-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } data-required={ ( fields[ index ].required ? 'yes' : undefined ) }>
+										<select name={ ( fields[ index ].multiSelect ? `amp_field_${ index }[]` : `amp_field_${ index }` ) } id={ `amp_field_${ index }` } multiple={ ( fields[ index ].multiSelect ? true : false ) } data-label={ fields[ index ].label } type={ fields[ index ].type } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-select-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } data-required={ ( fields[ index ].required ? 'yes' : undefined ) }>
 											{ times( fields[ index ].options.length, n => (
 												<option
 													key={ n }
@@ -1107,12 +1107,12 @@ registerBlockType( 'ampblocks/form', {
 										</select>
 									) }
 									{ 'textarea' !== fields[ index ].type && 'select' !== fields[ index ].type && (
-										<input name={ `ampblocks_field_${ index }` } id={ `ampblocks_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `ampblocks-field ampblocks-text-style-field ampblocks-${ fields[ index ].type }-field ampblocks-field-${ index }` } autoComplete={ ( '' !== fields[ index ].auto ? fields[ index ].auto : undefined ) } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
+										<input name={ `amp_field_${ index }` } id={ `amp_field_${ index }` } data-label={ fields[ index ].label } type={ fields[ index ].type } placeholder={ fields[ index ].placeholder } value={ fields[ index ].default } data-type={ fields[ index ].type } className={ `amp-field amp-text-style-field amp-${ fields[ index ].type }-field amp-field-${ index }` } autoComplete={ ( '' !== fields[ index ].auto ? fields[ index ].auto : undefined ) } data-required={ ( fields[ index ].required ? 'yes' : undefined ) } />
 									) }
 								</Fragment>
 							) }
 							{ undefined !== fields[ index ].description && '' !== fields[ index ].description && (
-								<span className={ 'ampblocks-field-help' }>{ ( fields[ index ].description ? fields[ index ].description : '' ) }</span>
+								<span className={ 'amp-field-help' }>{ ( fields[ index ].description ? fields[ index ].description : '' ) }</span>
 							) }
 						</div>
 					);
@@ -1123,28 +1123,28 @@ registerBlockType( 'ampblocks/form', {
 					</Fragment>
 				);
 				const submitClassName = classnames( {
-					'amp-blocks-form-field': true,
-					'ampblocks-submit-field': true,
-					[ `ampblocks-field-desk-width-${ submit[ 0 ].width[ 0 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 0 ],
-					[ `ampblocks-field-tablet-width-${ submit[ 0 ].width[ 1 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 1 ],
-					[ `ampblocks-field-mobile-width-${ submit[ 0 ].width[ 2 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 2 ],
+					'ampblocks-blocks-form-field': true,
+					'amp-submit-field': true,
+					[ `amp-field-desk-width-${ submit[ 0 ].width[ 0 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 0 ],
+					[ `amp-field-tablet-width-${ submit[ 0 ].width[ 1 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 1 ],
+					[ `amp-field-mobile-width-${ submit[ 0 ].width[ 2 ] }` ]: submit[ 0 ].width && submit[ 0 ].width[ 2 ],
 				} );
 				return (
-					<div className={ `kadence-form-${ uniqueID } ampblocks-form-wrap${ ( hAlign ? ' ampblocks-form-align-' + hAlign : '' ) }` }>
-						<form className="ampblocks-form" action="" method="post">
+					<div className={ `ampblocks-form-${ uniqueID } amp-form-wrap${ ( hAlign ? ' amp-form-align-' + hAlign : '' ) }` }>
+						<form className="amp-form ampforwp-form-allow" action="" method="post">
 							{ renderFieldOutput }
-							<input type="hidden" name="_ampblocks_form_id" value={ uniqueID } />
-							<input type="hidden" name="_ampblocks_form_post_id" value={ postID } />
-							<input type="hidden" name="action" value="ampblocks_process_ajax_submit" />
+							<input type="hidden" name="_amp_form_id" value={ uniqueID } />
+							<input type="hidden" name="_amp_form_post_id" value={ postID } />
+							<input type="hidden" name="action" value="amp_process_ajax_submit" />
 							{ recaptcha && (
-								<input type="hidden" name="recaptcha_response" id="ampblocks_recaptcha_response" />
+								<input type="hidden" name="recaptcha_response" id="amp_recaptcha_response" />
 							) }
-							<input className="amp-blocks-field verify" type="email" name="_ampblocks_verify_email" autoComplete="off" placeholder="Email" tabIndex="-1" />
+							<input className="ampblocks-blocks-field verify" type="email" name="_amp_verify_email" autoComplete="off" placeholder="Email" tabIndex="-1" />
 							<div className={ submitClassName }>
 								<RichText.Content
 									tagName="button"
 									value={ ( '' !== submit[ 0 ].label ? submit[ 0 ].label : 'Submit' ) }
-									className={ `ampblocks-forms-submit button ampblocks-button-size-${ ( submit[ 0 ].size ? submit[ 0 ].size : 'standard' ) } ampblocks-button-width-${ ( submit[ 0 ].widthType ? submit[ 0 ].widthType : 'auto' ) }` }
+									className={ `amp-forms-submit button amp-button-size-${ ( submit[ 0 ].size ? submit[ 0 ].size : 'standard' ) } amp-button-width-${ ( submit[ 0 ].widthType ? submit[ 0 ].widthType : 'auto' ) }` }
 								/>
 							</div>
 						</form>

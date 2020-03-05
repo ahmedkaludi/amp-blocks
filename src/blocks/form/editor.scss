@@ -4,7 +4,7 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
- .components-panel__row button.components-button.ampblocks-add-field.is-button {
+ .components-panel__row button.components-button.amp-add-field.is-button {
     margin: 0 auto;
     min-width: 60%;
     text-align: center;
@@ -13,45 +13,45 @@
     align-items: center;
     justify-content: center;
 }
-.components-panel__row button.components-button.ampblocks-add-field.is-button svg {
+.components-panel__row button.components-button.amp-add-field.is-button svg {
     width: 16px;
     height: 16px;
     margin-top: 2px;
     margin-right: 4px;
 }
-.edit-post-sidebar button.ampblocks-add-option.is-button svg {
+.edit-post-sidebar button.amp-add-option.is-button svg {
     width: 16px;
     height: 16px;
     margin-top: 2px;
     margin-right: 4px;
 }
-.edit-post-sidebar button.ampblocks-add-option.is-button {
+.edit-post-sidebar button.amp-add-option.is-button {
      -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center;
     margin-bottom:24px
 }
-.edit-post-settings-sidebar__panel-block .components-panel__body .components-base-control.ampblocks-option-text-control {
+.edit-post-settings-sidebar__panel-block .components-panel__body .components-base-control.amp-option-text-control {
     margin-bottom: 10px;
 }
-.ampblocks-form .amp-blocks-form-field .ampblocks-forms-submit.is-selected {
+.amp-form .ampblocks-blocks-form-field .amp-forms-submit.is-selected {
 	min-width: 70px;
 }
 
 // Controls
-.ampblocks-form-align-center .ampblocks-form {
+.amp-form-align-center .amp-form {
     justify-content: center;
 }
-.ampblocks-form-align-right .ampblocks-form {
+.amp-form-align-right .amp-form {
     justify-content: flex-end;
 }
-.ampblocks-form {
+.amp-form {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 -5px;
 	align-items: flex-end;
-	.amp-blocks-form-field {
+	.ampblocks-blocks-form-field {
 		box-sizing: border-box;
 		padding: 0 5px;
 		margin-bottom: 16px;
@@ -59,10 +59,10 @@
 		align-items: center;
 		display: flex;
 		width: 100%;
-		&.ampblocks-submit-field {
+		&.amp-submit-field {
 			margin-bottom: 0;
 		}
-		.ampblocks-placeholder {
+		.amp-placeholder {
 			opacity: 0.5;
 		}
 		label {
@@ -71,7 +71,7 @@
 				pointer-events: none;
 			}
 		}
-		.ampblocks-checkbox-style {
+		.amp-checkbox-style {
 			padding: 0;
 			background-color: initial;
 			cursor: default;
@@ -85,7 +85,7 @@
 				display:none;
 			}
 		}
-		.ampblocks-select-style-field {
+		.amp-select-style-field {
 			color: #373a3c;
 			border: 1px solid #818a91;
 			border-radius: 3px;
@@ -106,23 +106,23 @@
 			// background-size: 16px 16px;
 			cursor: pointer;
 		}
-		&.ampblocks-input-size-small {
-			.ampblocks-select-style-field {
+		&.amp-input-size-small {
+			.amp-select-style-field {
 				height: 28px;
 			}
 		}
-		&.ampblocks-input-size-large {
-			.ampblocks-select-style-field {
+		&.amp-input-size-large {
+			.amp-select-style-field {
 				height: 60px;
 			}
 		}
-		.ampblocks-select-style-field[multiple] {
+		.amp-select-style-field[multiple] {
 			height: auto;
 			max-height: 70px;
 			-webkit-appearance: listbox;
 			appearance: listbox;
 		}
-		.ampblocks-text-style-field {
+		.amp-text-style-field {
 			flex-basis: 100%;
 			max-width: 100%;
 			width: 100%;
@@ -140,25 +140,25 @@
 				outline:0;
 			}
 		}
-		&.ampblocks-input-size-custom {
-			.ampblocks-text-style-field {
+		&.amp-input-size-custom {
+			.amp-text-style-field {
 				min-height: 0;
 				padding:10px;
 			}
 		}
-		&.ampblocks-input-size-small {
-			.ampblocks-text-style-field {
+		&.amp-input-size-small {
+			.amp-text-style-field {
 				min-height: 28px;
 				padding: 5px 10px;
 			}
 		}
-		&.ampblocks-input-size-large {
-			.ampblocks-text-style-field {
+		&.amp-input-size-large {
+			.amp-text-style-field {
 				min-height: 60px;
 				padding: 16px 16px;
 			}
 		}
-		.ampblocks-forms-submit {
+		.amp-forms-submit {
 			z-index: 1;
 			padding: 8px 16px;
 			cursor: text;
@@ -175,19 +175,19 @@
 			border-style: solid;
 			overflow: hidden;
 			transition: all .3s ease-in-out;
-			&.ampblocks-button-size-small {
+			&.amp-button-size-small {
 				padding: 4px 8px;;
 				font-size: 16px;
 			}
-			&.ampblocks-button-size-large {
+			&.amp-button-size-large {
 				padding: 12px 24px;
 				font-size: 20px;
 			}
-			&.ampblocks-button-width-full {
+			&.amp-button-width-full {
 				width: 100%;
 			}
 		}
-		.ampblocks-forms-submit::before {
+		.amp-forms-submit::before {
 			position: absolute;
 			content: "";
 			top: 0;
@@ -198,10 +198,10 @@
 			opacity: 0;
 			transition: all .3s ease-in-out;
 		}
-		.ampblocks-forms-submit:hover::before {
+		.amp-forms-submit:hover::before {
 			opacity: 1;
 		}
-		.ampblocks-field-help {
+		.amp-field-help {
 			color: #777;
 			margin: 2px 0 5px 0;
 			font-size: 80%;
@@ -210,14 +210,14 @@
 			flex-basis: 100%;
 			width: 0;
 		}
-		a.ampblocks-accept-link {
+		a.amp-accept-link {
 			display: block;
 			flex-basis: 100%;
 			width: 0;
 			pointer-events: none;
 		}
 	}
-	.amp-blocks-form-field.is-selected {
+	.ampblocks-blocks-form-field.is-selected {
 		padding-top: 24px;
 		position:relative;
 		&:before {
@@ -240,7 +240,7 @@
 			background: #0085ba;
 		}
 	}
-	.amp-blocks-field-item-controls {
+	.ampblocks-blocks-field-item-controls {
 		display:flex;
 		position:absolute;
 		top:2px;
@@ -251,7 +251,7 @@
 			padding: 0;
 			color:#f4f4f4;
 		}
-		&.amp-blocks-field-item__inline-menu {
+		&.ampblocks-blocks-field-item__inline-menu {
 			left:auto;
 			right:2px;
 		}

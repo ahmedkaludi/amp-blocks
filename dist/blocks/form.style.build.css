@@ -4,18 +4,18 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
- .wp-block-kadence-form {
+ .wp-block-ampblocks-form {
 	margin-bottom: 30px; }
   
-  .ampblocks-form-align-center .ampblocks-form {
+  .amp-form-align-center .amp-form {
 	-ms-flex-pack: center;
 		justify-content: center; }
   
-  .ampblocks-form-align-right .ampblocks-form {
+  .amp-form-align-right .amp-form {
 	-ms-flex-pack: end;
 		justify-content: flex-end; }
   
-  .ampblocks-form {
+  .amp-form {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: wrap;
@@ -24,10 +24,10 @@
 	-ms-flex-align: end;
 		align-items: flex-end;
 	position: relative; }
-	.ampblocks-form .required {
+	.amp-form .required {
 	  color: #E53E3E;
 	  margin-left: 5px; }
-	.ampblocks-form .amp-blocks-form-field {
+	.amp-form .ampblocks-blocks-form-field {
 	  -webkit-box-sizing: border-box;
 			  box-sizing: border-box;
 	  padding: 0 5px;
@@ -39,32 +39,32 @@
 	  display: -ms-flexbox;
 	  display: flex;
 	  width: 100%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-20 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-20 {
 		width: 20%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-25 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-25 {
 		width: 25%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-33 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-33 {
 		width: 33.33%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-40 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-40 {
 		width: 40%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-50 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-50 {
 		width: 50%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-60 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-60 {
 		width: 60%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-66 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-66 {
 		width: 66.66%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-75 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-75 {
 		width: 75%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-80 {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-80 {
 		width: 80%; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-field-desk-width-unset {
+	  .amp-form .ampblocks-blocks-form-field.amp-field-desk-width-unset {
 		width: auto; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-submit-field {
+	  .amp-form .ampblocks-blocks-form-field.amp-submit-field {
 		margin-bottom: 0; }
-	  .ampblocks-form .amp-blocks-form-field label {
+	  .amp-form .ampblocks-blocks-form-field label {
 		display: block;
 		line-height: 1.8; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-checkbox-style {
+	  .amp-form .ampblocks-blocks-form-field .amp-checkbox-style {
 		padding: 0;
 		background-color: initial;
 		cursor: default;
@@ -78,9 +78,9 @@
 		-webkit-box-shadow: none;
 				box-shadow: none;
 		width: auto; }
-		.ampblocks-form .amp-blocks-form-field .ampblocks-checkbox-style:before {
+		.amp-form .ampblocks-blocks-form-field .amp-checkbox-style:before {
 		  display: none; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-select-style-field {
+	  .amp-form .ampblocks-blocks-form-field .amp-select-style-field {
 		color: #373a3c;
 		border: 1px solid #818a91;
 		border-radius: 3px;
@@ -98,17 +98,17 @@
 			 appearance: menulist;
 		background: initial;
 		cursor: pointer; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-input-size-small .ampblocks-select-style-field {
+	  .amp-form .ampblocks-blocks-form-field.amp-input-size-small .amp-select-style-field {
 		height: 28px; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-input-size-large .ampblocks-select-style-field {
+	  .amp-form .ampblocks-blocks-form-field.amp-input-size-large .amp-select-style-field {
 		height: 60px; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-select-style-field[multiple] {
+	  .amp-form .ampblocks-blocks-form-field .amp-select-style-field[multiple] {
 		-webkit-appearance: listbox;
 		-moz-appearance: listbox;
 			 appearance: listbox;
 		height: auto;
 		max-height: 70px; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-text-style-field {
+	  .amp-form .ampblocks-blocks-form-field .amp-text-style-field {
 		-ms-flex-preferred-size: 100%;
 			flex-basis: 100%;
 		max-width: 100%;
@@ -123,16 +123,16 @@
 		min-height: 40px;
 		padding: 10px 12px;
 		border-radius: 3px; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-input-size-custom .ampblocks-text-style-field {
+	  .amp-form .ampblocks-blocks-form-field.amp-input-size-custom .amp-text-style-field {
 		min-height: 0;
 		padding: 10px; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-input-size-small .ampblocks-text-style-field {
+	  .amp-form .ampblocks-blocks-form-field.amp-input-size-small .amp-text-style-field {
 		min-height: 28px;
 		padding: 5px 10px; }
-	  .ampblocks-form .amp-blocks-form-field.ampblocks-input-size-large .ampblocks-text-style-field {
+	  .amp-form .ampblocks-blocks-form-field.amp-input-size-large .amp-text-style-field {
 		min-height: 60px;
 		padding: 16px 16px; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-forms-submit {
+	  .amp-form .ampblocks-blocks-form-field .amp-forms-submit {
 		z-index: 1;
 		position: relative;
 		padding: 8px 16px;
@@ -155,15 +155,15 @@
 		-webkit-transition: all .3s ease-in-out;
 		-o-transition: all .3s ease-in-out;
 		transition: all .3s ease-in-out; }
-		.ampblocks-form .amp-blocks-form-field .ampblocks-forms-submit.ampblocks-button-size-small {
+		.amp-form .ampblocks-blocks-form-field .amp-forms-submit.amp-button-size-small {
 		  padding: 4px 8px;
 		  font-size: 16px; }
-		.ampblocks-form .amp-blocks-form-field .ampblocks-forms-submit.ampblocks-button-size-large {
+		.amp-form .ampblocks-blocks-form-field .amp-forms-submit.amp-button-size-large {
 		  padding: 12px 24px;
 		  font-size: 20px; }
-		.ampblocks-form .amp-blocks-form-field .ampblocks-forms-submit.ampblocks-button-width-full {
+		.amp-form .ampblocks-blocks-form-field .amp-forms-submit.amp-button-width-full {
 		  width: 100%; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-forms-submit::before {
+	  .amp-form .ampblocks-blocks-form-field .amp-forms-submit::before {
 		position: absolute;
 		content: "";
 		top: 0;
@@ -175,9 +175,9 @@
 		-webkit-transition: all .3s ease-in-out;
 		-o-transition: all .3s ease-in-out;
 		transition: all .3s ease-in-out; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-forms-submit:hover::before {
+	  .amp-form .ampblocks-blocks-form-field .amp-forms-submit:hover::before {
 		opacity: 1; }
-	  .ampblocks-form .amp-blocks-form-field .ampblocks-field-help {
+	  .amp-form .ampblocks-blocks-form-field .amp-field-help {
 		color: #777;
 		margin: 2px 0 5px 0;
 		font-size: 80%;
@@ -186,15 +186,15 @@
 		-ms-flex-preferred-size: 100%;
 			flex-basis: 100%;
 		width: 0; }
-	  .ampblocks-form .amp-blocks-form-field a.ampblocks-accept-link {
+	  .amp-form .ampblocks-blocks-form-field a.amp-accept-link {
 		display: block;
 		-ms-flex-preferred-size: 100%;
 			flex-basis: 100%;
 		width: 0; }
-	.ampblocks-form .amp-blocks-form-field.is-selected {
+	.amp-form .ampblocks-blocks-form-field.is-selected {
 	  padding-top: 24px;
 	  position: relative; }
-	  .ampblocks-form .amp-blocks-form-field.is-selected:before {
+	  .amp-form .ampblocks-blocks-form-field.is-selected:before {
 		content: '';
 		position: absolute;
 		border: 4px solid #0085ba;
@@ -203,7 +203,7 @@
 		top: 0;
 		bottom: -4px;
 		z-index: 1; }
-	  .ampblocks-form .amp-blocks-form-field.is-selected:after {
+	  .amp-form .ampblocks-blocks-form-field.is-selected:after {
 		content: '';
 		left: 0;
 		right: 0;
@@ -211,7 +211,7 @@
 		top: 0;
 		height: 24px;
 		background: #0085ba; }
-	.ampblocks-form input.amp-blocks-field.verify {
+	.amp-form input.ampblocks-blocks-field.verify {
 	  opacity: 0;
 	  position: absolute;
 	  top: 0;
@@ -220,7 +220,7 @@
 	  width: 0;
 	  z-index: -1; }
   
-  .amp-blocks-form-warning {
+  .ampblocks-blocks-form-warning {
 	background: #fff5f5;
 	margin-top: 10px;
 	padding: 10px;
@@ -229,7 +229,7 @@
 	color: #c53030;
 	font-weight: bold; }
   
-  .ampblocks-form-error-msg {
+  .amp-form-error-msg {
 	background: #fff5f5;
 	margin-top: 10px;
 	padding: 8px;
@@ -240,14 +240,14 @@
 	width: 100%;
 	text-align: left; }
   
-  .ampblocks-form.ampblocks-form-has-error {
+  .amp-form.amp-form-has-error {
 	-ms-flex-align: start;
 		align-items: flex-start; }
   
-  .ampblocks-form .amp-blocks-form-field .ampblocks-text-style-field.has-error:not(.missingclass) {
+  .amp-form .ampblocks-blocks-form-field .amp-text-style-field.has-error:not(.missingclass) {
 	border-color: #c53030; }
   
-  .amp-blocks-form-success {
+  .ampblocks-blocks-form-success {
 	background: #ebf8ff;
 	margin-top: 10px;
 	padding: 10px;
@@ -256,7 +256,7 @@
 	color: #2b6cb0;
 	font-weight: bold; }
   
-  .ampblocks-form-loading {
+  .amp-form-loading {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -271,12 +271,12 @@
 	-ms-flex-pack: center;
 		justify-content: center; }
   
-  .ampblocks-form-loading-spin {
+  .amp-form-loading-spin {
 	display: inline-block;
 	position: relative;
 	width: 64px;
 	height: 64px; }
-	.ampblocks-form-loading-spin div {
+	.amp-form-loading-spin div {
 	  position: absolute;
 	  top: 27px;
 	  width: 11px;
@@ -285,24 +285,24 @@
 	  background: rgba(0, 0, 0, 0.7);
 	  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
 			  animation-timing-function: cubic-bezier(0, 1, 1, 0); }
-	.ampblocks-form-loading-spin div:nth-child(1) {
+	.amp-form-loading-spin div:nth-child(1) {
 	  left: 6px;
-	  -webkit-animation: ampblocks-form-ellipses1 0.6s infinite;
-			  animation: ampblocks-form-ellipses1 0.6s infinite; }
-	.ampblocks-form-loading-spin div:nth-child(2) {
+	  -webkit-animation: amp-form-ellipses1 0.6s infinite;
+			  animation: amp-form-ellipses1 0.6s infinite; }
+	.amp-form-loading-spin div:nth-child(2) {
 	  left: 6px;
-	  -webkit-animation: ampblocks-form-ellipses2 0.6s infinite;
-			  animation: ampblocks-form-ellipses2 0.6s infinite; }
-	.ampblocks-form-loading-spin div:nth-child(3) {
+	  -webkit-animation: amp-form-ellipses2 0.6s infinite;
+			  animation: amp-form-ellipses2 0.6s infinite; }
+	.amp-form-loading-spin div:nth-child(3) {
 	  left: 26px;
-	  -webkit-animation: ampblocks-form-ellipses2 0.6s infinite;
-			  animation: ampblocks-form-ellipses2 0.6s infinite; }
-	.ampblocks-form-loading-spin div:nth-child(4) {
+	  -webkit-animation: amp-form-ellipses2 0.6s infinite;
+			  animation: amp-form-ellipses2 0.6s infinite; }
+	.amp-form-loading-spin div:nth-child(4) {
 	  left: 45px;
-	  -webkit-animation: ampblocks-form-ellipses3 0.6s infinite;
-			  animation: ampblocks-form-ellipses3 0.6s infinite; }
+	  -webkit-animation: amp-form-ellipses3 0.6s infinite;
+			  animation: amp-form-ellipses3 0.6s infinite; }
   
-  @-webkit-keyframes ampblocks-form-ellipses1 {
+  @-webkit-keyframes amp-form-ellipses1 {
 	0% {
 	  -webkit-transform: scale(0);
 			  transform: scale(0); }
@@ -310,7 +310,7 @@
 	  -webkit-transform: scale(1);
 			  transform: scale(1); } }
   
-  @keyframes ampblocks-form-ellipses1 {
+  @keyframes amp-form-ellipses1 {
 	0% {
 	  -webkit-transform: scale(0);
 			  transform: scale(0); }
@@ -318,7 +318,7 @@
 	  -webkit-transform: scale(1);
 			  transform: scale(1); } }
   
-  @-webkit-keyframes ampblocks-form-ellipses3 {
+  @-webkit-keyframes amp-form-ellipses3 {
 	0% {
 	  -webkit-transform: scale(1);
 			  transform: scale(1); }
@@ -326,7 +326,7 @@
 	  -webkit-transform: scale(0);
 			  transform: scale(0); } }
   
-  @keyframes ampblocks-form-ellipses3 {
+  @keyframes amp-form-ellipses3 {
 	0% {
 	  -webkit-transform: scale(1);
 			  transform: scale(1); }
@@ -334,7 +334,7 @@
 	  -webkit-transform: scale(0);
 			  transform: scale(0); } }
   
-  @-webkit-keyframes ampblocks-form-ellipses2 {
+  @-webkit-keyframes amp-form-ellipses2 {
 	0% {
 	  -webkit-transform: translate(0, 0);
 			  transform: translate(0, 0); }
@@ -342,7 +342,7 @@
 	  -webkit-transform: translate(19px, 0);
 			  transform: translate(19px, 0); } }
   
-  @keyframes ampblocks-form-ellipses2 {
+  @keyframes amp-form-ellipses2 {
 	0% {
 	  -webkit-transform: translate(0, 0);
 			  transform: translate(0, 0); }
@@ -351,50 +351,50 @@
 			  transform: translate(19px, 0); } }
   
   @media (min-width: 768px) and (max-width: 1024px) {
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-20 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-20 {
 	  width: 20%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-25 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-25 {
 	  width: 25%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-33 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-33 {
 	  width: 33.33%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-40 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-40 {
 	  width: 40%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-50 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-50 {
 	  width: 50%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-60 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-60 {
 	  width: 60%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-66 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-66 {
 	  width: 66.66%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-75 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-75 {
 	  width: 75%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-80 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-80 {
 	  width: 80%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-100 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-100 {
 	  width: 100%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-tablet-width-unset {
+	.amp-form .ampblocks-blocks-form-field.amp-field-tablet-width-unset {
 	  width: auto; } }
   
   @media (max-width: 767px) {
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-20 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-20 {
 	  width: 20%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-25 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-25 {
 	  width: 25%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-33 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-33 {
 	  width: 33.33%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-40 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-40 {
 	  width: 40%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-50 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-50 {
 	  width: 50%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-60 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-60 {
 	  width: 60%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-66 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-66 {
 	  width: 66.66%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-75 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-75 {
 	  width: 75%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-80 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-80 {
 	  width: 80%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-100 {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-100 {
 	  width: 100%; }
-	.ampblocks-form .amp-blocks-form-field.ampblocks-field-mobile-width-unset {
+	.amp-form .ampblocks-blocks-form-field.amp-field-mobile-width-unset {
 	  width: auto; } }
   
