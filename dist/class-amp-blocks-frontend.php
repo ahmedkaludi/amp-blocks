@@ -821,7 +821,7 @@ class Amp_Blocks_Frontend
 		}
 		if (self::$ampcheck == 'amp') {
 			$google_font_path =  'https://fonts.googleapis.com/css?family=' . urlencode(esc_attr(str_replace('|', '%7C', $link)));
-			echo file_get_contents($google_font_path);
+			echo @file_get_contents($google_font_path);
 		} else {
 			echo '<link href="//fonts.googleapis.com/css?family=' . esc_attr(str_replace('|', '%7C', $link)) . '" rel="stylesheet">';
 		}
