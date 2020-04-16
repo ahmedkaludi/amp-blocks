@@ -3,7 +3,7 @@ Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
 Tested up to: 5.4
-Stable tag: 1.4.4
+Stable tag: 1.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,9 +28,12 @@ AMP Blocks give you the capability to easily create great websites with just a f
 **✨ <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 <h4>Design Demos</h4>
+<li><strong>Featured 46</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-46) - <small>(Released on 16 April 2020)</small><br></li>
+<li><strong>Featured 47</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-47/) - <small>(Released on 16 April 2020)</small><br></li>
+<li><strong>Project 26</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-26/) - <small>(Released on 16 April 2020)</small><br></li>
 <li><strong>Featured 45</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-45/) - <small>(Released on 14 April 2020)</small><br></li>
-<li><strong>Project 23</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-24/) - <small>(Released on 14 April 2020)</small><br></li>
-<li><strong>Project 24</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-25/) - <small>(Released on 14 April 2020)</small><br></li>
+<li><strong>Project 24</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-24/) - <small>(Released on 14 April 2020)</small><br></li>
+<li><strong>Project 25</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-25/) - <small>(Released on 14 April 2020)</small><br></li>
 <li><strong>Featured 43</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-43/) - <small>(Released on 10 April 2020)</small><br></li>
 <li><strong>Featured 44</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-44/) - <small>(Released on 10 April 2020)</small><br></li>
 <li><strong>Project 23</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-23) - <small>(Released on 10 April 2020)</small><br></li>
@@ -144,6 +147,11 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.4.5 (16 April 2020) =
+* Fixed: Font Family is not loading #26 
+* New Block: Feature - 2 Designs
+* New Block: Project - 1 Designs
+
 = 1.4.4 (14 April 2020) =
 * New Block: Feature - 1 Design
 * New Block: Project - 2 Designs
