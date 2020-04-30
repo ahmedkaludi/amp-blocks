@@ -3,7 +3,7 @@ Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
 Tested up to: 5.4
-Stable tag: 1.4.8
+Stable tag: 1.4.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,9 @@ AMP Blocks give you the capability to easily create great websites with just a f
 **✨ <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 <h4>Design Demos</h4>
+<li><strong>Featured 51</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-51/) - <small>(Released on 29 April 2020)</small><br></li>
+<li><strong>Featured 52</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-52/) - <small>(Released on 29 April 2020)</small><br></li>
+<li><strong>Project 31</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-31/) - <small>(Released on 29 April 2020)</small><br></li>
 <li><strong>Pricing 7</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-7/) - <small>(Released on 22 April 2020)</small><br></li>
 <li><strong>Pricing 6</strong> - [Demo](https://blocks.ampforwp.com/demo/pricing-design-6/) - <small>(Released on 22 April 2020)</small><br></li>
 <li><strong>Project 30</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-30/) - <small>(Released on 22 April 2020)</small><br></li>
@@ -156,6 +159,10 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.4.9 (29 April 2020) =
+* New Block: Feature - 2 Designs
+* New Block: Project - 1 Design
+
 = 1.4.8 (22 April 2020) =
 * New Block: Pricing - 2 Designs
 * New Block: Project - 1 Design
