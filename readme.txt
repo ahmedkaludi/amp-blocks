@@ -3,7 +3,7 @@ Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, editor, block 
 Requires at least: 4.8
 Tested up to: 5.4
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 AMP Blocks is a collection of page building blocks for the Gutenberg.
-AMP Blocks give you the capability to easily create great websites with just a few clicks, whick will show in both AMP and Non AMP Pages.
+AMP Blocks give you the capability to easily create great websites with just a few clicks, which will show in both AMP and Non AMP Pages.
 
 [View All Demos](https://blocks.ampforwp.com/demo/) | [View Features](https://blocks.ampforwp.com)
 
@@ -28,6 +28,9 @@ AMP Blocks give you the capability to easily create great websites with just a f
 **✨ <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 <h4>Design Demos</h4>
+<li><strong>Project 35</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-35/) - <small>(Released on 11 May 2020)</small><br></li>
+<li><strong>Project 34</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-34/) - <small>(Released on 11 May 2020)</small><br></li>
+<li><strong>Featured 56</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-56/) - <small>(Released on 11 May 2020)</small><br></li>
 <li><strong>Featured 55</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-55/) - <small>(Released on 09 May 2020)</small><br></li>
 <li><strong>Text 12</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-12/) - <small>(Released on 09 May 2020)</small><br></li>
 <li><strong>CTA 4</strong> - [Demo](https://blocks.ampforwp.com/demo/cta-design-4/) - <small>(Released on 09 May 2020)</small></li>
@@ -168,6 +171,10 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.5.3 (11 May 2020) =
+* New Block: Project - 2 Designs
+* New Block: Feature - 1 Design
+
 = 1.5.2 (09 May 2020) =
 * New Block: CTA - 1 Design
 * New Block: Text - 1 Design
