@@ -1,9 +1,9 @@
 === Gutenberg Blocks for AMP with Design Library ===
 Contributors: magazine3
-Tags: gutenberg, blocks, gutenberg blocks, editor, block 
+Tags: gutenberg, blocks, gutenberg blocks, AMP, block 
 Requires at least: 4.8
 Tested up to: 5.4
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,9 @@ AMP Blocks give you the capability to easily create great websites with just a f
 **✨ <strong>Lightweight</strong> - AMP Blocks was made with performance in mind to give the lightest experience possible. 
 
 <h4>Design Demos</h4>
+<li><strong>Featured 59</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-59/) - <small>(Released on 23 May 2020)</small><br></li>
+<li><strong>CTA 8</strong> - [Demo](https://blocks.ampforwp.com/demo/cta-design-8/) - <small>(Released on 23 May 2020)</small><br></li>
+<li><strong>Text 15</strong> - [Demo](https://blocks.ampforwp.com/demo/text-design-15/) - <small>(Released on 23 May 2020)</small><br></li>
 <li><strong>Featured 58</strong> - [Demo](https://blocks.ampforwp.com/demo/featured-58/) - <small>(Released on 20 May 2020)</small><br></li>
 <li><strong>Project 36</strong> - [Demo](https://blocks.ampforwp.com/demo/project-design-36/) - <small>(Released on 20 May 2020)</small><br></li>
 <li><strong>CTA 7</strong> - [Demo](https://blocks.ampforwp.com/demo/cta-design-7/) - <small>(Released on 20 May 2020)</small><br></li>
@@ -180,6 +183,11 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.5.7 (23 May 2020) =
+* New Block: Text - 1 Design
+* New Block: CTA - 1 Design
+* New Block: Feature - 1 Design
+
 = 1.5.6 (20 May 2020) =
 * New Block: Project - 1 Design
 * New Block: CTA - 1 Design
