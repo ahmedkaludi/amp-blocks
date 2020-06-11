@@ -4,9 +4,9 @@
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
  */
-import edit from './edit';
-import './style.scss';
-import './editor.scss';
+import edit from "./edit";
+import "./style.scss";
+import "./editor.scss";
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 /**
@@ -22,41 +22,43 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType('ampblocks/image', {
-	title: __('Image'), // Block title.
-	icon: 'format-image', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'amp-blocks', // Block category
-	keywords: [ //Keywords
-		__('photo'),
-		__('image'),
-		__('pic'),
+registerBlockType("ampblocks/image", {
+	title: __("Image"), // Block title.
+	icon: "format-image", // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	category: "amp-blocks", // Block category
+	keywords: [
+		//Keywords
+		__("photo"),
+		__("image"),
+		__("pic"),
 	],
-	attributes: { //Attributes
+	attributes: {
+		//Attributes
 		width: {
-			type: 'number',
+			type: "number",
 		},
 		maxwidth: {
-			type: 'number',
+			type: "number",
 		},
 		height: {
-			type: 'number',
+			type: "number",
 		},
 		maxheight: {
-			type: 'number',
+			type: "number",
 		},
 		percentage: {
-			type: 'number',
+			type: "number",
 			default: 100,
 		},
 		borderRadius: {
-			type: 'number',
+			type: "number",
 			default: 0,
 		},
 		imageurl: {
-			type: 'string',
+			type: "string",
 		},
 		blockAlignment: {
-			type: 'string',
+			type: "string",
 		},
 	},
 	/**
@@ -77,48 +79,52 @@ registerBlockType('ampblocks/image', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save({ attributes }) {
-		const { width, maxwidth, height, maxheight, percentage, imageurl, borderRadius,blockAlignment } = attributes;
+		const {
+			width,
+			maxwidth,
+			height,
+			maxheight,
+			percentage,
+			imageurl,
+			borderRadius,
+			blockAlignment,
+		} = attributes;
 		let displayimage = (imageurl) => {
 			//Loops throug the image
-			if (typeof imageurl !== 'undefined') {
+			if (typeof imageurl !== "undefined") {
 				let stylecontent = {};
-				if (typeof borderRadius !== 'undefined' && borderRadius != 0) {
-					stylecontent['borderRadius'] = borderRadius + '%';
+				if (typeof borderRadius !== "undefined" && borderRadius != 0) {
+					stylecontent["borderRadius"] = borderRadius + "%";
 				}
-				stylecontent['width'] = percentage + '%';
+				stylecontent["width"] = percentage + "%";
 				let stylecontentmain = {};
-				let alignment ='';
-				stylecontentmain['max-width'] = maxwidth + 'px';
-				if(blockAlignment == 'center' ){
-					alignment  = 'aligncenter';
-				}else if(blockAlignment=='right' ){
-					alignment  = 'alignright';
-				}else if(blockAlignment=='left' ){
-					alignment  ='alignleft';
+				let alignment = "";
+				stylecontentmain["max-width"] = maxwidth + "px";
+				if (blockAlignment == "center") {
+					alignment = "aligncenter";
+				} else if (blockAlignment == "right") {
+					alignment = "alignright";
+				} else if (blockAlignment == "left") {
+					alignment = "alignleft";
 				}
-				if (percentage == '100') {
-					delete stylecontent['width'];
+				if (percentage == "100") {
+					delete stylecontent["width"];
 					return (
-						<div className={`imc ${alignment}`} >
-							<img className='im-t' src={imageurl} style={stylecontent} />
+						<div className={`imc ${alignment}`}>
+							<img className="im-t" src={imageurl} style={stylecontent} />
 						</div>
-					)
-
+					);
 				} else {
 					return (
-						<div className={`imc ${alignment}`}  style={stylecontentmain}>
-							<img className='im-t' src={imageurl} style={stylecontent} />
+						<div className={`imc ${alignment}`} style={stylecontentmain}>
+							<img className="im-t" src={imageurl} style={stylecontent} />
 						</div>
-					)
+					);
 				}
 			} else {
-				return ("");
+				return "";
 			}
 		};
-		return (
-			<div className="imw">
-				{displayimage(imageurl)}
-			</div>
-		)
+		return <div className="imw">{displayimage(imageurl)}</div>;
 	},
 });
