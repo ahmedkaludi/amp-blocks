@@ -58,7 +58,9 @@ function appendImportButton() {
             setTimeout(function () {
                 if (document.getElementsByClassName('edit-post-sidebar')[0]) {
                     document.getElementsByClassName('edit-post-sidebar')[0].style.cssText = 'top:20%;right:5%';
-                    document.getElementsByClassName('edit-post-layout__content')[0].style.margin = '0px';
+                    if(document.getElementsByClassName('edit-post-layout__content')[0]){
+                        document.getElementsByClassName('edit-post-layout__content')[0].style.margin = '0px';
+                    }
                     var el = jQuery('.components-panel__header.edit-post-sidebar-header.edit-post-sidebar__panel-tabs')[0];
                     if (el) {
                         el.style.cursor = 'all-scroll';
@@ -92,8 +94,10 @@ function canvasbutton(e = '', frombackend = '') {
         }
         setTimeout(function () {
             if (document.getElementsByClassName('edit-post-sidebar')[0]) {
-                document.getElementsByClassName('edit-post-sidebar')[0].style.cssText = 'top:20%;right:5%';
-                document.getElementsByClassName('edit-post-layout__content')[0].style.margin = '0px';
+                document.getElementsByClassName('edit-post-sidebar')[0].style.cssText = 'top:20%;right:5%;position:fixed';
+                if(document.getElementsByClassName('edit-post-layout__content')[0]){
+                        document.getElementsByClassName('edit-post-layout__content')[0].style.margin = '0px';
+                }
                 var el = jQuery('.components-panel__header.edit-post-sidebar-header.edit-post-sidebar__panel-tabs')[0];
                 if (el) {
                     el.style.cursor = 'all-scroll';
@@ -108,7 +112,9 @@ function canvasbutton(e = '', frombackend = '') {
             designLibraryajax(0);
         if (document.getElementsByClassName('edit-post-sidebar')[0]) {
             document.getElementsByClassName('edit-post-sidebar')[0].style.cssText = null;
-            document.getElementsByClassName('edit-post-layout__content')[0].style.margin = null;
+            if(document.getElementsByClassName('edit-post-layout__content')[0]){
+                document.getElementsByClassName('edit-post-layout__content')[0].style.margin = null;
+            }
         }
         wp.data.dispatch('core/edit-post').toggleFeature('fullscreenMode');
         self.setAttribute('data-action', 'Enter');
@@ -131,6 +137,7 @@ function ampBlockImportPrebuiltLibrary(e, category = 'all') {
 
 function sidebarMomemntListener() {
     var el = jQuery('.components-panel__header.edit-post-sidebar-header.edit-post-sidebar__panel-tabs')[0];
+    console.log(el);
     if (el) {
         el.addEventListener('mousedown', sidebarmouseDown, false);
     }
@@ -149,7 +156,7 @@ function sidebarmouseDown(e) {
 function moveEditPostSidebar(e) {
     if (document.getElementById('ampblockCanvasbutton').getAttribute('data-action') == 'Exit') {
         var editPostSidebar = document.getElementsByClassName('edit-post-sidebar')[0];
-        editPostSidebar.style.position = 'absolute';
+        console.log(editPostSidebar);
         editPostSidebar.style.top = e.clientY - 25 + 'px';
         editPostSidebar.style.left = e.clientX - 160 + 'px';
     }
