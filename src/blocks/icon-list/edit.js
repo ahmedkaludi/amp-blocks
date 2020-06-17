@@ -483,7 +483,7 @@ class ampIcons extends Component {
 		);
 		let css = '';
 		if (typeof size !== 'undefined' || typeof lineHeight !== 'undefined') {
-			css += '.editor-block-list__layout .wp-block .h' + uniqueID + ' {';
+			css += '.block-editor-block-list__layout .wp-block .h' + uniqueID + ' {';
 			if (typeof size !== 'undefined') {
 				css += 'font-size:' + size + sizeType + ';';
 			}

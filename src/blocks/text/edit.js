@@ -507,7 +507,7 @@ class ampAdvancedHeading extends Component {
 		);
 		let css = "";
 		if (typeof size !== "undefined" || typeof lineHeight !== "undefined") {
-			css += ".editor-block-list__layout .wp-block .h" + uniqueID + " {";
+			css += ".block-editor-block-list__layout .wp-block .h" + uniqueID + " {";
 			if (typeof size !== "undefined") {
 				css += "font-size:" + size + sizeType + ";";
 			}
@@ -521,7 +521,7 @@ class ampAdvancedHeading extends Component {
 			typeof tabLineHeight !== "undefined"
 		) {
 			css += "@media (min-width: 767px) and (max-width: 1024px) {";
-			css += ".editor-block-list__layout .wp-block .h" + uniqueID + " {";
+			css += ".block-editor-block-list__layout .wp-block .h" + uniqueID + " {";
 			if (typeof tabSize != "undefined") {
 				css += "font-size:" + tabSize + sizeType + ";";
 			}
@@ -536,7 +536,7 @@ class ampAdvancedHeading extends Component {
 			typeof mobileLineHeight !== "undefined"
 		) {
 			css += "@media (max-width: 767px) {";
-			css += ".editor-block-list__layout .wp-block .h" + uniqueID + " {";
+			css += ".block-editor-block-list__layout .wp-block .h" + uniqueID + " {";
 			if (typeof mobileSize != "undefined") {
 				css += "font-size:" + mobileSize + sizeType + ";";
 			}

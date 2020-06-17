@@ -3337,15 +3337,15 @@ class AmpRowLayout extends Component {
 						{(linkHoverColor ? `#ri${uniqueID} a:hover { color: ${linkHoverColor}; }` : '')}
 						{columns && columns === 2 && (
 							<Fragment>
-								{(firstColumnWidth || temporaryColumnWidth ? `#ri${uniqueID} > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${parseFloat(widthString)}%; }` : '')}
-								{(secondColumnWidth || temporarySecondColumnWidth ? `#ri${uniqueID} > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${parseFloat(secondWidthString)}%; }` : '')}
+								{(firstColumnWidth || temporaryColumnWidth ? `#ri${uniqueID} > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${parseFloat(widthString)}%; }` : '')}
+								{(secondColumnWidth || temporarySecondColumnWidth ? `#ri${uniqueID} > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${parseFloat(secondWidthString)}%; }` : '')}
 							</Fragment>
 						)}
 						{columns && columns === 3 && (
 							<Fragment>
-								{(firstColumnWidth || temporaryColumnWidth ? `#ri${uniqueID} > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${parseFloat(widthString)}%; }` : '')}
-								{(secondColumnWidth || temporarySecondColumnWidth ? `#ri${uniqueID} > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${parseFloat(secondWidthString)}%; }` : '')}
-								{(secondColumnWidth || temporarySecondColumnWidth ? `#ri${uniqueID} > .editor-inner-blocks > .editor-block-list__layout > [data-type="amp/column"]:nth-child(3) { flex: 0 1 ${parseFloat(thirdWidthString)}%; }` : '')}
+								{(firstColumnWidth || temporaryColumnWidth ? `#ri${uniqueID} > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="amp/column"]:nth-child(1) { flex: 0 1 ${parseFloat(widthString)}%; }` : '')}
+								{(secondColumnWidth || temporarySecondColumnWidth ? `#ri${uniqueID} > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="amp/column"]:nth-child(2) { flex: 0 1 ${parseFloat(secondWidthString)}%; }` : '')}
+								{(secondColumnWidth || temporarySecondColumnWidth ? `#ri${uniqueID} > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="amp/column"]:nth-child(3) { flex: 0 1 ${parseFloat(thirdWidthString)}%; }` : '')}
 							</Fragment>
 						)}
 					</style>
