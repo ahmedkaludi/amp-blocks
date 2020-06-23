@@ -3,7 +3,7 @@ Contributors: magazine3
 Tags: gutenberg, blocks, gutenberg blocks, AMP, block 
 Requires at least: 4.8
 Tested up to: 5.4
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -198,6 +198,12 @@ You can report the bugs for this amp-blocks plugin [here](https://github.com/ahm
 Yes, Absolutely! We would suggest you send your feature request by creating an issue in [Github](https://github.com/ahmedkaludi/amp-blocks/issues/new) . It helps us organize the feedback easily.
 
 == Changelog ==
+= 1.6.3 (23 June 2020) =
+* Fixed: Design compatible issue with Latest WP Version #32
+* Fixed: Image Block Improvements
+* New Block: Project - 2 Designs
+* New Block: Team - 1 Design
+
 = 1.6.2 (11 June 2020) =
 * New Block: Text - 1 Design
 * New Block: Feature - 1 Design
